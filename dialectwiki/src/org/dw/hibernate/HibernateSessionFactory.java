@@ -1,4 +1,4 @@
-package org.dw;
+package org.dw.hibernate;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

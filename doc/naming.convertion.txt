@@ -1,0 +1,10 @@
+数据库
+数据库名:dialectwiki
+用户名:dw_user
+密码:hitchimpdw1234
+
+
+包名
+org.dw
+org.dw.hibernate
+org.dw.security
