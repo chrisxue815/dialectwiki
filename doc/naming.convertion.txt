@@ -7,4 +7,54 @@
 包名
 org.dw
 org.dw.hibernate
+org.dw.action
 org.dw.security
+
+JSP页面
+signup.jsp js做客户端验证
+提交到 org.dw.security.Signup
+返回 SUCCESS 到 index.jsp
+返回 ERROR   到 signup.jsp 提示错误信息 
+
+login.jsp js做客户端验证
+利用springsecurity登录页
+xml配置跳转
+
+select.jsp
+传入可选参数有 word、dialect、region
+可以修改这些参数，修改完后提交到pronounce.jsp
+<map>
+
+pronounce.jsp
+根据参数 word、dialect、region传入到flash
+flash
+录音功能
+根据参数 word、dialect、region提交到org.dw.action.Pronounce
+成功返回 上传成功
+失败 select.jsp
+
+word/index.jsp
+先写javabean。word的排序
+
+word/[word]
+按视图模式设计 view1 view2
+<map>
+
+word/add.jsp
+提交word到org.dw.action.AddWord
+成功返回 word/[word]
+失败 add.jsp
+
+dialect/index.jsp
+先写javabean。dialect的排序
+
+dialect/[dialect]
+按视图模式设计
+<map>
+
+user/index.jsp
+先写javabean。dialect的排序
+
+user/user.jsp
+按视图模式设计
+
