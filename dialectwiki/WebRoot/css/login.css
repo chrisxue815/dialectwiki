@@ -1,8 +1,8 @@
 /* CSS Document */
 
 * {
-margin: 0;
-padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 body {
@@ -27,19 +27,14 @@ width: 1024px;
 }
 
 #top {
-height: 20px;
-border-bottom: 1px dotted #000
-}
-
-#top #data {
-float: left;
-}
-
-#top #user {
-float: right;
+	height: 20px;
+	background-color:#333;
 }
 
 #header {
+height: 70px;
+background: #e0f3fa url(images/header.jpg) no-repeat;
+
 }
 #header h1 { 
 font-size: 25px;
@@ -67,7 +62,7 @@ font-weight: 100;
 #menu {
 height: 30px;
 line-height: 30px;
-background: #e0f3fa url(images/tabs_background.gif) repeat-x;
+background: #e0f3fa url(images/menu.jpg) no-repeat;
 }
 #menu ul {
 list-style-type: none;
@@ -90,12 +85,23 @@ text-decoration: none;
 }
 
 #content {
+background: #e0f3fa url(images/content.jpg) repeat-y;
+padding: 0 20px;
 height:800px;
-margin: auto 0px auto 0px;
+}
+
+.left, .center1, .center2, .right {
+float: left;
+width: 20%;
+padding-top: 10px;
+padding-left: 15px;
+padding-right: 15px;
+height:760px;
 }
 
 
 #bottom {
+background : #e0f3fa url(images/bottom.jpg) no-repeat;
 padding: 10px 0;
 }
 

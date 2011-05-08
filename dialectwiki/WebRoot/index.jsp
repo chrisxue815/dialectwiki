@@ -6,6 +6,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/style1.css"  />
+<link rel="stylesheet" type="text/css" href="css/main.css"  />
 <title>首页</title>
 </head>
 
