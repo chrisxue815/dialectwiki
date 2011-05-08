@@ -7,9 +7,13 @@
 <link rel="stylesheet" type="text/css" href="../css/style1.css"  />
 <title>userIndex</title>
 </head>
+
+
+<body>
+
 <div id="wrap">
 
-<jsp:include page="../internal/header.html" />
+<jsp:include page="../internal/header.jsp" />
 <div id="content">
 
 
@@ -20,10 +24,8 @@
 </div>
 
 
-<jsp:include page="../internal/footer.html" />
+<jsp:include page="../internal/footer.jsp" />
 </div>
 
-
-<body>
 </body>
 </html>
