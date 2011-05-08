@@ -91,44 +91,6 @@ padding: 0 20px;
 height:800px;
 }
 
-.right {
-float: right;
-width: 27%;
-text-align: justify;
-padding-top: 20px;
-padding-left: 5px;
-padding-right: 5px;
-height:700px;
-}
-.right h2 {
-font-size: 18px;
-font-weight: 100;
-padding-left: 5px;
-height: 26px;
-line-height: 26px;
-background: #C3D9FF;
-}
-.right ul {
-padding: 10px 0 15px 20px;
-color: #C3D9FF;
-}
-.right ul li a {
-text-decoration: none;
-font-weight: 600;
-}
-.right ul li a:hover {
-}
-
-.center{
-float:left;
-margin-top:10px;
-width:35%;
-padding-top:10px;
-padding-left:5px;
-padding-right:5px;
-height:700px;
-}
-
 .left {
 float: left;
 width: 35%;
@@ -155,6 +117,44 @@ text-decoration: none;
 font-weight: 600;
 }
 .left ul li a:hover {
+}
+
+.center{
+float:left;
+margin-top:10px;
+width:35%;
+padding-top:10px;
+padding-left:5px;
+padding-right:5px;
+height:700px;
+}
+
+.right {
+float: left;
+width: 26%;
+text-align: justify;
+padding-top: 20px;
+padding-left: 5px;
+padding-right: 5px;
+height:700px;
+}
+.right h2 {
+font-size: 18px;
+font-weight: 100;
+padding-left: 5px;
+height: 26px;
+line-height: 26px;
+background: #C3D9FF;
+}
+.right ul {
+padding: 10px 0 15px 20px;
+color: #C3D9FF;
+}
+.right ul li a {
+text-decoration: none;
+font-weight: 600;
+}
+.right ul li a:hover {
 }
 
 .articles { padding: 10px; }
