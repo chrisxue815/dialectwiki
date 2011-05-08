@@ -21,7 +21,8 @@
 <div class=""></div>
 <div>
 <form id="dw_login" action="#" method="post">
-<label for="login">用户名：</label><input name="login" name="login" type="text" />
+<label for="login">用户名：</label><input name="login" type="text" />
+<label for="password"><br />密&nbsp;&nbsp;&nbsp;&nbsp;码：</label><input name="password" type="password" />
 </form>
 </div>
 </div>
