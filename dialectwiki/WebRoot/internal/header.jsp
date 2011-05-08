@@ -17,10 +17,10 @@
 
 <div id="menu">
 <ul>
-<li><a href="index.jsp">首页</a></li>
-<li><a href="dialect/index.jsp">方言</a></li>
-<li><a href="word/index.jsp">词条</a></li>
-<li><a href="pronounce.jsp">发音</a></li>
-<li><a href="user/index.jsp">用户</a></li>
+<li><a href="./">首页</a></li>
+<li><a href="dialect/">方言</a></li>
+<li><a href="word/">词条</a></li>
+<li><a href="pronounce/">发音</a></li>
+<li><a href="user/">用户</a></li>
 </ul>
 </div>

@@ -1,0 +1,29 @@
+input {
+font-size: 14px;
+}
+
+h2.title {
+font-size: 20px;
+color: #04A300;
+text-align: center;
+margin: 20px auto 0px auto;
+}
+
+.userInfo {
+font-size: 14px;
+margin: 20px auto;
+border-width: 0px;
+}
+
+.userInfo td {
+height: 30px;
+}
+
+.userInfo .submit {
+text-align: center;
+}
+
+.userInfo .submit input {
+width: 100px;
+height: 25px;
+}
