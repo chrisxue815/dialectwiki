@@ -1,26 +1,54 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'index.jsp' starting page</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-  </head>
-  
-  <body>
-    This is my JSP page. <br>
-  </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xfhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style1.css"  />
+<title>首页</title>
+</head>
+<div id="wrap">
+
+<jsp:include page="internal/header.html" />
+<div id="content">
+
+<div class="left"> 
+
+<h2>Categories :</h2>
+<div class="list"></div>
+<h2>Archives</h2>
+<div class="list"></div>
+
+
+</div>
+
+<div class="center">
+<div class="list"></div>
+</br>
+
+</div>
+
+<div class="right"> 
+
+
+
+<h2>Categories :</h2>
+<div class="list"></div><br />
+<h2>Archives</h2>
+<div class="list"></div>
+</div>
+
+
+<div style="clear: both;"> </div>
+
+</div>
+
+
+<jsp:include page="internal/footer.html" />
+</div>
+
+
+<body>
+</body>
 </html>
