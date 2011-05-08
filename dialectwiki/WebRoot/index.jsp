@@ -18,34 +18,40 @@
 
 <div id="content">
 
-<!--左模块-->
-<div class="module left"> 
-
-<h2>Categories :</h2>
+<!--上左模块-->
+<div class="module left">
+<h2>Categorie</h2>
 <div class="list"></div>
-<h2>Archives</h2>
-<div class="list"></div>
-
 </div><!--left-->
 
-<!--中模块-->
+<!--上中模块-->
 <div class="module center">
-
 <h2>Just A Title</h2>
 <div class="list"></div>
-<h2>Just Anothe1 Title</h2>
-<div class="list"></div>
-
 </div><!--center-->
 
 <!--右模块-->
 <div class="module right"> 
-
-<h2>Categories :</h2>
+<h2>Categories</h2>
 <div class="list"></div>
+</div><!--right-->
+
+<!--下左模块-->
+<div class="module left">
 <h2>Archives</h2>
 <div class="list"></div>
+</div><!--left-->
 
+<!--下中模块-->
+<div class="module center">
+<h2>Just Another Title</h2>
+<div class="list"></div>
+</div><!--center-->
+
+<!--下右模块-->
+<div class="module right"> 
+<h2>Archives</h2>
+<div class="list"></div>
 </div><!--right-->
 
 </div><!--content-->

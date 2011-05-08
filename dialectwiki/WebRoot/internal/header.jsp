@@ -1,10 +1,18 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <div id="top">
-10000
-</div>
+<div id="data">
+<strong>10000</strong>个词语
+<strong>10000</strong>个发音
+<strong>10000</strong>种方言
+</div><!--data-->
+<div id="user">
+<a href="login.jsp">登陆</a>
+<a href="signup.jsp">注册</a>
+</div><!--user-->
+</div><!--top-->
+
 <div id="header">
-<h1><a href="#">aLogo</a></h1>
-<h2>description H2</h2>
+<img src="css/images/logo.gif" />
 </div>
 
 <div id="menu">
