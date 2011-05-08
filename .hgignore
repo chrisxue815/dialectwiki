@@ -1,0 +1,3 @@
+syntax: glob
+dialectwiki/WebRoot/WEB-INF/classes/
+*.bak
