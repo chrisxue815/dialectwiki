@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=utf-8" language="java" %>
 <div id="top">
 10000
 </div>

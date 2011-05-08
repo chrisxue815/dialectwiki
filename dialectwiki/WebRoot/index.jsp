@@ -15,42 +15,44 @@
 <div id="wrap">
 
 <jsp:include page="internal/header.jsp" />
+
 <div id="content">
 
-<div class="left"> 
+<!--左模块-->
+<div class="module left"> 
 
 <h2>Categories :</h2>
 <div class="list"></div>
 <h2>Archives</h2>
 <div class="list"></div>
 
+</div><!--left-->
 
-</div>
+<!--中模块-->
+<div class="module center">
 
-<div class="center">
+<h2>Just A Title</h2>
 <div class="list"></div>
-<br/>
+<h2>Just Anothe1 Title</h2>
+<div class="list"></div>
 
-</div>
+</div><!--center-->
 
-<div class="right"> 
-
-
+<!--右模块-->
+<div class="module right"> 
 
 <h2>Categories :</h2>
-<div class="list"></div><br />
+<div class="list"></div>
 <h2>Archives</h2>
 <div class="list"></div>
-</div>
 
+</div><!--right-->
 
-<div style="clear: both;"> </div>
-
-</div>
-
+</div><!--content-->
 
 <jsp:include page="internal/footer.jsp" />
-</div>
+
+</div><!--wrap-->
 
 </body>
 </html>

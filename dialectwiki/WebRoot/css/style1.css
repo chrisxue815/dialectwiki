@@ -91,70 +91,34 @@ padding: 0 20px;
 height:800px;
 }
 
-.left {
-float: left;
-width: 35%;
-padding-top: 10px;
-padding-left: 5px;
-padding-right: 5px;
-height:700px;
-}
-.left h2 {
+/*模块*/
+.module h2 {
 margin: 10px 0 0 0;
 padding-left: 10px;
 height: 26px;
 line-height: 26px;
 background: #C3D9FF;
-color: #fff;
+color: #000;
 font-size: 13px;
 }
-.left ul {
+.module ul {
 padding: 10px 0 15px 20px;
 color: #C3D9FF;
 }
-.left ul li a {
+.module ul li a {
 text-decoration: none;
 font-weight: 600;
 }
-.left ul li a:hover {
+.module ul li a:hover {
 }
 
-.center{
-float:left;
-margin-top:10px;
-width:35%;
-padding-top:10px;
-padding-left:5px;
-padding-right:5px;
-height:700px;
-}
-
-.right {
+.left, .center, .right {
 float: left;
-width: 26%;
-text-align: justify;
-padding-top: 20px;
-padding-left: 5px;
-padding-right: 5px;
+width: 30%;
+padding-top: 10px;
+padding-left: 15px;
+padding-right: 15px;
 height:700px;
-}
-.right h2 {
-font-size: 18px;
-font-weight: 100;
-padding-left: 5px;
-height: 26px;
-line-height: 26px;
-background: #C3D9FF;
-}
-.right ul {
-padding: 10px 0 15px 20px;
-color: #C3D9FF;
-}
-.right ul li a {
-text-decoration: none;
-font-weight: 600;
-}
-.right ul li a:hover {
 }
 
 .articles { padding: 10px; }
@@ -176,4 +140,6 @@ font-size: 11px;
 color: #aaa;
 }
 #footer a { color: #aaa; }
-#footer a:hover { color: #111; }
+#footer a:hover { color: #111; }.moduleTitle {
+	background-color: #C3D9FF;
+}
