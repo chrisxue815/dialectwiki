@@ -1,0 +1,27 @@
+/*Ä£¿é*/
+.left {
+float:left;
+width: 40%;
+margin: 10px 10px 10px 10px;
+border: 1px solid #DFDFDF;
+height:400px;
+
+}
+
+.right h2{
+margin: 10px 0 0 10px;
+height: 26px;
+line-height: 26px;
+font-size: 25px;
+color:#390;
+border-bottom: 1px solid #E4E4E4
+}
+
+.right{
+float:left;
+width: 55%;
+margin: 10px 10px 10px 10px;
+border: 1px solid #DFDFDF;
+height:400px;	
+
+}
