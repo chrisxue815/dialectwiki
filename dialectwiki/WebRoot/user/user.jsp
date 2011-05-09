@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link rel="stylesheet" type="text/css" href="../css/style1.css" />
-<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<link rel="stylesheet" type="text/css" href="../css/user.css" />
 
 <title>首页</title>
 
@@ -21,7 +21,7 @@
 
 <div id="content">
 
-<!--上左模块--></div>
+</div>
 <!--content-->
 
 <jsp:include page="../internal/footer.jsp" />

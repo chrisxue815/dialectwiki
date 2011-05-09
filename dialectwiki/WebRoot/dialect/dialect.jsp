@@ -21,24 +21,16 @@
 
 <div id="content">
 
-<div class="leftbar">
-<div class="introbar"></div>
+<div class="leftbar"></div>
 
-<div class="module left">
-<h2>Just A Title</h2>
-<div class="list"></div>
-</div>
-<div class="module right">
-<h2>Just A Title</h2>
-<div class="list"></div></div>
-</div>
 
 
 <div class="rightbar">
+<div class="rightmodule top"></div>
+<div class="rightmodule top"></div>
 </div>
-
-
-</div><!--content-->
+</div>
+<!--content-->
 
 <jsp:include page="../internal/footer.jsp" />
 

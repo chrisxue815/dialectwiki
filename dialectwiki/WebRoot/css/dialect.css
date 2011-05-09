@@ -1,5 +1,35 @@
 /* CSS Document */
 
+
+.list {
+padding:5px;
+height:330px;
+}
+
+.leftbar{
+float:left;
+width: 41%;
+margin: 10px 5px 10px 5px;
+border: 1px solid #DFDFDF;
+height: 700px;
+}
+
+.rightbar{
+float:left;
+width: 55%;
+margin: 10px 5px 10px 5px;
+border: 1px solid #DFDFDF;
+height:700px;
+}
+
+.rightmodule{
+float:left;
+width:98%;
+margin: 10px 5px 10px 5px;
+border: 1px solid #DFDFDF;
+height:330px;
+}
+
 .module {
 float: left;
 width: 48%;
@@ -23,34 +53,4 @@ font-weight: 600;
 }
 
 .module ul li a:hover {
-}
-
-.list {
-padding:5px;
-height:330px;
-}
-
-.leftbar{
-float:left;
-width: 64%;
-margin: 10px 5px 10px 5px;
-border: 1px solid #DFDFDF;
-height: 700px;
-}
-
-.rightbar{
-float:left;
-width: 32%;
-margin: 10px 5px 10px 5px;
-border: 1px solid #DFDFDF;
-height:700px;
-}
-
-.introbar{
-float:left;
-width:98%;
-margin: 10px 5px 10px 5px;
-height:280px;
-border: 1px solid #DFDFDF;
-	
 }
