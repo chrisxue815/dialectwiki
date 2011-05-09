@@ -6,26 +6,43 @@
 <link rel="stylesheet" type="text/css" href="css/style1.css"  />
 <link rel="stylesheet" type="text/css" href="css/login.css"  />
 <title>登录</title>
+<script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
+<script type="text/javascript">
+var init = function(){
+	var map = new QQMap.QMap(document.getElementById("left"))
+	map.moveTo(new QQMap.QLatLng(39.914850, 116.403765))
+	map.zoomTo(13)
+}
+
+</script>
+
+
 </head>
 
-<body>
+<body onload="init()">
 <div id="wrap">
 
 <jsp:include page="internal/header.jsp" />
 
 <div id="content">
-<div class="left"></div>
+<div id="left" class="left"></div>
 <div class="right">
 <h2>登录</h2>
-<form id="dw_login" action="#" method="post">
-<div class=""><label for="login">用户名：</label><input name="login" type="text" /></div>
-<div class=""><label for="password"><br />密&nbsp;&nbsp;&nbsp;&nbsp;码：</label><input name="password" type="password" />
-</div>
-<div class=""></div>
 
+<form id="dw_login" action="#" method="post">
+<div class="line"><label for="login">用户名：</label><input name="login" type="text" /></div>
+<div class="line">
+<label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+<input name="password" type="password" />
+<a href="/password-reminder">;&nbsp;&nbsp;忘记你的密码了？</a>
+</div>
+
+<div class="submit">
+<input name="submit" type="submit" value="登录" style="width:170px;text-align:center" />
+<label for="remember">;&nbsp;&nbsp;
+<input name="remember" id="rember" type="checkbox" />下次自动登录</label></div>
 
 </form>
-</div>
 </div>
 
 </div><!--content-->
