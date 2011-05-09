@@ -23,7 +23,7 @@
 
 <h2 class="title">注册用户</h2>
 
-<form action="" method="post">
+<form action="loginAction" method="post">
 <table class="userInfo">
 <tr>
 <td>用户名：</td>

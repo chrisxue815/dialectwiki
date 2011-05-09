@@ -12,7 +12,7 @@
   
   
   <!-- Struts 2 begins -->
-  
+  <!-- 指定spring的配置文件 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
@@ -23,7 +23,7 @@
   
   
   <!-- Spring begins -->
-  
+  <!-- 启动Spring 容器 -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
@@ -38,7 +38,7 @@
   
   
   <!-- Spring Security begins -->
-  
+  <!-- 启动Spring Security的容器 -->
   <filter>
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -52,7 +52,7 @@
   
   
   <!-- Struts 2 begins -->
-  
+  <!-- 配置Sturts2 filter -->
   <filter>
     <filter-name>struts2</filter-name>
     <filter-class>
