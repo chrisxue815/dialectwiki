@@ -23,37 +23,37 @@
 
 <!--上左模块-->
 <div class="module left">
-<h2>Categorie</h2>
+<h2>最新发音</h2>
 <div class="list"></div>
 </div><!--left-->
 
 <!--上中模块-->
 <div class="module center">
-<h2>Just A Title</h2>
+<h2>热门发音</h2>
 <div class="list"></div>
 </div><!--center-->
 
-<!--右模块-->
+<!--上右模块-->
 <div class="module right"> 
-<h2>Categories</h2>
+<h2>站点释义</h2>
 <div class="list"></div>
 </div><!--right-->
 
 <!--下左模块-->
 <div class="module left">
-<h2>Archives</h2>
+<h2>待解决词条</h2>
 <div class="list"></div>
 </div><!--left-->
 
 <!--下中模块-->
 <div class="module center">
-<h2>Just Another Title</h2>
+<h2>热门词条</h2>
 <div class="list"></div>
 </div><!--center-->
 
 <!--下右模块-->
 <div class="module right"> 
-<h2>Archives</h2>
+<h2>牛逼用户</h2>
 <div class="list"></div>
 </div><!--right-->
 

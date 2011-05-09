@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link rel="stylesheet" type="text/css" href="../css/style1.css" />
-<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<link rel="stylesheet" type="text/css" href="../css/dialect.css" />
 
-<title>首页</title>
+<title>方言</title>
 
 </head>
 
@@ -17,15 +17,18 @@
 
 <div id="wrap">
 
-<jsp:include page="internal/header.jsp" />
+<jsp:include page="../internal/header-inner.jsp" />
 
 <div id="content">
 
-
+<div class="dialect">
+<h2>方言列表</h2>
+<h3>词条数大于1000</h3>
+</div>
 
 </div><!--content-->
 
-<jsp:include page="internal/footer.jsp" />
+<jsp:include page="../internal/footer.jsp" />
 
 </div><!--wrap-->
 
