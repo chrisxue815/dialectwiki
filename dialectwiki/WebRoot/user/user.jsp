@@ -4,8 +4,12 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../css/style1.css"  />
-<title>userIndex</title>
+
+<link rel="stylesheet" type="text/css" href="../css/style1.css" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+
+<title>首页</title>
+
 </head>
 
 
@@ -14,18 +18,15 @@
 <div id="wrap">
 
 <jsp:include page="../internal/header.jsp" />
+
 <div id="content">
 
-
-
-
-<div style="clear: both;"> </div>
-
-</div>
-
+<!--上左模块--></div>
+<!--content-->
 
 <jsp:include page="../internal/footer.jsp" />
-</div>
+
+</div><!--wrap-->
 
 </body>
 </html>

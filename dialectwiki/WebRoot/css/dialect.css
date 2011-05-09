@@ -1,0 +1,56 @@
+/* CSS Document */
+
+.module {
+float: left;
+width: 48%;
+margin: 10px 5px 10px 5px;
+border: 1px solid #DFDFDF
+}
+.module h2 {
+margin: 10px 0 0 10px;
+height: 26px;
+line-height: 26px;
+font-size: 13px;
+border-bottom: 1px solid #E4E4E4
+}
+.module ul {
+padding: 10px 0 15px 20px;
+color: #C3D9FF;
+}
+.module ul li a {
+text-decoration: none;
+font-weight: 600;
+}
+
+.module ul li a:hover {
+}
+
+.list {
+padding:5px;
+height:330px;
+}
+
+.leftbar{
+float:left;
+width: 64%;
+margin: 10px 5px 10px 5px;
+border: 1px solid #DFDFDF;
+height: 700px;
+}
+
+.rightbar{
+float:left;
+width: 32%;
+margin: 10px 5px 10px 5px;
+border: 1px solid #DFDFDF;
+height:700px;
+}
+
+.introbar{
+float:left;
+width:98%;
+margin: 10px 5px 10px 5px;
+height:280px;
+border: 1px solid #DFDFDF;
+	
+}
