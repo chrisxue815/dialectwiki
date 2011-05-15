@@ -63,7 +63,8 @@
 <td><img src="" /></td>
 </tr>
 <tr>
-<td class="submit" colspan="2"><input type="submit" value="注册" /></td>
+<td></td>
+<td class="submit"><input type="submit" value="注册" /></td>
 </tr>
 </table>
 </form>

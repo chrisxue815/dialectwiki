@@ -29,19 +29,25 @@ var init = function(){
 <div class="right">
 <h2>登录</h2>
 
-<form id="dw_login" action="#" method="post">
-<div class="line"><label for="login">用户名：</label><input name="login" type="text" /></div>
-<div class="line">
-<label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
-<input name="password" type="password" />
-<a href="/password-reminder">;&nbsp;&nbsp;忘记你的密码了？</a>
-</div>
+<form id="dw_login" name="f" action="j_spring_security_check" method="post">
+<table class="login">
+<tr>
+<td><label for="login">用户名：</label></td>
+<td><input name="j_username" type="text" /></td>
+</tr>
 
-<div class="submit">
-<input name="submit" type="submit" value="登录" style="width:170px;text-align:center" />
-<label for="remember">;&nbsp;&nbsp;
-<input name="remember" id="rember" type="checkbox" />下次自动登录</label></div>
+<tr>
+<td><label for="password">密　码：</label></td>
+<td><input name="j_password" type="password" /></td>
+<td><a href="/password-reminder">忘记你的密码了？</a></td>
+</tr>
 
+<tr>
+<td></td>
+<td><input class="submit" name="submit" type="submit" value="登录" /></td>
+<td><input name="_spring_security_remember_me" type="checkbox" />下次自动登录</td>
+</tr>
+</table>
 </form>
 </div>
 

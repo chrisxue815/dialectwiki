@@ -24,21 +24,23 @@ width: 55%;
 margin: 10px 10px 10px 10px;
 border: 1px solid #DFDFDF;
 height:400px;	
-
 }
 
-.line{
-	float:left;
-	width: 70%;
-	margin-top:10px;
-	margin-bottom:5px;
-	padding-left:80px;
+table.login {
+margin: 20px auto;
+font-size: 14px;
+}
+
+.login td {
+height: 30px;
+}
+
+.login input[type="text"],
+.login input[type="password"],
+.login input[type="submit"] {
+width: 90%;
 }
 
 .submit{
-	float:left;
-	width: 70%;
-	margin-top:10px;
-	margin-bottom:5px;
-	padding-left:125px;
+height: 100%;
 }
