@@ -17,7 +17,7 @@
 
 <div id="wrap">
 
-<jsp:include page="../internal/header-inner.jsp" />
+<jsp:include page="../internal/header.jsp" />
 
 <div id="content">
 
