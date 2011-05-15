@@ -27,15 +27,32 @@
 <table class="userInfo">
 <tr>
 <td>用户名：</td>
-<td><input type="text" /></td>
+<td><input name="username" type="text" /></td>
 </tr>
 <tr>
 <td>密码：</td>
-<td><input type="password" /></td>
+<td><input name="password" type="password" /></td>
 </tr>
 <tr>
 <td>确认密码：</td>
-<td><input type="password" /></td>
+<td><input name="password2" type="password" /></td>
+</tr>
+<tr>
+<td>Email：</td>
+<td><input name="email" type="text" /></td>
+</tr>
+<tr>
+<td>性别：</td>
+<td>
+<span onclick="document.getElementById('sexm').checked=true;">
+<input name="sex" type="radio" value="m" checked="checked" id="sexm" />
+&nbsp;男&nbsp;&nbsp;&nbsp;&nbsp;
+</span>
+<span onclick="document.getElementById('sexf').checked=true;">
+<input name="sex" type="radio" value="f" id="sexf" />
+&nbsp;女&nbsp;&nbsp;&nbsp;&nbsp;
+</span>
+</td>
 </tr>
 <tr>
 <td>验证码：</td>
