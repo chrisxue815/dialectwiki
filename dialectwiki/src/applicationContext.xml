@@ -23,4 +23,10 @@
   </bean>
   
   <!-- Spring Security ends -->
-</beans>
+  
+  
+  <bean id="WordDAO" class="org.dw.dao.impl.WordDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean></beans>

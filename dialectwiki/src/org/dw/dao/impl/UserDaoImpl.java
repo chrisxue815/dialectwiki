@@ -1,17 +1,17 @@
 package org.dw.dao.impl;
 
-import org.dw.dao.UserDao;
+import org.dw.dao.UserDAO;
 import org.dw.hibernate.HibernateSessionFactory;
 import org.dw.model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-public class UserDaoImpl implements UserDao {
+public class UserDAOImpl implements UserDAO {
 
 	public boolean signup(User user) {
 		// TODO Auto-generated method stub
 		Session session = HibernateSessionFactory.getSession();
-		Query query = session.createQuery(null);  //null Ìæ»»³É¶ÔÓ¦µÄsqlÓï¾ä
+		Query query = session.createQuery(null);  //null ï¿½æ»»ï¿½É¶ï¿½Ó¦ï¿½ï¿½sqlï¿½ï¿½ï¿½
 		return false;
 	}
 

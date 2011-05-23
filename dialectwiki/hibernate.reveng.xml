@@ -5,7 +5,7 @@
 <table name="dw_word" catalog="dialectwiki"
 	class="org.dw.hibernate.Word">
 	<primary-key>
-		<generator class="iden"></generator>
+		<generator class="identity"></generator>
 	</primary-key>
 </table>
 </hibernate-reverse-engineering>

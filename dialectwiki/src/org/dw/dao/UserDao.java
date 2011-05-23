@@ -2,6 +2,6 @@ package org.dw.dao;
 
 import org.dw.model.User;
 
-public interface UserDao {
+public interface UserDAO {
 	public boolean signup(User user);
 }
