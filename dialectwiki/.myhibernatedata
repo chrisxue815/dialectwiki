@@ -1,5 +1,5 @@
 #MyEclipse Hibernate Properties
-#Sat Apr 30 15:40:10 CST 2011
+#Mon May 23 23:22:23 CST 2011
 sessionFactoryName=org.dw.HibernateSessionFactory
 genBasicCompId=false
 profile=
@@ -18,8 +18,7 @@ genVersionTag=false
 sessionFactoryId=
 basePersistenceClass=
 genAnnotations=false
-reSettingsFile=
+reSettingsFile=/dialectwiki/hibernate.reveng.xml
 configFile=/dialectwiki/src/hibernate.cfg.xml
 createConfigFile=false
 addLibs2Classpath=true
-baseDaoClass=

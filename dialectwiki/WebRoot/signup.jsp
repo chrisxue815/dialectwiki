@@ -22,7 +22,6 @@
 
 <title>注册</title>
 </head>
-<form ></form>
 
 <body>
 

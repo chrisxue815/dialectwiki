@@ -7,7 +7,8 @@ import org.dw.model.User;
 
 public class SignupAction extends ActionSupport {
   
-	String username;
+  private static final long serialVersionUID = 1L;
+  String username;
 	String password;
 	String password2;
 	String email;
@@ -68,7 +69,7 @@ public class SignupAction extends ActionSupport {
 	
 	@Override
 	public String execute() throws Exception {
-		//System.out.println("excute invoked");
+		//System.out.println("execute invoked");
 		
 		/*
 		 * 注册账户的用户对象实体
