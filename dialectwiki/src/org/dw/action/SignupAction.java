@@ -3,7 +3,10 @@ package org.dw.action;
 import com.opensymphony.xwork2.ActionSupport;
 import org.dw.utils.MD5;
 import org.dw.model.User;
+
+
 public class SignupAction extends ActionSupport {
+  
 	String username;
 	String password;
 	String password2;
@@ -63,22 +66,18 @@ public class SignupAction extends ActionSupport {
 	}
 
 	
-	
 	@Override
 	public String execute() throws Exception {
 		//System.out.println("excute invoked");
 		
 		/*
-		 * ×¢²áÕË»§µÄÓÃ»§¶ÔÏóÊµÌå
+		 * æ³¨å†Œè´¦æˆ·çš„ç”¨æˆ·å¯¹è±¡å®ä½“
 		 */
 		User user = new User();
 		user.setEnable(true);
 		user.setUsername(username);
 		user.setPassword(MD5.toMD5(password));
 		user.setEmail(email);
-		
-		
-		
 		
 		return SUCCESS;
 	}
@@ -87,25 +86,23 @@ public class SignupAction extends ActionSupport {
 		
 		times++;
 		System.out.println("validate invoked!");
-		System.out.println("±íµ¥Ìá½»" + times + "´Î");
+		System.out.println("è¡¨å•æäº¤" + times + "æ¬¡");
 		System.out.println("username :" + username);
 		System.out.println("password :" + password);
 		System.out.println("password2:" + password2);
 		System.out.println("email    :" + email);
 		System.out.println("valcode  :" + validatecode);
 		
-	
 		/*
-		 *ÓÃ»§ÃûÑéÖ¤ 
+		 *ç”¨æˆ·åéªŒè¯ 
 		 */
 		if(null == username)
 			this.addFieldError(username, "username blank!");
 		if(username.length() < 5 || username.length() > 20)
 			this.addFieldError(username, "username length should between 6 and 20!");
 		
-		
 		/*
-		 *ÃÜÂëÑéÖ¤ 
+		 *å¯†ç éªŒè¯ 
 		 */
 		if(null == password)
 			this.addFieldError(password, "password blank!");
@@ -113,28 +110,25 @@ public class SignupAction extends ActionSupport {
 			this.addFieldError(password, "password lenght should between 6 and 20!");
 		
 		/*
-		 *È·ÈÏÃÜÂëÑéÖ¤ 
+		 *ç¡®è®¤å¯†ç éªŒè¯ 
 		 */
 		if(null == password2)
 			this.addFieldError(password2, "confirm password blank!");
 		if(password.equals(password2) ==  false)
-			this.addFieldError(password2, "Á½´ÎÊäÈëÃÜÂë²»Ò»ÖÂ£¡");
+			this.addFieldError(password2, "ä¸¤æ¬¡è¾“å…¥å¯†ç ä¸ä¸€è‡´ï¼");
 		
 		/*
-		 * ÓÊÏäÑéÖ¤
+		 * é‚®ç®±éªŒè¯
 		 */
 		if(null == email)
-			this.addFieldError(email, "ÓÊÏä²»ÄÜÎª¿Õ£¡");
+			this.addFieldError(email, "é‚®ç®±ä¸èƒ½ä¸ºç©ºï¼");
 		
 		/*
-		 * ÑéÖ¤ÂëÑéÖ¤
+		 * éªŒè¯ç éªŒè¯
 		 */
 		if(null == validatecode)
 			this.addFieldError(validatecode, "validatecode blank!");
 		
 	}
 	
-	
-	
-
 }

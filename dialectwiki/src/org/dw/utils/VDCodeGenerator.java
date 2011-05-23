@@ -12,8 +12,8 @@ import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
 
 public class VDCodeGenerator {
-	private ByteArrayInputStream image;//Í¼Ïñ
-	private String str;//ÑéÖ¤Âë 
+	private ByteArrayInputStream image;//å›¾åƒ
+	private String str;//éªŒè¯ç  
 	
 	private VDCodeGenerator(){
 		init();
@@ -35,22 +35,22 @@ public class VDCodeGenerator {
 		int width = 100;
 		int height = 30;
 		
-		//ÔÚÄÚ´æÖĞ´´½¨Í¼Æ¬¶ÔÏó
+		//åœ¨å†…å­˜ä¸­åˆ›å»ºå›¾ç‰‡å¯¹è±¡
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		
-		//»ñÈ¡Í¼Æ¬ÉÏÏÂÎÄ
+		//è·å–å›¾ç‰‡ä¸Šä¸‹æ–‡
 		Graphics g = image.getGraphics();
 		
-		//Ëæ»úÊıÉú³ÉÀà
+		//éšæœºæ•°ç”Ÿæˆç±»
 		Random random = new Random();
 		
-		//ÑÕÉ«Ìî³äÆ÷ÑÕÉ«ÉèÖÃ
+		//é¢œè‰²å¡«å……å™¨é¢œè‰²è®¾ç½®
 		g.setColor(getRandColor(200,250));
 		g.fillRect(0, 0, width, height);
 		
-		//ÉèÖÃ×ÖÌå
+		//è®¾ç½®å­—ä½“
 		g.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		// Ëæ»ú²úÉú155Ìõ¸ÉÈÅÏß£¬Ê¹Í¼ÏóÖĞµÄÈÏÖ¤Âë²»Ò×±»ÆäËü³ÌĞòÌ½²âµ½      
+		// éšæœºäº§ç”Ÿ155æ¡å¹²æ‰°çº¿ï¼Œä½¿å›¾è±¡ä¸­çš„è®¤è¯ç ä¸æ˜“è¢«å…¶å®ƒç¨‹åºæ¢æµ‹åˆ°      
 	    g.setColor(getRandColor(160,200));
 	    for (int i=0;i<155;i++)
 	    {      
@@ -61,15 +61,15 @@ public class VDCodeGenerator {
 	    	g.drawLine(x,y,x+xl,y+yl);      
 	    }
 	    
-	    // È¡Ëæ»ú²úÉúµÄÈÏÖ¤Âë(6Î»Êı×Ö)      
+	    // å–éšæœºäº§ç”Ÿçš„è®¤è¯ç (6ä½æ•°å­—)      
 	    String sRand="";      
 	    for (int i=0;i<6;i++)
 	    {      
 	    	String rand=String.valueOf(random.nextInt(10));      
 	    	sRand += rand;
-	    	// ½«ÈÏÖ¤ÂëÏÔÊ¾µ½Í¼ÏóÖĞ      
+	    	// å°†è®¤è¯ç æ˜¾ç¤ºåˆ°å›¾è±¡ä¸­      
 	    	g.setColor(new Color(20+random.nextInt(110),20+random.nextInt(110),20+random.nextInt(110)));      
-	    	// µ÷ÓÃº¯Êı³öÀ´µÄÑÕÉ«ÏàÍ¬£¬¿ÉÄÜÊÇÒòÎªÖÖ×ÓÌ«½Ó½ü£¬ËùÒÔÖ»ÄÜÖ±½ÓÉú³É      
+	    	// è°ƒç”¨å‡½æ•°å‡ºæ¥çš„é¢œè‰²ç›¸åŒï¼Œå¯èƒ½æ˜¯å› ä¸ºç§å­å¤ªæ¥è¿‘ï¼Œæ‰€ä»¥åªèƒ½ç›´æ¥ç”Ÿæˆ      
 	    	g.drawString(rand,13*i+6,16);
 	    }
 	    
@@ -87,10 +87,10 @@ public class VDCodeGenerator {
 	    	input = new ByteArrayInputStream(output.toByteArray());
 	    	
 	    }catch(Exception e){
-	    	System.out.println("ÑéÖ¤ÂëÍ¼Æ¬²úÉú³öÏÖ´íÎó£º"+e.toString());     
+	    	System.out.println("éªŒè¯ç å›¾ç‰‡äº§ç”Ÿå‡ºç°é”™è¯¯ï¼š"+e.toString());     
 	    }
 		
-	    this.image = input;//¸³ÖµÍ¼Æ¬
+	    this.image = input;//èµ‹å€¼å›¾ç‰‡
 	}
 	
 	
