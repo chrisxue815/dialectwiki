@@ -4,7 +4,7 @@
 
 <hibernate-mapping>
 
-	<class name="org.dw.model.Word" table="users" catalog="dialectwiki">
+	<class name="org.dw.model.User" table="users" catalog="dialectwiki">
 	    <id name="userid" type="java.lang.Integer">
             <column name="user_id" />
             <generator class="identity"></generator>
