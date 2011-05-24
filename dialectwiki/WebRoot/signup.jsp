@@ -36,7 +36,7 @@
 <table class="userInfo">
 <tr>
 <td>用户名：</td>
-<td><s:textfield name="username"></s:textfield></td><td><s:fielderror fieldName="username">错误：</s:fielderror><s:property value="FieldErrors.username[0]"></s:property></td>
+<td><s:textfield name="username"></s:textfield></td><td><s:fielderror fieldName="username"></s:fielderror><s:property value="FieldErrors.username[0]"></s:property></td>
 </tr>
 <tr>
 <td>密码：</td>

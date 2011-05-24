@@ -11,7 +11,7 @@ public class UserDAOImpl implements UserDAO {
 	public boolean signup(User user) {
 		// TODO Auto-generated method stub
 		Session session = HibernateSessionFactory.getSession();
-		Query query = session.createQuery(null);  //null �滻�ɶ�Ӧ��sql���
+		Query query = session.createQuery(null);  
 		return false;
 	}
 

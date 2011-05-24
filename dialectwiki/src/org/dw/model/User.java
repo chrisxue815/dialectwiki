@@ -7,6 +7,7 @@ public class User {
 	String email;
 	char Sex;
 	
+	public User(){}
 	
 	public String getUsername() {
 		return username;
