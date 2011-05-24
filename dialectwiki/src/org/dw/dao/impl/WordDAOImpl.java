@@ -2,6 +2,7 @@ package org.dw.dao.impl;
 
 import java.util.List;
 
+import org.dw.dao.WordDAO;
 import org.dw.hibernate.Word;
 import org.hibernate.LockMode;
 import org.slf4j.Logger;

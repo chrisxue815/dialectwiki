@@ -1,19 +1,32 @@
 package org.dw.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import org.dw.service.SignupService;
 import org.dw.utils.MD5;
 import org.dw.model.User;
 
 
 public class SignupAction extends ActionSupport {
   
-  private static final long serialVersionUID = 1L;
-  String username;
-	String password;
-	String password2;
-	String email;
-	char sex;
-	String validatecode;
+    private static final long serialVersionUID = 1L;
+    private String username;
+    private	String password;
+    private	String password2;
+    private	String email;
+    private	char sex;
+    private	String validatecode;
+    
+    private SignupService signupService;
+    
+	public SignupService getSignupService() {
+		return signupService;
+	}
+
+	public void setSignupService(SignupService signupService) {
+		this.signupService = signupService;
+	}
+
 	public static int times = 0;
 	
 	
@@ -79,8 +92,17 @@ public class SignupAction extends ActionSupport {
 		user.setUsername(username);
 		user.setPassword(MD5.toMD5(password));
 		user.setEmail(email);
+		if(this.sex == 'f')
+			user.setSex('男');
+		else if(this.sex == 'm')
+			user.setSex('女');
+			
 		
-		return SUCCESS;
+		if(signupService.signup(user))
+			return SUCCESS;
+		else
+			return INPUT;
+		
 	}
 
 	public void validate() {
