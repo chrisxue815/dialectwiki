@@ -33,12 +33,15 @@
   
   
 
-  <bean id="userDAO" class="org.dw.dao.impl.UserDAOImpl"></bean>
+  <bean id="userDAO" class="org.dw.dao.impl.UserDAOImpl">
+  </bean>
+  
   <bean id="signupService" class="org.dw.service.impl.SignupServiceImpl">
   	<property name="userDAO">
   		<ref bean="userDAO" />
   	</property>
   </bean>
+  
   <bean id="signupAction" class="org.dw.action.SignupAction">
   	<property name="signupService">
   		<ref bean="signupService" />

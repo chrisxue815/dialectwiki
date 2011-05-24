@@ -3,12 +3,14 @@
 <struts>
   <constant name="struts.devMode" value="true"/>
   <constant name="struts.i18n.encoding" value="utf-8"/>
+  
   <include file="struts-default.xml"></include>
+  
   <package name="dw_default" namespace="/" extends="struts-default">
-  	<action name="SignupAction" class="org.dw.action.SignupAction">
+  
+  	<action name="SignupAction" class="signupAction">
   		<result name="success">/result.jsp</result>
   		<result name="input">/signup.jsp</result>
-  		
   	</action>
   	
   	

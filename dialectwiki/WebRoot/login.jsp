@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="css/style1.css"  />
 <link rel="stylesheet" type="text/css" href="css/login.css"  />
 <title>登录</title>
-<script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
+<!-- <script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
 <script type="text/javascript">
 var init = function(){
 	var map = new QQMap.QMap(document.getElementById("left"))
@@ -14,7 +14,7 @@ var init = function(){
 	map.zoomTo(13)
 }
 
-</script>
+</script> -->
 
 
 </head>

@@ -58,12 +58,11 @@ public class SignupAction extends ActionSupport {
 		return email;
 	}
 
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public int getSex() {
+	public char getSex() {
 		return sex;
 	}
 
@@ -87,23 +86,17 @@ public class SignupAction extends ActionSupport {
 		/*
 		 * 注册账户的用户对象实体
 		 */
-		System.out.println(sex);
 		User user = new User();
-		user.setEnable(true);
+		user.setEnabled(true);
 		user.setUsername(username);
 		user.setPassword(MD5.toMD5(password));
 		user.setEmail(email);
-		if(this.sex == 'f')
-			user.setSex('男');
-		else if(this.sex == 'm')
-			user.setSex('女');
-			
+		user.setSex(sex);
 		
 		if(signupService.signup(user))
 			return SUCCESS;
 		else
 			return INPUT;
-		
 	}
 
 	public void validate() {

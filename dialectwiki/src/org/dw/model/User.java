@@ -5,7 +5,7 @@ public class User {
 	private Integer userid;
 	private String username;
 	private String password;
-	private boolean enable;
+	private boolean enabled;
 	private String email;
 	private char sex;
 	
@@ -30,7 +30,6 @@ public class User {
 		this.email = email;
 	}
 
-	
 	public char getSex() {
 		return sex;
 	}
@@ -47,11 +46,11 @@ public class User {
 		this.userid = userid;
 	}
 
-	public void setEnable(boolean enable) {
-		this.enable = enable;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 	
-	public boolean isEnable() {
-		return enable;
+	public boolean isEnabled() {
+		return enabled;
 	}
 }

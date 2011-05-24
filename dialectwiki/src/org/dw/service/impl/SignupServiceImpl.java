@@ -10,10 +10,10 @@ public class SignupServiceImpl implements SignupService {
 	public UserDAO getUserDAO() {
 		return userDAO;
 	}
+	
 	public void setUserDAO(UserDAO userDAO) {
 		this.userDAO = userDAO;
 	}
-
 
 	public boolean signup(User user) {
 		// TODO Auto-generated method stub
