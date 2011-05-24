@@ -21,6 +21,7 @@
 		<property name="myeclipse.connection.profile">
 			com.mysql.jdbc.Driver
 		</property>
+		<mapping resource="org/dw/model/User.hbm.xml" />
 		<mapping resource="org/dw/hibernate/Word.hbm.xml" />
 
 	</session-factory>

@@ -87,6 +87,7 @@ public class SignupAction extends ActionSupport {
 		/*
 		 * 注册账户的用户对象实体
 		 */
+		System.out.println(sex);
 		User user = new User();
 		user.setEnable(true);
 		user.setUsername(username);
