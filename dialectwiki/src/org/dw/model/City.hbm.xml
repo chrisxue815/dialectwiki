@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="org.dw.model.City" table="dw_city" catalog="dialectwiki">
+	    <id name="city_id" type="java.lang.Integer">
+            <column name="city_id" />
+            <generator class="identity"></generator>
+        </id>
+        
+        <property name="city_name" type="java.lang.String">
+        	<column name="city_name" length="45"/>
+        </property>
+        
+        <many-to-one name="province" class="org.dw.model.Province" column="province_id"></many-to-one>
+        
+        <set name="pronunciation" table="dw_pronunciation" cascade="save-update" inverse="true">
+        	<key column="city_id"></key>
+        	<one-to-many class="org.dw.model.pronunciation" />
+        </set>
+  	</class>
+</hibernate-mapping>    

@@ -3,7 +3,6 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-
 	<class name="org.dw.model.Authorities" table="authorities" catalog="dialectwiki">
 	    <id name="username" type="java.lang.String">
             <column name="username" length="45"/>
@@ -13,5 +12,4 @@
         	<column name="authority" length="45"/>
         </property>        
 	</class>
-
 </hibernate-mapping>      
