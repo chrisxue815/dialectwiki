@@ -4,15 +4,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script type="text/javascript">
+	
 	var checkSubmitFlg = false;
 	function checkSubmit(){
-	alert("function invoked!");
+	//alert("function invoked!");
 	if(!checkSubmitFlg){
 		checkSubmitFlg = true;
+		var form = document.getElementById('myForm');
+		form.submit();
 		return true;
 	}else{
-	alert("禁止重复提交！");
+		alert("禁止重复提交！");
+		}
 	}
+
+
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,7 +37,7 @@
 
 <div id="content">
 <h2 class="title">注册用户</h2>
-<s:form action="SignupAction" theme="simple" onsubmit="return checkSubmit();">
+<s:form action="SignupAction" theme="simple" id="myForm">
 <s:fielderror></s:fielderror>
 <table class="userInfo">
 <tr>
@@ -73,7 +79,7 @@
 </tr>
 <tr>
 <td></td>
-<td class="submit"><s:submit value="注册"></s:submit> </td>
+<td class="submit"><s:submit id="submitBtn" value="注册" onclick="checkSubmit();"></s:submit> </td>
 </tr>
 </table>
 </s:form>

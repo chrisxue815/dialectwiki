@@ -2,8 +2,10 @@ package org.dw.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import org.apache.struts2.components.FieldError;
 import org.dw.service.SignupService;
 import org.dw.utils.MD5;
+import org.dw.model.Authorities;
 import org.dw.model.User;
 
 
@@ -93,6 +95,8 @@ public class SignupAction extends ActionSupport {
 		user.setEmail(email);
 		user.setSex(sex);
 		
+		Authorities authorities = new Authorities(username, "ROLE_USER");
+		
 		if(signupService.signup(user))
 			return SUCCESS;
 		else
@@ -100,16 +104,7 @@ public class SignupAction extends ActionSupport {
 	}
 
 	public void validate() {
-		
-		times++;
-		System.out.println("validate invoked!");
-		System.out.println("表单提交" + times + "次");
-		System.out.println("username :" + username);
-		System.out.println("password :" + password);
-		System.out.println("password2:" + password2);
-		System.out.println("email    :" + email);
-		System.out.println("valcode  :" + validatecode);
-		
+		this.getFieldErrors().clear();	
 		/*
 		 *用户名验证 
 		 */

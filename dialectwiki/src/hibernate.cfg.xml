@@ -7,21 +7,14 @@
 <hibernate-configuration>
 
 	<session-factory>
-		<property name="dialect">
-			org.hibernate.dialect.MySQLDialect
-		</property>
-		<property name="connection.url">
-			jdbc:mysql://localhost:3306/dialectwiki
-		</property>
-		<property name="connection.username">dw_user</property>
-		<property name="connection.password">hitchimpdw1234</property>
-		<property name="connection.driver_class">
-			com.mysql.jdbc.Driver
-		</property>
-		<property name="myeclipse.connection.profile">
-			com.mysql.jdbc.Driver
-		</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/dialectwiki</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">hxy83273579</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="myeclipse.connection.profile">MySqlConnector</property>
 		<mapping resource="org/dw/model/User.hbm.xml" />
+		<mapping resource="org/dw/model/Authorities.hbm.xml" />
 		<mapping resource="org/dw/hibernate/Word.hbm.xml" />
 
 	</session-factory>

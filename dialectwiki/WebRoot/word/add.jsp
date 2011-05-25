@@ -3,9 +3,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+
+<link rel="stylesheet" type="text/css" href="../css/style1.css" />
+<link rel="stylesheet" type="text/css" href="../css/word.css"/>
+
+<title>添加词条</title>
 </head>
 
 <body>
+<div id="wrap">
+
+<jsp:include page="../internal/header.jsp" />
+
+<div id="content">
+
+
+
+
+</div>
+<!--content-->
+
+<jsp:include page="../internal/footer.jsp" />
+
+</div><!--wrap-->
+
 </body>
 </html>
