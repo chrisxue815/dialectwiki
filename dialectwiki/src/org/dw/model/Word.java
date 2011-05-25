@@ -1,4 +1,4 @@
-package org.dw.hibernate;
+package org.dw.model;
 
 /**
  * Word entity. @author MyEclipse Persistence Tools

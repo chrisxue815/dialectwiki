@@ -3,7 +3,6 @@ package org.dw.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.dw.hibernate.Word;
 
 public class Pronunciation {
 	

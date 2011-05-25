@@ -15,7 +15,7 @@
 		<property name="myeclipse.connection.profile">MySqlConnector</property>
 		<mapping resource="org/dw/model/User.hbm.xml" />
 		<mapping resource="org/dw/model/Authorities.hbm.xml" />
-		<mapping resource="org/dw/hibernate/Word.hbm.xml" />
+		<mapping resource="org/dw/model/Word.hbm.xml" />
 
 	</session-factory>
 

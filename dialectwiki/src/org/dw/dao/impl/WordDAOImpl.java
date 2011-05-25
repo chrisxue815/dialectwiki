@@ -3,7 +3,7 @@ package org.dw.dao.impl;
 import java.util.List;
 
 import org.dw.dao.WordDAO;
-import org.dw.hibernate.Word;
+import org.dw.model.Word;
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  * provides additional information for how to configure it for the desired type
  * of transaction control.
  * 
- * @see org.dw.hibernate.Word
+ * @see org.dw.model.Word
  * @author MyEclipse Persistence Tools
  */
 

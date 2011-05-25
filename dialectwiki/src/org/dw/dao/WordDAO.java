@@ -2,7 +2,7 @@ package org.dw.dao;
 
 import java.util.List;
 
-import org.dw.hibernate.Word;
+import org.dw.model.Word;
 
 
 public interface WordDAO
