@@ -5,9 +5,9 @@ import org.dw.dao.UserDAO;
 import org.dw.model.Authorities;
 import org.dw.model.User;
 import org.dw.service.SignupService;
+import org.dw.macro.MACRO_USER;;
 
 public class SignupServiceImpl implements SignupService {
-	private static final String ROLE_USER = "ROLE_USER";
 	private UserDAO userDAO;
 	private AuthorityDAO authorityDAO;
 	
@@ -28,7 +28,7 @@ public class SignupServiceImpl implements SignupService {
 	}
 
 	public boolean signup(User user) {
-		Authorities authorities = new Authorities(user.getUsername(), ROLE_USER);
+		Authorities authorities = new Authorities(user.getUsername(), MACRO_USER.ROLE_USER);
 		return (userDAO.signup(user)&& authorityDAO.setAuthority(authorities));
 	}	
 }

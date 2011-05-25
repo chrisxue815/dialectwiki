@@ -21,7 +21,11 @@
 
 <div class="left">
 <div class="lefth1">添加词条</div>
-<div class="lefth2">如果你想知道一个词条的发音或者想对一个词条进行发音，请从下面添加一个词条。</div>
+<div class="lefth2">恭喜，成功添加词条XXX，下面您可以为它发音或者添加新词条</div>
+<div class="alert">
+<a href="">为XXX发音</a></div>
+
+<div class="announcement">继续添加词条：</div>
 <div class="lefth3">
 词条：
 <input type="text" id="word" name="word"/>
