@@ -44,7 +44,4 @@ public class City {
 	public void setPronunciation(Set pronunciation) {
 		this.pronunciation = pronunciation;
 	}
-	
-	
-
 }

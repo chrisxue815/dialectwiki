@@ -35,10 +35,16 @@
 
   <bean id="userDAO" class="org.dw.dao.impl.UserDAOImpl">
   </bean>
-  
+
+  <bean id="authorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
+  </bean>
+
   <bean id="signupService" class="org.dw.service.impl.SignupServiceImpl">
   	<property name="userDAO">
   		<ref bean="userDAO" />
+  	</property>
+  	<property name="authorityDAO">
+  		<ref bean="authorityDAO" />
   	</property>
   </bean>
   
@@ -47,6 +53,11 @@
   		<ref bean="signupService" />
   	</property>
   </bean>
+  
+  
+  
+  
+  
   
   
   </beans>

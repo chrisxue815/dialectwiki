@@ -2,10 +2,8 @@ package org.dw.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import org.apache.struts2.components.FieldError;
 import org.dw.service.SignupService;
 import org.dw.utils.MD5;
-import org.dw.model.Authorities;
 import org.dw.model.User;
 
 
@@ -83,8 +81,6 @@ public class SignupAction extends ActionSupport {
 	
 	@Override
 	public String execute() throws Exception {
-		//System.out.println("execute invoked");
-		
 		/*
 		 * 注册账户的用户对象实体
 		 */
@@ -94,8 +90,6 @@ public class SignupAction extends ActionSupport {
 		user.setPassword(MD5.toMD5(password));
 		user.setEmail(email);
 		user.setSex(sex);
-		
-		Authorities authorities = new Authorities(username, "ROLE_USER");
 		
 		if(signupService.signup(user))
 			return SUCCESS;

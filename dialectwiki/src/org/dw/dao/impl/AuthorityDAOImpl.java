@@ -1,20 +1,19 @@
 package org.dw.dao.impl;
 
-
-
-import org.dw.dao.UserDAO;
+import org.dw.dao.AuthorityDAO;
 import org.dw.hibernate.HibernateSessionFactory;
-import org.dw.model.User;
+import org.dw.model.Authorities;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class UserDAOImpl implements UserDAO {
+public class AuthorityDAOImpl implements AuthorityDAO {
 
-	public boolean signup(User user) {
+	public boolean setAuthority(Authorities authorities) {
 		Session session = HibernateSessionFactory.getSession();
 		Transaction trans = session.beginTransaction();
-		session.save(user);
+		session.save(authorities);
 		trans.commit();
 		return true;
 	}
+
 }
