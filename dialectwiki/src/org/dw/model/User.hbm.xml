@@ -7,7 +7,7 @@
 	<class name="org.dw.model.User" table="users" catalog="dialectwiki">
 	    <id name="userid" type="java.lang.Integer">
             <column name="user_id" />
-            <generator class="identity"></generator>
+            <generator class="native"></generator>
         </id>
         
         <property name="username" type="java.lang.String">

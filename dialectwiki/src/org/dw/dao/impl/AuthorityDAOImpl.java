@@ -13,6 +13,7 @@ public class AuthorityDAOImpl implements AuthorityDAO {
 		Transaction trans = session.beginTransaction();
 		session.save(authorities);
 		trans.commit();
+		session.close();
 		return true;
 	}
 

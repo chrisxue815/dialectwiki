@@ -1,8 +1,7 @@
-package org.dw.dao;
+package org.dw.service;
 
 import org.dw.model.Word;
 
-public interface WordDAO
-{
+public interface WordService {
 	public boolean addWord(Word word);
 }

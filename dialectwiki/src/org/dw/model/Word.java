@@ -7,26 +7,19 @@ package org.dw.model;
 public class Word implements java.io.Serializable
 {
 
-  // Fields
-
   private static final long serialVersionUID = 1L;
   private Integer wordId;
   private String wordName;
 
-  // Constructors
-
-  /** default constructor */
   public Word()
   {
+	  
   }
-
-  /** full constructor */
   public Word(String wordName)
   {
     this.wordName = wordName;
   }
 
-  // Property accessors
 
   public Integer getWordId()
   {

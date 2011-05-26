@@ -26,10 +26,9 @@
   
   
   <bean id="WordDAO" class="org.dw.dao.impl.WordDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
   </bean>
+  
+  
   
   
 
@@ -39,7 +38,7 @@
   <bean id="authorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
   </bean>
 
-  <bean id="signupService" class="org.dw.service.impl.SignupServiceImpl">
+  <bean id="userService" class="org.dw.service.impl.UserServiceImpl">
   	<property name="userDAO">
   		<ref bean="userDAO" />
   	</property>
@@ -49,8 +48,8 @@
   </bean>
   
   <bean id="signupAction" class="org.dw.action.SignupAction">
-  	<property name="signupService">
-  		<ref bean="signupService" />
+  	<property name="userService">
+  		<ref bean="userService" />
   	</property>
   </bean>
   

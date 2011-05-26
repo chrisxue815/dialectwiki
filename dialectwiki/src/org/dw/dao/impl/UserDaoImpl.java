@@ -15,6 +15,7 @@ public class UserDAOImpl implements UserDAO {
 		Transaction trans = session.beginTransaction();
 		session.save(user);
 		trans.commit();
+		session.close();
 		return true;
 	}
 }

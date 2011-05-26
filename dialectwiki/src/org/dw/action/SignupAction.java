@@ -2,7 +2,7 @@ package org.dw.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import org.dw.service.SignupService;
+import org.dw.service.UserService;
 import org.dw.utils.MD5;
 import org.dw.model.User;
 
@@ -17,15 +17,9 @@ public class SignupAction extends ActionSupport {
     private	char sex;
     private	String validatecode;
     
-    private SignupService signupService;
+    private UserService userService;
     
-	public SignupService getSignupService() {
-		return signupService;
-	}
 
-	public void setSignupService(SignupService signupService) {
-		this.signupService = signupService;
-	}
 
 	public static int times = 0;
 	
@@ -78,7 +72,14 @@ public class SignupAction extends ActionSupport {
 		this.validatecode = validatecode;
 	}
 
-	
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
 	@Override
 	public String execute() throws Exception {
 		/*
@@ -91,7 +92,7 @@ public class SignupAction extends ActionSupport {
 		user.setEmail(email);
 		user.setSex(sex);
 		
-		if(signupService.signup(user))
+		if(userService.signup(user))
 			return SUCCESS;
 		else
 			return INPUT;

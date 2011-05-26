@@ -8,7 +8,7 @@
     <class name="org.dw.model.Word" table="dw_word" catalog="dialectwiki">
         <id name="wordId" type="java.lang.Integer">
             <column name="word_id" />
-            <generator class="identity"></generator>
+            <generator class="native"></generator>
         </id>
         <property name="wordName" type="java.lang.String">
             <column name="word_name" length="45" />
