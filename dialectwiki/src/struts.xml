@@ -13,6 +13,10 @@
   		<result name="input">/signup.jsp</result>
   	</action>
   	
+  	<action name="AddwordAction" class="addwordAction">
+  		<result name="success">/add_success.jsp</result>
+  		<result name="failure">/add_failure.jsp</result>
+  	</action>
   	
   </package>
   

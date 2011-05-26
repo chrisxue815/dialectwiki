@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
-
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,9 +23,10 @@
 <div class="lefth2">如果你想知道一个词条的发音或者想对一个词条进行发音，请从下面添加一个词条。</div>
 <div class="lefth3">
 词条：
-<input type="text" id="word" name="word"/>
-<br /><br />
-<input type="button" id="post"  name="post" value="  添加  "/> 
+<s:form action="AddWordAction" theme="simple">
+<s:textfield name="wordname" /><br /><br />
+<s:submit value="添加"></s:submit>
+</s:form>
 </div>
 </div>
 

@@ -75,10 +75,11 @@
 </table>
 </s:form>
 
-
+</div><!--content-->
 <jsp:include page="internal/footer.jsp" />
 
 </div><!--wrap-->
+
 
 </body>
 </html>
