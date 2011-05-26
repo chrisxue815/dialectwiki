@@ -8,7 +8,7 @@ public class City {
 	private int city_id;
 	private String city_name;
 	private Province province;
-	private Set pronunciation = new HashSet();
+	private Set<Pronunciation> pronunciation = new HashSet<Pronunciation>();
 
 	public City() {
 	}
@@ -37,11 +37,11 @@ public class City {
 		this.province = province;
 	}
 
-	public Set getPronunciation() {
+	public Set<Pronunciation> getPronunciation() {
 		return pronunciation;
 	}
 
-	public void setPronunciation(Set pronunciation) {
+	public void setPronunciation(Set<Pronunciation> pronunciation) {
 		this.pronunciation = pronunciation;
 	}
 	

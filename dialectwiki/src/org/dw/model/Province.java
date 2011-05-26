@@ -7,17 +7,17 @@ public class Province {
 	
 	private int province_id;
 	private String province_name;
-	private Set cities = new HashSet();
+	private Set<City> cities = new HashSet<City>();
 	
 	public Province() {
 		
 	}
 
-	public Set getCities() {
+	public Set<City> getCities() {
 		return cities;
 	}
 
-	public void setCities(Set cities) {
+	public void setCities(Set<City> cities) {
 		this.cities = cities;
 	}
 
