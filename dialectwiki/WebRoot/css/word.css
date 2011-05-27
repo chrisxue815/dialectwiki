@@ -96,3 +96,8 @@ border: 1px solid #DFDFDF;
 	border-bottom: 1px solid #E4E4E4;
 	font-weight: bold;
 }
+
+#word_name
+{
+	color: red;
+}

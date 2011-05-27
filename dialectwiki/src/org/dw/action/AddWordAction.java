@@ -31,14 +31,16 @@ public class AddWordAction extends ActionSupport {
   public void setWordService(WordService wordService) {
 	  this.wordService = wordService;
   }
-  public String excute(){
+  
+  
+  public String execute() {
 	  Word word = new Word();
 	  word.setWordName(wordname);
 	  
 	  if(wordService.addWord(word))
 		  return SUCCESS;
 	  else
-		  return "failure";
+		  return ERROR;
   }
   
   public void validate(){

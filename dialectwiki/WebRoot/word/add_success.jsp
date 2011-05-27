@@ -21,9 +21,9 @@
 
 <div class="left">
 <div class="lefth1">添加词条</div>
-<div class="lefth2">恭喜，成功添加词条<s:property value="wordname"></s:property>，下面您可以为它发音或者添加新词条</div>
+<div class="lefth2">恭喜，成功添加词条“ <span id="word_name"><s:property value="wordname"></s:property></span> ”，下面您可以为它发音或者添加新词条</div>
 <div class="alert">
-<a href="">为XXX发音</a></div>
+<a href="">为“ <s:property value="wordname"></s:property> ”发音</a></div>
 
 <div class="announcement">继续添加词条：</div>
 <div class="lefth3">
