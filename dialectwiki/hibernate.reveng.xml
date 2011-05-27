@@ -3,9 +3,9 @@
 
 <hibernate-reverse-engineering>
 <table name="dw_word" catalog="dialectwiki"
-	class="org.dw.hibernate.Word">
+	class="org.dw.model.Word">
 	<primary-key>
-		<generator class="identity"></generator>
+		<generator class="native"></generator>
 	</primary-key>
 </table>
 </hibernate-reverse-engineering>

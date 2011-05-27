@@ -15,8 +15,8 @@ public class WordServiceImpl implements WordService {
 		this.wordDAO = wordDAO;
 	}
 	
-	public boolean addWord(Word word){
-		return wordDAO.addWord(word);
+	public void addWord(Word word) {
+		wordDAO.save(word);
 	}
 
 

@@ -16,18 +16,23 @@ public class AddWordAction extends ActionSupport {
   public String getWordid() {
 	  return wordid;
   }
+  
   public void setWordid(String wordid) {
 	  this.wordid = wordid;
   }
+  
   public String getWordname() {
 	  return wordname;
   }
+  
   public void setWordname(String wordname) {
 	  this.wordname = wordname;
   }
+  
   public WordService getWordService() {
 	  return wordService;
   }
+  
   public void setWordService(WordService wordService) {
 	  this.wordService = wordService;
   }
@@ -37,10 +42,14 @@ public class AddWordAction extends ActionSupport {
 	  Word word = new Word();
 	  word.setWordName(wordname);
 	  
-	  if(wordService.addWord(word))
+	  try {
+	    wordService.addWord(word);
 		  return SUCCESS;
-	  else
+	  }
+	  catch (Exception ex) {
+	    ex.printStackTrace();
 		  return ERROR;
+	  }
   }
   
   public void validate(){

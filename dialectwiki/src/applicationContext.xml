@@ -13,8 +13,7 @@
 		</property>
 	</bean>
 	
-	<!-- Spring Security begins -->
-	
+	<!-- Spring Security Data Source begins -->
   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="com.mysql.jdbc.Driver" />
     <property name="url" value="jdbc:mysql://localhost:3306/dialectwiki" />
@@ -22,10 +21,29 @@
     <property name="password" value="hitchimpdw1234" />
   </bean>
   
-  <!-- Spring Security ends -->
   
+  <!-- DAO begins -->
+  <bean id="authorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
+  </bean>
+  
+  <bean id="userDAO" class="org.dw.dao.impl.UserDAOImpl">
+  </bean>
   
   <bean id="wordDAO" class="org.dw.dao.impl.WordDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  
+
+  <!-- Service begins -->
+  <bean id="userService" class="org.dw.service.impl.UserServiceImpl">
+    <property name="userDAO">
+      <ref bean="userDAO" />
+    </property>
+    <property name="authorityDAO">
+      <ref bean="authorityDAO" />
+    </property>
   </bean>
   
   <bean id="wordService" class="org.dw.service.impl.WordServiceImpl">
@@ -34,40 +52,18 @@
   	</property>
   </bean>
   
+  
+  <!-- Action begins -->
   <bean id="addWordAction" class="org.dw.action.AddWordAction">
   	<property name="wordService">
   		<ref bean="wordService" />
   	</property>
   </bean>
-  
-  
-  
 
-  <bean id="userDAO" class="org.dw.dao.impl.UserDAOImpl">
-  </bean>
-
-  <bean id="authorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
-  </bean>
-
-  <bean id="userService" class="org.dw.service.impl.UserServiceImpl">
-  	<property name="userDAO">
-  		<ref bean="userDAO" />
-  	</property>
-  	<property name="authorityDAO">
-  		<ref bean="authorityDAO" />
-  	</property>
-  </bean>
-  
   <bean id="signupAction" class="org.dw.action.SignupAction">
   	<property name="userService">
   		<ref bean="userService" />
   	</property>
   </bean>
   
-  
-  
-  
-  
-  
-  
-  </beans>
+</beans>
