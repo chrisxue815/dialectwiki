@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
-<struts>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"><struts>
   <constant name="struts.devMode" value="true"/>
   <constant name="struts.i18n.encoding" value="utf-8"/>
   
   <include file="struts-default.xml"></include>
   
-  <package name="dw_default" namespace="/" extends="struts-default">
+  <package name="dw_root" namespace="/" extends="struts-default">
   
   	<action name="SignupAction" class="signupAction">
   		<result name="success">/result.jsp</result>
   		<result name="input">/signup.jsp</result>
   	</action>
-  	
-  	<action name="AddwordAction" class="addwordAction">
+  </package>	
+
+  <package name="dw_word" namespace="/word" extends="struts-default">
+  	  <action name="AddwordAction" class="addwordAction">
   		<result name="success">/add_success.jsp</result>
   		<result name="failure">/add_failure.jsp</result>
-  	</action>
-  	
+  	</action>  	
   </package>
+
+
+
   
 
 </struts>
