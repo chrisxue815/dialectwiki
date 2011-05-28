@@ -80,6 +80,34 @@ border: 1px solid #DFDFDF;
 	font-style: normal;
 	line-height: normal;
 }
+
+.left h5{
+	font-size:18px;
+	margin: 10px 5px 10px 5px;
+	color:#390;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bolder;
+	font-variant: normal;
+	border-top:#aaa;
+	border-top-style:solid;
+	border-top-width:1px;
+}
+
+.left strong{
+	font-size: 25px;
+	color:#390;
+}
+.pro{
+	padding: 1em 5px 0.2em 5px;
+	font-size:12px;
+	font-style:normal;
+	color:#000;
+	font-weight: normal;
+	font-variant: normal;
+}
 .alert
 {
 	margin: 10px 5px 10px 5px;

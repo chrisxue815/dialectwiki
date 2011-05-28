@@ -19,6 +19,10 @@
       <result name="success">/word/add_success.jsp</result>
       <result name="error">/word/add_failure.jsp</result>
     </action>
+    
+    <action name="index" class="wordPageAction">
+    	<result name="success">/word/index.jsp</result>
+    </action>
   </package>
 
 

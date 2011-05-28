@@ -29,5 +29,9 @@ public interface WordDAO
   public void attachDirty(Word instance);
 
   public void attachClean(Word instance);
+  
+  public List<Word> findRecentWord();
+  
+  public List<Word> findHotWord();
 
 }
