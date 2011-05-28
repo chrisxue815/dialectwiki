@@ -21,7 +21,7 @@
 <div id="content">
 
 <div class="left">
-<h1>词条：<strong>XXX</strong></h1>
+<div class="lefth1">词条：<strong>XXX</strong></div>
 <h5>四川话：<a href="">我要发音</a>
 <p class="pro">[]&nbsp;&nbsp;发音者1&nbsp;XXXXXXXXXX&nbsp;&nbsp;&nbsp;发音时间2010-10-10 评价得分：xx</pre>
 <br />
