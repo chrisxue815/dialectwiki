@@ -1,0 +1,7 @@
+syntax: glob
+dialectwiki/WebRoot/WEB-INF/classes/
+*.bak
+*.orig
+*.mno
+*.mex
+mysql-connector-java-5.1.10-bin.jar
