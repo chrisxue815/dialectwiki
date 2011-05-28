@@ -66,4 +66,10 @@
   	</property>
   </bean>
   
+  <bean id="wordPageAction" class="org.dw.action.WordPageAction">
+  	<property name="wordService">
+  		<ref bean="wordService" />
+  	</property>
+  </bean>
+  
 </beans>

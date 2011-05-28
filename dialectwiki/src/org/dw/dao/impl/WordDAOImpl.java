@@ -6,8 +6,8 @@ import org.dw.dao.WordDAO;
 import org.dw.hibernate.HibernateSessionFactory;
 import org.dw.model.Word;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -185,5 +185,38 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
   public static WordDAO getFromApplicationContext(ApplicationContext ctx)
   {
     return (WordDAO) ctx.getBean("WordDAO");
+  }
+  
+  
+  /*
+   * wordNum为要查找的最近的20条word记录数
+   * * @see org.dw.dao.WordDAO#findRecentWord(int)
+   */
+  public List<Word> findRecentWord()
+  {
+	  log.debug("finding recent Word instances");
+	  try
+	  {
+		return null;
+	  }
+	  catch(RuntimeException re)
+	  {
+		log.error("find recent failed");
+		throw re;
+	  }
+	  
+  }
+  
+  public List<Word> findHotWord(){
+	  log.debug("finding hot Word instance");
+	  try{
+		  
+		  return null;
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("find hot failed");
+		  throw re;
+	  }
   }
 }
