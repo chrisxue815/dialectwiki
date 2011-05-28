@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+	
+	<!-- Spring Security Data Source begins -->
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    <property name="url" value="jdbc:mysql://localhost:3306/dialectwiki" />
+    <property name="username" value="dw_user" />
+    <property name="password" value="hitchimpdw1234" />
+  </bean>
+  
+  
+  <!-- DAO begins -->
+  <bean id="authorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
+  </bean>
+  
+  <bean id="userDAO" class="org.dw.dao.impl.UserDAOImpl">
+  </bean>
+  
+  <bean id="wordDAO" class="org.dw.dao.impl.WordDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  
+
+  <!-- Service begins -->
+  <bean id="userService" class="org.dw.service.impl.UserServiceImpl">
+    <property name="userDAO">
+      <ref bean="userDAO" />
+    </property>
+    <property name="authorityDAO">
+      <ref bean="authorityDAO" />
+    </property>
+  </bean>
+  
+  <bean id="wordService" class="org.dw.service.impl.WordServiceImpl">
+  	<property name="wordDAO">
+  		<ref bean="wordDAO" />
+  	</property>
+  </bean>
+  
+  
+  <!-- Action begins -->
+  <bean id="addWordAction" class="org.dw.action.AddWordAction">
+  	<property name="wordService">
+  		<ref bean="wordService" />
+  	</property>
+  </bean>
+
+  <bean id="signupAction" class="org.dw.action.SignupAction">
+  	<property name="userService">
+  		<ref bean="userService" />
+  	</property>
+  </bean>
+  
+</beans>
