@@ -44,7 +44,7 @@
 helsdafasdfsdf
 </div>
 <!--content-->
-
+<div style="clear: both;"> </div>
 <jsp:include page="../internal/footer.jsp" />
 
 </div><!--wrap-->
