@@ -261,9 +261,20 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 
   public List<Word> findWaitPronWord(int listSize) {
 	  return null;
-}
+  }
+  
 
-
+  public List<Word> searchWord(String value) {
+    try
+    {
+      String queryString = "from Word as model where model.wordName like '%?%'";
+      return getHibernateTemplate().find(queryString, value);
+    } catch (RuntimeException re)
+    {
+      log.error("find by property name failed", re);
+      throw re;
+    }
+  }
 
   
   

@@ -46,7 +46,9 @@ public class WordServiceImpl implements WordService {
 		return wordDAO.findAllWaitPronWord();
 	}
 	
-	
+	public List<Word> searchWord(String value) {
+	  return wordDAO.searchWord(value);
+	}
 
 
 }
