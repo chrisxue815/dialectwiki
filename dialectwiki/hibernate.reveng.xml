@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="dw_word" catalog="dialectwiki"
+		class="org.dw.model.Word">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="dw_city" catalog="dialectwiki"
+		class="org.dw.model.City">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="dw_pronunciation" catalog="dialectwiki"
+		class="org.dw.model.Pronunciation">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="dw_province" catalog="dialectwiki"
+		class="org.dw.model.Province">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="dw_vote" catalog="dialectwiki"
+		class="org.dw.model.Vote">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="users" catalog="dialectwiki"></table>
+</hibernate-reverse-engineering>
