@@ -41,6 +41,7 @@ public interface WordDAO
   public List<Word> findWaitPronWord(int listSize);
   public List<Word> findAllWaitPronWord();
   
-  
+  //搜索词条
+  public List<Word> searchWord(String value);
 
 }

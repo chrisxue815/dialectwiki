@@ -12,4 +12,5 @@ public interface WordService {
 	public List<Word> getAllRecentWords();
 	public List<Word> getAllHotWords();
 	public List<Word> getAllWaitPronWords();
+	public List<Word> searchWord(String value);
 }
