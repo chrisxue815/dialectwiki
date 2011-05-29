@@ -47,6 +47,7 @@ public class AddWordAction extends ActionSupport
   public String execute()
   {
     Word word = new Word();
+    System.out.println(wordname);
     word.setWordName(wordname);
 
     try

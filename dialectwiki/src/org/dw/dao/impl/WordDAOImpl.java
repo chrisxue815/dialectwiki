@@ -39,6 +39,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
   public void save(Word transientInstance)
   {
     log.debug("saving Word instance");
+    System.out.println("save:" +transientInstance.getWordName());
     try
     {
       getHibernateTemplate().save(transientInstance);
@@ -185,7 +186,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     log.debug("finding recent Word instances");
     try
     {
-      String queryString = "from dw_word order by dw_word.word_id desc";
+      String queryString = "from Word order by Word.wordId desc";
       Session session = HibernateSessionFactory.getSession();
       Query query = session.createQuery(queryString);
       query.setMaxResults(listSize);

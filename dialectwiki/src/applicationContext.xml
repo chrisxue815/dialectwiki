@@ -101,4 +101,10 @@
   	</property>
   </bean>
   
+  <bean id="wordHomeAction"  class="org.dw.action.WordHomeAction">
+  	<property name="wordService">
+  		<ref bean="wordService" />
+  	</property>
+  </bean>
+  
 </beans>
