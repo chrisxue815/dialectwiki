@@ -8,4 +8,8 @@ public interface WordService {
 	public void addWord(Word word);
 	public List<Word> getRecentWords();
 	public List<Word> getHotWords();
+	public List<Word> getWaitPronWords();
+	public List<Word> getAllRecentWords();
+	public List<Word> getAllHotWords();
+	public List<Word> getAllWaitPronWords();
 }

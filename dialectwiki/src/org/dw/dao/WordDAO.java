@@ -30,8 +30,17 @@ public interface WordDAO
 
   public void attachClean(Word instance);
   
-  public List<Word> findRecentWord();
+  //查找新添加的词条
+  public List<Word> findRecentWord(int listSize);
+  public List<Word> findAllRecentWord();
+  //查找较热门的词条
+  public List<Word> findHotWord(int listSize);
+  public List<Word> findAllHotWord();
+   
+  //查找待发音的词条
+  public List<Word> findWaitPronWord(int listSize);
+  public List<Word> findAllWaitPronWord();
   
-  public List<Word> findHotWord();
+  
 
 }

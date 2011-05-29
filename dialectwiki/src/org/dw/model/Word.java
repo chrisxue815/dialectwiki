@@ -1,5 +1,8 @@
 package org.dw.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Word entity. @author MyEclipse Persistence Tools
  */
@@ -10,7 +13,7 @@ public class Word implements java.io.Serializable
   private static final long serialVersionUID = 1L;
   private Integer wordId;
   private String wordName;
-
+  private Set<Pronunciation> prons = new HashSet<Pronunciation>();
   public Word()
   {
 	  

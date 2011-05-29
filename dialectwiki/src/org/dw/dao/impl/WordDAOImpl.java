@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.dw.dao.WordDAO;
 import org.dw.hibernate.HibernateSessionFactory;
+import org.dw.macro.MACRO_WORD;
 import org.dw.model.Word;
 import org.hibernate.LockMode;
 import org.hibernate.Query;
@@ -193,7 +194,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
    * wordNum为要查找的最近的20条word记录数
    * * @see org.dw.dao.WordDAO#findRecentWord(int)
    */
-  public List<Word> findRecentWord()
+  public List<Word> findRecentWord(int listSize)
   {
 	  log.debug("finding recent Word instances");
 	  try
@@ -201,7 +202,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 		String queryString = "from dw_word order by dw_word.word_id desc"; 
 		Session session = HibernateSessionFactory.getSession(); 
 		Query query = session.createQuery(queryString);
-		query.setMaxResults(20);
+		query.setMaxResults(listSize);
 		List<Word> recentWords = query.list();
 		return recentWords;
 	  }
@@ -213,11 +214,32 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 	  
   }
   
-  public List<Word> findHotWord(){
+  //最近的所有词条，限制长度为100
+  public List<Word> findAllRecentWord(){
+	  log.debug("finding all rencent Word instances");
+	  try
+	  {
+		  String queryString = "";
+		  Session session = HibernateSessionFactory.getSession();
+		  Query query = session.createQuery(queryString);
+		  query.setMaxResults(MACRO_WORD.LIST_SIZE_MAX);
+		  List<Word> allRecentWords = query.list();
+		  return allRecentWords;
+	  }
+	  catch (RuntimeException re)
+	  {
+		  log.error("find all recent failed");
+		  throw re;
+	  }
+	  
+  }
+  
+  //Random pick
+  public List<Word> findHotWord(int listSize){
 	  log.debug("finding hot Word instance");
-	  try{
-		  
-		  return null;
+	  try
+	  {
+		  return null;		  
 	  }
 	  catch(RuntimeException re)
 	  {
@@ -225,4 +247,24 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 		  throw re;
 	  }
   }
+
+
+  public List<Word> findAllHotWord() {
+	  return null;
+  }
+
+
+  public List<Word> findAllWaitPronWord() {
+	  return null;
+  }
+
+
+  public List<Word> findWaitPronWord(int listSize) {
+	  return null;
+}
+
+
+
+  
+  
 }
