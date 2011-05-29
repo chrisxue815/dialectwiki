@@ -60,5 +60,10 @@ public class WordServiceImpl implements WordService
   {
     return wordDAO.searchWord(value);
   }
+  
+  public Word getById(int wordIdInt)
+  {
+    return wordDAO.findById(wordIdInt);
+  }
 
 }

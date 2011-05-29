@@ -21,4 +21,6 @@ public interface WordService
   public List<Word> getAllWaitPronWords();
 
   public List<Word> searchWord(String value);
+
+  public Word getById(int wordIdInt);
 }

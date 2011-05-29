@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,10 +8,19 @@
 <link rel="stylesheet" type="text/css" href="css/style1.css" />
 <link rel="stylesheet" type="text/css" href="css/pronounce.css" />
 
+<script type="text/javascript" src="js/swfobject.js"></script>
+<script type="text/javascript">
+function loadSwf() {
+  var so = new SWFObject("swf/record.swf", "MyMovie", "350", "300", "10", "#FFF");
+  so.write("flash");
+  so.addVariable("wordId", "<s:property value="word.wordId" />");
+}
+</script>
+
 <title>发音</title>
 </head>
 
-<body>
+<body onload="loadSwf()">
 
 <div id="wrap">
 
@@ -19,18 +29,9 @@
 <div id="content">
 <div class="left">
 <div class="inner">您正在录制发音：
-<h1>哈工大</h1>
-<strong>东北话</strong></div>
-<td align="center"><div id="flash">this is a flash!</div></td>
-
-<script type="text/javascript" src="swfobject.js"></script>
-<script type="text/javascript">
-  // <![CDATA[
-  var so = new SWFObject("record.swf", "MyMovie", "350", "300", "10", "#FFF");
-  
-  so.write("flash");
-  // ]]>
-</script>
+<h1><s:property value="word.wordName" /></h1>
+</div>
+<div id="flash">this is a flash!</div>
 </div>
 
 <div class="right">

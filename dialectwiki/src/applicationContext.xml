@@ -26,7 +26,30 @@
   <bean id="authorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
   </bean>
   
+  <bean id="cityDAO" class="org.dw.dao.impl.CityDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="pronunciationDAO" class="org.dw.dao.impl.PronunciationDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="provinceDAO" class="org.dw.dao.impl.ProvinceDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  
   <bean id="userDAO" class="org.dw.dao.impl.UserDAOImpl">
+  </bean>
+  
+  <bean id="voteDAO" class="org.dw.dao.impl.VoteDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
   </bean>
   
   <bean id="wordDAO" class="org.dw.dao.impl.WordDAOImpl">
@@ -34,7 +57,7 @@
       <ref bean="sessionFactory" />
     </property>
   </bean>
-  
+
 
   <!-- Service begins -->
   <bean id="userService" class="org.dw.service.impl.UserServiceImpl">
@@ -59,6 +82,12 @@
   		<ref bean="wordService" />
   	</property>
   </bean>
+  
+  <bean id="pronouncePageAction" class="org.dw.action.PronouncePageAction">
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+  </bean>
 
   <bean id="signupAction" class="org.dw.action.SignupAction">
   	<property name="userService">
@@ -72,23 +101,4 @@
   	</property>
   </bean>
   
-  <bean id="CityDAO" class="org.dw.dao.impl.CityDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
-  </bean>
-  <bean id="VoteDAO" class="org.dw.dao.impl.VoteDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
-  </bean>
-  <bean id="PronunciationDAO" class="org.dw.dao.impl.PronunciationDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
-  </bean>
-  <bean id="ProvinceDAO" class="org.dw.dao.impl.ProvinceDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
-  </bean></beans>
+</beans>

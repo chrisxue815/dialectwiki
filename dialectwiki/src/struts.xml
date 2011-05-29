@@ -5,8 +5,15 @@
   
   <include file="struts-default.xml"></include>
   
+  <!-- / -->
   <package name="dw_root" namespace="/" extends="struts-default">
   
+    <action name="Pronounce" class="pronouncePageAction">
+      <result name="success">/pronounce.jsp</result>
+      <result name="input">/word/add.jsp</result>
+      <result name="error">/word/add.jsp</result>
+    </action>
+    
   	<action name="SignupAction" class="signupAction">
   		<result name="success">/result.jsp</result>
   		<result name="input">/signup.jsp</result>
@@ -14,7 +21,10 @@
  
   </package>
   
+  
+  <!-- /word -->
   <package name="dw_word" namespace="/word" extends="struts-default">
+  
     <action name="AddWordAction" class="addWordAction">
       <result name="success">/word/add_success.jsp</result>
       <result name="error">/word/add_failure.jsp</result>
@@ -23,6 +33,7 @@
     <action name="index" class="wordPageAction">
     	<result name="success">/word/index.jsp</result>
     </action>
+    
   </package>
 
 
