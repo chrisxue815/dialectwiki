@@ -3,38 +3,67 @@ package org.dw.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Province {
-	
-	private int province_id;
-	private String province_name;
-	private Set<City> cities = new HashSet<City>();
-	
-	public Province() {
-		
-	}
 
-	public Set<City> getCities() {
-		return cities;
-	}
+/**
+ * Province entity. @author MyEclipse Persistence Tools
+ */
 
-	public void setCities(Set<City> cities) {
-		this.cities = cities;
-	}
+public class Province  implements java.io.Serializable {
 
-	public int getProvince_id() {
-		return province_id;
-	}
 
-	public void setProvince_id(int provinceId) {
-		province_id = provinceId;
-	}
+    // Fields    
 
-	public String getProvince_name() {
-		return province_name;
-	}
+     private Integer provinceId;
+     private String provinceName;
+     private Set cities = new HashSet(0);
 
-	public void setProvince_name(String provinceName) {
-		province_name = provinceName;
-	}
+
+    // Constructors
+
+    /** default constructor */
+    public Province() {
+    }
+
+    
+    /** full constructor */
+    public Province(String provinceName, Set cities) {
+        this.provinceName = provinceName;
+        this.cities = cities;
+    }
+
+   
+    // Property accessors
+
+    public Integer getProvinceId() {
+        return this.provinceId;
+    }
+    
+    public void setProvinceId(Integer provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    public String getProvinceName() {
+        return this.provinceName;
+    }
+    
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public Set getCities() {
+        return this.cities;
+    }
+    
+    public void setCities(Set cities) {
+        this.cities = cities;
+    }
+   
+
+
+
+
+
+
+
 
 }

@@ -1,89 +1,138 @@
 package org.dw.model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 
-public class Pronunciation {
-	
-	private int pron_id;
-	private String pr_url;
-	private String upload_date;
-	private User user;
-	private Dialect dialect;
-	private Word word;
-	private City city;
-	private Set votes = new HashSet();
+/**
+ * Pronunciation entity. @author MyEclipse Persistence Tools
+ */
 
-	public Pronunciation() {
-		
-	}
+public class Pronunciation  implements java.io.Serializable {
 
-	public int getPron_id() {
-		return pron_id;
-	}
 
-	public void setPron_id(int pronId) {
-		pron_id = pronId;
-	}
+    // Fields    
 
-	public String getPr_url() {
-		return pr_url;
-	}
+     private Integer pronId;
+     private City city;
+     private Integer userId;
+     private Integer wordId;
+     private String prUrl;
+     private Date uploadDate;
+     private Integer goodVoteNum;
+     private Integer badVoteNum;
+     private Set votes = new HashSet(0);
 
-	public void setPr_url(String prUrl) {
-		pr_url = prUrl;
-	}
 
-	public String getUpload_date() {
-		return upload_date;
-	}
+    // Constructors
 
-	public void setUpload_date(String uploadDate) {
-		upload_date = uploadDate;
-	}
+    /** default constructor */
+    public Pronunciation() {
+    }
 
-	public User getUser() {
-		return user;
-	}
+	/** minimal constructor */
+    public Pronunciation(City city, Integer userId, Integer wordId, Integer goodVoteNum, Integer badVoteNum) {
+        this.city = city;
+        this.userId = userId;
+        this.wordId = wordId;
+        this.goodVoteNum = goodVoteNum;
+        this.badVoteNum = badVoteNum;
+    }
+    
+    /** full constructor */
+    public Pronunciation(City city, Integer userId, Integer wordId, String prUrl, Date uploadDate, Integer goodVoteNum, Integer badVoteNum, Set votes) {
+        this.city = city;
+        this.userId = userId;
+        this.wordId = wordId;
+        this.prUrl = prUrl;
+        this.uploadDate = uploadDate;
+        this.goodVoteNum = goodVoteNum;
+        this.badVoteNum = badVoteNum;
+        this.votes = votes;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+   
+    // Property accessors
 
-	public Dialect getDialect() {
-		return dialect;
-	}
+    public Integer getPronId() {
+        return this.pronId;
+    }
+    
+    public void setPronId(Integer pronId) {
+        this.pronId = pronId;
+    }
 
-	public void setDialect(Dialect dialect) {
-		this.dialect = dialect;
-	}
+    public City getCity() {
+        return this.city;
+    }
+    
+    public void setCity(City city) {
+        this.city = city;
+    }
 
-	public Word getWord() {
-		return word;
-	}
+    public Integer getUserId() {
+        return this.userId;
+    }
+    
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-	public void setWord(Word word) {
-		this.word = word;
-	}
+    public Integer getWordId() {
+        return this.wordId;
+    }
+    
+    public void setWordId(Integer wordId) {
+        this.wordId = wordId;
+    }
 
-	public City getCity() {
-		return city;
-	}
+    public String getPrUrl() {
+        return this.prUrl;
+    }
+    
+    public void setPrUrl(String prUrl) {
+        this.prUrl = prUrl;
+    }
 
-	public void setCity(City city) {
-		this.city = city;
-	}
+    public Date getUploadDate() {
+        return this.uploadDate;
+    }
+    
+    public void setUploadDate(Date uploadDate) {
+        this.uploadDate = uploadDate;
+    }
 
-	public Set getVotes() {
-		return votes;
-	}
+    public Integer getGoodVoteNum() {
+        return this.goodVoteNum;
+    }
+    
+    public void setGoodVoteNum(Integer goodVoteNum) {
+        this.goodVoteNum = goodVoteNum;
+    }
 
-	public void setVotes(Set votes) {
-		this.votes = votes;
-	}
-	
-	
-	
+    public Integer getBadVoteNum() {
+        return this.badVoteNum;
+    }
+    
+    public void setBadVoteNum(Integer badVoteNum) {
+        this.badVoteNum = badVoteNum;
+    }
+
+    public Set getVotes() {
+        return this.votes;
+    }
+    
+    public void setVotes(Set votes) {
+        this.votes = votes;
+    }
+   
+
+
+
+
+
+
+
 
 }

@@ -72,4 +72,23 @@
   	</property>
   </bean>
   
-</beans>
+  <bean id="CityDAO" class="org.dw.dao.impl.CityDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+  <bean id="VoteDAO" class="org.dw.dao.impl.VoteDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+  <bean id="PronunciationDAO" class="org.dw.dao.impl.PronunciationDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+  <bean id="ProvinceDAO" class="org.dw.dao.impl.ProvinceDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean></beans>

@@ -3,48 +3,81 @@ package org.dw.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class City {
-	
-	private int city_id;
-	private String city_name;
-	private Province province;
-	private Set<Pronunciation> pronunciation = new HashSet<Pronunciation>();
 
-	public City() {
-	}
+/**
+ * City entity. @author MyEclipse Persistence Tools
+ */
 
-	public int getCity_id() {
-		return city_id;
-	}
+public class City  implements java.io.Serializable {
 
-	public void setCity_id(int cityId) {
-		city_id = cityId;
-	}
 
-	public String getCity_name() {
-		return city_name;
-	}
+    // Fields    
 
-	public void setCity_name(String cityName) {
-		city_name = cityName;
-	}
+     private Integer cityId;
+     private Province province;
+     private String cityName;
+     private Set pronunciations = new HashSet(0);
 
-	public Province getProvince() {
-		return province;
-	}
 
-	public void setProvince(Province province) {
-		this.province = province;
-	}
+    // Constructors
 
-	public Set<Pronunciation> getPronunciation() {
-		return pronunciation;
-	}
+    /** default constructor */
+    public City() {
+    }
 
-	public void setPronunciation(Set<Pronunciation> pronunciation) {
-		this.pronunciation = pronunciation;
-	}
-	
-	
+	/** minimal constructor */
+    public City(Province province) {
+        this.province = province;
+    }
+    
+    /** full constructor */
+    public City(Province province, String cityName, Set pronunciations) {
+        this.province = province;
+        this.cityName = cityName;
+        this.pronunciations = pronunciations;
+    }
+
+   
+    // Property accessors
+
+    public Integer getCityId() {
+        return this.cityId;
+    }
+    
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
+    }
+
+    public Province getProvince() {
+        return this.province;
+    }
+    
+    public void setProvince(Province province) {
+        this.province = province;
+    }
+
+    public String getCityName() {
+        return this.cityName;
+    }
+    
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public Set getPronunciations() {
+        return this.pronunciations;
+    }
+    
+    public void setPronunciations(Set pronunciations) {
+        this.pronunciations = pronunciations;
+    }
+   
+
+
+
+
+
+
+
 
 }

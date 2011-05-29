@@ -31,13 +31,11 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 {
   private static final Logger log = LoggerFactory.getLogger(WordDAOImpl.class);
 
-  
   protected void initDao()
   {
     // do nothing
   }
 
-  
   public void save(Word transientInstance)
   {
     log.debug("saving Word instance");
@@ -52,7 +50,6 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  
   public void delete(Word persistentInstance)
   {
     log.debug("deleting Word instance");
@@ -67,7 +64,6 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  
   public Word findById(java.lang.Integer id)
   {
     log.debug("getting Word instance with id: " + id);
@@ -83,7 +79,6 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  
   public List<Word> findByExample(Word instance)
   {
     log.debug("finding Word instance by example");
@@ -98,7 +93,6 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
       throw re;
     }
   }
-
 
   public List<Word> findByProperty(String propertyName, Object value)
   {
@@ -116,12 +110,10 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-
   public List<Word> findByWordName(Object wordName)
   {
     return findByProperty(WORD_NAME, wordName);
   }
-
 
   public List<Word> findAll()
   {
@@ -136,7 +128,6 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
       throw re;
     }
   }
-
 
   public Word merge(Word detachedInstance)
   {
@@ -153,7 +144,6 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-
   public void attachDirty(Word instance)
   {
     log.debug("attaching dirty Word instance");
@@ -167,7 +157,6 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
       throw re;
     }
   }
-
 
   public void attachClean(Word instance)
   {
@@ -183,88 +172,84 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  
   public static WordDAO getFromApplicationContext(ApplicationContext ctx)
   {
     return (WordDAO) ctx.getBean("WordDAO");
   }
-  
-  
+
   /*
-   * wordNum为要查找的最近的20条word记录数
-   * * @see org.dw.dao.WordDAO#findRecentWord(int)
+   * wordNum为要查找的最近的20条word记录数 * @see org.dw.dao.WordDAO#findRecentWord(int)
    */
   public List<Word> findRecentWord(int listSize)
   {
-	  log.debug("finding recent Word instances");
-	  try
-	  {
-		String queryString = "from dw_word order by dw_word.word_id desc"; 
-		Session session = HibernateSessionFactory.getSession(); 
-		Query query = session.createQuery(queryString);
-		query.setMaxResults(listSize);
-		List<Word> recentWords = query.list();
-		return recentWords;
-	  }
-	  catch(RuntimeException re)
-	  {
-		log.error("find recent failed");
-		throw re;
-	  }
-	  
-  }
-  
-  //最近的所有词条，限制长度为100
-  public List<Word> findAllRecentWord(){
-	  log.debug("finding all rencent Word instances");
-	  try
-	  {
-		  String queryString = "";
-		  Session session = HibernateSessionFactory.getSession();
-		  Query query = session.createQuery(queryString);
-		  query.setMaxResults(MACRO_WORD.LIST_SIZE_MAX);
-		  List<Word> allRecentWords = query.list();
-		  return allRecentWords;
-	  }
-	  catch (RuntimeException re)
-	  {
-		  log.error("find all recent failed");
-		  throw re;
-	  }
-	  
-  }
-  
-  //Random pick
-  public List<Word> findHotWord(int listSize){
-	  log.debug("finding hot Word instance");
-	  try
-	  {
-		  return null;		  
-	  }
-	  catch(RuntimeException re)
-	  {
-		  log.error("find hot failed");
-		  throw re;
-	  }
+    log.debug("finding recent Word instances");
+    try
+    {
+      String queryString = "from dw_word order by dw_word.word_id desc";
+      Session session = HibernateSessionFactory.getSession();
+      Query query = session.createQuery(queryString);
+      query.setMaxResults(listSize);
+      List<Word> recentWords = query.list();
+      return recentWords;
+    } catch (RuntimeException re)
+    {
+      log.error("find recent failed");
+      throw re;
+    }
+
   }
 
+  // 最近的所有词条，限制长度为100
+  public List<Word> findAllRecentWord()
+  {
+    log.debug("finding all rencent Word instances");
+    try
+    {
+      String queryString = "";
+      Session session = HibernateSessionFactory.getSession();
+      Query query = session.createQuery(queryString);
+      query.setMaxResults(MACRO_WORD.LIST_SIZE_MAX);
+      List<Word> allRecentWords = query.list();
+      return allRecentWords;
+    } catch (RuntimeException re)
+    {
+      log.error("find all recent failed");
+      throw re;
+    }
 
-  public List<Word> findAllHotWord() {
-	  return null;
   }
 
-
-  public List<Word> findAllWaitPronWord() {
-	  return null;
+  // Random pick
+  public List<Word> findHotWord(int listSize)
+  {
+    log.debug("finding hot Word instance");
+    try
+    {
+      return null;
+    } catch (RuntimeException re)
+    {
+      log.error("find hot failed");
+      throw re;
+    }
   }
 
-
-  public List<Word> findWaitPronWord(int listSize) {
-	  return null;
+  public List<Word> findAllHotWord()
+  {
+    return null;
   }
-  
 
-  public List<Word> searchWord(String value) {
+  public List<Word> findAllWaitPronWord()
+  {
+    return null;
+  }
+
+  public List<Word> findWaitPronWord(int listSize)
+  {
+    return null;
+  }
+
+  public List<Word> searchWord(String value)
+  {
     try
     {
       String queryString = "from Word as model where model.wordName like '%?%'";
@@ -276,6 +261,4 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  
-  
 }
