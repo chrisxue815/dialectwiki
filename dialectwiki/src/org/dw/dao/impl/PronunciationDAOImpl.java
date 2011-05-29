@@ -99,12 +99,12 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements
    * @see
    * org.dw.dao.impl.PronunciationDAO#findByExample(org.dw.model.Pronunciation)
    */
-  public List findByExample(Pronunciation instance)
+  public List<Pronunciation> findByExample(Pronunciation instance)
   {
     log.debug("finding Pronunciation instance by example");
     try
     {
-      List results = getHibernateTemplate().findByExample(instance);
+      List<Pronunciation> results = getHibernateTemplate().findByExample(instance);
       log.debug("find by example successful, result size: " + results.size());
       return results;
     } catch (RuntimeException re)
@@ -120,7 +120,7 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements
    * @see org.dw.dao.impl.PronunciationDAO#findByProperty(java.lang.String,
    * java.lang.Object)
    */
-  public List findByProperty(String propertyName, Object value)
+  public List<Pronunciation> findByProperty(String propertyName, Object value)
   {
     log.debug("finding Pronunciation instance with property: " + propertyName
         + ", value: " + value);
@@ -141,7 +141,7 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements
    * 
    * @see org.dw.dao.impl.PronunciationDAO#findByUserId(java.lang.Object)
    */
-  public List findByUserId(Object userId)
+  public List<Pronunciation> findByUserId(Object userId)
   {
     return findByProperty(USER_ID, userId);
   }
@@ -151,7 +151,7 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements
    * 
    * @see org.dw.dao.impl.PronunciationDAO#findByWordId(java.lang.Object)
    */
-  public List findByWordId(Object wordId)
+  public List<Pronunciation> findByWordId(Object wordId)
   {
     return findByProperty(WORD_ID, wordId);
   }
@@ -161,7 +161,7 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements
    * 
    * @see org.dw.dao.impl.PronunciationDAO#findByPrUrl(java.lang.Object)
    */
-  public List findByPrUrl(Object prUrl)
+  public List<Pronunciation> findByPrUrl(Object prUrl)
   {
     return findByProperty(PR_URL, prUrl);
   }
@@ -171,7 +171,7 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements
    * 
    * @see org.dw.dao.impl.PronunciationDAO#findByGoodVoteNum(java.lang.Object)
    */
-  public List findByGoodVoteNum(Object goodVoteNum)
+  public List<Pronunciation> findByGoodVoteNum(Object goodVoteNum)
   {
     return findByProperty(GOOD_VOTE_NUM, goodVoteNum);
   }
@@ -181,7 +181,7 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements
    * 
    * @see org.dw.dao.impl.PronunciationDAO#findByBadVoteNum(java.lang.Object)
    */
-  public List findByBadVoteNum(Object badVoteNum)
+  public List<Pronunciation> findByBadVoteNum(Object badVoteNum)
   {
     return findByProperty(BAD_VOTE_NUM, badVoteNum);
   }
@@ -191,7 +191,7 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements
    * 
    * @see org.dw.dao.impl.PronunciationDAO#findAll()
    */
-  public List findAll()
+  public List<Pronunciation> findAll()
   {
     log.debug("finding all Pronunciation instances");
     try

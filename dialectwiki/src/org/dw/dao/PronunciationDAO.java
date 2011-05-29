@@ -20,21 +20,21 @@ public interface PronunciationDAO
 
   public Pronunciation findById(java.lang.Integer id);
 
-  public List findByExample(Pronunciation instance);
+  public List<Pronunciation> findByExample(Pronunciation instance);
 
-  public List findByProperty(String propertyName, Object value);
+  public List<Pronunciation> findByProperty(String propertyName, Object value);
 
-  public List findByUserId(Object userId);
+  public List<Pronunciation> findByUserId(Object userId);
 
-  public List findByWordId(Object wordId);
+  public List<Pronunciation> findByWordId(Object wordId);
 
-  public List findByPrUrl(Object prUrl);
+  public List<Pronunciation> findByPrUrl(Object prUrl);
 
-  public List findByGoodVoteNum(Object goodVoteNum);
+  public List<Pronunciation> findByGoodVoteNum(Object goodVoteNum);
 
-  public List findByBadVoteNum(Object badVoteNum);
+  public List<Pronunciation> findByBadVoteNum(Object badVoteNum);
 
-  public List findAll();
+  public List<Pronunciation> findAll();
 
   public Pronunciation merge(Pronunciation detachedInstance);
 
