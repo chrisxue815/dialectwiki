@@ -3,67 +3,63 @@ package org.dw.model;
 import java.util.HashSet;
 import java.util.Set;
 
-
 /**
  * Province entity. @author MyEclipse Persistence Tools
  */
 
-public class Province  implements java.io.Serializable {
+public class Province implements java.io.Serializable
+{
 
+  // Fields
 
-    // Fields    
+  private Integer provinceId;
+  private String provinceName;
+  private Set cities = new HashSet(0);
 
-     private Integer provinceId;
-     private String provinceName;
-     private Set cities = new HashSet(0);
+  // Constructors
 
+  /** default constructor */
+  public Province()
+  {
+  }
 
-    // Constructors
+  /** full constructor */
+  public Province(String provinceName, Set cities)
+  {
+    this.provinceName = provinceName;
+    this.cities = cities;
+  }
 
-    /** default constructor */
-    public Province() {
-    }
+  // Property accessors
 
-    
-    /** full constructor */
-    public Province(String provinceName, Set cities) {
-        this.provinceName = provinceName;
-        this.cities = cities;
-    }
+  public Integer getProvinceId()
+  {
+    return this.provinceId;
+  }
 
-   
-    // Property accessors
+  public void setProvinceId(Integer provinceId)
+  {
+    this.provinceId = provinceId;
+  }
 
-    public Integer getProvinceId() {
-        return this.provinceId;
-    }
-    
-    public void setProvinceId(Integer provinceId) {
-        this.provinceId = provinceId;
-    }
+  public String getProvinceName()
+  {
+    return this.provinceName;
+  }
 
-    public String getProvinceName() {
-        return this.provinceName;
-    }
-    
-    public void setProvinceName(String provinceName) {
-        this.provinceName = provinceName;
-    }
+  public void setProvinceName(String provinceName)
+  {
+    this.provinceName = provinceName;
+  }
 
-    public Set getCities() {
-        return this.cities;
-    }
-    
-    public void setCities(Set cities) {
-        this.cities = cities;
-    }
-   
+  public Set getCities()
+  {
+    return this.cities;
+  }
 
-
-
-
-
-
-
+  public void setCities(Set cities)
+  {
+    this.cities = cities;
+  }
 
 }

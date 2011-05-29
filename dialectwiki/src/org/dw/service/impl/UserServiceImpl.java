@@ -7,29 +7,35 @@ import org.dw.service.UserService;
 import org.dw.macro.MACRO_USER;
 import org.dw.model.User;
 
+public class UserServiceImpl implements UserService
+{
+  private UserDAO userDAO;
+  private AuthorityDAO authorityDAO;
 
-public class UserServiceImpl implements UserService {
-	private UserDAO userDAO;
-	private AuthorityDAO authorityDAO;
-	
-	public UserDAO getUserDAO() {
-		return userDAO;
-	}
-	
-	public void setUserDAO(UserDAO userDAO) {
-		this.userDAO = userDAO;
-	}
+  public UserDAO getUserDAO()
+  {
+    return userDAO;
+  }
 
-	public AuthorityDAO getAuthorityDAO() {
-		return authorityDAO;
-	}
+  public void setUserDAO(UserDAO userDAO)
+  {
+    this.userDAO = userDAO;
+  }
 
-	public void setAuthorityDAO(AuthorityDAO authorityDAO) {
-		this.authorityDAO = authorityDAO;
-	}
+  public AuthorityDAO getAuthorityDAO()
+  {
+    return authorityDAO;
+  }
 
-	public boolean signup(User user) {
-		Authorities authorities = new Authorities(user.getUsername(), MACRO_USER.ROLE_USER);
-		return (userDAO.signup(user)&& authorityDAO.setAuthority(authorities));
-	}	
+  public void setAuthorityDAO(AuthorityDAO authorityDAO)
+  {
+    this.authorityDAO = authorityDAO;
+  }
+
+  public boolean signup(User user)
+  {
+    Authorities authorities = new Authorities(user.getUsername(),
+        MACRO_USER.ROLE_USER);
+    return (userDAO.signup(user) && authorityDAO.setAuthority(authorities));
+  }
 }

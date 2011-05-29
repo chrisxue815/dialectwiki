@@ -7,59 +7,66 @@ import org.dw.service.WordService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class WordPageAction extends ActionSupport {
+public class WordPageAction extends ActionSupport
+{
 
-	private static final long serialVersionUID = -1524961208097493937L;
-	
-	private WordService wordService;
-	
-	//最近的词条
-	private List<Word> recentWords;
-	
-	//热门词条
-	private List<Word> hotWords;
-	
-	private Word word;
+  private static final long serialVersionUID = -1524961208097493937L;
 
-	public Word getWord() {
-		return word;
-	}
+  private WordService wordService;
 
-	public void setWord(Word word) {
-		this.word = word;
-	}
+  // 最近的词条
+  private List<Word> recentWords;
 
-	public WordService getWordService() {
-		return wordService;
-	}
+  // 热门词条
+  private List<Word> hotWords;
 
-	public void setWordService(WordService wordService) {
-		this.wordService = wordService;
-	}
-	
-	public List<Word> getRecentWords() {
-		return recentWords;
-	}
+  private Word word;
 
-	public void setRecentWords(List<Word> recentWords) {
-		this.recentWords = recentWords;
-	}
+  public Word getWord()
+  {
+    return word;
+  }
 
+  public void setWord(Word word)
+  {
+    this.word = word;
+  }
 
-	public List<Word> getHotWords() {
-		return hotWords;
-	}
+  public WordService getWordService()
+  {
+    return wordService;
+  }
 
-	public void setHotWords(List<Word> hotWords) {
-		this.hotWords = hotWords;
-	}
+  public void setWordService(WordService wordService)
+  {
+    this.wordService = wordService;
+  }
 
-	public String execute(){
-		List<Word> recentWords = wordService.getRecentWords();
-		System.out.println(recentWords.size());
-		return SUCCESS;
-	}
-	
-	
+  public List<Word> getRecentWords()
+  {
+    return recentWords;
+  }
+
+  public void setRecentWords(List<Word> recentWords)
+  {
+    this.recentWords = recentWords;
+  }
+
+  public List<Word> getHotWords()
+  {
+    return hotWords;
+  }
+
+  public void setHotWords(List<Word> hotWords)
+  {
+    this.hotWords = hotWords;
+  }
+
+  public String execute()
+  {
+    List<Word> recentWords = wordService.getRecentWords();
+    System.out.println(recentWords.size());
+    return SUCCESS;
+  }
 
 }

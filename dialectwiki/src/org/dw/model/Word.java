@@ -13,16 +13,17 @@ public class Word implements java.io.Serializable
   private static final long serialVersionUID = 1L;
   private Integer wordId;
   private String wordName;
+  private Set<Pronunciation> prons = new HashSet<Pronunciation>();
 
   public Word()
   {
-	  
+
   }
+
   public Word(String wordName)
   {
     this.wordName = wordName;
   }
-
 
   public Integer getWordId()
   {
@@ -44,5 +45,14 @@ public class Word implements java.io.Serializable
     this.wordName = wordName;
   }
 
+  public void setProns(Set<Pronunciation> prons)
+  {
+    this.prons = prons;
+  }
+
+  public Set<Pronunciation> getProns()
+  {
+    return prons;
+  }
 
 }

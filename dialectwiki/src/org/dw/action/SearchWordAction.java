@@ -10,41 +10,49 @@ import com.opensymphony.xwork2.ActionSupport;
 public class SearchWordAction extends ActionSupport
 {
   private static final long serialVersionUID = 1L;
-  
+
   private String wordName;
   private WordService wordService;
   private List<Word> words;
 
-  public String getWordName() {
+  public String getWordName()
+  {
     return wordName;
   }
-  
-  public void setWordName(String wordName) {
+
+  public void setWordName(String wordName)
+  {
     this.wordName = wordName;
   }
-  
-  public WordService getWordService() {
+
+  public WordService getWordService()
+  {
     return wordService;
   }
-  
-  public void setWordService(WordService wordService) {
+
+  public void setWordService(WordService wordService)
+  {
     this.wordService = wordService;
   }
-  
-  public List<Word> getWords() {
+
+  public List<Word> getWords()
+  {
     return words;
   }
 
-  public void setWords(List<Word> words) {
+  public void setWords(List<Word> words)
+  {
     this.words = words;
   }
-  
-  public String execute() {
-    try {
+
+  public String execute()
+  {
+    try
+    {
       words = wordService.searchWord(wordName);
       return SUCCESS;
-    }
-    catch (Exception ex) {
+    } catch (Exception ex)
+    {
       ex.printStackTrace();
       return ERROR;
     }

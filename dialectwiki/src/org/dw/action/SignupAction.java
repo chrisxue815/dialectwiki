@@ -6,95 +6,107 @@ import org.dw.service.UserService;
 import org.dw.utils.MD5;
 import org.dw.model.User;
 
+public class SignupAction extends ActionSupport
+{
 
-public class SignupAction extends ActionSupport {
-  
-    private static final long serialVersionUID = 1L;
-    private String username;
-    private	String password;
-    private	String password2;
-    private	String email;
-    private	char sex;
-    private	String validatecode;
-    
-    private UserService userService;
-    
+  private static final long serialVersionUID = 1L;
+  private String username;
+  private String password;
+  private String password2;
+  private String email;
+  private char sex;
+  private String validatecode;
 
+  private UserService userService;
 
-	public static int times = 0;
-	
-	
-	public String getUsername() {
-		return username;
-	}
+  public static int times = 0;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+  public String getUsername()
+  {
+    return username;
+  }
 
-	public String getPassword() {
-		return password;
-	}
+  public void setUsername(String username)
+  {
+    this.username = username;
+  }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+  public String getPassword()
+  {
+    return password;
+  }
 
-	public String getPassword2() {
-		return password2;
-	}
+  public void setPassword(String password)
+  {
+    this.password = password;
+  }
 
-	public void setPassword2(String password2) {
-		this.password2 = password2;
-	}
+  public String getPassword2()
+  {
+    return password2;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public void setPassword2(String password2)
+  {
+    this.password2 = password2;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public String getEmail()
+  {
+    return email;
+  }
 
-	public char getSex() {
-		return sex;
-	}
+  public void setEmail(String email)
+  {
+    this.email = email;
+  }
 
-	public void setSex(char sex) {
-		this.sex = sex;
-	}
+  public char getSex()
+  {
+    return sex;
+  }
 
-	public String getValidatecode() {
-		return validatecode;
-	}
+  public void setSex(char sex)
+  {
+    this.sex = sex;
+  }
 
-	public void setValidatecode(String validatecode) {
-		this.validatecode = validatecode;
-	}
+  public String getValidatecode()
+  {
+    return validatecode;
+  }
 
-	public UserService getUserService() {
-		return userService;
-	}
+  public void setValidatecode(String validatecode)
+  {
+    this.validatecode = validatecode;
+  }
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+  public UserService getUserService()
+  {
+    return userService;
+  }
 
-	@Override
-	public String execute() throws Exception {
-		/*
-		 * 注册账户的用户对象实体
-		 */
-		User user = new User();
-		user.setEnabled(true);
-		user.setUsername(username);
-		user.setPassword(MD5.toMD5(password));
-		user.setEmail(email);
-		user.setSex(sex);
-		
-		if(userService.signup(user))
-			return SUCCESS;
-		else
-			return INPUT;
-	}
+  public void setUserService(UserService userService)
+  {
+    this.userService = userService;
+  }
+
+  @Override
+  public String execute() throws Exception
+  {
+    /*
+     * 注册账户的用户对象实体
+     */
+    User user = new User();
+    user.setEnabled(true);
+    user.setUsername(username);
+    user.setPassword(MD5.toMD5(password));
+    user.setEmail(email);
+    user.setSex(sex);
+
+    if (userService.signup(user))
+      return SUCCESS;
+    else
+      return INPUT;
+  }
 }
