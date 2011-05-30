@@ -18,7 +18,6 @@ public class PronunciationServiceImpl implements PronunciationService {
 	}
 
 	public List<Pronunciation> getPronunciationByWordId(int wordId) {
-		System.out.println("PronsSevice:" + wordId);
 		return pronunciationDAO.findByWordId(wordId);
 	}
 	

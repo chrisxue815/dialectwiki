@@ -186,7 +186,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     log.debug("finding recent Word instances");
     try
     {
-      String queryString = "from Word order by Word.wordId desc";
+      String queryString = "from Word word order by word.wordId desc";
       Session session = HibernateSessionFactory.getSession();
       Query query = session.createQuery(queryString);
       query.setMaxResults(listSize);

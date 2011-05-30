@@ -153,7 +153,6 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements
    */
   public List<Pronunciation> findByWordId(Object wordId)
   {
-	System.out.println("PronsDAO:" + wordId);
     return findByProperty(WORD_ID, wordId);
   }
 

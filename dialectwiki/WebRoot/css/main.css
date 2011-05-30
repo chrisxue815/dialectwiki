@@ -3,13 +3,13 @@
 float: left;
 width: 32%;
 margin: 10px 5px 10px 5px;
-border: 1px solid #DFDFDF
 }
 .module h2 {
 margin: 10px 0 0 10px;
 height: 26px;
 line-height: 26px;
-font-size: 13px;
+font-size: 25px;
+color:#390;
 border-bottom: 1px solid #E4E4E4
 }
 .module ul {
@@ -24,6 +24,9 @@ font-weight: 600;
 }
 
 .list {
-padding:5px;
-height:330px;
+	margin: 0px 5px 0px 5px;
+	padding: 0px 10px 0px 10px;
+	font-size:12px;
+	line-height: 26px;
+	height:330px;
 }
