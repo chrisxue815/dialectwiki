@@ -14,7 +14,7 @@ public class SignupAction extends ActionSupport
   private String password;
   private String password2;
   private String email;
-  private char sex;
+  private String sex;
   private String validatecode;
 
   private UserService userService;
@@ -61,12 +61,12 @@ public class SignupAction extends ActionSupport
     this.email = email;
   }
 
-  public char getSex()
+  public String getSex()
   {
     return sex;
   }
 
-  public void setSex(char sex)
+  public void setSex(String sex)
   {
     this.sex = sex;
   }

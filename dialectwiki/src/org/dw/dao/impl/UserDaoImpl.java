@@ -11,11 +11,18 @@ public class UserDAOImpl implements UserDAO
 
   public boolean signup(User user)
   {
-    Session session = HibernateSessionFactory.getSession();
-    Transaction trans = session.beginTransaction();
-    session.save(user);
-    trans.commit();
-    session.close();
+    try
+    {
+      Session session = HibernateSessionFactory.getSession();
+      Transaction trans = session.beginTransaction();
+      session.save(user);
+      trans.commit();
+      session.close();
+    }
+    catch (RuntimeException ex)
+    {
+      ex.printStackTrace();
+    }
     return true;
   }
 }

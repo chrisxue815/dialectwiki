@@ -10,11 +10,11 @@
             <column name="pron_id" />
             <generator class="native"></generator>
         </id>
-        <many-to-one name="city" class="org.dw.model.City" fetch="join">
-            <column name="city_id" not-null="true" />
-        </many-to-one>
         <property name="userId" type="java.lang.Integer">
             <column name="user_id" not-null="true" />
+        </property>
+        <property name="cityId" type="java.lang.Integer">
+            <column name="city_id" not-null="true" />
         </property>
         <property name="wordId" type="java.lang.Integer">
             <column name="word_id" not-null="true" />
@@ -31,14 +31,5 @@
         <property name="badVoteNum" type="java.lang.Integer">
             <column name="bad_vote_num" not-null="true" />
         </property>
-        
-        <set name="votes" inverse="true">
-            <key>
-                <column name="pron_id" not-null="true" />
-            </key>
-            <one-to-many class="org.dw.model.Vote" />
-        </set>
-        
-        
     </class>
 </hibernate-mapping>

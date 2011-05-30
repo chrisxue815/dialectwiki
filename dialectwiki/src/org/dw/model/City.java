@@ -3,81 +3,81 @@ package org.dw.model;
 import java.util.HashSet;
 import java.util.Set;
 
+
 /**
  * City entity. @author MyEclipse Persistence Tools
  */
 
-public class City implements java.io.Serializable
-{
-  private static final long serialVersionUID = -3575605849678714826L;
-  
-  private Integer cityId;
-  private String cityName;
-  
-  private Province province;
-  private Set<Pronunciation> pronunciations = new HashSet<Pronunciation>();
+public class City  implements java.io.Serializable {
 
-  // Constructors
 
-  /** default constructor */
-  public City()
-  {
-  }
+    // Fields    
 
-  /** minimal constructor */
-  public City(Province province)
-  {
-    this.province = province;
-  }
+     private Integer cityId;
+     private Province province;
+     private String cityName;
+     private Set pronunciations = new HashSet(0);
 
-  /** full constructor */
-  public City(Province province, String cityName, Set<Pronunciation> pronunciations)
-  {
-    this.province = province;
-    this.cityName = cityName;
-    this.pronunciations = pronunciations;
-  }
 
-  // Property accessors
+    // Constructors
 
-  public Integer getCityId()
-  {
-    return this.cityId;
-  }
+    /** default constructor */
+    public City() {
+    }
 
-  public void setCityId(Integer cityId)
-  {
-    this.cityId = cityId;
-  }
+	/** minimal constructor */
+    public City(Province province) {
+        this.province = province;
+    }
+    
+    /** full constructor */
+    public City(Province province, String cityName, Set pronunciations) {
+        this.province = province;
+        this.cityName = cityName;
+        this.pronunciations = pronunciations;
+    }
 
-  public Province getProvince()
-  {
-    return this.province;
-  }
+   
+    // Property accessors
 
-  public void setProvince(Province province)
-  {
-    this.province = province;
-  }
+    public Integer getCityId() {
+        return this.cityId;
+    }
+    
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
+    }
 
-  public String getCityName()
-  {
-    return this.cityName;
-  }
+    public Province getProvince() {
+        return this.province;
+    }
+    
+    public void setProvince(Province province) {
+        this.province = province;
+    }
 
-  public void setCityName(String cityName)
-  {
-    this.cityName = cityName;
-  }
+    public String getCityName() {
+        return this.cityName;
+    }
+    
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
 
-  public Set<Pronunciation> getPronunciations()
-  {
-    return this.pronunciations;
-  }
+    public Set getPronunciations() {
+        return this.pronunciations;
+    }
+    
+    public void setPronunciations(Set pronunciations) {
+        this.pronunciations = pronunciations;
+    }
+   
 
-  public void setPronunciations(Set<Pronunciation> pronunciations)
-  {
-    this.pronunciations = pronunciations;
-  }
+
+
+
+
+
+
 
 }

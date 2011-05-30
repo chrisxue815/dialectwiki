@@ -1,81 +1,75 @@
 package org.dw.model;
 
+
+
 /**
  * VoteId entity. @author MyEclipse Persistence Tools
  */
 
-public class VoteId implements java.io.Serializable
-{
+public class VoteId  implements java.io.Serializable {
 
-  private static final long serialVersionUID = -7866922824907181800L;
-  
-  private Integer userId;
-  private Pronunciation pronunciation;
 
-  // Constructors
+    // Fields    
 
-  /** default constructor */
-  public VoteId()
-  {
-  }
+     private User user;
+     private Pronunciation pronunciation;
 
-  /** full constructor */
-  public VoteId(Integer userId, Pronunciation pronunciation)
-  {
-    this.userId = userId;
-    this.pronunciation = pronunciation;
-  }
 
-  // Property accessors
+    // Constructors
 
-  public Integer getUserId()
-  {
-    return this.userId;
-  }
+    /** default constructor */
+    public VoteId() {
+    }
 
-  public void setUserId(Integer userId)
-  {
-    this.userId = userId;
-  }
+    
+    /** full constructor */
+    public VoteId(User user, Pronunciation pronunciation) {
+        this.user = user;
+        this.pronunciation = pronunciation;
+    }
 
-  public Pronunciation getPronunciation()
-  {
-    return this.pronunciation;
-  }
+   
+    // Property accessors
 
-  public void setPronunciation(Pronunciation pronunciation)
-  {
-    this.pronunciation = pronunciation;
-  }
+    public User getUser() {
+        return this.user;
+    }
+    
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-  public boolean equals(Object other)
-  {
-    if ((this == other))
-      return true;
-    if ((other == null))
-      return false;
-    if (!(other instanceof VoteId))
-      return false;
-    VoteId castOther = (VoteId) other;
+    public Pronunciation getPronunciation() {
+        return this.pronunciation;
+    }
+    
+    public void setPronunciation(Pronunciation pronunciation) {
+        this.pronunciation = pronunciation;
+    }
+   
 
-    return ((this.getUserId() == castOther.getUserId()) || (this.getUserId() != null
-        && castOther.getUserId() != null && this.getUserId().equals(
-        castOther.getUserId())))
-        && ((this.getPronunciation() == castOther.getPronunciation()) || (this
-            .getPronunciation() != null
-            && castOther.getPronunciation() != null && this.getPronunciation()
-            .equals(castOther.getPronunciation())));
-  }
 
-  public int hashCode()
-  {
-    int result = 17;
 
-    result = 37 * result
-        + (getUserId() == null ? 0 : this.getUserId().hashCode());
-    result = 37 * result
-        + (getPronunciation() == null ? 0 : this.getPronunciation().hashCode());
-    return result;
-  }
+   public boolean equals(Object other) {
+         if ( (this == other ) ) return true;
+		 if ( (other == null ) ) return false;
+		 if ( !(other instanceof VoteId) ) return false;
+		 VoteId castOther = ( VoteId ) other; 
+         
+		 return ( (this.getUser()==castOther.getUser()) || ( this.getUser()!=null && castOther.getUser()!=null && this.getUser().equals(castOther.getUser()) ) )
+ && ( (this.getPronunciation()==castOther.getPronunciation()) || ( this.getPronunciation()!=null && castOther.getPronunciation()!=null && this.getPronunciation().equals(castOther.getPronunciation()) ) );
+   }
+   
+   public int hashCode() {
+         int result = 17;
+         
+         result = 37 * result + ( getUser() == null ? 0 : this.getUser().hashCode() );
+         result = 37 * result + ( getPronunciation() == null ? 0 : this.getPronunciation().hashCode() );
+         return result;
+   }   
+
+
+
+
 
 }

@@ -13,7 +13,6 @@
         <property name="provinceName" type="java.lang.String">
             <column name="province_name" length="45" />
         </property>
-        
         <set name="cities" inverse="true">
             <key>
                 <column name="province_id" not-null="true" />

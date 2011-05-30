@@ -2,7 +2,7 @@ package org.dw.service.impl;
 
 import org.dw.dao.AuthorityDAO;
 import org.dw.dao.UserDAO;
-import org.dw.model.Authorities;
+import org.dw.model.Authority;
 import org.dw.service.UserService;
 import org.dw.macro.MACRO_USER;
 import org.dw.model.User;
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService
 
   public boolean signup(User user)
   {
-    Authorities authorities = new Authorities(user.getUsername(),
+    Authority authorities = new Authority(user,
         MACRO_USER.ROLE_USER);
     return (userDAO.signup(user) && authorityDAO.setAuthority(authorities));
   }

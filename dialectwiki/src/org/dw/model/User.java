@@ -1,76 +1,133 @@
 package org.dw.model;
 
-public class User
-{
+import java.util.HashSet;
+import java.util.Set;
 
-  private Integer userid;
-  private String username;
-  private String password;
-  private boolean enabled;
-  private String email;
-  private char sex;
 
-  public User()
-  {
-  }
+/**
+ * User entity. @author MyEclipse Persistence Tools
+ */
 
-  public String getUsername()
-  {
-    return username;
-  }
+public class User  implements java.io.Serializable {
 
-  public void setUsername(String username)
-  {
-    this.username = username;
-  }
 
-  public String getPassword()
-  {
-    return password;
-  }
+    // Fields    
 
-  public void setPassword(String password)
-  {
-    this.password = password;
-  }
+     private Integer userId;
+     private String username;
+     private String password;
+     private Boolean enabled;
+     private String email;
+     private String sex;
+     private Set pronunciations = new HashSet(0);
+     private Set votes = new HashSet(0);
+     private Set authorities = new HashSet(0);
 
-  public String getEmail()
-  {
-    return email;
-  }
 
-  public void setEmail(String email)
-  {
-    this.email = email;
-  }
+    // Constructors
 
-  public char getSex()
-  {
-    return sex;
-  }
+    /** default constructor */
+    public User() {
+    }
 
-  public void setSex(char sex)
-  {
-    this.sex = sex;
-  }
+	/** minimal constructor */
+    public User(String username) {
+        this.username = username;
+    }
+    
+    /** full constructor */
+    public User(String username, String password, Boolean enabled, String email, String sex, Set pronunciations, Set votes, Set authorities) {
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
+        this.email = email;
+        this.sex = sex;
+        this.pronunciations = pronunciations;
+        this.votes = votes;
+        this.authorities = authorities;
+    }
 
-  public Integer getUserid()
-  {
-    return userid;
-  }
+   
+    // Property accessors
 
-  public void setUserid(Integer userid)
-  {
-    this.userid = userid;
-  }
+    public Integer getUserId() {
+        return this.userId;
+    }
+    
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-  public void setEnabled(boolean enabled)
-  {
-    this.enabled = enabled;
-  }
+    public String getUsername() {
+        return this.username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-  public boolean isEnabled()
-  {
-    return enabled;
-  }
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getEnabled() {
+        return this.enabled;
+    }
+    
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSex() {
+        return this.sex;
+    }
+    
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Set getPronunciations() {
+        return this.pronunciations;
+    }
+    
+    public void setPronunciations(Set pronunciations) {
+        this.pronunciations = pronunciations;
+    }
+
+    public Set getVotes() {
+        return this.votes;
+    }
+    
+    public void setVotes(Set votes) {
+        this.votes = votes;
+    }
+
+    public Set getAuthorities() {
+        return this.authorities;
+    }
+    
+    public void setAuthorities(Set authorities) {
+        this.authorities = authorities;
+    }
+   
+
+
+
+
+
+
+
+
 }
