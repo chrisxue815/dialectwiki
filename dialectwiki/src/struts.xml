@@ -37,6 +37,10 @@
     <action name="Word" class="wordHomeAction">
     	<result name="success">/word/word.jsp</result>
     </action>
+    
+    <action name="SearchWord" class="searchWordAction">
+      <result name="success">/search.jsp</result>
+    </action>
   </package>
 
 

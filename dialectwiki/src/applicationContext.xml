@@ -60,6 +60,7 @@
 
 
   <!-- Service begins -->
+  
   <bean id="userService" class="org.dw.service.impl.UserServiceImpl">
     <property name="userDAO">
       <ref bean="userDAO" />
@@ -82,6 +83,7 @@
   </bean>
   
   <!-- Action begins -->
+  
   <bean id="addWordAction" class="org.dw.action.AddWordAction">
   	<property name="wordService">
   		<ref bean="wordService" />
@@ -89,6 +91,12 @@
   </bean>
   
   <bean id="pronouncePageAction" class="org.dw.action.PronouncePageAction">
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+  </bean>
+  
+  <bean id="searchWordAction" class="org.dw.action.SearchWordAction">
     <property name="wordService">
       <ref bean="wordService" />
     </property>
