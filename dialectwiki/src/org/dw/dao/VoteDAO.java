@@ -16,13 +16,13 @@ public interface VoteDAO
 
   public Vote findById(org.dw.model.VoteId id);
 
-  public List findByExample(Vote instance);
+  public List<Vote> findByExample(Vote instance);
 
-  public List findByProperty(String propertyName, Object value);
+  public List<Vote> findByProperty(String propertyName, Object value);
 
-  public List findByMark(Object mark);
+  public List<Vote> findByMark(Object mark);
 
-  public List findAll();
+  public List<Vote> findAll();
 
   public Vote merge(Vote detachedInstance);
 

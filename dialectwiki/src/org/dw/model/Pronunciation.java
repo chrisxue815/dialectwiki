@@ -10,8 +10,8 @@ import java.util.Set;
 
 public class Pronunciation implements java.io.Serializable
 {
-
-  // Fields
+	private static final long serialVersionUID = 5914756326088583626L;
+// Fields
 
   private Integer pronId;
   private City city;
@@ -21,7 +21,9 @@ public class Pronunciation implements java.io.Serializable
   private Date uploadDate;
   private Integer goodVoteNum;
   private Integer badVoteNum;
-  private Set votes = new HashSet(0);
+
+
+  private Set<Vote> votes = new HashSet<Vote>();
 
   // Constructors
 
@@ -43,7 +45,7 @@ public class Pronunciation implements java.io.Serializable
 
   /** full constructor */
   public Pronunciation(City city, Integer userId, Integer wordId, String prUrl,
-      Date uploadDate, Integer goodVoteNum, Integer badVoteNum, Set votes)
+      Date uploadDate, Integer goodVoteNum, Integer badVoteNum, Set<Vote> votes)
   {
     this.city = city;
     this.userId = userId;
@@ -137,12 +139,12 @@ public class Pronunciation implements java.io.Serializable
     this.badVoteNum = badVoteNum;
   }
 
-  public Set getVotes()
+  public Set<Vote> getVotes()
   {
     return this.votes;
   }
 
-  public void setVotes(Set votes)
+  public void setVotes(Set<Vote> votes)
   {
     this.votes = votes;
   }

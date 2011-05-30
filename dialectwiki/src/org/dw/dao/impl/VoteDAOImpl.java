@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.dw.dao.VoteDAO;
 import org.dw.model.Vote;
-import org.dw.model.VoteId;
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -95,12 +94,12 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
    * 
    * @see org.dw.dao.impl.VoteDAO#findByExample(org.dw.model.Vote)
    */
-  public List findByExample(Vote instance)
+  public List<Vote> findByExample(Vote instance)
   {
     log.debug("finding Vote instance by example");
     try
     {
-      List results = getHibernateTemplate().findByExample(instance);
+      List<Vote> results = getHibernateTemplate().findByExample(instance);
       log.debug("find by example successful, result size: " + results.size());
       return results;
     } catch (RuntimeException re)
@@ -116,7 +115,7 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
    * @see org.dw.dao.impl.VoteDAO#findByProperty(java.lang.String,
    * java.lang.Object)
    */
-  public List findByProperty(String propertyName, Object value)
+  public List<Vote> findByProperty(String propertyName, Object value)
   {
     log.debug("finding Vote instance with property: " + propertyName
         + ", value: " + value);
@@ -137,7 +136,7 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
    * 
    * @see org.dw.dao.impl.VoteDAO#findByMark(java.lang.Object)
    */
-  public List findByMark(Object mark)
+  public List<Vote> findByMark(Object mark)
   {
     return findByProperty(MARK, mark);
   }
@@ -147,7 +146,7 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
    * 
    * @see org.dw.dao.impl.VoteDAO#findAll()
    */
-  public List findAll()
+  public List<Vote> findAll()
   {
     log.debug("finding all Vote instances");
     try

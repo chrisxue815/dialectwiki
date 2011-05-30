@@ -96,12 +96,12 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
    * 
    * @see org.dw.dao.impl.ProvinceDAO#findByExample(org.dw.model.Province)
    */
-  public List findByExample(Province instance)
+  public List<Province> findByExample(Province instance)
   {
     log.debug("finding Province instance by example");
     try
     {
-      List results = getHibernateTemplate().findByExample(instance);
+      List<Province> results = getHibernateTemplate().findByExample(instance);
       log.debug("find by example successful, result size: " + results.size());
       return results;
     } catch (RuntimeException re)
@@ -117,7 +117,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
    * @see org.dw.dao.impl.ProvinceDAO#findByProperty(java.lang.String,
    * java.lang.Object)
    */
-  public List findByProperty(String propertyName, Object value)
+  public List<Province> findByProperty(String propertyName, Object value)
   {
     log.debug("finding Province instance with property: " + propertyName
         + ", value: " + value);
@@ -138,7 +138,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
    * 
    * @see org.dw.dao.impl.ProvinceDAO#findByProvinceName(java.lang.Object)
    */
-  public List findByProvinceName(Object provinceName)
+  public List<Province> findByProvinceName(Object provinceName)
   {
     return findByProperty(PROVINCE_NAME, provinceName);
   }
@@ -148,7 +148,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
    * 
    * @see org.dw.dao.impl.ProvinceDAO#findAll()
    */
-  public List findAll()
+  public List<Province> findAll()
   {
     log.debug("finding all Province instances");
     try

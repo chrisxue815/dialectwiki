@@ -11,10 +11,11 @@ public class Province implements java.io.Serializable
 {
 
   // Fields
-
+  private static final long serialVersionUID = -7014295089933073427L;
+  
   private Integer provinceId;
   private String provinceName;
-  private Set cities = new HashSet(0);
+  private Set<City> cities = new HashSet<City>();
 
   // Constructors
 
@@ -24,7 +25,7 @@ public class Province implements java.io.Serializable
   }
 
   /** full constructor */
-  public Province(String provinceName, Set cities)
+  public Province(String provinceName, Set<City> cities)
   {
     this.provinceName = provinceName;
     this.cities = cities;
@@ -52,12 +53,12 @@ public class Province implements java.io.Serializable
     this.provinceName = provinceName;
   }
 
-  public Set getCities()
+  public Set<City> getCities()
   {
     return this.cities;
   }
 
-  public void setCities(Set cities)
+  public void setCities(Set<City> cities)
   {
     this.cities = cities;
   }

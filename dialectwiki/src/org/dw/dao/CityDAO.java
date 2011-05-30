@@ -16,13 +16,13 @@ public interface CityDAO
 
   public City findById(java.lang.Integer id);
 
-  public List findByExample(City instance);
+  public List<City> findByExample(City instance);
 
-  public List findByProperty(String propertyName, Object value);
+  public List<City> findByProperty(String propertyName, Object value);
 
-  public List findByCityName(Object cityName);
+  public List<City> findByCityName(Object cityName);
 
-  public List findAll();
+  public List<City> findAll();
 
   public City merge(City detachedInstance);
 

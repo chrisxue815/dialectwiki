@@ -7,8 +7,8 @@ package org.dw.model;
 public class VoteId implements java.io.Serializable
 {
 
-  // Fields
-
+  private static final long serialVersionUID = -7866922824907181800L;
+  
   private Integer userId;
   private Pronunciation pronunciation;
 

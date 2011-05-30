@@ -22,5 +22,7 @@
             </key>
             <one-to-many class="org.dw.model.Pronunciation" />
         </set>
+        
+        <many-to-one name="province" class="org.dw.model.Province"></many-to-one>
     </class>
 </hibernate-mapping>

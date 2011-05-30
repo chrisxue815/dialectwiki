@@ -9,6 +9,9 @@ public class Vote implements java.io.Serializable
 
   // Fields
 
+  private static final long serialVersionUID = 3170597088678928139L;
+
+  
   private VoteId id;
   private Integer mark;
 

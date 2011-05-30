@@ -9,13 +9,13 @@ import java.util.Set;
 
 public class City implements java.io.Serializable
 {
-
-  // Fields
-
+  private static final long serialVersionUID = -3575605849678714826L;
+  
   private Integer cityId;
-  private Province province;
   private String cityName;
-  private Set pronunciations = new HashSet(0);
+  
+  private Province province;
+  private Set<Pronunciation> pronunciations = new HashSet<Pronunciation>();
 
   // Constructors
 
@@ -31,7 +31,7 @@ public class City implements java.io.Serializable
   }
 
   /** full constructor */
-  public City(Province province, String cityName, Set pronunciations)
+  public City(Province province, String cityName, Set<Pronunciation> pronunciations)
   {
     this.province = province;
     this.cityName = cityName;
@@ -70,12 +70,12 @@ public class City implements java.io.Serializable
     this.cityName = cityName;
   }
 
-  public Set getPronunciations()
+  public Set<Pronunciation> getPronunciations()
   {
     return this.pronunciations;
   }
 
-  public void setPronunciations(Set pronunciations)
+  public void setPronunciations(Set<Pronunciation> pronunciations)
   {
     this.pronunciations = pronunciations;
   }

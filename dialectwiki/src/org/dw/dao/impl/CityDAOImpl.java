@@ -1,8 +1,6 @@
 package org.dw.dao.impl;
 
 import java.util.List;
-import java.util.Set;
-
 import org.dw.dao.CityDAO;
 import org.dw.model.City;
 import org.hibernate.LockMode;
@@ -95,12 +93,12 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
    * 
    * @see org.dw.dao.impl.CityDAO#findByExample(org.dw.model.City)
    */
-  public List findByExample(City instance)
+  public List<City> findByExample(City instance)
   {
     log.debug("finding City instance by example");
     try
     {
-      List results = getHibernateTemplate().findByExample(instance);
+      List<City> results = getHibernateTemplate().findByExample(instance);
       log.debug("find by example successful, result size: " + results.size());
       return results;
     } catch (RuntimeException re)
@@ -116,7 +114,7 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
    * @see org.dw.dao.impl.CityDAO#findByProperty(java.lang.String,
    * java.lang.Object)
    */
-  public List findByProperty(String propertyName, Object value)
+  public List<City> findByProperty(String propertyName, Object value)
   {
     log.debug("finding City instance with property: " + propertyName
         + ", value: " + value);
@@ -137,7 +135,7 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
    * 
    * @see org.dw.dao.impl.CityDAO#findByCityName(java.lang.Object)
    */
-  public List findByCityName(Object cityName)
+  public List<City> findByCityName(Object cityName)
   {
     return findByProperty(CITY_NAME, cityName);
   }
@@ -147,7 +145,7 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
    * 
    * @see org.dw.dao.impl.CityDAO#findAll()
    */
-  public List findAll()
+  public List<City> findAll()
   {
     log.debug("finding all City instances");
     try

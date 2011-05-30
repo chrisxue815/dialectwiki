@@ -31,11 +31,14 @@
         <property name="badVoteNum" type="java.lang.Integer">
             <column name="bad_vote_num" not-null="true" />
         </property>
+        
         <set name="votes" inverse="true">
             <key>
                 <column name="pron_id" not-null="true" />
             </key>
             <one-to-many class="org.dw.model.Vote" />
         </set>
+        
+        
     </class>
 </hibernate-mapping>
