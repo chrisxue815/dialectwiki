@@ -1,6 +1,8 @@
 package org.dw.dao.impl;
 
 import java.util.List;
+import java.util.Set;
+
 import org.dw.dao.CityDAO;
 import org.dw.model.City;
 import org.hibernate.LockMode;
@@ -24,15 +26,12 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
 {
   private static final Logger log = LoggerFactory.getLogger(CityDAOImpl.class);
-
   protected void initDao()
   {
     // do nothing
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.CityDAO#save(org.dw.model.City)
    */
   public void save(City transientInstance)
@@ -49,9 +48,7 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.CityDAO#delete(org.dw.model.City)
    */
   public void delete(City persistentInstance)
@@ -68,9 +65,7 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.CityDAO#findById(java.lang.Integer)
    */
   public City findById(java.lang.Integer id)
@@ -88,17 +83,15 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.CityDAO#findByExample(org.dw.model.City)
    */
-  public List<City> findByExample(City instance)
+  public List findByExample(City instance)
   {
     log.debug("finding City instance by example");
     try
     {
-      List<City> results = getHibernateTemplate().findByExample(instance);
+      List results = getHibernateTemplate().findByExample(instance);
       log.debug("find by example successful, result size: " + results.size());
       return results;
     } catch (RuntimeException re)
@@ -108,13 +101,10 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.dw.dao.impl.CityDAO#findByProperty(java.lang.String,
-   * java.lang.Object)
+  /* (non-Javadoc)
+   * @see org.dw.dao.impl.CityDAO#findByProperty(java.lang.String, java.lang.Object)
    */
-  public List<City> findByProperty(String propertyName, Object value)
+  public List findByProperty(String propertyName, Object value)
   {
     log.debug("finding City instance with property: " + propertyName
         + ", value: " + value);
@@ -130,22 +120,18 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.CityDAO#findByCityName(java.lang.Object)
    */
-  public List<City> findByCityName(Object cityName)
+  public List findByCityName(Object cityName)
   {
     return findByProperty(CITY_NAME, cityName);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.CityDAO#findAll()
    */
-  public List<City> findAll()
+  public List findAll()
   {
     log.debug("finding all City instances");
     try
@@ -159,9 +145,7 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.CityDAO#merge(org.dw.model.City)
    */
   public City merge(City detachedInstance)
@@ -179,9 +163,7 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.CityDAO#attachDirty(org.dw.model.City)
    */
   public void attachDirty(City instance)
@@ -198,9 +180,7 @@ public class CityDAOImpl extends HibernateDaoSupport implements CityDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.CityDAO#attachClean(org.dw.model.City)
    */
   public void attachClean(City instance)

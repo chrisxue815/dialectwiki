@@ -34,10 +34,11 @@ public class SignupServiceImpl implements SignupService
     this.authorityDAO = authorityDAO;
   }
 
-  public boolean signup(User user)
+  public void signup(User user)
   {
     Authority authorities = new Authority(user,
         MACRO_USER.ROLE_USER);
-    return (userDAO.signup(user) && authorityDAO.setAuthority(authorities));
+    userDAO.save(user);
+    authorityDAO.save(authorities);
   }
 }

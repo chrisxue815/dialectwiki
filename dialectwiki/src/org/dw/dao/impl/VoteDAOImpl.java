@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.dw.dao.VoteDAO;
 import org.dw.model.Vote;
+import org.dw.model.VoteId;
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,15 +26,12 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
 {
   private static final Logger log = LoggerFactory.getLogger(VoteDAOImpl.class);
-
   protected void initDao()
   {
     // do nothing
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.VoteDAO#save(org.dw.model.Vote)
    */
   public void save(Vote transientInstance)
@@ -50,9 +48,7 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.VoteDAO#delete(org.dw.model.Vote)
    */
   public void delete(Vote persistentInstance)
@@ -69,9 +65,7 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.VoteDAO#findById(org.dw.model.VoteId)
    */
   public Vote findById(org.dw.model.VoteId id)
@@ -89,17 +83,15 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.VoteDAO#findByExample(org.dw.model.Vote)
    */
-  public List<Vote> findByExample(Vote instance)
+  public List findByExample(Vote instance)
   {
     log.debug("finding Vote instance by example");
     try
     {
-      List<Vote> results = getHibernateTemplate().findByExample(instance);
+      List results = getHibernateTemplate().findByExample(instance);
       log.debug("find by example successful, result size: " + results.size());
       return results;
     } catch (RuntimeException re)
@@ -109,13 +101,10 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.dw.dao.impl.VoteDAO#findByProperty(java.lang.String,
-   * java.lang.Object)
+  /* (non-Javadoc)
+   * @see org.dw.dao.impl.VoteDAO#findByProperty(java.lang.String, java.lang.Object)
    */
-  public List<Vote> findByProperty(String propertyName, Object value)
+  public List findByProperty(String propertyName, Object value)
   {
     log.debug("finding Vote instance with property: " + propertyName
         + ", value: " + value);
@@ -131,22 +120,18 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.VoteDAO#findByMark(java.lang.Object)
    */
-  public List<Vote> findByMark(Object mark)
+  public List findByMark(Object mark)
   {
     return findByProperty(MARK, mark);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.VoteDAO#findAll()
    */
-  public List<Vote> findAll()
+  public List findAll()
   {
     log.debug("finding all Vote instances");
     try
@@ -160,9 +145,7 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.VoteDAO#merge(org.dw.model.Vote)
    */
   public Vote merge(Vote detachedInstance)
@@ -180,9 +163,7 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.VoteDAO#attachDirty(org.dw.model.Vote)
    */
   public void attachDirty(Vote instance)
@@ -199,9 +180,7 @@ public class VoteDAOImpl extends HibernateDaoSupport implements VoteDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.VoteDAO#attachClean(org.dw.model.Vote)
    */
   public void attachClean(Vote instance)

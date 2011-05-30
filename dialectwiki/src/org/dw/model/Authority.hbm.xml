@@ -8,6 +8,7 @@
     <class name="org.dw.model.Authority" table="authorities" catalog="dialectwiki">
         <id name="username" type="java.lang.String">
             <column name="username" />
+            <generator class="native"></generator>
         </id>
         <many-to-one name="user" class="org.dw.model.User" update="false" insert="false" fetch="select">
             <column name="username" not-null="true" unique="true" />

@@ -104,9 +104,15 @@ public class SignupAction extends ActionSupport
     user.setEmail(email);
     user.setSex(sex);
 
-    if (userService.signup(user))
+    try
+    {
+      userService.signup(user);
       return SUCCESS;
-    else
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace();
       return INPUT;
+    }
   }
 }

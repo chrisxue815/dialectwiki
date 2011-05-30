@@ -16,13 +16,13 @@ public interface ProvinceDAO
 
   public Province findById(java.lang.Integer id);
 
-  public List<Province> findByExample(Province instance);
+  public List findByExample(Province instance);
 
-  public List<Province> findByProperty(String propertyName, Object value);
+  public List findByProperty(String propertyName, Object value);
 
-  public List<Province> findByProvinceName(Object provinceName);
+  public List findByProvinceName(Object provinceName);
 
-  public List<Province> findAll();
+  public List findAll();
 
   public Province merge(Province detachedInstance);
 

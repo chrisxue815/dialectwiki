@@ -1,68 +1,62 @@
 package org.dw.model;
 
-
-
 /**
  * Authority entity. @author MyEclipse Persistence Tools
  */
 
-public class Authority  implements java.io.Serializable {
+public class Authority implements java.io.Serializable
+{
 
+  // Fields
 
-    // Fields    
+  private String username;
+  private User user;
+  private String authority;
 
-     private String username;
-     private User user;
-     private String authority;
+  // Constructors
 
+  /** default constructor */
+  public Authority()
+  {
+  }
 
-    // Constructors
+  /** full constructor */
+  public Authority(User user, String authority)
+  {
+    this.user = user;
+    this.authority = authority;
+  }
 
-    /** default constructor */
-    public Authority() {
-    }
+  // Property accessors
 
-    
-    /** full constructor */
-    public Authority(User user, String authority) {
-        this.username = user.getUsername();
-        this.user = user;
-        this.authority = authority;
-    }
+  public String getUsername()
+  {
+    return this.username;
+  }
 
-   
-    // Property accessors
+  public void setUsername(String username)
+  {
+    this.username = username;
+  }
 
-    public String getUsername() {
-        return this.username;
-    }
-    
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public User getUser()
+  {
+    return this.user;
+  }
 
-    public User getUser() {
-        return this.user;
-    }
-    
-    public void setUser(User user) {
-        this.user = user;
-    }
+  public void setUser(User user)
+  {
+    this.user = user;
+  }
 
-    public String getAuthority() {
-        return this.authority;
-    }
-    
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
-   
+  public String getAuthority()
+  {
+    return this.authority;
+  }
 
-
-
-
-
-
-
+  public void setAuthority(String authority)
+  {
+    this.authority = authority;
+  }
 
 }

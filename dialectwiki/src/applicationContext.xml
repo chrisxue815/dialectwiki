@@ -80,6 +80,9 @@
   	<property name="pronunciationDAO">
   		<ref bean="pronunciationDAO" />
   	</property>
+    <property name="wordDAO">
+      <ref bean="wordDAO" />
+    </property>
   </bean>
   
   <!-- Action begins -->
@@ -123,4 +126,38 @@
   	</property>
   </bean>
   
-</beans>
+  <bean id="PronunciationDAO" class="org.dw.dao.impl.PronunciationDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+  <bean id="UserDAO" class="org.dw.dao.impl.UserDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+  <bean id="CityDAO" class="org.dw.dao.impl.CityDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+  <bean id="WordDAO" class="org.dw.dao.impl.WordDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+  <bean id="VoteDAO" class="org.dw.dao.impl.VoteDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+  <bean id="ProvinceDAO" class="org.dw.dao.impl.ProvinceDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+  <bean id="AuthorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean></beans>

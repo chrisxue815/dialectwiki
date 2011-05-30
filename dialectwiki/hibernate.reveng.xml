@@ -19,6 +19,7 @@
 		<primary-key>
 			<generator class="native"></generator>
 		</primary-key>
+		<column name="user_id"></column>
 	</table>
 	<table name="dw_province" catalog="dialectwiki"
 		class="org.dw.model.Province">
@@ -32,12 +33,13 @@
 			<generator class="native"></generator>
 		</primary-key>
 	</table>
-<table name="users" catalog="dialectwiki" class="org.dw.model.User">
-	<primary-key>
-		<generator class="native"></generator>
-	</primary-key>
-</table>
-<table name="authorities" catalog="dialectwiki"
+	<table name="users" catalog="dialectwiki"
+		class="org.dw.model.User">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="authorities" catalog="dialectwiki"
 		class="org.dw.model.Authority">
 		<primary-key>
 			<generator class="native"></generator>

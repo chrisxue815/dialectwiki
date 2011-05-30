@@ -3,67 +3,63 @@ package org.dw.model;
 import java.util.HashSet;
 import java.util.Set;
 
-
 /**
  * Word entity. @author MyEclipse Persistence Tools
  */
 
-public class Word  implements java.io.Serializable {
+public class Word implements java.io.Serializable
+{
 
+  // Fields
 
-    // Fields    
+  private Integer wordId;
+  private String wordName;
+  private Set pronunciations = new HashSet(0);
 
-     private Integer wordId;
-     private String wordName;
-     private Set pronunciations = new HashSet(0);
+  // Constructors
 
+  /** default constructor */
+  public Word()
+  {
+  }
 
-    // Constructors
+  /** full constructor */
+  public Word(String wordName, Set pronunciations)
+  {
+    this.wordName = wordName;
+    this.pronunciations = pronunciations;
+  }
 
-    /** default constructor */
-    public Word() {
-    }
+  // Property accessors
 
-    
-    /** full constructor */
-    public Word(String wordName, Set pronunciations) {
-        this.wordName = wordName;
-        this.pronunciations = pronunciations;
-    }
+  public Integer getWordId()
+  {
+    return this.wordId;
+  }
 
-   
-    // Property accessors
+  public void setWordId(Integer wordId)
+  {
+    this.wordId = wordId;
+  }
 
-    public Integer getWordId() {
-        return this.wordId;
-    }
-    
-    public void setWordId(Integer wordId) {
-        this.wordId = wordId;
-    }
+  public String getWordName()
+  {
+    return this.wordName;
+  }
 
-    public String getWordName() {
-        return this.wordName;
-    }
-    
-    public void setWordName(String wordName) {
-        this.wordName = wordName;
-    }
+  public void setWordName(String wordName)
+  {
+    this.wordName = wordName;
+  }
 
-    public Set getPronunciations() {
-        return this.pronunciations;
-    }
-    
-    public void setPronunciations(Set pronunciations) {
-        this.pronunciations = pronunciations;
-    }
-   
+  public Set getPronunciations()
+  {
+    return this.pronunciations;
+  }
 
-
-
-
-
-
-
+  public void setPronunciations(Set pronunciations)
+  {
+    this.pronunciations = pronunciations;
+  }
 
 }

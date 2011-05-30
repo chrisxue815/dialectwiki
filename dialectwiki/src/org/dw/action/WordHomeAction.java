@@ -1,6 +1,6 @@
 package org.dw.action;
 
-import java.util.List;
+import java.util.Set;
 
 import org.dw.model.Pronunciation;
 import org.dw.model.Word;
@@ -17,7 +17,7 @@ public class WordHomeAction extends ActionSupport{
 	private PronunciationService pronunciationService;
 	
 	private Word word;
-	private List<Pronunciation> prons;
+	private Set<Pronunciation> prons;
 	
 	public int getWordId() {
 		return wordId;
@@ -44,10 +44,10 @@ public class WordHomeAction extends ActionSupport{
 	public void setPronunciationService(PronunciationService pronunciationService) {
 		this.pronunciationService = pronunciationService;
 	}
-	public List<Pronunciation> getProns() {
+	public Set<Pronunciation> getProns() {
 		return prons;
 	}
-	public void setProns(List<Pronunciation> prons) {
+	public void setProns(Set<Pronunciation> prons) {
 		this.prons = prons;
 	}
 	

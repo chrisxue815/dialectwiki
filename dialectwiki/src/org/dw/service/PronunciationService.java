@@ -1,9 +1,10 @@
 package org.dw.service;
 
 import org.dw.model.Pronunciation;
-import java.util.List;
+import java.util.Set;
+
 public interface PronunciationService {
-	public List<Pronunciation> getPronunciationByWordId(int wordId);
+	public Set<Pronunciation> getPronunciationByWordId(int wordId);
 	
 
 }
