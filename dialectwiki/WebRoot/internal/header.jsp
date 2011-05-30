@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -27,4 +28,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <li><a href="<%=basePath %>pronounce/">发音</a></li>
 <li><a href="<%=basePath %>user/">用户</a></li>
 </ul>
+<s:form action="word/search" method="post" theme="simple">
+<span id="search">
+<s:textfield id="stext" name="wordName" />
+<s:submit id="sbutton" value="搜索" />
+</span>
+</s:form>
 </div>

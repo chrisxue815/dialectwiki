@@ -89,6 +89,17 @@ color: #000;
 text-decoration: none;
 }
 
+#menu #search {
+	float: right;
+	margin-right: 20px;
+}
+#menu #stext {
+  width: 150px;
+}
+#menu #sbutton {
+  width: 50px;  
+}
+
 #content {
 margin: auto 0px auto 0px;
 }
