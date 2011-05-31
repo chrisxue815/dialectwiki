@@ -30,5 +30,33 @@ public class WordServiceImpl implements WordService
   {
     return wordDAO.findById(wordIdInt);
   }
+  
+  public List<Word> searchWords(String wordName, int page)
+  {
+    int index = WORDS_PER_PAGE * (page - 1);
+    
+    List<Word> words = wordDAO.searchSimilarWords(wordName, index, WORDS_PER_PAGE);
+    
+    Word word = findByWordName(wordName);
+    
+    if (word != null)
+      words.add(0, word);
+    
+    return words;
+  }
+  
+  public Word findByWordName(String wordName)
+  {
+    List<Word> words = wordDAO.findByWordName(wordName);
+    
+    if (words.size() == 1)
+    {
+      return words.get(0);
+    }
+    else
+    {
+      return null;
+    }
+  }
 
 }

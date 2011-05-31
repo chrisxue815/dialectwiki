@@ -12,6 +12,8 @@ public class SearchWordAction extends ActionSupport
   private static final long serialVersionUID = 1L;
 
   private String wordName;
+  private int page;
+
   private WordService wordService;
   private List<Word> words;
 
@@ -23,6 +25,16 @@ public class SearchWordAction extends ActionSupport
   public void setWordName(String wordName)
   {
     this.wordName = wordName;
+  }
+  
+  public int getPage()
+  {
+    return page;
+  }
+
+  public void setPage(int page)
+  {
+    this.page = page;
   }
 
   public WordService getWordService()
@@ -49,7 +61,8 @@ public class SearchWordAction extends ActionSupport
   {
     try
     {
-      //words = wordService.searchWord(wordName);
+      words = wordService.searchWords(wordName, page);
+      
       return SUCCESS;
     } catch (Exception ex)
     {

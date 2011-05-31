@@ -33,5 +33,7 @@ public interface WordDAO
   public void attachClean(Word instance);
   
   public Set<Pronunciation> getPronunciations(int wordId);
+  
+  public List<Word> searchSimilarWords(String wordName, int index, int limit);
 
 }

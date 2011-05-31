@@ -11,7 +11,7 @@
             <generator class="native"></generator>
         </id>
         <property name="wordName" type="java.lang.String">
-            <column name="word_name" length="45" />
+            <column name="word_name" length="45" not-null="true" unique="true" />
         </property>
         <set name="pronunciations" inverse="true"  lazy="false" >
             <key>

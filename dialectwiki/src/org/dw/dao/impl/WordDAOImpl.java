@@ -209,4 +209,18 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 	 Set<Pronunciation> prons =  word.getPronunciations();
 	 return prons;
   }
+  
+  public List<Word> searchSimilarWords(String wordName, int index, int limit)
+  {
+    log.debug("searching similar words with wordName" + wordName);
+    try
+    {
+      String queryString = "from Word as model where model.? like '%?%' and model.? != ? limit ?, ?";
+      return getHibernateTemplate().find(queryString, WORD_NAME, wordName, WORD_NAME, wordName, index, limit);
+    } catch (RuntimeException re)
+    {
+      log.error("attach failed", re);
+      throw re;
+    }
+  }
 }
