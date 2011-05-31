@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService
 
   public void signup(User user)
   {
-    Authority authorities = new Authority(user,
+    Authority authorities = new Authority(user.getUsername(),
         MACRO_USER.ROLE_USER);
     
     userDAO.save(user);

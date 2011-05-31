@@ -30,8 +30,7 @@ public class PronunciationServiceImpl implements PronunciationService {
   }
 
 	public Set<Pronunciation> getPronunciationByWordId(int wordId) {
-	  Word word = wordDAO.findById(wordId);
-		return word.getPronunciations();
+		return wordDAO.getPronunciations(wordId);
 	}
 	
 	//public List<String> getPronunciationBy

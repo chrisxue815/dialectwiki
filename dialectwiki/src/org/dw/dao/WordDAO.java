@@ -1,7 +1,9 @@
 package org.dw.dao;
 
 import java.util.List;
+import java.util.Set;
 
+import org.dw.model.Pronunciation;
 import org.dw.model.Word;
 
 public interface WordDAO
@@ -29,5 +31,7 @@ public interface WordDAO
   public void attachDirty(Word instance);
 
   public void attachClean(Word instance);
+  
+  public Set<Pronunciation> getPronunciations(int wordId);
 
 }

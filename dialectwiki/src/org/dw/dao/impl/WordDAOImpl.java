@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.dw.dao.WordDAO;
+import org.dw.model.Pronunciation;
 import org.dw.model.Word;
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
@@ -200,5 +201,12 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
   public static WordDAO getFromApplicationContext(ApplicationContext ctx)
   {
     return (WordDAO) ctx.getBean("WordDAO");
+  }
+  
+  public Set<Pronunciation> getPronunciations(int wordId)
+  {
+	 Word word = this.findById(wordId);
+	 Set<Pronunciation> prons =  word.getPronunciations();
+	 return prons;
   }
 }

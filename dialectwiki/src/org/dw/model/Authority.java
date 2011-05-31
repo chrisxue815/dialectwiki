@@ -9,8 +9,12 @@ public class Authority implements java.io.Serializable
 
   // Fields
 
+  /**
+	 * 
+	 */
+  private static final long serialVersionUID = 8758261508711036055L;
+  
   private String username;
-  private User user;
   private String authority;
 
   // Constructors
@@ -21,9 +25,9 @@ public class Authority implements java.io.Serializable
   }
 
   /** full constructor */
-  public Authority(User user, String authority)
+  public Authority(String username, String authority)
   {
-    this.user = user;
+    this.username = username;
     this.authority = authority;
   }
 
@@ -37,16 +41,6 @@ public class Authority implements java.io.Serializable
   public void setUsername(String username)
   {
     this.username = username;
-  }
-
-  public User getUser()
-  {
-    return this.user;
-  }
-
-  public void setUser(User user)
-  {
-    this.user = user;
   }
 
   public String getAuthority()

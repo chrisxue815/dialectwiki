@@ -49,7 +49,7 @@ public class SearchWordAction extends ActionSupport
   {
     try
     {
-      words = wordService.searchWord(wordName);
+      //words = wordService.searchWord(wordName);
       return SUCCESS;
     } catch (Exception ex)
     {

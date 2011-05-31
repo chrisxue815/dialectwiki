@@ -25,41 +25,6 @@ public class WordServiceImpl implements WordService
   {
     wordDAO.save(word);
   }
-
-  public List<Word> getRecentWords()
-  {
-    return wordDAO.findRecentWord(MACRO_WORD.LIST_SIZE);
-  }
-
-  public List<Word> getHotWords()
-  {
-    return wordDAO.findHotWord(MACRO_WORD.LIST_SIZE);
-  }
-
-  public List<Word> getAllHotWords()
-  {
-    return wordDAO.findWaitPronWord(MACRO_WORD.LIST_SIZE);
-  }
-
-  public List<Word> getAllRecentWords()
-  {
-    return wordDAO.findAllRecentWord();
-  }
-
-  public List<Word> getAllWaitPronWords()
-  {
-    return wordDAO.findAllWaitPronWord();
-  }
-
-  public List<Word> getWaitPronWords()
-  {
-    return wordDAO.findAllWaitPronWord();
-  }
-
-  public List<Word> searchWord(String value)
-  {
-    return wordDAO.searchWord(value);
-  }
   
   public Word getById(int wordIdInt)
   {

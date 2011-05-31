@@ -24,6 +24,9 @@
   
   <!-- DAO begins -->
   <bean id="authorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
   </bean>
   
   <bean id="cityDAO" class="org.dw.dao.impl.CityDAOImpl">
@@ -44,6 +47,9 @@
   </bean>
   
   <bean id="userDAO" class="org.dw.dao.impl.UserDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
   </bean>
   
   <bean id="voteDAO" class="org.dw.dao.impl.VoteDAOImpl">

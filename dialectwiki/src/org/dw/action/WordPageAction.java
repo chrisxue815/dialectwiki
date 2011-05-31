@@ -64,8 +64,8 @@ public class WordPageAction extends ActionSupport
 
   public String execute()
   {
-    List<Word> recentWords = wordService.getRecentWords();
-    System.out.println(recentWords.size());
+    //List<Word> recentWords = wordService.getRecentWords();
+    //System.out.println(recentWords.size());
     return SUCCESS;
   }
 
