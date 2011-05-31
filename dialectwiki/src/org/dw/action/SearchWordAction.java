@@ -61,7 +61,7 @@ public class SearchWordAction extends ActionSupport
   {
     try
     {
-      words = wordService.searchWords(wordName, page);
+      //words = wordService.searchWords(wordName, page);
       
       return SUCCESS;
     } catch (Exception ex)

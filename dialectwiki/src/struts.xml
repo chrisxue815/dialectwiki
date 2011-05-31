@@ -34,12 +34,12 @@
     	<result name="success">/word/index.jsp</result>
     </action>
     
-    <action name="Word" class="wordHomeAction">
+    <action name="word" class="wordHomeAction">
     	<result name="success">/word/word.jsp</result>
     </action>
     
     <action name="search" class="searchWordAction">
-      <result name="success">/search.jsp</result>
+      <result name="success">/word/search.jsp</result>
     </action>
   </package>
 
