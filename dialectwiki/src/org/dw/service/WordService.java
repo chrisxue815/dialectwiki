@@ -15,4 +15,10 @@ public interface WordService
   public List<Word> searchWords(String wordName, int page);
   
   public Word findByWordName(String wordName);
+  
+  public List<Word> getHotWords();
+  
+  public List<Word> getWaitProns();
+  
+  public List<Word> getRecentWords();
 }

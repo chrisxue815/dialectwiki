@@ -58,5 +58,20 @@ public class WordServiceImpl implements WordService
       return null;
     }
   }
+  
+  public List<Word> getHotWords()
+  {
+	  return wordDAO.getHotWords();
+  }
+  
+  public List<Word> getWaitProns()
+  {
+	  return wordDAO.getWaitProns();
+  }
+  
+  public List<Word> getRecentWords()
+  {
+	  return wordDAO.getRecentWords();
+  }
 
 }

@@ -35,5 +35,11 @@ public interface WordDAO
   public Set<Pronunciation> getPronunciations(int wordId);
   
   public List<Word> searchSimilarWords(String wordName, int index, int limit);
+  
+  public List<Word> getRecentWords();
+  
+  public List<Word> getHotWords();
+  
+  public List<Word> getWaitProns();
 
 }

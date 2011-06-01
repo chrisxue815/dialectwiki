@@ -1,12 +1,16 @@
 package org.dw.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import org.dw.dao.WordDAO;
+import org.dw.hibernate.HibernateSessionFactory;
 import org.dw.model.Pronunciation;
 import org.dw.model.Word;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -222,5 +226,91 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
       log.error("attach failed", re);
       throw re;
     }
+  }
+  
+  public List<Word> getRecentWords()
+  {
+	  log.debug("get recent Words with limited size 20");
+	  try
+	  {
+		String queryString = "from Word model order by model.wordId desc";
+		Session session = HibernateSessionFactory.getSession();
+		Query query = session.createQuery(queryString);
+		query.setMaxResults(20);
+		List<Word> recentWords = query.list();
+		return recentWords;
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("attach failed", re);
+		  throw re;
+	  }
+  }
+  //got some bugs
+  public List<Word> getHotWords()
+  {
+	  try{
+		  Word word = null;
+		  List<Word> hotWords = new ArrayList<Word>();
+		  int ListSize = 20;
+		  String queryString = "from Word model order by model.wordId desc";
+		  List<Word> queryWords = getHibernateTemplate().find(queryString);
+		  
+		  if(queryWords == null)
+			  return null;
+		  else{
+			  int maxSize = queryWords.size();
+			  for(int i = 0;i<ListSize;i++)
+			  {
+				  word = queryWords.get(i);
+				  boolean isEmpty = word.getPronunciations().isEmpty();
+				  if(isEmpty == false )
+					  hotWords.add(word);
+				  if(i == maxSize - 1)
+					  break;				 
+			  }
+			  return hotWords;
+		  }
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("attach failed",re);
+		  throw re;
+	  }
+  }
+  public List<Word> getWaitProns()
+  {
+	  try
+	  {
+		  //String queryString = "from Word word where word.pronunciations is null order by word.wordId asc ";
+		  Word word = null;
+		  List<Word> waitProns = new ArrayList<Word>();
+		  int ListSize = 20;
+		  String queryString = "from Word word order by word.wordId asc ";
+		  List<Word> queryResult = getHibernateTemplate().find(queryString);
+		  
+		  if(queryResult == null)
+			  return null;
+		  else{
+			  int resultSize = queryResult.size();
+			  
+			  for(int i = 0;i < ListSize;i++)
+			  {
+				  word = queryResult.get(i);
+				  boolean isEmpty = word.getPronunciations().isEmpty();
+				  if( isEmpty == true)
+					  waitProns.add(word);
+				  if(i == resultSize -1)
+					  break;
+				  
+			  }
+			  return waitProns;
+		  }
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("attach failed",re);
+		  throw re;
+	  }
   }
 }
