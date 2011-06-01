@@ -27,7 +27,6 @@
   <p>软件学院</p>
   <p>爱尔兰</p>
   <s:iterator value="recentWords">
-  	<s:property value="recentWords.wordName" />
   </s:iterator>
 </div>
 </div><!--left-->

@@ -18,6 +18,12 @@
   		<result name="success">/result.jsp</result>
   		<result name="input">/signup.jsp</result>
   	</action>
+  	
+  	<!-- 上传发音的action 实现中 -->
+  	<action name="upload_pronounce" class="pronounceUploadAction">
+  		<result name="success">/index.jsp</result>
+  		<result name="error">/erro.jsp</result>
+  	</action>
  
   </package>
   

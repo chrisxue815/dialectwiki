@@ -105,6 +105,9 @@
     </property>
   </bean>
   
+  <bean id="pronounceUploadAction" class="org.dw.action.PronounceUploadAction">
+  </bean>
+  
   <bean id="searchWordAction" class="org.dw.action.SearchWordAction">
     <property name="wordService">
       <ref bean="wordService" />
