@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"><struts>
+  <constant name="struts.devMode" value="true"/>
+  <constant name="struts.i18n.encoding" value="utf-8"/>
+  
+  <include file="struts-default.xml"></include>
+  
+  <!-- / -->
+  <package name="dw_root" namespace="/" extends="struts-default">
+  
+    <action name="Pronounce" class="pronouncePageAction">
+      <result name="success">/pronounce.jsp</result>
+      <result name="input">/word/add.jsp</result>
+      <result name="error">/word/add.jsp</result>
+    </action>
+    
+  	<action name="SignupAction" class="signupAction">
+  		<result name="success">/result.jsp</result>
+  		<result name="input">/signup.jsp</result>
+  	</action>
+  	
+  	<!-- 上传发音的action 实现中 -->
+  	<action name="upload_pronounce" class="pronounceUploadAction">
+  		<result name="success">/index.jsp</result>
+  		<result name="error">/erro.jsp</result>
+  	</action>
+ 
+  </package>
+  
+  
+  <!-- /word -->
+  <package name="dw_word" namespace="/word" extends="struts-default">
+  
+    <action name="AddWordAction" class="addWordAction">
+      <result name="success">/word/add_success.jsp</result>
+      <result name="error">/word/add_failure.jsp</result>
+    </action>
+    
+    <action name="index" class="wordPageAction">
+    	<result name="success">/word/index.jsp</result>
+    </action>
+    
+    <action name="word" class="wordHomeAction">
+    	<result name="success">/word/word.jsp</result>
+    </action>
+    
+    <action name="search" class="searchWordAction">
+      <result name="success">/word/search.jsp</result>
+    </action>
+  </package>
+
+
+  
+
+</struts>
