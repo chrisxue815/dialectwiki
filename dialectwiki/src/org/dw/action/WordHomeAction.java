@@ -1,6 +1,6 @@
 package org.dw.action;
 
-import java.util.Set;
+import java.util.List;
 
 import org.dw.model.Pronunciation;
 import org.dw.model.Word;
@@ -18,7 +18,8 @@ public class WordHomeAction extends ActionSupport{
 	private PronunciationService pronunciationService;
 	
 	private Word word;
-	private Set<Pronunciation> prons;
+	private List<Pronunciation> prons;
+
 	
 	public String getWordId() {
 		return wordId;
@@ -51,12 +52,7 @@ public class WordHomeAction extends ActionSupport{
 	public void setPronunciationService(PronunciationService pronunciationService) {
 		this.pronunciationService = pronunciationService;
 	}
-	public Set<Pronunciation> getProns() {
-		return prons;
-	}
-	public void setProns(Set<Pronunciation> prons) {
-		this.prons = prons;
-	}
+
 	
 	public String execute() {
 	  if (wordId != null) {
@@ -64,6 +60,9 @@ public class WordHomeAction extends ActionSupport{
 	    
 	    word = wordService.getById(wordIdInt);
 	    prons = pronunciationService.getPronunciationByWordId(wordIdInt);
+			System.out.println("pron :" + pron.getCity().getCityName());
+		}
+
 
 	    return SUCCESS;
 	  }
