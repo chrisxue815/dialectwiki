@@ -19,7 +19,7 @@
   		<result name="input">/signup.jsp</result>
   	</action>
   	
-  	<!-- 上传发音的action 实现中 -->
+  	<!-- 上传发音的action 实现�-->
   	<action name="upload_pronounce" class="pronounceUploadAction">
   		<result name="success">/upload_success.jsp</result>
   		<result name="error">/upload_error.jsp</result>
@@ -31,12 +31,22 @@
   <!-- /word -->
   <package name="dw_word" namespace="/word" extends="struts-default">
   
-    <action name="AddWordAction" class="addWordAction">
+    <interceptors>
+      <interceptor name="headerDataInterceptor" class="headerDataInterceptor" />
+     
+      <interceptor-stack name="headerDataStack">
+        <interceptor-ref name="defaultStack" />
+        <interceptor-ref name="headerDataInterceptor" />
+      </interceptor-stack>
+    </interceptors>
+  
+    <action name="add" class="addWordAction">
       <result name="success">/word/add_success.jsp</result>
       <result name="error">/word/add_failure.jsp</result>
     </action>
     
     <action name="index" class="wordPageAction">
+      <interceptor-ref name="headerDataStack" />
     	<result name="success">/word/index.jsp</result>
     </action>
     

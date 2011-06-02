@@ -35,5 +35,8 @@ public interface PronunciationDAO
   public void attachDirty(Pronunciation instance);
 
   public void attachClean(Pronunciation instance);
+  
+  public List<Pronunciation>  getPronsSearchResult(int wordId);
 
+  public long getPronunciationNumber();
 }

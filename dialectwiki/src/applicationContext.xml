@@ -63,6 +63,42 @@
       <ref bean="sessionFactory" />
     </property>
   </bean>
+  
+  <bean id="PronunciationDAO" class="org.dw.dao.impl.PronunciationDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="UserDAO" class="org.dw.dao.impl.UserDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="CityDAO" class="org.dw.dao.impl.CityDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="WordDAO" class="org.dw.dao.impl.WordDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="VoteDAO" class="org.dw.dao.impl.VoteDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="ProvinceDAO" class="org.dw.dao.impl.ProvinceDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="AuthorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
 
 
   <!-- Service begins -->
@@ -119,6 +155,9 @@
   		<ref bean="userService" />
   	</property>
   </bean>
+
+  <bean id="successAction" class="org.dw.action.SuccessAction">
+  </bean>
   
   <bean id="wordPageAction" class="org.dw.action.WordPageAction">
   	<property name="wordService">
@@ -135,38 +174,14 @@
   	</property>
   </bean>
   
-  <bean id="PronunciationDAO" class="org.dw.dao.impl.PronunciationDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
+  <!-- Interceptor begin -->
+  <bean id="headerDataInterceptor" class="org.dw.interceptor.HeaderDataInterceptor">
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+    <property name="pronService">
+      <ref bean="pronunciationService" />
+    </property>
   </bean>
-  <bean id="UserDAO" class="org.dw.dao.impl.UserDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
-  </bean>
-  <bean id="CityDAO" class="org.dw.dao.impl.CityDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
-  </bean>
-  <bean id="WordDAO" class="org.dw.dao.impl.WordDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
-  </bean>
-  <bean id="VoteDAO" class="org.dw.dao.impl.VoteDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
-  </bean>
-  <bean id="ProvinceDAO" class="org.dw.dao.impl.ProvinceDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
-  </bean>
-  <bean id="AuthorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
-  	<property name="sessionFactory">
-  		<ref bean="sessionFactory" />
-  	</property>
-  </bean></beans>
+    
+</beans>

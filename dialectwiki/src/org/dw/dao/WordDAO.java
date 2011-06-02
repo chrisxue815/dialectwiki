@@ -41,5 +41,7 @@ public interface WordDAO
   public List<Word> getHotWords();
   
   public List<Word> getWaitProns();
+  
+  public long getWordNumber();
 
 }

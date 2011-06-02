@@ -21,16 +21,21 @@
 
 <div class="left">
 <div class="lefth1">添加词条</div>
-<div class="lefth2c">词条“ <s:property value="wordname"></s:property> ”已被添加，您可以：</div>
-<div class="alert"><a href ="">查看“ <s:property value="wordname"></s:property> ”</a>
-<br />
-<a href="">为“ <s:property value="wordname"></s:property> ”发音</a></div>
+<div class="lefth2c">
+词条“ <a href="word?wordName=<s:property value="wordname" />"><s:property value="wordname" /></a> ”已被添加，您可以：
+</div>
+<div class="alert">
+<a href="../pronounce?wordName=<s:property value="wordname" />">
+为“ <s:property value="wordname" /> ”发音
+</a>
+</div>
 <div class="announcement">重新添加词条：</div>
 <div class="lefth3">
-词条：
-<input type="text" id="word" name="word"/>
+词条：<form action="add" method="post">
+<input type="text" name="wordname"/>
 <br /><br />
-<input type="button" id="post"  name="post" value="  添加  "/> 
+<input type="submit" value="  添加  "/>
+</form> 
 </div>
 </div>
 

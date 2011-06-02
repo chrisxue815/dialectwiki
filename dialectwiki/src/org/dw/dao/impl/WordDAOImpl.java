@@ -313,4 +313,10 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 		  throw re;
 	  }
   }
+  
+  public long getWordNumber()
+  {
+    String queryString = "select count(*) from Word";
+    return (Long)getHibernateTemplate().find(queryString).listIterator().next();
+  }
 }

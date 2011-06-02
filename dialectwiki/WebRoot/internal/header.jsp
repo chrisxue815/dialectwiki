@@ -6,9 +6,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <div id="top">
 <div id="data">
-<strong>10000</strong>个词语
-<strong>10000</strong>个发音
-<strong>10000</strong>种方言
+<strong><s:property value="wordNum" /></strong>个词语
+<strong><s:property value="pronNum" /></strong>个发音
 </div><!--data-->
 <div id="user">
 <a href="<%=basePath %>login.jsp">登陆</a>
@@ -25,13 +24,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <li><a href="<%=basePath %>">首页</a></li>
 <li><a href="<%=basePath %>dialect/">方言</a></li>
 <li><a href="<%=basePath %>word/">词条</a></li>
-<li><a href="<%=basePath %>pronounce/">发音</a></li>
+<li><a href="<%=basePath %>pronunciation/">发音</a></li>
 <li><a href="<%=basePath %>user/">用户</a></li>
 </ul>
-<s:form action="word/search" method="post" theme="simple">
-<span id="search">
-<s:textfield id="stext" name="wordName" />
-<s:submit id="sbutton" value="搜索词条" />
-</span>
-</s:form>
+<div class="mright search">
+<form action="<%=basePath %>word/word" method="post">
+<input type="text" id="stext" name="wordName" />
+<input type="submit" id="sbutton" value="搜索词条" />
+</form>
+</div>
+<div class="mright">
+<ul>
+<li><a href="<%=basePath %>word/add.jsp">添加词条</a></li>
+</ul>
+</div>
 </div>

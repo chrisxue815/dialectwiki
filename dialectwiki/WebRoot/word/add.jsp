@@ -23,9 +23,9 @@
 <div class="lefth2">如果你想知道一个词条的发音或者想对一个词条进行发音，请从下面添加一个词条。</div>
 <div class="lefth3">
 词条：
-<s:form action="AddWordAction.action" theme="simple">
+<s:form action="add" theme="simple">
 <s:textfield name="wordname" /><br /><br />
-<s:submit value="添加"></s:submit>
+<s:submit value="  添加  "></s:submit>
 </s:form>
 </div>
 </div>

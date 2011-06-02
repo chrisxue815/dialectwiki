@@ -1,41 +1,28 @@
 package org.dw.dao.impl;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import org.dw.dao.PronunciationDAO;
+import org.dw.hibernate.HibernateSessionFactory;
 import org.dw.model.Pronunciation;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-/**
- * A data access object (DAO) providing persistence and search support for
- * Pronunciation entities. Transaction control of the save(), update() and
- * delete() operations can directly support Spring container-managed
- * transactions or they can be augmented to handle user-managed Spring
- * transactions. Each of these methods provides additional information for how
- * to configure it for the desired type of transaction control.
- * 
- * @see org.dw.model.Pronunciation
- * @author MyEclipse Persistence Tools
- */
 
 public class PronunciationDAOImpl extends HibernateDaoSupport implements PronunciationDAO
 {
   private static final Logger log = LoggerFactory
-      .getLogger(PronunciationDAOImpl.class);
+    .getLogger(PronunciationDAOImpl.class);
   protected void initDao()
   {
     // do nothing
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#save(org.dw.model.Pronunciation)
-   */
   public void save(Pronunciation transientInstance)
   {
     log.debug("saving Pronunciation instance");
@@ -50,9 +37,6 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
     }
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#delete(org.dw.model.Pronunciation)
-   */
   public void delete(Pronunciation persistentInstance)
   {
     log.debug("deleting Pronunciation instance");
@@ -67,9 +51,6 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
     }
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#findById(java.lang.Integer)
-   */
   public Pronunciation findById(java.lang.Integer id)
   {
     log.debug("getting Pronunciation instance with id: " + id);
@@ -85,9 +66,6 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
     }
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#findByExample(org.dw.model.Pronunciation)
-   */
   public List findByExample(Pronunciation instance)
   {
     log.debug("finding Pronunciation instance by example");
@@ -103,9 +81,6 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
     }
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#findByProperty(java.lang.String, java.lang.Object)
-   */
   public List findByProperty(String propertyName, Object value)
   {
     log.debug("finding Pronunciation instance with property: " + propertyName
@@ -122,33 +97,21 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
     }
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#findByPrUrl(java.lang.Object)
-   */
   public List findByPrUrl(Object prUrl)
   {
     return findByProperty(PR_URL, prUrl);
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#findByGoodVoteNum(java.lang.Object)
-   */
   public List findByGoodVoteNum(Object goodVoteNum)
   {
     return findByProperty(GOOD_VOTE_NUM, goodVoteNum);
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#findByBadVoteNum(java.lang.Object)
-   */
   public List findByBadVoteNum(Object badVoteNum)
   {
     return findByProperty(BAD_VOTE_NUM, badVoteNum);
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#findAll()
-   */
   public List findAll()
   {
     log.debug("finding all Pronunciation instances");
@@ -163,9 +126,6 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
     }
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#merge(org.dw.model.Pronunciation)
-   */
   public Pronunciation merge(Pronunciation detachedInstance)
   {
     log.debug("merging Pronunciation instance");
@@ -182,9 +142,6 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
     }
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#attachDirty(org.dw.model.Pronunciation)
-   */
   public void attachDirty(Pronunciation instance)
   {
     log.debug("attaching dirty Pronunciation instance");
@@ -199,9 +156,6 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
     }
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.PronunciationDAO#attachClean(org.dw.model.Pronunciation)
-   */
   public void attachClean(Pronunciation instance)
   {
     log.debug("attaching clean Pronunciation instance");
@@ -220,5 +174,29 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
       ApplicationContext ctx)
   {
     return (PronunciationDAO) ctx.getBean("PronunciationDAO");
+  }
+  
+  public List<Pronunciation> getPronsSearchResult(int wordId)
+  {
+	  log.debug("get a PronounciateionList order by city");
+	  try
+	  {
+		  String queryString = "from Pronunciation model where model.word.id = :wordid order by model.city.id asc";
+		  Session session = HibernateSessionFactory.getSession();
+		  Query query = session.createQuery(queryString);
+		  query.setParameter("wordid", wordId );
+		  List<Pronunciation> prons = query.list();
+		  return prons;
+	  } catch(RuntimeException re)
+	  {
+		  log.error("attach failed");
+		  throw re;
+	  }
+  }
+  
+  public long getPronunciationNumber()
+  {
+    String queryString = "select count(*) from Pronunciation";
+    return (Long)getHibernateTemplate().find(queryString).listIterator().next();
   }
 }
