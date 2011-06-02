@@ -1,8 +1,11 @@
 package org.dw.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.dw.model.City;
 import org.dw.model.Pronunciation;
+import org.dw.model.Province;
 import org.dw.model.Word;
 import org.dw.service.PronunciationService;
 import org.dw.service.WordService;
@@ -57,13 +60,83 @@ public class WordHomeAction extends ActionSupport{
 	public String execute() {
 	  if (wordId != null) {
 	    int wordIdInt = Integer.parseInt(wordId);
-	    
 	    word = wordService.getById(wordIdInt);
 	    prons = pronunciationService.searchPronunciation(wordIdInt);
 	    
-	    for (Pronunciation pron : prons) {
-	      System.out.println("pron :" + pron.getCity().getCityName());
+	    List<Province> provinceList = new ArrayList<Province>();
+	    List<City> cityList = new ArrayList<City>();
+	    
+	    List<Integer> pronsIndexs = new ArrayList<Integer>();
+	    List<Integer> cityIndexs = new ArrayList<Integer>();
+	    
+	    City lastCity = null;
+	    City nextCity = null;
+
+	    
+	    Province lastProvince = null;
+	    Province nextProvince = null;
+	    int provinceIndex = 0; //?
+	    
+	    int pronIndex = 0;
+	    lastCity = prons.get(pronIndex).getCity();
+	    cityList.add(lastCity);
+	    pronsIndexs.add(pronIndex);
+	    
+	    for(Pronunciation pron : prons)
+	    {
+	    	nextCity = pron.getCity();
+	    	if(false == nextCity.equals(lastCity))
+	    	{
+	    		lastCity = nextCity;
+	    		pronsIndexs.add(pronIndex);
+	    		cityList.add(lastCity);
+	    	}
+	    	
+	    	pronIndex++;
+	    	
 	    }
+	    
+	    int cityIndex = 0;
+	    lastProvince = prons.get(cityIndex).getCity().getProvince();
+	    cityIndexs.add(cityIndex);
+	    provinceList.add(lastProvince);
+	    for(City city: cityList)
+	    {
+	    	System.out.println("cityName:" + city.getCityName());
+	    	nextProvince = city.getProvince();
+	    	if(false == nextProvince.equals(lastProvince))
+	    	{
+	    		lastProvince = nextProvince;
+	    		cityIndexs.add(cityIndex);
+	    		provinceList.add(lastProvince);
+	    	}
+	    	cityIndex++;
+	    }
+	    for(Integer num : cityIndexs)
+	    {
+	    	System.out.println(num);
+	    }
+	    
+	    for(Integer num : pronsIndexs)
+	    {
+	    	System.out.println(num);
+	    }
+	    
+	    int i = 0;
+	    cityIndex = 0;
+	    pronIndex = 0;
+	    for(Province province : provinceList)
+	    {
+	    	System.out.println("province name:" + province.getProvinceName());
+	    	while(i <= cityIndexs.get(cityIndex))
+	    	{
+	    		System.out.println("    city name:" + cityList.get(i).getCityName());
+	    		i++;
+	    	}
+	    	cityIndex++;
+	    }
+	    
+	    
 	    
 	    return SUCCESS;
 	  }
