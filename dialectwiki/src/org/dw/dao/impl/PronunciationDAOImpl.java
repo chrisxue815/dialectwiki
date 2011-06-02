@@ -1,12 +1,13 @@
 package org.dw.dao.impl;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import org.dw.dao.PronunciationDAO;
+import org.dw.hibernate.HibernateSessionFactory;
 import org.dw.model.Pronunciation;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -220,5 +221,23 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
       ApplicationContext ctx)
   {
     return (PronunciationDAO) ctx.getBean("PronunciationDAO");
+  }
+  
+  public List<Pronunciation>  getPronsSearchResult(int wordId)
+  {
+	  log.debug("get a PronounciateionList order by city");
+	  try
+	  {
+		  String queryString = "from Pronunciation model where model.word.id = :wordid order by model.city.id asc";
+		  Session session = HibernateSessionFactory.getSession();
+		  Query query = session.createQuery(queryString);
+		  query.setParameter("wordid", wordId );
+		  List<Pronunciation> prons = query.list();
+		  return prons;
+	  } catch(RuntimeException re)
+	  {
+		  log.error("attach failed");
+		  throw re;
+	  }
   }
 }

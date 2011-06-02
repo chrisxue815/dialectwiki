@@ -21,4 +21,5 @@ public interface WordService
   public List<Word> getWaitProns();
   
   public List<Word> getRecentWords();
+  
 }

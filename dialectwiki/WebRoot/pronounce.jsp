@@ -45,7 +45,7 @@ function loadSwf() {
 当你认为发音很完美时，单击"确定发送"按钮，提交发音。
 </div>
 </div><!--content-->
-
+<div style="clear: both;"> </div>
 <jsp:include page="internal/footer.jsp" />
 
 </div><!--wrap-->

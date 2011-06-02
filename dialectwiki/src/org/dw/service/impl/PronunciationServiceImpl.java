@@ -1,11 +1,11 @@
 package org.dw.service.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import org.dw.dao.PronunciationDAO;
 import org.dw.dao.WordDAO;
 import org.dw.model.Pronunciation;
-import org.dw.model.Word;
 import org.dw.service.PronunciationService;
 
 public class PronunciationServiceImpl implements PronunciationService {
@@ -33,5 +33,10 @@ public class PronunciationServiceImpl implements PronunciationService {
 		return wordDAO.getPronunciations(wordId);
 	}
 	
-	//public List<String> getPronunciationBy
+	public List<Pronunciation> searchPronunciation(int wordId)
+	{
+		return pronunciationDAO.getPronsSearchResult(wordId);
+	
+	}
+	
 }

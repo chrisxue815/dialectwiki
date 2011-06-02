@@ -3,7 +3,6 @@ package org.dw.service.impl;
 import java.util.List;
 
 import org.dw.dao.WordDAO;
-import org.dw.macro.MACRO_WORD;
 import org.dw.model.Word;
 import org.dw.service.WordService;
 

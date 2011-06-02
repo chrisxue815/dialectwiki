@@ -1,6 +1,6 @@
 package org.dw.action;
 
-import java.util.Set;
+import java.util.List;
 
 import org.dw.model.Pronunciation;
 import org.dw.model.Word;
@@ -12,12 +12,14 @@ import com.opensymphony.xwork2.ActionSupport;
 public class WordHomeAction extends ActionSupport{
 
 	private static final long serialVersionUID = 2409752678054918663L;
+	
 	private int wordId;
 	private WordService wordService;
 	private PronunciationService pronunciationService;
 	
 	private Word word;
-	private Set<Pronunciation> prons;
+	private List<Pronunciation> prons;
+
 	
 	public int getWordId() {
 		return wordId;
@@ -44,16 +46,17 @@ public class WordHomeAction extends ActionSupport{
 	public void setPronunciationService(PronunciationService pronunciationService) {
 		this.pronunciationService = pronunciationService;
 	}
-	public Set<Pronunciation> getProns() {
-		return prons;
-	}
-	public void setProns(Set<Pronunciation> prons) {
-		this.prons = prons;
-	}
+
 	
 	public String execute(){
 		word = wordService.getById(wordId);
-		prons = pronunciationService.getPronunciationByWordId(wordId);
+		prons = pronunciationService.searchPronunciation(wordId);
+		
+		for(Pronunciation pron : prons)
+		{
+			System.out.println("pron :" + pron.getCity().getCityName());
+		}
+
 
 		return SUCCESS;
 	}
