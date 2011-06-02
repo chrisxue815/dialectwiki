@@ -10,15 +10,15 @@
             <column name="pron_id" />
             <generator class="native"></generator>
         </id>
-        <many-to-one name="city" class="org.dw.model.City" fetch="select">
+        <many-to-one name="word" class="org.dw.model.Word" fetch="select" lazy="false">
+            <column name="word_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="org.dw.model.User" fetch="select" lazy="false">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="city" class="org.dw.model.City" fetch="select" lazy="false">
             <column name="city_id" not-null="true" />
         </many-to-one>
-        <property name="userId" type="java.lang.Integer">
-            <column name="user_id" not-null="true" />
-        </property>
-        <property name="wordId" type="java.lang.Integer">
-            <column name="word_id" not-null="true" />
-        </property>
         <property name="prUrl" type="java.lang.String">
             <column name="pr_url" length="45" />
         </property>

@@ -1,22 +1,69 @@
 package org.dw.model;
 
-public class User
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * User entity. @author MyEclipse Persistence Tools
+ */
+
+public class User implements java.io.Serializable
 {
 
-  private Integer userid;
+  // Fields
+
+  private Integer userId;
   private String username;
   private String password;
-  private boolean enabled;
+  private Boolean enabled;
   private String email;
-  private char sex;
+  private String sex;
+  private Set pronunciations = new HashSet(0);
+  private Set votes = new HashSet(0);
+  private Set authorities = new HashSet(0);
 
+  // Constructors
+
+  /** default constructor */
   public User()
   {
   }
 
+  /** minimal constructor */
+  public User(String username)
+  {
+    this.username = username;
+  }
+
+  /** full constructor */
+  public User(String username, String password, Boolean enabled, String email,
+      String sex, Set pronunciations, Set votes, Set authorities)
+  {
+    this.username = username;
+    this.password = password;
+    this.enabled = enabled;
+    this.email = email;
+    this.sex = sex;
+    this.pronunciations = pronunciations;
+    this.votes = votes;
+    this.authorities = authorities;
+  }
+
+  // Property accessors
+
+  public Integer getUserId()
+  {
+    return this.userId;
+  }
+
+  public void setUserId(Integer userId)
+  {
+    this.userId = userId;
+  }
+
   public String getUsername()
   {
-    return username;
+    return this.username;
   }
 
   public void setUsername(String username)
@@ -26,7 +73,7 @@ public class User
 
   public String getPassword()
   {
-    return password;
+    return this.password;
   }
 
   public void setPassword(String password)
@@ -34,9 +81,19 @@ public class User
     this.password = password;
   }
 
+  public Boolean getEnabled()
+  {
+    return this.enabled;
+  }
+
+  public void setEnabled(Boolean enabled)
+  {
+    this.enabled = enabled;
+  }
+
   public String getEmail()
   {
-    return email;
+    return this.email;
   }
 
   public void setEmail(String email)
@@ -44,33 +101,44 @@ public class User
     this.email = email;
   }
 
-  public char getSex()
+  public String getSex()
   {
-    return sex;
+    return this.sex;
   }
 
-  public void setSex(char sex)
+  public void setSex(String sex)
   {
     this.sex = sex;
   }
 
-  public Integer getUserid()
+  public Set getPronunciations()
   {
-    return userid;
+    return this.pronunciations;
   }
 
-  public void setUserid(Integer userid)
+  public void setPronunciations(Set pronunciations)
   {
-    this.userid = userid;
+    this.pronunciations = pronunciations;
   }
 
-  public void setEnabled(boolean enabled)
+  public Set getVotes()
   {
-    this.enabled = enabled;
+    return this.votes;
   }
 
-  public boolean isEnabled()
+  public void setVotes(Set votes)
   {
-    return enabled;
+    this.votes = votes;
   }
+
+  public Set getAuthorities()
+  {
+    return this.authorities;
+  }
+
+  public void setAuthorities(Set authorities)
+  {
+    this.authorities = authorities;
+  }
+
 }

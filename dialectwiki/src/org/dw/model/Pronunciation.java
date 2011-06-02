@@ -14,9 +14,9 @@ public class Pronunciation implements java.io.Serializable
   // Fields
 
   private Integer pronId;
+  private Word word;
+  private User user;
   private City city;
-  private Integer userId;
-  private Integer wordId;
   private String prUrl;
   private Date uploadDate;
   private Integer goodVoteNum;
@@ -31,23 +31,23 @@ public class Pronunciation implements java.io.Serializable
   }
 
   /** minimal constructor */
-  public Pronunciation(City city, Integer userId, Integer wordId,
-      Integer goodVoteNum, Integer badVoteNum)
+  public Pronunciation(Word word, User user, City city, Integer goodVoteNum,
+      Integer badVoteNum)
   {
+    this.word = word;
+    this.user = user;
     this.city = city;
-    this.userId = userId;
-    this.wordId = wordId;
     this.goodVoteNum = goodVoteNum;
     this.badVoteNum = badVoteNum;
   }
 
   /** full constructor */
-  public Pronunciation(City city, Integer userId, Integer wordId, String prUrl,
+  public Pronunciation(Word word, User user, City city, String prUrl,
       Date uploadDate, Integer goodVoteNum, Integer badVoteNum, Set votes)
   {
+    this.word = word;
+    this.user = user;
     this.city = city;
-    this.userId = userId;
-    this.wordId = wordId;
     this.prUrl = prUrl;
     this.uploadDate = uploadDate;
     this.goodVoteNum = goodVoteNum;
@@ -67,6 +67,26 @@ public class Pronunciation implements java.io.Serializable
     this.pronId = pronId;
   }
 
+  public Word getWord()
+  {
+    return this.word;
+  }
+
+  public void setWord(Word word)
+  {
+    this.word = word;
+  }
+
+  public User getUser()
+  {
+    return this.user;
+  }
+
+  public void setUser(User user)
+  {
+    this.user = user;
+  }
+
   public City getCity()
   {
     return this.city;
@@ -75,26 +95,6 @@ public class Pronunciation implements java.io.Serializable
   public void setCity(City city)
   {
     this.city = city;
-  }
-
-  public Integer getUserId()
-  {
-    return this.userId;
-  }
-
-  public void setUserId(Integer userId)
-  {
-    this.userId = userId;
-  }
-
-  public Integer getWordId()
-  {
-    return this.wordId;
-  }
-
-  public void setWordId(Integer wordId)
-  {
-    this.wordId = wordId;
   }
 
   public String getPrUrl()

@@ -9,7 +9,7 @@ public class VoteId implements java.io.Serializable
 
   // Fields
 
-  private Integer userId;
+  private User user;
   private Pronunciation pronunciation;
 
   // Constructors
@@ -20,22 +20,22 @@ public class VoteId implements java.io.Serializable
   }
 
   /** full constructor */
-  public VoteId(Integer userId, Pronunciation pronunciation)
+  public VoteId(User user, Pronunciation pronunciation)
   {
-    this.userId = userId;
+    this.user = user;
     this.pronunciation = pronunciation;
   }
 
   // Property accessors
 
-  public Integer getUserId()
+  public User getUser()
   {
-    return this.userId;
+    return this.user;
   }
 
-  public void setUserId(Integer userId)
+  public void setUser(User user)
   {
-    this.userId = userId;
+    this.user = user;
   }
 
   public Pronunciation getPronunciation()
@@ -58,9 +58,9 @@ public class VoteId implements java.io.Serializable
       return false;
     VoteId castOther = (VoteId) other;
 
-    return ((this.getUserId() == castOther.getUserId()) || (this.getUserId() != null
-        && castOther.getUserId() != null && this.getUserId().equals(
-        castOther.getUserId())))
+    return ((this.getUser() == castOther.getUser()) || (this.getUser() != null
+        && castOther.getUser() != null && this.getUser().equals(
+        castOther.getUser())))
         && ((this.getPronunciation() == castOther.getPronunciation()) || (this
             .getPronunciation() != null
             && castOther.getPronunciation() != null && this.getPronunciation()
@@ -71,8 +71,7 @@ public class VoteId implements java.io.Serializable
   {
     int result = 17;
 
-    result = 37 * result
-        + (getUserId() == null ? 0 : this.getUserId().hashCode());
+    result = 37 * result + (getUser() == null ? 0 : this.getUser().hashCode());
     result = 37 * result
         + (getPronunciation() == null ? 0 : this.getPronunciation().hashCode());
     return result;

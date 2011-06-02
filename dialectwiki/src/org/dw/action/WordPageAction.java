@@ -19,12 +19,26 @@ public class WordPageAction extends ActionSupport
 
   // 热门词条
   private List<Word> hotWords;
+  
+  //待发音的词条
+  private List<Word> waitProns;
+  
 
   private Word word;
 
+  
+  public List<Word> getWaitProns() {
+	return waitProns;
+  }
+
+  public void setWaitProns(List<Word> waitProns) 
+  {
+	this.waitProns = waitProns;
+  }
+
   public Word getWord()
   {
-    return word;
+	 return word;
   }
 
   public void setWord(Word word)
@@ -64,8 +78,11 @@ public class WordPageAction extends ActionSupport
 
   public String execute()
   {
-    List<Word> recentWords = wordService.getRecentWords();
-    System.out.println(recentWords.size());
+	hotWords = wordService.getHotWords(); 
+	recentWords = wordService.getRecentWords(); 
+	waitProns = wordService.getWaitProns();
+
+	
     return SUCCESS;
   }
 

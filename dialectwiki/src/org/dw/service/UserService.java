@@ -4,5 +4,5 @@ import org.dw.model.User;
 
 public interface UserService
 {
-  public boolean signup(User user);
+  public void signup(User user);
 }

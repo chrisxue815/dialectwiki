@@ -10,7 +10,7 @@
             <column name="city_id" />
             <generator class="native"></generator>
         </id>
-        <many-to-one name="province" class="org.dw.model.Province" fetch="select">
+        <many-to-one name="province" class="org.dw.model.Province" fetch="select" lazy="false">
             <column name="province_id" not-null="true" />
         </many-to-one>
         <property name="cityName" type="java.lang.String">

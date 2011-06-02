@@ -6,3 +6,5 @@
 * add_success\add_failure 中的链接
 
 * 在页脚添加“报告bug”
+
+* flash 允许录音 保存设置

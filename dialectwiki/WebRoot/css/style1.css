@@ -89,6 +89,20 @@ color: #000;
 text-decoration: none;
 }
 
+.mright {
+	float: right;
+}
+.search {
+	margin-right: 40px;
+}
+#stext {
+  width: 150px;
+}
+#sbutton {
+  width: 70px;  
+  height: 25px;
+}
+
 #content {
 margin: auto 0px auto 0px;
 }
@@ -108,4 +122,3 @@ color: #aaa;
 #footer a:hover { color: #111; }.moduleTitle {
 	background-color: #C3D9FF;
 }
-

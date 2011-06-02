@@ -25,17 +25,13 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
 {
-  private static final Logger log = LoggerFactory
-      .getLogger(ProvinceDAOImpl.class);
-
+  private static final Logger log = LoggerFactory.getLogger(ProvinceDAOImpl.class);
   protected void initDao()
   {
     // do nothing
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.ProvinceDAO#save(org.dw.model.Province)
    */
   public void save(Province transientInstance)
@@ -52,9 +48,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.ProvinceDAO#delete(org.dw.model.Province)
    */
   public void delete(Province persistentInstance)
@@ -71,9 +65,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.ProvinceDAO#findById(java.lang.Integer)
    */
   public Province findById(java.lang.Integer id)
@@ -91,9 +83,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.ProvinceDAO#findByExample(org.dw.model.Province)
    */
   public List findByExample(Province instance)
@@ -111,11 +101,8 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.dw.dao.impl.ProvinceDAO#findByProperty(java.lang.String,
-   * java.lang.Object)
+  /* (non-Javadoc)
+   * @see org.dw.dao.impl.ProvinceDAO#findByProperty(java.lang.String, java.lang.Object)
    */
   public List findByProperty(String propertyName, Object value)
   {
@@ -133,9 +120,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.ProvinceDAO#findByProvinceName(java.lang.Object)
    */
   public List findByProvinceName(Object provinceName)
@@ -143,9 +128,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
     return findByProperty(PROVINCE_NAME, provinceName);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.ProvinceDAO#findAll()
    */
   public List findAll()
@@ -162,9 +145,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.ProvinceDAO#merge(org.dw.model.Province)
    */
   public Province merge(Province detachedInstance)
@@ -183,9 +164,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.ProvinceDAO#attachDirty(org.dw.model.Province)
    */
   public void attachDirty(Province instance)
@@ -202,9 +181,7 @@ public class ProvinceDAOImpl extends HibernateDaoSupport implements ProvinceDAO
     }
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /* (non-Javadoc)
    * @see org.dw.dao.impl.ProvinceDAO#attachClean(org.dw.model.Province)
    */
   public void attachClean(Province instance)

@@ -10,20 +10,27 @@ import java.util.Set;
 public class Word implements java.io.Serializable
 {
 
-  private static final long serialVersionUID = 1L;
+  // Fields
+
   private Integer wordId;
   private String wordName;
-  private Set<Pronunciation> prons = new HashSet<Pronunciation>();
+  private Set pronunciations = new HashSet(0);
 
+  // Constructors
+
+  /** default constructor */
   public Word()
   {
-
   }
 
-  public Word(String wordName)
+  /** full constructor */
+  public Word(String wordName, Set pronunciations)
   {
     this.wordName = wordName;
+    this.pronunciations = pronunciations;
   }
+
+  // Property accessors
 
   public Integer getWordId()
   {
@@ -45,14 +52,14 @@ public class Word implements java.io.Serializable
     this.wordName = wordName;
   }
 
-  public void setProns(Set<Pronunciation> prons)
+  public Set getPronunciations()
   {
-    this.prons = prons;
+    return this.pronunciations;
   }
 
-  public Set<Pronunciation> getProns()
+  public void setPronunciations(Set pronunciations)
   {
-    return prons;
+    this.pronunciations = pronunciations;
   }
 
 }

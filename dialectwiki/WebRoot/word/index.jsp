@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xfhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,6 +26,8 @@
   <p>哈工大</p>
   <p>软件学院</p>
   <p>爱尔兰</p>
+  <s:iterator value="recentWords">
+  </s:iterator>
 </div>
 </div><!--left-->
 
@@ -34,7 +38,7 @@
   <p>哈工大</p>
   <p>软件学院</p>
   <p>爱尔兰</p>
-  <p></p>
+  
 </div>
 </div><!--center-->
 

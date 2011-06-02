@@ -1,9 +1,13 @@
 package org.dw.service;
 
-import org.dw.model.Pronunciation;
 import java.util.List;
-public interface PronunciationService {
-	public List<Pronunciation> getPronunciationByWordId(int wordId);
-	
+import java.util.Set;
+import org.dw.model.Pronunciation;
 
+public interface PronunciationService {
+	public Set<Pronunciation> getPronunciationByWordId(int wordId);
+	
+	public List<Pronunciation> searchPronunciation(int wordId);
+	
+	public long getPronunciationNumber();
 }

@@ -25,12 +25,12 @@
 		<property name="show_sql">true</property>
 
 		<mapping resource="org/dw/model/User.hbm.xml" />
-		<mapping resource="org/dw/model/Authorities.hbm.xml" />
 		<mapping resource="org/dw/model/Word.hbm.xml" />
 		<mapping resource="org/dw/model/City.hbm.xml" />
 		<mapping resource="org/dw/model/Vote.hbm.xml" />
 		<mapping resource="org/dw/model/Pronunciation.hbm.xml" />
 		<mapping resource="org/dw/model/Province.hbm.xml" />
+		<mapping resource="org/dw/model/Authority.hbm.xml" />
 
 	</session-factory>
 

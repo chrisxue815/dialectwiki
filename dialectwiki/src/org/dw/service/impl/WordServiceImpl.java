@@ -3,7 +3,6 @@ package org.dw.service.impl;
 import java.util.List;
 
 import org.dw.dao.WordDAO;
-import org.dw.macro.MACRO_WORD;
 import org.dw.model.Word;
 import org.dw.service.WordService;
 
@@ -25,45 +24,57 @@ public class WordServiceImpl implements WordService
   {
     wordDAO.save(word);
   }
-
-  public List<Word> getRecentWords()
-  {
-    return wordDAO.findRecentWord(MACRO_WORD.LIST_SIZE);
-  }
-
-  public List<Word> getHotWords()
-  {
-    return wordDAO.findHotWord(MACRO_WORD.LIST_SIZE);
-  }
-
-  public List<Word> getAllHotWords()
-  {
-    return wordDAO.findWaitPronWord(MACRO_WORD.LIST_SIZE);
-  }
-
-  public List<Word> getAllRecentWords()
-  {
-    return wordDAO.findAllRecentWord();
-  }
-
-  public List<Word> getAllWaitPronWords()
-  {
-    return wordDAO.findAllWaitPronWord();
-  }
-
-  public List<Word> getWaitPronWords()
-  {
-    return wordDAO.findAllWaitPronWord();
-  }
-
-  public List<Word> searchWord(String value)
-  {
-    return wordDAO.searchWord(value);
-  }
   
   public Word getById(int wordIdInt)
   {
     return wordDAO.findById(wordIdInt);
   }
+  
+  public List<Word> searchWords(String wordName, int page)
+  {
+    int index = WORDS_PER_PAGE * (page - 1);
+    
+    List<Word> words = wordDAO.searchSimilarWords(wordName, index, WORDS_PER_PAGE);
+    
+    Word word = findByWordName(wordName);
+    
+    if (word != null)
+      words.add(0, word);
+    
+    return words;
+  }
+  
+  public Word findByWordName(String wordName)
+  {
+    List<Word> words = wordDAO.findByWordName(wordName);
+    
+    if (words.size() == 1)
+    {
+      return words.get(0);
+    }
+    else
+    {
+      return null;
+    }
+  }
+  
+  public List<Word> getHotWords()
+  {
+	  return wordDAO.getHotWords();
+  }
+  
+  public List<Word> getWaitProns()
+  {
+	  return wordDAO.getWaitProns();
+  }
+  
+  public List<Word> getRecentWords()
+  {
+	  return wordDAO.getRecentWords();
+  }
 
+  public long getWordNumber()
+  {
+    return wordDAO.getWordNumber();
+  }
 }

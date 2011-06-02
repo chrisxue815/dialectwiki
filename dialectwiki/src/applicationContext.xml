@@ -24,6 +24,9 @@
   
   <!-- DAO begins -->
   <bean id="authorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
   </bean>
   
   <bean id="cityDAO" class="org.dw.dao.impl.CityDAOImpl">
@@ -44,6 +47,9 @@
   </bean>
   
   <bean id="userDAO" class="org.dw.dao.impl.UserDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
   </bean>
   
   <bean id="voteDAO" class="org.dw.dao.impl.VoteDAOImpl">
@@ -57,9 +63,46 @@
       <ref bean="sessionFactory" />
     </property>
   </bean>
+  
+  <bean id="PronunciationDAO" class="org.dw.dao.impl.PronunciationDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="UserDAO" class="org.dw.dao.impl.UserDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="CityDAO" class="org.dw.dao.impl.CityDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="WordDAO" class="org.dw.dao.impl.WordDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="VoteDAO" class="org.dw.dao.impl.VoteDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="ProvinceDAO" class="org.dw.dao.impl.ProvinceDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="AuthorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
 
 
   <!-- Service begins -->
+  
   <bean id="userService" class="org.dw.service.impl.UserServiceImpl">
     <property name="userDAO">
       <ref bean="userDAO" />
@@ -75,8 +118,17 @@
   	</property>
   </bean>
   
+  <bean id="pronunciationService" class="org.dw.service.impl.PronunciationServiceImpl">
+  	<property name="pronunciationDAO">
+  		<ref bean="pronunciationDAO" />
+  	</property>
+    <property name="wordDAO">
+      <ref bean="wordDAO" />
+    </property>
+  </bean>
   
   <!-- Action begins -->
+  
   <bean id="addWordAction" class="org.dw.action.AddWordAction">
   	<property name="wordService">
   		<ref bean="wordService" />
@@ -88,11 +140,23 @@
       <ref bean="wordService" />
     </property>
   </bean>
+  
+  <bean id="pronounceUploadAction" class="org.dw.action.PronounceUploadAction">
+  </bean>
+  
+  <bean id="searchWordAction" class="org.dw.action.SearchWordAction">
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+  </bean>
 
   <bean id="signupAction" class="org.dw.action.SignupAction">
   	<property name="userService">
   		<ref bean="userService" />
   	</property>
+  </bean>
+
+  <bean id="successAction" class="org.dw.action.SuccessAction">
   </bean>
   
   <bean id="wordPageAction" class="org.dw.action.WordPageAction">
@@ -105,6 +169,19 @@
   	<property name="wordService">
   		<ref bean="wordService" />
   	</property>
+  	<property name="pronunciationService">
+  		<ref bean="pronunciationService" />	
+  	</property>
   </bean>
   
+  <!-- Interceptor begin -->
+  <bean id="headerDataInterceptor" class="org.dw.interceptor.HeaderDataInterceptor">
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+    <property name="pronService">
+      <ref bean="pronunciationService" />
+    </property>
+  </bean>
+    
 </beans>

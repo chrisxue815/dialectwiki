@@ -6,21 +6,21 @@ import org.dw.model.Word;
 
 public interface WordService
 {
+  public static final int WORDS_PER_PAGE = 10; 
+  
   public void addWord(Word word);
 
-  public List<Word> getRecentWords();
-
-  public List<Word> getHotWords();
-
-  public List<Word> getWaitPronWords();
-
-  public List<Word> getAllRecentWords();
-
-  public List<Word> getAllHotWords();
-
-  public List<Word> getAllWaitPronWords();
-
-  public List<Word> searchWord(String value);
-
   public Word getById(int wordIdInt);
+  
+  public List<Word> searchWords(String wordName, int page);
+  
+  public Word findByWordName(String wordName);
+  
+  public List<Word> getHotWords();
+  
+  public List<Word> getWaitProns();
+  
+  public List<Word> getRecentWords();
+  
+  public long getWordNumber();
 }
