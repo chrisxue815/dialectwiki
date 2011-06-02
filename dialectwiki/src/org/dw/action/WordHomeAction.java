@@ -59,17 +59,23 @@ public class WordHomeAction extends ActionSupport{
 	}
 	
 	public String execute() {
-	  //if (wordId != null) {
+	  if (wordId != null) {
 	    int wordIdInt = Integer.parseInt(wordId);
 	    
 	    word = wordService.getById(wordIdInt);
 	    prons = pronunciationService.getPronunciationByWordId(wordIdInt);
 
 	    return SUCCESS;
-	  //}
-	  //else if (wordName != null) {
-	  //  word = wordService.get
-	  //}
+	  }
+	  else if (wordName != null) {
+	    word = wordService.findByWordName(wordName);
+	    prons = pronunciationService.getPronunciationByWordId(word.getWordId());
+	    
+	    return SUCCESS;
+	  }
+	  else {
+	    return ERROR;
+	  }
 	}
 	
 }

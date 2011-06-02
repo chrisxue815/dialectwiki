@@ -89,15 +89,18 @@ color: #000;
 text-decoration: none;
 }
 
-#menu #search {
+.mright {
 	float: right;
-	margin-right: 20px;
 }
-#menu #stext {
+.search {
+	margin-right: 40px;
+}
+#stext {
   width: 150px;
 }
-#menu #sbutton {
-  width: 50px;  
+#sbutton {
+  width: 70px;  
+  height: 25px;
 }
 
 #content {
@@ -119,4 +122,3 @@ color: #aaa;
 #footer a:hover { color: #111; }.moduleTitle {
 	background-color: #C3D9FF;
 }
-

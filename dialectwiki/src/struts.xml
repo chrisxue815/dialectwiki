@@ -31,7 +31,7 @@
   <!-- /word -->
   <package name="dw_word" namespace="/word" extends="struts-default">
   
-    <action name="AddWordAction" class="addWordAction">
+    <action name="add" class="addWordAction">
       <result name="success">/word/add_success.jsp</result>
       <result name="error">/word/add_failure.jsp</result>
     </action>
