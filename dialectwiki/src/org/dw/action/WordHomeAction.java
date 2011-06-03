@@ -80,8 +80,7 @@ public class WordHomeAction extends ActionSupport{
 	    int pronIndex = 0;
 	    lastCity = prons.get(pronIndex).getCity();
 	    cityList.add(lastCity);
-	    pronsIndexs.add(pronIndex);
-	    
+
 	    for(Pronunciation pron : prons)
 	    {
 	    	nextCity = pron.getCity();
@@ -95,11 +94,12 @@ public class WordHomeAction extends ActionSupport{
 	    	pronIndex++;
 	    	
 	    }
+	    pronsIndexs.add(pronIndex);
 	    
 	    int cityIndex = 0;
 	    lastProvince = prons.get(cityIndex).getCity().getProvince();
-	    cityIndexs.add(cityIndex);
 	    provinceList.add(lastProvince);
+	    
 	    for(City city: cityList)
 	    {
 	    	System.out.println("cityName:" + city.getCityName());
@@ -112,6 +112,8 @@ public class WordHomeAction extends ActionSupport{
 	    	}
 	    	cityIndex++;
 	    }
+	    cityIndexs.add(cityIndex);
+	    
 	    for(Integer num : cityIndexs)
 	    {
 	    	System.out.println(num);
@@ -123,18 +125,27 @@ public class WordHomeAction extends ActionSupport{
 	    }
 	    
 	    int i = 0;
+	    int j = 0;
 	    cityIndex = 0;
 	    pronIndex = 0;
 	    for(Province province : provinceList)
 	    {
 	    	System.out.println("province name:" + province.getProvinceName());
-	    	while(i <= cityIndexs.get(cityIndex))
+	    	while(i < cityIndexs.get(cityIndex))
 	    	{
 	    		System.out.println("    city name:" + cityList.get(i).getCityName());
+	    	    while( j < pronsIndexs.get(pronIndex))
+	    	    {
+	    	    	System.out.println(j+"               pronounciationId:" + prons.get(j).getPronId());
+	    	    	j++;
+	    	    }
+	    	    pronIndex++;
 	    		i++;
 	    	}
 	    	cityIndex++;
 	    }
+	    
+
 	    
 	    
 	    
