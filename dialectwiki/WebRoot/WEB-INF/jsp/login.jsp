@@ -1,10 +1,15 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/style1.css"  />
-<link rel="stylesheet" type="text/css" href="css/login.css"  />
+<base href="<%=basePath %>" />
+<link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css"  />
+<link rel="stylesheet" type="text/css" href="<%=basePath %>css/login.css"  />
 <title>登录</title>
 <!-- <script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
 <script type="text/javascript">
@@ -29,7 +34,7 @@ var init = function(){
 <div class="right">
 <h2>登录</h2>
 
-<form id="dw_login" name="f" action="j_spring_security_check" method="post">
+<form id="dw_login" name="f" action="/j_spring_security_check" method="post">
 <table class="login">
 <tr>
 <td><label for="login">用户名：</label></td>

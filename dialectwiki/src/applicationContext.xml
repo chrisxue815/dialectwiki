@@ -129,7 +129,7 @@
   
   <!-- Action begins -->
   
-  <bean id="addWordAction" class="org.dw.action.AddWordAction">
+  <bean id="addWordAction" class="org.dw.action.AddWordAction" scope="prototype">
   	<property name="wordService">
   		<ref bean="wordService" />
   	</property>
@@ -159,13 +159,13 @@
   <bean id="successAction" class="org.dw.action.SuccessAction">
   </bean>
   
-  <bean id="wordPageAction" class="org.dw.action.WordPageAction">
+  <bean id="wordIndexAction" class="org.dw.action.WordIndexAction">
   	<property name="wordService">
   		<ref bean="wordService" />
   	</property>
   </bean>
   
-  <bean id="wordHomeAction"  class="org.dw.action.WordHomeAction">
+  <bean id="wordHomeAction"  class="org.dw.action.WordAction">
   	<property name="wordService">
   		<ref bean="wordService" />
   	</property>

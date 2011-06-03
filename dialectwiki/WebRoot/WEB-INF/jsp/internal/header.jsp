@@ -10,8 +10,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <strong><s:property value="pronNum" /></strong>个发音
 </div><!--data-->
 <div id="user">
-<a href="<%=basePath %>login.jsp">登陆</a>
-<a href="<%=basePath %>signup.jsp">注册</a>
+<a href="<%=basePath %>login">登陆</a>
+<a href="<%=basePath %>signup">注册</a>
 </div><!--user-->
 </div><!--top-->
 
@@ -22,8 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="menu">
 <ul>
 <li><a href="<%=basePath %>">首页</a></li>
-<li><a href="<%=basePath %>dialect/">方言</a></li>
 <li><a href="<%=basePath %>word/">词条</a></li>
+<li><a href="<%=basePath %>region/">地区</a></li>
 <li><a href="<%=basePath %>pronunciation/">发音</a></li>
 <li><a href="<%=basePath %>user/">用户</a></li>
 </ul>
@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <div class="mright">
 <ul>
-<li><a href="<%=basePath %>word/add.jsp">添加词条</a></li>
+<li><a href="<%=basePath %>addword">添加词条</a></li>
 </ul>
 </div>
 </div>

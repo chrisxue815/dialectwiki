@@ -10,53 +10,47 @@ public class AddWordAction extends ActionSupport
 
   private static final long serialVersionUID = 1L;
 
-  private String wordid;
   private String wordname;
+  private Word word;
   private WordService wordService;
 
-  public String getWordid()
-  {
-    return wordid;
-  }
-
-  public void setWordid(String wordid)
-  {
-    this.wordid = wordid;
-  }
-
-  public String getWordname()
-  {
+  public String getWordname() {
     return wordname;
   }
-
-  public void setWordname(String wordname)
-  {
+  public void setWordname(String wordname) {
     this.wordname = wordname;
   }
-
-  public WordService getWordService()
-  {
+  public Word getWord() {
+    return word;
+  }
+  public void setWord(Word word) {
+    this.word = word;
+  }
+  public WordService getWordService() {
     return wordService;
   }
-
-  public void setWordService(WordService wordService)
-  {
+  public void setWordService(WordService wordService) {
     this.wordService = wordService;
   }
 
   public String execute()
   {
-    Word word = new Word();
-    System.out.println(wordname);
+    if (wordname == null)
+      return INPUT;
+    
+    word = new Word();
     word.setWordName(wordname);
 
     try
     {
       wordService.addWord(word);
+      
       return SUCCESS;
-    } catch (Exception ex)
+    }
+    catch (Exception ex)
     {
       ex.printStackTrace();
+      
       return ERROR;
     }
   }

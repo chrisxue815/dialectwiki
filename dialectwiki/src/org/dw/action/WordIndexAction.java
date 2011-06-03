@@ -7,7 +7,7 @@ import org.dw.service.WordService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class WordPageAction extends ActionSupport
+public class WordIndexAction extends ActionSupport
 {
 
   private static final long serialVersionUID = -1524961208097493937L;
