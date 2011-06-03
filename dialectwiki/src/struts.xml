@@ -8,18 +8,18 @@
   <!-- / -->
   <package name="dw_root" namespace="/" extends="struts-default">
   
-    <action name="Pronounce" class="pronouncePageAction">
+    <action name="pronounce" class="pronouncePageAction">
       <result name="success">/pronounce.jsp</result>
       <result name="input">/word/add.jsp</result>
       <result name="error">/word/add.jsp</result>
     </action>
     
-  	<action name="SignupAction" class="signupAction">
+  	<action name="signup" class="signupAction">
   		<result name="success">/result.jsp</result>
   		<result name="input">/signup.jsp</result>
   	</action>
   	
-  	<!-- 上传发音的action 实现�-->
+  	<!-- 上传发音的action 实现-->
   	<action name="upload_pronounce" class="pronounceUploadAction">
   		<result name="success">/upload_success.jsp</result>
   		<result name="error">/upload_error.jsp</result>
