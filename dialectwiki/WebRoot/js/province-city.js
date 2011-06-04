@@ -150,7 +150,3 @@ function codeAddress() {
 	
 }
 
-function markcity() {
-	var cityList = new Array();
-	
-}

@@ -23,8 +23,29 @@ public class WordAction extends ActionSupport{
 	
 	private Word word;
 	private List<Pronunciation> prons;
+	private int citySize;
+	private List<String> cityNames;
+	
 
 	
+	public List<Pronunciation> getProns() {
+		return prons;
+	}
+	public void setProns(List<Pronunciation> prons) {
+		this.prons = prons;
+	}
+	public List<String> getCityNames() {
+		return cityNames;
+	}
+	public void setCityNames(List<String> cityNames) {
+		this.cityNames = cityNames;
+	}
+	public int getCitySize() {
+		return citySize;
+	}
+	public void setCitySize(int citySize) {
+		this.citySize = citySize;
+	}
 	public String getId() {
 		return id;
 	}
@@ -134,12 +155,21 @@ public class WordAction extends ActionSupport{
 	    }
 	    cityIndexs.add(cityIndex);
 	    
+	    List<String> cityNames = new ArrayList<String>();
+	    for(City city: cityList)
+	    {
+	    	cityNames.add(city.getCityName());
+	    	System.out.println(city.getCityName());
+	    }
+	    
         ServletActionContext.getRequest().setAttribute("provinceList", provinceList);
         ServletActionContext.getRequest().setAttribute("cityList",cityList);
         ServletActionContext.getRequest().setAttribute("pronsIndexs",pronsIndexs );
         ServletActionContext.getRequest().setAttribute("cityIndexs", cityIndexs);
         ServletActionContext.getRequest().setAttribute("prons", prons);
+        ServletActionContext.getRequest().setAttribute("cityNames",cityNames );
 	    
+        citySize = cityList.size();
 		
 	}
 }

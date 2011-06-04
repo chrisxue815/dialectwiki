@@ -21,22 +21,61 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <title>词条</title>
 <script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
+<script type="text/javascript" src="<%=path %>/js/province-city.js"></script>
 <script type="text/javascript">
-var geocoder, map, marker = null;
+var geocoder, map = null;
+var marker = new Array();
 var init = function(){
 	map = new QQMap.QMap(document.getElementById("maptop"),
 	{
 		center: new QQMap.QLatLng(37, 110),
 		zoomLevel: 1,
-		draggable: false,
-		scrollWheel: false,
-		zoomInByDblClick: false
+
 	})
 	
-	
+	geocoder = new QQMap.QGeocoder();
+	markcitys();
+}
+function markcitys() {
+	var cityList = new Array();
+	var cityName = null;
+	var citySize = null
+	var i = null;
+<%
+	List<String> cityNames = (List<String>)request.getAttribute("cityNames");
+	int citynumbers = cityNames.size();
+%>
+	citySize = "<%=citynumbers %>"
+<%
+	int aIndex = 0;
+	for(aIndex = 0;aIndex<citynumbers;aIndex++)
+	{
+		String aCityName = cityNames.get(aIndex);
+%>
+	var cityName="<%=aCityName %>"
+	cityList.push(cityName);
+<%
+	}
+%>
+	for(i = 0;i<citySize;i++)
+	{
+		geocoder.geocode({'address': cityList[i]}, function(results, status){
+		if (status == QQMap.QGeocoderStatus.OK){
+			map.setCenter(results.location);
+			
+			marker[i] = new QQMap.QMarker({
+				map: map,
+				position:results.location,
+				title: cityList[i]
+				})
+		}
+		else{
+			alert("error");
+		}
+		});
+	}
 	
 }
-
 
 </script>
 </head>
@@ -63,7 +102,8 @@ var init = function(){
 
 
 <div class="left">
-<div class="lefth1">词条：<strong><s:property value="word.wordName"/></strong></div>
+<div class="lefth1">词条：
+<strong><s:property value="word.wordName"/></strong></div>
 <%
 	int i = 0;
     int j = 0;

@@ -19,10 +19,6 @@ String basePath = request.getScheme() + "://"
 <script type="text/javascript" src="<%=path %>/js/province-city.js"></script>
 <script type="text/javascript" src="<%=path %>/js/swfobject.js"></script>
 <script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
-<script type="text/javascript" src="<%=basePath%>js/province-city.js">
-</script>
-<script type="text/javascript" src="<%=basePath%>js/swfobject.js">
-</script>
 <script type="text/javascript">
 var geocoder, map, marker = null;
 var init
