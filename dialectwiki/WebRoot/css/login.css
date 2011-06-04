@@ -1,0 +1,46 @@
+/*Ä£¿é*/
+.left {
+float:left;
+width: 35%;
+margin: 10px 10px 10px 10px;
+border: 1px solid #DFDFDF;
+height:400px;
+padding: 0px 20px 0px 20px;
+
+}
+
+.right h2{
+margin: 10px 0 0 10px;
+height: 26px;
+line-height: 26px;
+font-size: 25px;
+color:#390;
+border-bottom: 1px solid #E4E4E4
+}
+
+.right{
+float:left;
+width: 55%;
+margin: 10px 10px 10px 10px;
+border: 1px solid #DFDFDF;
+height:400px;	
+}
+
+table.login {
+margin: 20px auto;
+font-size: 14px;
+}
+
+.login td {
+height: 30px;
+}
+
+.login input[type="text"],
+.login input[type="password"],
+.login input[type="submit"] {
+width: 90%;
+}
+
+.submit{
+height: 100%;
+}

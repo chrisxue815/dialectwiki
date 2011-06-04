@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"><struts>
+  <constant name="struts.devMode" value="true"/>
+  <constant name="struts.i18n.encoding" value="utf-8"/>
+  
+  <include file="struts-default.xml"></include>
+  
+  <package name="dw-default" extends="struts-default">
+  
+    <interceptors>
+      <interceptor name="headerDataInterceptor" class="headerDataInterceptor" />
+      <interceptor-stack name="dwDefaultStack">
+        <interceptor-ref name="defaultStack" />
+        <interceptor-ref name="headerDataInterceptor" />
+      </interceptor-stack>
+    </interceptors>
+    
+    <default-interceptor-ref name="dwDefaultStack" />
+    
+  </package>
+  
+  
+  <!-- / -->
+  <package name="dw-root" namespace="/" extends="dw-default">
+
+    <action name="">
+      <result name="success">/WEB-INF/jsp/index.jsp</result>
+    </action>
+  
+    <action name="pronounce" class="pronouncePageAction">
+      <result name="success">/WEB-INF/jsp/pronounce.jsp</result>
+      <result name="input">/WEB-INF/jsp/word/add.jsp</result>
+      <result name="error">/WEB-INF/jsp/word/add.jsp</result>
+    </action>
+    
+  	<action name="signup" class="signupAction">
+  		<result name="success">/WEB-INF/jsp/result.jsp</result>
+  		<result name="input">/WEB-INF/jsp/signup.jsp</result>
+  	</action>
+  	
+  	<action name="login">
+  	 <result name="success">/WEB-INF/jsp/login.jsp</result>
+  	</action>
+  	
+  	<!-- 上传发音的action 实现-->
+  	<action name="upload_pronounce" class="pronounceUploadAction">
+  		<result name="success">/WEB-INF/jsp/upload_success.jsp</result>
+  		<result name="error">/WEB-INF/jsp/upload_error.jsp</result>
+  	</action>
+  	
+    <action name="addword" class="addWordAction">
+      <result name="input">/WEB-INF/jsp/word/add.jsp</result>
+      <result name="success">/WEB-INF/jsp/word/add_success.jsp</result>
+      <result name="error">/WEB-INF/jsp/word/add_failure.jsp</result>
+    </action>
+
+  </package>
+  
+  
+  <package name="dw-word" namespace="/word" extends="dw-default">
+
+    <action name="" class="wordIndexAction">
+      <result name="success">/WEB-INF/jsp/word/index.jsp</result>
+    </action>
+    
+    <action name="word" class="wordAction">
+      <result name="success">/WEB-INF/jsp/word/word.jsp</result>
+    </action>
+
+  </package>
+
+</struts>
