@@ -1,7 +1,13 @@
 package org.dw.action;
 
-import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
 
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.ValidationException;
+import com.opensymphony.xwork2.validator.validators.EmailValidator;
+
+import org.apache.struts2.ServletActionContext;
 import org.dw.service.UserService;
 import org.dw.utils.MD5;
 import org.dw.model.User;
@@ -113,6 +119,25 @@ public class SignupAction extends ActionSupport
     {
       ex.printStackTrace();
       return INPUT;
+    }
+  }
+  
+  public void validate()
+  {
+    if (!password.equals(password2))
+      this.addFieldError("password", "两次输入的密码不一致");
+    
+    Map<String, Object> session = ServletActionContext.getContext().getSession();
+    if (!session.get("vcode").equals(validatecode))
+      this.addFieldError("validatecode", "验证码错误");
+    
+    try
+    {
+      new EmailValidator().validate(email);
+    } catch (ValidationException e)
+    {
+      e.printStackTrace();
+      this.addFieldError("email", "邮箱格式不正确");
     }
   }
 }

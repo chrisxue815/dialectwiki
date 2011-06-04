@@ -62,6 +62,10 @@
     <action name="word" class="wordAction">
       <result name="success">/WEB-INF/jsp/word/word.jsp</result>
     </action>
+    
+    <action name="vcode" class="verificationCodeAction">
+      <result name="success" type="stream"></result>
+    </action>
 
   </package>
 

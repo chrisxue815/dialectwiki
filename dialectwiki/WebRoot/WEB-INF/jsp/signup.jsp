@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </tr>
 <tr>
 <td></td>
-<td><img src="" /></td>
+<td><img src="<%=path %>/vcode" /></td>
 </tr>
 <tr>
 <td></td>
