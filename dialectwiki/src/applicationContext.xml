@@ -168,6 +168,9 @@
   	</property>
   </bean>
   
+  <bean id="verificationCodeAction" class="org.dw.action.VerificationCodeAction">
+  </bean>
+  
   <bean id="wordAction"  class="org.dw.action.WordAction">
     <property name="wordService">
       <ref bean="wordService" />
