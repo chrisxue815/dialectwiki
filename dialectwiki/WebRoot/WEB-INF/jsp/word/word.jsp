@@ -1,4 +1,6 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
+<%@ page import="java.util.List"  %>
+<%@ page import="org.dw.model.*" %>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%
 String path = request.getContextPath();
@@ -25,24 +27,61 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <jsp:include page="../internal/header.jsp" />
 
 <div id="content">
+<%
+	List<Pronunciation> prons = (List<Pronunciation>)request.getAttribute("prons");
+    List<Province> provinceList = (List<Province>)request.getAttribute("provinceList");
+	List<City> cityList = (List<City>)request.getAttribute("cityList");
+	    
+	List<Integer> pronsIndexs = (List<Integer>)request.getAttribute("pronsIndexs");
+	List<Integer> cityIndexs = (List<Integer>)request.getAttribute("cityIndexs");
+%>
+
 
 <div class="left">
 <div class="lefth1">词条：<strong><s:property value="word.wordName"/></strong></div>
-<h5>四川话：<a href="">我要发音</a>
-<p class="pro">[]&nbsp;&nbsp;发音者1&nbsp;XXXXXXXXXX&nbsp;&nbsp;&nbsp;发音时间2010-10-10 评价得分：xx
+<%
+	int i = 0;
+    int j = 0;
+    int cityIndex = 0;
+    int pronIndex = 0;
+    
+    for(Province province : provinceList)
+    {
+    	String provinceName = province.getProvinceName();
+%>
+<h5><%=provinceName%><a href="">我要发音</a>
+<% 
+        while(i < cityIndexs.get(cityIndex))
+        {
+        	String cityName = cityList.get(i).getCityName();
+         
+%>
+
+<li><%=cityName %></li>
+<%
+			while( j < pronsIndexs.get(pronIndex))
+			{
+				Pronunciation pron = prons.get(j);
+				String pronUser = pron.getUser().getUsername();
+				String Date = pron.getUploadDate().toString();
+				int goodVote = pron.getGoodVoteNum();
+				int badVote = pron.getBadVoteNum(); 
+%>
+<p class="pro">[]&nbsp;&nbsp;<%=pronUser%>1&nbsp;XXXXXXXXXX&nbsp;&nbsp;&nbsp;发音时间<%=Date %> 评价得分：xx
 <br />
 评分 ***** <a href="">评论</a></p>
-<p class="pro">[]&nbsp;&nbsp;发音者2&nbsp;XXXXXXXXXX&nbsp;&nbsp;&nbsp;发音时间2010-10-10 评价得分：xx
-<br />
-评分 ***** <a href="">评论</a></p>
-</h5>
-<h5>北京话：<a href="">我要发音</a>
-<p class="pro">[]&nbsp;&nbsp;发音者1&nbsp;XXXXXXXXXX&nbsp;&nbsp;&nbsp;发音时间2010-10-10 评价得分：xx</pre>
-<br />
-评分 ***** <a href="">评论</a></p>
-<p class="pro">[]&nbsp;&nbsp;发音者2&nbsp;XXXXXXXXXX&nbsp;&nbsp;&nbsp;发音时间2010-10-10 评价得分：xx</pre>
-<br />
-评分 ***** <a href="">评论</a></p>
+
+
+<%			
+				j++;
+			}
+			pronIndex++;
+	        i++;	
+		}
+		cityIndex++;
+	}
+ %>
+
 </h5>
 </div>
 </div>

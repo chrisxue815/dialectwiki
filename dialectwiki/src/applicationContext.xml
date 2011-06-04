@@ -165,7 +165,7 @@
   	</property>
   </bean>
   
-  <bean id="wordHomeAction"  class="org.dw.action.WordAction">
+  <bean id="wordAction"  class="org.dw.action.WordAction">
   	<property name="wordService">
   		<ref bean="wordService" />
   	</property>

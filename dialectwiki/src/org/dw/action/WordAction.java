@@ -3,6 +3,7 @@ package org.dw.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.dw.model.City;
 import org.dw.model.Pronunciation;
 import org.dw.model.Province;
@@ -102,7 +103,6 @@ public class WordAction extends ActionSupport{
 	    
 	    for(City city: cityList)
 	    {
-	    	System.out.println("cityName:" + city.getCityName());
 	    	nextProvince = city.getProvince();
 	    	if(false == nextProvince.equals(lastProvince))
 	    	{
@@ -114,15 +114,11 @@ public class WordAction extends ActionSupport{
 	    }
 	    cityIndexs.add(cityIndex);
 	    
-	    for(Integer num : cityIndexs)
-	    {
-	    	System.out.println(num);
-	    }
-	    
-	    for(Integer num : pronsIndexs)
-	    {
-	    	System.out.println(num);
-	    }
+        ServletActionContext.getRequest().setAttribute("provinceList", provinceList);
+        ServletActionContext.getRequest().setAttribute("cityList",cityList);
+        ServletActionContext.getRequest().setAttribute("pronsIndexs",pronsIndexs );
+        ServletActionContext.getRequest().setAttribute("cityIndexs", cityIndexs);
+        ServletActionContext.getRequest().setAttribute("prons", prons);
 	    
 	    int i = 0;
 	    int j = 0;
@@ -136,7 +132,7 @@ public class WordAction extends ActionSupport{
 	    		System.out.println("    city name:" + cityList.get(i).getCityName());
 	    	    while( j < pronsIndexs.get(pronIndex))
 	    	    {
-	    	    	System.out.println(j+"               pronounciationId:" + prons.get(j).getPronId());
+	    	    	System.out.println("               pronounciationId:" + prons.get(j).getPronId());
 	    	    	j++;
 	    	    }
 	    	    pronIndex++;
