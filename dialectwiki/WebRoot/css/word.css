@@ -12,7 +12,7 @@ margin: 20px auto 0px auto;
 	
 line-height: 20px;
 float:left;
-width: 65%;
+width: 98%;
 margin: 10px 5px 10px 5px;
 border: 1px solid #DFDFDF;
 }
@@ -22,6 +22,16 @@ border: 1px solid #DFDFDF;
 	margin: 10px 5px 10px 5px;
 	border: 1px solid #DFDFDF;
 }
+
+.maptop{
+	float:left;
+	width: 94%;
+	margin: 10px 5px 10px 5px;
+	border: 1px solid #DFDFDF;
+	padding: 0px 20px 0px 20px;
+	height: 560px;
+}
+
 .lefth1{
 	padding-bottom: 2px;
 	margin: 10px 5px 0px 5px;
@@ -83,8 +93,7 @@ border: 1px solid #DFDFDF;
 	line-height: normal;
 }
 
-.left h5{
-	font-size:18px;
+.region{
 	margin: 0px 5px 10px 5px;
 	color:#390;
 	padding-left: 25px;
@@ -96,6 +105,10 @@ border: 1px solid #DFDFDF;
 	border-top:#aaa;
 	border-top-style:solid;
 	border-top-width:1px;
+}
+.rt {
+/*region title*/
+	font-size:18px;
 }
 
 .left strong{

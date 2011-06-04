@@ -60,6 +60,26 @@ public class WordAction extends ActionSupport{
 	
 	public String execute() {
 	  if (id != null) {
+		int wordId = Integer.parseInt(id);
+		dataInit(wordId);
+
+	   
+	    return SUCCESS;
+	  }
+	  else if (name != null) {
+	    word = wordService.findByWordName(name);
+	    int wordId = word.getWordId();
+	    dataInit(wordId);
+	    
+	    return SUCCESS;
+	  }
+	  else {
+	    return ERROR;
+	  }
+	}
+	
+	public void dataInit(int wordId)
+	{
 	    int wordIdInt = Integer.parseInt(id);
 	    word = wordService.getById(wordIdInt);
 	    prons = pronunciationService.searchPronunciation(wordIdInt);
@@ -120,42 +140,6 @@ public class WordAction extends ActionSupport{
         ServletActionContext.getRequest().setAttribute("cityIndexs", cityIndexs);
         ServletActionContext.getRequest().setAttribute("prons", prons);
 	    
-	    int i = 0;
-	    int j = 0;
-	    cityIndex = 0;
-	    pronIndex = 0;
-	    for(Province province : provinceList)
-	    {
-	    	System.out.println("province name:" + province.getProvinceName());
-	    	while(i < cityIndexs.get(cityIndex))
-	    	{
-	    		System.out.println("    city name:" + cityList.get(i).getCityName());
-	    	    while( j < pronsIndexs.get(pronIndex))
-	    	    {
-	    	    	System.out.println("               pronounciationId:" + prons.get(j).getPronId());
-	    	    	j++;
-	    	    }
-	    	    pronIndex++;
-	    		i++;
-	    	}
-	    	cityIndex++;
-	    }
-	    
-
-	    
-	    
-	    
-	    return SUCCESS;
-	  }
-	  else if (name != null) {
-	    word = wordService.findByWordName(name);
-	    prons = pronunciationService.searchPronunciation(word.getWordId());
-	    
-	    return SUCCESS;
-	  }
-	  else {
-	    return ERROR;
-	  }
+		
 	}
-	
 }
