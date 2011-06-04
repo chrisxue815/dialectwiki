@@ -123,7 +123,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO
   /* (non-Javadoc)
    * @see org.dw.dao.impl.UserDAO#findByUsername(java.lang.Object)
    */
-  public List findByUsername(Object username)
+  public List<User> findByUsername(Object username)
   {
     return findByProperty(USERNAME, username);
   }

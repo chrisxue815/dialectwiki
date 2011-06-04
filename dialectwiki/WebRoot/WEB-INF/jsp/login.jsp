@@ -34,7 +34,7 @@ var init = function(){
 <div class="right">
 <h2>登录</h2>
 
-<form id="dw_login" name="f" action="/j_spring_security_check" method="post">
+<form id="dw_login" name="f" action="<%=basePath %>j_spring_security_check" method="post">
 <table class="login">
 <tr>
 <td><label for="login">用户名：</label></td>

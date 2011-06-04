@@ -125,6 +125,12 @@
     <property name="wordDAO">
       <ref bean="wordDAO" />
     </property>
+    <property name="userDAO">
+      <ref bean="userDAO" />
+    </property>
+    <property name="cityDAO">
+      <ref bean="cityDAO" />
+    </property>
   </bean>
   
   <!-- Action begins -->
@@ -142,6 +148,9 @@
   </bean>
   
   <bean id="pronounceUploadAction" class="org.dw.action.PronounceUploadAction">
+    <property name="pronunciationService">
+      <ref bean="pronunciationService" />
+    </property>
   </bean>
   
   <bean id="searchWordAction" class="org.dw.action.SearchWordAction">

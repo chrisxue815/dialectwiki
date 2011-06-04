@@ -19,8 +19,8 @@ public class Pronunciation implements java.io.Serializable
   private City city;
   private String prUrl;
   private Date uploadDate;
-  private Integer goodVoteNum;
-  private Integer badVoteNum;
+  private Integer goodVoteNum = 0;
+  private Integer badVoteNum = 0;
   private Set votes = new HashSet(0);
 
   // Constructors
