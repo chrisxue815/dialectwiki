@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
-<%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,8 +11,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <strong><s:property value="pronNum" /></strong>个发音
 </div><!--data-->
 <div id="user">
+<s:if test="#attr.username==null || #attr.username=='anonymousUser'">
 <a href="<%=basePath %>login">登陆</a>
 <a href="<%=basePath %>signup">注册</a>
+</s:if>
+<s:else>
+欢迎, <strong><s:property value="username" /></strong> 
+| <a href="<%=basePath %>j_spring_security_logout">注销</a>
+</s:else>
 </div><!--user-->
 </div><!--top-->
 
@@ -22,14 +29,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="menu">
 <ul>
 <li><a href="<%=basePath %>">首页</a></li>
-<li><a href="<%=basePath %>word/">词条</a></li>
-<li><a href="<%=basePath %>region/">地区</a></li>
-<li><a href="<%=basePath %>pronunciation/">发音</a></li>
-<li><a href="<%=basePath %>user/">用户</a></li>
+<li><a href="<%=basePath %>words">词条</a></li>
+<li><a href="<%=basePath %>region">地区</a></li>
+<li><a href="<%=basePath %>pronunciation">发音</a></li>
+<li><a href="<%=basePath %>user">用户</a></li>
 </ul>
 <div class="mright search">
-<form action="<%=basePath %>word/word" method="post">
-<input type="text" id="stext" name="wordName" />
+<form action="<%=basePath %>word" method="post">
+<input type="text" id="stext" name="name" />
 <input type="submit" id="sbutton" value="搜索词条" />
 </form>
 </div>

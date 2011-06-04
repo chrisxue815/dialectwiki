@@ -35,11 +35,11 @@
     </action>
     
   	<action name="signup" class="signupAction">
-  		<result name="success">/WEB-INF/jsp/result.jsp</result>
+  		<result name="success" type="redirect">/login?signupSuccess</result>
   		<result name="input">/WEB-INF/jsp/signup.jsp</result>
   	</action>
   	
-  	<action name="login">
+  	<action name="login" class="loginAction">
   	 <result name="success">/WEB-INF/jsp/login.jsp</result>
   	</action>
   	

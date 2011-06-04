@@ -141,6 +141,9 @@
   	</property>
   </bean>
   
+  <bean id="loginAction" class="org.dw.action.LoginAction" scope="prototype">
+  </bean>
+  
   <bean id="pronouncePageAction" class="org.dw.action.PronouncePageAction">
     <property name="wordService">
       <ref bean="wordService" />

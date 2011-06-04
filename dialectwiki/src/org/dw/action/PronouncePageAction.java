@@ -8,16 +8,22 @@ import com.opensymphony.xwork2.ActionSupport;
 public class PronouncePageAction extends ActionSupport
 {
   private static final long serialVersionUID = 1L;
-  private String wordId;
+  private String id;
+  private String name;
   private Word word;
   private WordService wordService;
   
-  public String getWordId() {
-    return wordId;
+  public String getId() {
+    return id;
   }
-
-  public void setWordId(String wordId) {
-    this.wordId = wordId;
+  public void setId(String id) {
+    this.id = id;
+  }
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
   }
   
   public WordService getWordService() {
@@ -38,13 +44,17 @@ public class PronouncePageAction extends ActionSupport
   
   public String execute()
   {
-    if (wordId == null)
-      return INPUT;
-    
     try
     {
-      int wordIdInt = Integer.parseInt(wordId);
-      word = wordService.getById(wordIdInt);
+      if (id != null)
+      {
+        int wordIdInt = Integer.parseInt(id);
+        word = wordService.getById(wordIdInt);
+      }
+      else if (name != null)
+      {
+        word = wordService.findByWordName(name);
+      }
       
       if (word == null)
         return ERROR;
@@ -54,7 +64,7 @@ public class PronouncePageAction extends ActionSupport
     catch (Exception ex)
     {
       ex.printStackTrace();
-      return SUCCESS;
+      return ERROR;
     }
   }
 }

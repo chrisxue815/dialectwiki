@@ -11,8 +11,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <base href="<%=basePath %>" />
 
-<link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath %>css/dialect.css" />
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/dialect.css" />
 
 <title>dialect</title>
 

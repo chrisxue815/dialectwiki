@@ -14,10 +14,10 @@ String basePath = request.getScheme() + "://"
 
 		<base href="<%=basePath%>" />
 
-<link rel="stylesheet" type="text/css"
-	href="<%=basePath%>css/style1.css" />
-<link rel="stylesheet" type="text/css"
-	href="<%=basePath%>css/pronounce.css" />
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/pronounce.css" />
+<script type="text/javascript" src="<%=path %>/js/province-city.js"></script>
+<script type="text/javascript" src="<%=path %>/js/swfobject.js"></script>
 <script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/province-city.js">
 </script>
@@ -67,103 +67,103 @@ var init
 <div class="region">
 	
 	<form id="form1">
-	地区：
+	地区�
 		<select id="selProvince" onchange="updateCity()">
 <option value="1" selected="selected">
-	北京市
+	北京�
 </option>
 <option value="2">
-	上海市
+	上海�
 </option>
 <option value="3">
-	天津市
+	天津�
 </option>
 <option value="4">
-	重庆市
+	重庆�
 </option>
 <option value="5">
 	黑龙江省
 </option>
 <option value="6">
-	吉林省
+	吉林�
 </option>
 <option value="7">
-	辽宁省
+	辽宁�
 </option>
 <option value="8">
-	山东省
+	山东�
 </option>
 <option value="9">
-	山西省
+	山西�
 </option>
 <option value="10">
-	陕西省
+	陕西�
 </option>
 <option value="11">
-	河北省
+	河北�
 </option>
 <option value="12">
-	河南省
+	河南�
 </option>
 <option value="13">
-	湖北省
+	湖北�
 </option>
 <option value="14">
-	湖南省
+	湖南�
 </option>
 <option value="15">
-	海南省
+	海南�
 </option>
 <option value="16">
-	江苏省
+	江苏�
 </option>
 <option value="17">
-	江西省
+	江西�
 </option>
 <option value="18">
-	广东省
+	广东�
 </option>
 <option value="19">
-	广西省
+	广西�
 </option>
 <option value="20">
-	云南省
+	云南�
 </option>
 <option value="21">
-	贵州省
+	贵州�
 </option>
 <option value="22">
-	四川省
+	四川�
 </option>
 <option value="23">
 	内蒙古自治区
 </option>
 <option value="24">
-	宁夏回族自治区
+	宁夏回族自治�
 </option>
 <option value="25">
-	甘肃省
+	甘肃�
 </option>
 <option value="26">
-	青海省
+	青海�
 </option>
 <option value="27">
-	西藏自治区
+	西藏自治�
 </option>
 <option value="28">
-	新疆自治区
+	新疆自治�
 </option>
 <option value="29">
-	安徽省
+	安徽�
 </option>
 <option value="30">
-	浙江省
+	浙江�
 </option>
 <option value="31">
-	福建省
+	福建�
 </option>
 <option value="32">
-	台湾省
+	台湾�
 </option>
 <option value="33">
 	香港
@@ -187,11 +187,11 @@ var init
 		<h1>
 			如何添加发音
 		</h1>
-		点击允许按钮，让录音器使用您的话筒
+		点击允许按钮，让录音器使用您的话�
 		<h2>
 			录制
 		</h2>
-		你有3秒时间来录制发音。但是不要担心，你可以尝试多次录制直到你认为完美为止。请注意保持正确的口音
+		你有3秒时间来录制发音。但是不要担心，你可以尝试多次录制直到你认为完美为止。请注意保持正确的口�
 		<h2>
 			播放
 		</h2>

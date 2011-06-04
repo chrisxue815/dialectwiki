@@ -12,8 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <base href="<%=basePath %>" />
 
-<link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath %>css/word.css"/>
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/word.css"/>
 
 <title>添加词条</title>
 </head>
@@ -28,10 +28,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="left">
 <div class="lefth1">添加词条</div>
 <div class="lefth2c">
-词条“ <a href="/word?wordName=<s:property value="wordname" />"><s:property value="word.wordName" /></a> ”已被添加，您可以：
+词条“ <a href="<%=path %>/word?name=<s:property value="wordname" />"><s:property value="word.wordName" /></a> ”已被添加，您可以：
 </div>
 <div class="alert">
-<a href="/pronounce?wordName=<s:property value="wordname" />">
+<a href="<%=path %>/pronounce?name=<s:property value="wordname" />">
 为“ <s:property value="wordname" /> ”发音
 </a>
 </div>

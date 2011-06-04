@@ -12,8 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <base href="<%=basePath %>" />
 
-<link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath %>css/signup.css" />
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/signup.css" />
 
 <title>注册</title>
 
