@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <%@ page import="java.util.List"  %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="org.dw.model.*" %>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%
@@ -17,16 +18,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/word.css"/>
 
+
 <title>词条</title>
+<script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
+<script type="text/javascript">
+var init = function(){
+	var map = new QQMap.QMap(document.getElementById("maptop"),
+	{
+		center: new QQMap.QLatLng(37, 110),
+		zoomLevel: 1,
+		draggable: false,
+		scrollWheel: false,
+		zoomInByDblClick: false
+	})
+}
+
+</script>
 </head>
 
-<body>
+<body onload="init()">
 
 <div id="wrap">
 
 <jsp:include page="../internal/header.jsp" />
 
 <div id="content">
+<div class="maptop" id="maptop">
+
+
+</div>
 <%
 	List<Pronunciation> prons = (List<Pronunciation>)request.getAttribute("prons");
     List<Province> provinceList = (List<Province>)request.getAttribute("provinceList");
@@ -49,7 +69,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     {
     	String provinceName = province.getProvinceName();
 %>
-<h5><%=provinceName%><a href="">我要发音</a>
+<div class="region">
+<span class="rt"><%=provinceName%></span>
+<a href="" >我要发音</a>
 <% 
         while(i < cityIndexs.get(cityIndex))
         {
@@ -63,13 +85,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			{
 				Pronunciation pron = prons.get(j);
 				String pronUser = pron.getUser().getUsername();
-				String Date = pron.getUploadDate().toString();
+				SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
+				String Date = dateFm.format(pron.getUploadDate());
 				int goodVote = pron.getGoodVoteNum();
 				int badVote = pron.getBadVoteNum(); 
 %>
-<p class="pro">[]&nbsp;&nbsp;<%=pronUser%>1&nbsp;XXXXXXXXXX&nbsp;&nbsp;&nbsp;发音时间<%=Date %> 评价得分：xx
-<br />
-评分 ***** <a href="">评论</a></p>
+<p class="pro">发音用户：<%=pronUser%> &nbsp;&nbsp;&nbsp;发音时间<%=Date %> &nbsp;&nbsp;&nbsp;顶：<%=goodVote %>&nbsp;踩：<%=badVote %> </a></p>
 
 
 <%			
@@ -79,14 +100,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        i++;	
 		}
 		cityIndex++;
+%>		
+</div>
+<% 
 	}
- %>
+%>
 
-</h5>
+
 </div>
 </div>
-<div class="right">
-helsdafasdfsdf
+
+
 </div>
 <!--content-->
 <div style="clear: both;"> </div>
