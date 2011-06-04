@@ -135,7 +135,7 @@
   
   <!-- Action begins -->
   
-  <bean id="addWordAction" class="org.dw.action.AddWordAction" scope="prototype">
+  <bean id="addWordExAction" class="org.dw.action.AddWordExAction" scope="prototype">
   	<property name="wordService">
   		<ref bean="wordService" />
   	</property>
