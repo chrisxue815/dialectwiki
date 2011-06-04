@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"><struts>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
   <constant name="struts.devMode" value="true"/>
   <constant name="struts.i18n.encoding" value="utf-8"/>
   
@@ -53,13 +54,8 @@
       <result name="success">/WEB-INF/jsp/word/add_success.jsp</result>
       <result name="error">/WEB-INF/jsp/word/add_failure.jsp</result>
     </action>
-
-  </package>
-  
-  
-  <package name="dw-word" namespace="/word" extends="dw-default">
-
-    <action name="" class="wordIndexAction">
+    
+    <action name="words" class="wordIndexAction">
       <result name="success">/WEB-INF/jsp/word/index.jsp</result>
     </action>
     

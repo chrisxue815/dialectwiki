@@ -164,22 +164,19 @@
   		<ref bean="userService" />
   	</property>
   </bean>
-
-  <bean id="successAction" class="org.dw.action.SuccessAction">
+  
+  <bean id="wordAction"  class="org.dw.action.WordAction">
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+    <property name="pronunciationService">
+      <ref bean="pronunciationService" /> 
+    </property>
   </bean>
   
   <bean id="wordIndexAction" class="org.dw.action.WordIndexAction">
   	<property name="wordService">
   		<ref bean="wordService" />
-  	</property>
-  </bean>
-  
-  <bean id="wordAction"  class="org.dw.action.WordAction">
-  	<property name="wordService">
-  		<ref bean="wordService" />
-  	</property>
-  	<property name="pronunciationService">
-  		<ref bean="pronunciationService" />	
   	</property>
   </bean>
   

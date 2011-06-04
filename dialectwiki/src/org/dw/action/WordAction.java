@@ -16,8 +16,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class WordAction extends ActionSupport{
 
 	private static final long serialVersionUID = 2409752678054918663L;
-	private String wordId;
-	private String wordName;
+	private String id;
+	private String name;
 	private WordService wordService;
 	private PronunciationService pronunciationService;
 	
@@ -25,17 +25,17 @@ public class WordAction extends ActionSupport{
 	private List<Pronunciation> prons;
 
 	
-	public String getWordId() {
-		return wordId;
+	public String getId() {
+		return id;
 	}
-	public void setWordId(String wordId) {
-		this.wordId = wordId;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getWordName() {
-	  return wordName;
+	public String getName() {
+	  return name;
 	}
-	public void setWordName(String wordName) {
-	  this.wordName = wordName;
+	public void setName(String name) {
+	  this.name = name;
 	}
 	public WordService getWordService() {
 		return wordService;
@@ -59,8 +59,8 @@ public class WordAction extends ActionSupport{
 
 	
 	public String execute() {
-	  if (wordId != null) {
-	    int wordIdInt = Integer.parseInt(wordId);
+	  if (id != null) {
+	    int wordIdInt = Integer.parseInt(id);
 	    word = wordService.getById(wordIdInt);
 	    prons = pronunciationService.searchPronunciation(wordIdInt);
 	    
@@ -147,8 +147,8 @@ public class WordAction extends ActionSupport{
 	    
 	    return SUCCESS;
 	  }
-	  else if (wordName != null) {
-	    word = wordService.findByWordName(wordName);
+	  else if (name != null) {
+	    word = wordService.findByWordName(name);
 	    prons = pronunciationService.searchPronunciation(word.getWordId());
 	    
 	    return SUCCESS;

@@ -65,10 +65,9 @@ public class WordIndexAction extends ActionSupport
 
   public String execute()
   {
-    hotWords = wordService.getHotWords(); 
-    recentWords = wordService.getRecentWords(); 
+    hotWords = wordService.getHotWords();
+    recentWords = wordService.getRecentWords();
     waitProns = wordService.getWaitProns();
-
 
     return SUCCESS;
   }
