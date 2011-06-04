@@ -60,10 +60,16 @@
     
     <action name="words" class="wordIndexAction">
       <result name="success">/WEB-INF/jsp/word/index.jsp</result>
+      
     </action>
     
     <action name="word" class="wordAction">
       <result name="success">/WEB-INF/jsp/word/word.jsp</result>
+      <result name="input" type="redirect">/addword</result>
+      <result name="error" type="redirect">
+        <param name="location" >/addword?wordname=#attr['name']</param>
+        <param name="parse">false</param>
+      </result>
     </action>
     
     <action name="vcode" class="verificationCodeAction">

@@ -82,28 +82,37 @@ public class WordAction extends ActionSupport{
 	public String execute() {
 	  if (id != null) {
 		int wordId = Integer.parseInt(id);
-		dataInit(wordId);
+		if(dataInit(wordId))
+			return SUCCESS;
+		else
+			return INPUT;
 
 	   
-	    return SUCCESS;
+	    
 	  }
 	  else if (name != null) {
 	    word = wordService.findByWordName(name);
+	    if(word == null)
+	    	return ERROR;
 	    int wordId = word.getWordId();
-	    dataInit(wordId);
-	    
-	    return SUCCESS;
+	    if(dataInit(wordId))
+	    	return SUCCESS;
+	    else
+	    	return ERROR;
 	  }
 	  else {
-	    return ERROR;
+	    return INPUT;
 	  }
 	}
 	
-	public void dataInit(int wordId)
+	public boolean dataInit(int wordIdInt)
 	{
-	    int wordIdInt = Integer.parseInt(id);
 	    word = wordService.getById(wordIdInt);
+	    if(word == null)
+	    	return false;
 	    prons = pronunciationService.searchPronunciation(wordIdInt);
+	    if(prons == null || prons.size() == 0)
+	    	return false;
 	    
 	    List<Province> provinceList = new ArrayList<Province>();
 	    List<City> cityList = new ArrayList<City>();
@@ -170,6 +179,9 @@ public class WordAction extends ActionSupport{
         ServletActionContext.getRequest().setAttribute("cityNames",cityNames );
 	    
         citySize = cityList.size();
+        
+        
+        return true;
 		
 	}
 }
