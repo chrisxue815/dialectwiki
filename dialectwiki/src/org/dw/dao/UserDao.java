@@ -24,7 +24,7 @@ public interface UserDAO
 
   public List findByProperty(String propertyName, Object value);
 
-  public List findByUsername(Object username);
+  public List<User> findByUsername(Object username);
 
   public List findByPassword(Object password);
 

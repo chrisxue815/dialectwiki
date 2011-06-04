@@ -40,4 +40,8 @@ public class UserServiceImpl implements UserService
     userDAO.save(user);
     authorityDAO.save(authorities);
   }
+
+	public User getUserByUserName(String userName) {
+		return (User) userDAO.findByUsername(userName).get(0);
+	}
 }
