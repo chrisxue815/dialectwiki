@@ -40,9 +40,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input type="submit" id="sbutton" value="搜索词条" />
 </form>
 </div>
-<div class="mright">
-<ul>
-<li><a href="<%=basePath %>addword">添加词条</a></li>
-</ul>
-</div>
 </div>

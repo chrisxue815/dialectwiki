@@ -13,14 +13,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <base href="<%=basePath %>" />
 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
-<link rel="stylesheet" type="text/css" href="<%=path %>/css/word.css"/>
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/addword.css"/>
 
 <title>添加词条</title>
 </head>
 
 <body>
-<div id="wrap">
-
+<div id="wrap"> 
+ 
 <jsp:include page="../internal/header.jsp" />
 
 <div id="content">
@@ -30,15 +30,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="lefth2">如果你想知道一个词条的发音或者想对一个词条进行发音，请从下面添加一个词条。</div>
 <div class="lefth3">
 词条：
-<s:form action="/addwordEx" theme="simple">
-<s:textfield name="wordname" /><br /><br />
-<s:submit value="  添加  "></s:submit>
-</s:form>
+<form action="/addwordEx">
+<input type="text" name="wordname" value="<%=request.getParameter("wordname") %>" /><br /><br />
+<input type="submit" value="  添加  " />
+</form>
 </div>
 </div>
 
 <div class="right">
-广 告 招 商</div>
+广 告 招 商
+</div>
 
 </div>
 <!--content-->

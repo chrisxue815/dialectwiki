@@ -5,7 +5,7 @@ import org.dw.service.WordService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AddWordAction extends ActionSupport
+public class AddWordExAction extends ActionSupport
 {
 
   private static final long serialVersionUID = 1L;
