@@ -171,7 +171,7 @@
   <bean id="verificationCodeAction" class="org.dw.action.VerificationCodeAction">
   </bean>
   
-  <bean id="wordAction"  class="org.dw.action.WordAction">
+  <bean id="wordAction"  class="org.dw.action.WordAction" scope="prototype">
     <property name="wordService">
       <ref bean="wordService" />
     </property>

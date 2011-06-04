@@ -38,10 +38,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="module center">
 <h2>最热词条</h2>
 <div class="list">
-  <p>哈工大</p>
-  <p>软件学院</p>
-  <p>爱尔兰</p>
-  
+  <s:iterator value="hotWords">
+  <p><a href="/word/word?wordId=<s:property value="wordId" />"><s:property value="wordName" /></a></p>
+  </s:iterator>
 </div>
 </div><!--center-->
 
@@ -49,9 +48,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="module right"> 
 <h2>待发音词条</h2>
 <div class="list">
-  <p>哈工大</p>
-  <p>软件学院</p>
-  <p>爱尔兰</p>
+  <s:iterator value="waitProns">
+  <p><a href="/word/word?wordId=<s:property value="wordId" />"><s:property value="wordName" /></a></p>
+  </s:iterator>
 </div>
 </div><!--right-->
 
