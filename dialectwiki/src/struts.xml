@@ -34,9 +34,12 @@
       <result name="error">/WEB-INF/jsp/word/add.jsp</result>
     </action>
     
-  	<action name="signup" class="signupAction">
+    <action name="signup">
+      <result name="success">/WEB-INF/jsp/signup.jsp</result>
+    </action>
+    
+  	<action name="signupEx" class="signupAction">
   		<result name="success" type="redirect">/login?signupSuccess</result>
-  		<result name="input">/WEB-INF/jsp/signup.jsp</result>
   	</action>
   	
   	<action name="login" class="loginAction">

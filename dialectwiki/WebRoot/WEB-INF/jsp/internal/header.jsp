@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <strong><s:property value="pronNum" /></strong>个发音
 </div><!--data-->
 <div id="user">
-<s:if test="#attr.username==null || #attr.username=='anonymousUser'">
+<s:if test="#attr.username==null">
 <a href="<%=basePath %>login">登陆</a>
 <a href="<%=basePath %>signup">注册</a>
 </s:if>

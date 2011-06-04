@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div id="content">
 <h2 class="title">注册用户</h2>
-<s:form action="/signup" theme="simple" id="myForm">
+<s:form action="/signupEx" theme="simple" id="myForm">
 <s:fielderror></s:fielderror>
 <table class="userInfo">
 <tr>

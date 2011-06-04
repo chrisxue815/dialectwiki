@@ -39,6 +39,9 @@ public class HeaderDataInterceptor implements Interceptor
     Long pronNum = pronService.getPronunciationNumber();
     String username = SecurityContextHolder.getContext().getAuthentication().getName();
     
+    if (username.equals("anonymousUser"))
+      username = null;
+    
     map.put(WORD_NUM, wordNum.toString());
     map.put(PRONUNCIATION_NUM, pronNum.toString());
     map.put(USER_NAME, username);
