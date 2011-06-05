@@ -6,6 +6,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme() + "://"
 		+ request.getServerName() + ":" + request.getServerPort()
 		+ path + "/";
+String wordid = request.getParameter("id");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,8 +27,8 @@ var init
 	var so = new SWFObject("swf/record.swf", "MyMovie", "350", "300", "10", "#FFF");
 	  
 	so.addParam("allowScriptAccess","always");
-	so.addVariable("word", "<s:property value="word.wordId" />");
-	so.addVariable("addr","<%=path %>");
+	so.addVariable("word", "<%=wordid%>");
+	so.addVariable("addr","<%=basePath %>");
 	so.write("flash");
 	
 	map = new QQMap.QMap(
@@ -56,7 +57,7 @@ var init
 		<div class="inner">
 			您正在录制发音：
 <h1>
-<a href="<%=path %>/word?name=<s:property value="word.wordId" />" id="wordLink">
+<a href="<%=path %>/word?id=<s:property value="word.wordId" />" id="wordLink">
 <s:property value="word.wordName" />
 </a>
 </h1>

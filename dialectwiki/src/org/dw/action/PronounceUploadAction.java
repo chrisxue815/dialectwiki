@@ -20,7 +20,6 @@ public class PronounceUploadAction extends ActionSupport {
 	private static final long serialVersionUID = 7565136657043722828L;
 	
 	private HttpServletRequest request;
-	
 	private PronunciationService pronunciationService;
 	
 	public PronunciationService getPronunciationService() {
