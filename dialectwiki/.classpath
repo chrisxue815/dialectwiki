@@ -36,5 +36,8 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/Struts2 core library/struts2-embeddedjsp-plugin-2.1.8.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/Struts2 core library/struts2-json-plugin-2.1.8.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/Struts2 core library/xwork-core-2.1.6.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/chardet-1.0.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/cpdetector_1.0.8.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jargs-1.0.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

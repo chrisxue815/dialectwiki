@@ -1,6 +1,12 @@
 package org.dw.utils;
 
+import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
+import info.monitorenter.cpdetector.io.JChardetFacade;
+
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.Map;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -12,11 +18,38 @@ import javax.servlet.http.HttpServletRequestWrapper;
 
 public class CharacterEncodingFilter implements Filter
 {
-  private String encoding = null;
+  CodepageDetectorProxy detector;
 
+  public void doFilter(ServletRequest request, ServletResponse response,
+      FilterChain chain) throws IOException, ServletException
+  {
+    HttpServletRequest req = (HttpServletRequest) request;
+    
+    if (req.getMethod().equalsIgnoreCase("GET") &&
+        request.getCharacterEncoding() == null)
+    {
+      Map map = req.getParameterMap();
+      //Charset charset = detector.detectCodepage(, req.getContentLength());
+      //request.setCharacterEncoding(charset.name());
+      request = new Request(req);
+    }
+    
+    chain.doFilter(request, response);
+  }
+
+  public void init(FilterConfig filterConfig) throws ServletException
+  {
+    detector = CodepageDetectorProxy.getInstance();
+    detector.add(JChardetFacade.getInstance());
+  }
+  
+  public void destroy()
+  {
+  }
+  
   /**
-   * Request.java 对 HttpServletRequestWrapper 进行扩充,
-   * 不影响原来的功能并能提供所有的HttpServletRequest 接口中的功能.
+   * Request类 对 HttpServletRequestWrapper 进行扩充,
+   * 不影响原来的功能并能提供所有的 HttpServletRequest 接口中的功能.
    * 它可以统一的对 Tomcat 默认设置下的中文问题进行解决而只需要用新的 Request
    * 对象替换页面中的 request 对象即可.
    */
@@ -27,13 +60,13 @@ public class CharacterEncodingFilter implements Filter
     public Request(HttpServletRequest request)
     {
       super(request);
-      encoding = CharacterEncodingFilter.this.encoding;
+      encoding = request.getCharacterEncoding();
     }
 
     /**
-     * 转换由表单读取的数据的内码. 从 ISO 字符转到 在web.xml中设置的encoding.
+     * 转换由表单读取的数据的内码. 从 ISO 字符转到 检测到的编码.
      */
-    public String toChi(String input)
+    public String encode(String input)
     {
       if (input == null)
       {
@@ -64,7 +97,7 @@ public class CharacterEncodingFilter implements Filter
      */
     public String getParameter(String name)
     {
-      return toChi(getHttpServletRequest().getParameter(name));
+      return encode(getHttpServletRequest().getParameter(name));
     }
 
     /**
@@ -77,33 +110,10 @@ public class CharacterEncodingFilter implements Filter
       {
         for (int i = 0; i < values.length; i++)
         {
-          values[i] = toChi(values[i]);
+          values[i] = encode(values[i]);
         }
       }
       return values;
     }
-  }
-
-  public void destroy()
-  {
-  }
-
-  public void doFilter(ServletRequest request, ServletResponse response,
-      FilterChain chain) throws IOException, ServletException
-  {
-    HttpServletRequest httpreq = (HttpServletRequest) request;
-    if (httpreq.getMethod().equals("POST"))
-    {
-      request.setCharacterEncoding(encoding);
-    } else
-    {
-      request = new Request(httpreq);
-    }
-    chain.doFilter(request, response);
-  }
-
-  public void init(FilterConfig filterConfig) throws ServletException
-  {
-    encoding = filterConfig.getInitParameter("encoding");
   }
 }
