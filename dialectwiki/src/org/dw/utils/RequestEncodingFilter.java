@@ -1,6 +1,11 @@
-﻿package org.dw.utils;
+package org.dw.utils;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -11,7 +16,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-public class CharacterEncodingFilter implements Filter
+public class RequestEncodingFilter implements Filter
 {
   public static String encoding = null;
   
@@ -26,7 +31,34 @@ public class CharacterEncodingFilter implements Filter
     }
     else
     {
-      request = new Request(req);
+      try
+      {
+        Map<String, String[]> params = request.getParameterMap();
+        
+        if (!params.isEmpty())
+        {
+          Method method = params.getClass().getMethod("setLocked", new Class[]{boolean.class});
+          method.invoke(params, new Object[]{new Boolean(false)});
+          
+          Iterator<Entry<String, String[]>> it = params.entrySet().iterator();
+          
+          while (it.hasNext())
+          {
+            Entry<String, String[]> e = it.next();
+            String[] val = e.getValue();
+            
+            for (int i = 0; i < val.length; i++)
+            {
+              byte[] bytes = val[i].getBytes("ISO8859-1");
+              val[i] = new String(bytes, "UTF-8");
+            }
+          }
+        }
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
     }
     
     chain.doFilter(request, response);

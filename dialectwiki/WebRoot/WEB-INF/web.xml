@@ -35,9 +35,9 @@
   <!-- CharacterEncodingFilter begins -->
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
-    <filter-class>org.dw.utils.CharacterEncodingFilter</filter-class>
+    <filter-class>org.dw.utils.RequestEncodingFilter</filter-class>
     <init-param>
-      <param-name>encoding</param-name>   
+      <param-name>encoding</param-name>
       <param-value>utf-8</param-value>
     </init-param>
   </filter>

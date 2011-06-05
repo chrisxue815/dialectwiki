@@ -97,12 +97,12 @@ dwCity[33] = new Array(
 dwCity[34] = new Array("澳门", "479|澳门");
 
 function updateCity() {
-	var provinceNode = document.all.selProvince;
-	var cityNode = document.all.selCity;
+	var provinceNode = document.getElementById(selProvince);
+	var cityNode = document.getElementById(selCity);
 	//当前所选择的省
 	var provinceId = provinceNode.options[provinceNode.selectedIndex].value;
 	//清空城市下拉选单
-	document.all.selCity.length = 0;
+	document.getElementById(selCity).length = 0;
 	//得到当前省所辖制的地市
 	cityArray = dwCity[provinceId][1].split("|");
 	var j;
@@ -114,7 +114,7 @@ function updateCity() {
 	codeAddress();
 }
 function setVariables() {
-	var cityNode = document.all.selCity;
+	var cityNode = document.getElementById(selCity);
 	MyMovie.setCity(cityNode.options[cityNode.selectedIndex].value);
 }
 function upLoad_success()
@@ -129,7 +129,7 @@ function upLoad_error()
 
 function codeAddress() {
 
-	var cityNode = document.all.selCity;
+	var cityNode = document.getElementById(selCity);
 	var address = cityNode.options[cityNode.selectedIndex].text;
 	geocoder.geocode({'address': address}, function(results, status)
 	{

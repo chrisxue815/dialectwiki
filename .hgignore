@@ -5,3 +5,5 @@ dialectwiki/WebRoot/WEB-INF/classes/
 *.mno
 *.mex
 mysql-connector-java-5.1.10-bin.jar
+*.class
+util/ProvinceCityGenerator/bin/*
