@@ -133,6 +133,15 @@
     </property>
   </bean>
   
+  <bean id="voteService" class="org.dw.service.impl.VoteServiceImpl">
+  	<property name="pronunciationDAO">
+  		<ref bean="pronunciationDAO" />
+  	</property>
+  	<property name="voteDAO">
+  		<ref bean="voteDAO" />
+  	</property>
+  </bean>
+  
   <!-- Action begins -->
   
   <bean id="indexAction" class="org.dw.action.IndexAction">
@@ -147,6 +156,19 @@
   <bean id="addWordExAction" class="org.dw.action.AddWordExAction" scope="prototype">
   	<property name="wordService">
   		<ref bean="wordService" />
+  	</property>
+  </bean>
+  
+  
+  <bean id="addVoteAction" class="org.dw.action.AddVoteAction" scope="prototype">
+  	<property name="pronunciationService">
+  		<ref bean="pronunciationService" />
+  	</property>
+  	<property name="userService">
+  		<ref bean="userService" />
+  	</property>
+  	<property name="voteService">
+  		<ref bean="voteService" />
   	</property>
   </bean>
   

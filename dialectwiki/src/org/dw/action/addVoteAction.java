@@ -24,6 +24,7 @@ public class AddVoteAction extends ActionSupport {
 	private PronunciationService pronunciationService;
 	private VoteService voteService;
 	
+	
 	public int getPronId() {
 		return pronId;
 	}
@@ -70,6 +71,14 @@ public class AddVoteAction extends ActionSupport {
 
 	public void setVoteMark(int voteMark) {
 		this.voteMark = voteMark;
+	}
+
+	public VoteService getVoteService() {
+		return voteService;
+	}
+
+	public void setVoteService(VoteService voteService) {
+		this.voteService = voteService;
 	}
 
 	public String execute(){
