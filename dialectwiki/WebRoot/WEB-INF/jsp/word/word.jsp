@@ -64,25 +64,23 @@ function markcitys() {
 <%
 	}
 %>
-	for(i = 0;i<citySize;i++)
+	var i = 0;
+	var j = 0;
+	for (i = 0; i < citySize; i++)
 	{
 		geocoder.geocode({'address': cityList[i]}, function(results, status){
-		if (status == QQMap.QGeocoderStatus.OK){
-			map.setCenter(results.location);
-			
-			marker[i] = new QQMap.QMarker({
-				map: map,
-				position:results.location,
-				title: cityList[i-1]
-				})
-		var aUrl = pronUrlList[i-1];
-		}
-		else{
-			alert("error");
-		}
+			if (status == QQMap.QGeocoderStatus.OK) {
+				map.setCenter(results.location);
+				
+				marker[j] = new QQMap.QMarker({
+					map: map,
+					position: results.location,
+					title: results.address
+				});
+				j++;
+			}
 		});
 	}
-	playSound("");
 }
 </script>
 </head>
@@ -92,7 +90,7 @@ function markcitys() {
 
 <div id="wrap">
 
-<div id="finishplayer">flash</div>
+<div id="finishplayer"></div>
 <jsp:include page="../internal/header.jsp" />
 
 <div id="content">
@@ -154,6 +152,7 @@ while( j < pronsIndexs.get(pronIndex))
 Pronunciation pron = prons.get(j);
 int pronId = pron.getPronId();
 String pronUser = pron.getUser().getUsername();
+int pronUserId = pron.getUser().getUserId();
 SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
 String Date = dateFm.format(pron.getUploadDate());
 int goodVote = pron.getGoodVoteNum();
@@ -175,9 +174,9 @@ String aprUrl = basePath+pron.getPrUrl();
 </div>
 
 <div class="pvote">
-<a href="#">顶 + <%=goodVote %></a>
+<a href="vote?pronId=<s:property value='id' />&voteMark=1">顶 + <%=goodVote %></a>
 &nbsp;
-<a href="#">踩 - <%=badVote %></a>
+<a href="vote?pronId=<s:property value='id' />&voteMark=-1">踩 - <%=badVote %></a>
 </div>
 
 </div><!-- pron -->
