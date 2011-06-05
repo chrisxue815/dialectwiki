@@ -30,14 +30,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="lefth2">如果你想知道一个词条的发音或者想对一个词条进行发音，请从下面添加一个词条。</div>
 <div class="lefth3">
 词条：
-<form action="<%=path %>/addwordEx" method="post">
-<input type="text" name="wordname" value="<%
-String wn = request.getParameter("wordname");
-if (wn != null)
-  out.print(wn);
- %>" /><br /><br />
-<input type="submit" value="  添加  " />
-</form>
+<s:form action="/addwordEx" method="post" theme="simple">
+<s:textfield name="wordname" value="%{#parameters.wordname}" /><br /><br />
+<s:submit value="  添加  " />
+</s:form>
 </div>
 </div>
 

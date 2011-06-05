@@ -141,9 +141,6 @@
   	</property>
   </bean>
   
-  <bean id="loginAction" class="org.dw.action.LoginAction" scope="prototype">
-  </bean>
-  
   <bean id="playAction" class="org.dw.action.PlayAction">
   </bean>
   

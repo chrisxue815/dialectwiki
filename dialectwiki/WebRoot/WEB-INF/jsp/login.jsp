@@ -18,6 +18,8 @@ var init = function(){
 	var map = new QQMap.QMap(document.getElementById("left"))
 	map.moveTo(new QQMap.QLatLng(39.914850, 116.403765))
 	map.zoomTo(13)
+	
+	document.getElementById("username").focus();
 }
 
 </script>
@@ -33,18 +35,21 @@ var init = function(){
 <div id="content">
 <div id="left" class="left"></div>
 <div class="right">
-<s:if test="signupSuccess==null">
-<h2>登录</h2>
-</s:if>
-<s:else>
+<s:if test="#parameters.signupSuccess!=null">
 <h2>注册成功，请登录</h2>
+</s:if>
+<s:elseif test="#parameters.loginError!=null">
+<h2>登录失败，用户名或密码错误</h2>
+</s:elseif>
+<s:else>
+<h2>登录</h2>
 </s:else>
 
 <form id="dw_login" name="f" action="<%=path %>/j_spring_security_check" method="post">
 <table class="login">
 <tr>
 <td><label for="login">用户名：</label></td>
-<td><input name="j_username" type="text" /></td>
+<td><input id="username" name="j_username" type="text" /></td>
 </tr>
 
 <tr>

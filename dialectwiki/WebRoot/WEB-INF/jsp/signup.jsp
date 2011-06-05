@@ -18,16 +18,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>注册</title>
 
 <script type="text/javascript">
-  function disableBtn(btn){
-    btn.disabled = 'disabled';
-    var form = document.getElementById('myForm');
-    form.submit();
-    return true;
-  }
+function init()
+{
+document.getElementById("username").focus();
+}
+function disableBtn(btn){
+  btn.disabled = 'disabled';
+  var form = document.getElementById('myForm');
+  form.submit();
+  return true;
+}
 </script>
 </head>
 
-<body>
+<body onload="init()">
 
 <div id="wrap">
 
@@ -40,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <table class="userInfo">
 <tr>
 <td>用户名：</td>
-<td><s:textfield name="username"></s:textfield></td><td><s:fielderror fieldName="username"></s:fielderror><s:property value="FieldErrors.username[0]"></s:property></td>
+<td><s:textfield id="username" name="username"></s:textfield></td><td><s:fielderror fieldName="username"></s:fielderror><s:property value="FieldErrors.username[0]"></s:property></td>
 </tr>
 <tr>
 <td>密码：</td>

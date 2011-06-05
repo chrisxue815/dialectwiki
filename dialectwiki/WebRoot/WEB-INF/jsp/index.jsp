@@ -11,15 +11,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <base href="<%=basePath %>" />
 
+<title>首页</title>
+
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/main.css" />
 
-<title>首页</title>
-
+<script type="text/javascript">
+function init()
+{
+document.getElementById("stext").focus();
+}
+</script>
 </head>
 
 
-<body>
+<body onload="init()">
 
 <div id="wrap">
 
