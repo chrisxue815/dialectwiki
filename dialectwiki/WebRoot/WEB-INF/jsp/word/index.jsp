@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <h2>最新词条</h2>
 <div class="list">
   <s:iterator value="recentWords">
-  <p><a href="/word/word?wordId=<s:property value="wordId" />"><s:property value="wordName" /></a></p>
+  <p><a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName" /></a></p>
   </s:iterator>
 </div>
 </div><!--left-->
@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <h2>最热词条</h2>
 <div class="list">
   <s:iterator value="hotWords">
-  <p><a href="/word/word?wordId=<s:property value="wordId" />"><s:property value="wordName" /></a></p>
+  <p><a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName" /></a></p>
   </s:iterator>
 </div>
 </div><!--center-->
@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <h2>待发音词条</h2>
 <div class="list">
   <s:iterator value="waitProns">
-  <p><a href="/word/word?wordId=<s:property value="wordId" />"><s:property value="wordName" /></a></p>
+  <p><a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName" /></a></p>
   </s:iterator>
 </div>
 </div><!--right-->

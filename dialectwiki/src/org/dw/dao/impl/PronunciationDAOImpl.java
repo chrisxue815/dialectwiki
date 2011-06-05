@@ -202,17 +202,19 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
   }
   
   
-  public void updateVoteNumber(int voteMark,int voteNum)
+  public void updateVoteNumber(int voteMark,int voteNum,int pronId)
   {
+	  log.debug("vote a Pronunciation");
 	  if(voteMark == 1)
 	  {
 		  try
 		  {
-			  String queryString = "update Pronunciation pron set pron.goodVoteNum = :goodVoteNum";
+			  String queryString = "update Pronunciation pron set pron.goodVoteNum = :goodVoteNum where pron.id = :pronId";
 			  Session session = HibernateSessionFactory.getSession();
 			  Transaction trans = session.beginTransaction();
 			  Query query = session.createQuery(queryString);
 			  query.setParameter("goodVoteNum", voteNum);
+			  query.setParameter("pronId", pronId);
 			  int ret = query.executeUpdate();
 			  trans.commit();
 			  
@@ -225,7 +227,22 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
 	  }
 	  else if(voteMark == -1)
 	  {
-		String queryString = "";  
+		  try
+		  {
+			  String queryString = "update Pronunciation pron set pron.badVoteNum = :badVoteNum where pron.id = :pronId";
+			  Session session = HibernateSessionFactory.getSession();
+			  Transaction trans = session.beginTransaction();
+			  Query query = session.createQuery(queryString);
+			  query.setParameter("badVoteNum", voteNum);
+			  query.setParameter("pronId", pronId);
+			  int ret = query.executeUpdate();
+			  trans.commit();
+		  }
+		  catch(RuntimeException re)
+		  {
+			  log.error("update failed");
+			  throw re;
+		  }
 	  }
   }
 }

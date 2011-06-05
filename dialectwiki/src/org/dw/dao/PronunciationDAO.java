@@ -40,5 +40,5 @@ public interface PronunciationDAO
 
   public long getPronunciationNumber();
   
-  public void updateVoteNumber(int voteMark,int voteNum);
+  public void updateVoteNumber(int voteMark,int voteNum,int pronId);
 }

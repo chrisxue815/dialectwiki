@@ -13,7 +13,9 @@ public class VoteServiceImpl implements VoteService {
 
 	public void saveVote(Vote vote,int voteNum) {
 		voteDAO.save(vote);
-		pronunciationDAO.updateVoteNumber(vote.getMark(),voteNum);
+		int pronId = vote.getId().getPronunciation().getPronId();
+		System.out.println(pronId);
+		pronunciationDAO.updateVoteNumber(vote.getMark(),voteNum,pronId);
 	}
 
 }
