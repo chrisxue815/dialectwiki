@@ -22,6 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>词条</title>
 <script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
 <script type="text/javascript" src="<%=path %>/js/province-city.js"></script>
+<script type="text/javascript" src="<%=path %>/js/swfobject.js"></script>
+<script type="text/javascript" src="<%=path %>/js/playMP3.js"></script>
 <script type="text/javascript">
 var geocoder, map = null;
 var marker = new Array();
@@ -74,7 +76,8 @@ function markcitys() {
 				position:results.location,
 				title: cityList[i]
 				})
-			QQMap.QEvent.addListener(marker[i], 'click', playSound("<%=basePath %>" + prUrl[i]))
+		QQMap.QEvent.addListener(marker[i], 'click', playSound("<%=basePath %>" + prUrl[i]));
+		alert(prUrl[i]);
 		}
 		else{
 			alert("error");
@@ -82,12 +85,6 @@ function markcitys() {
 		});
 	}
 }
-
-function addListeners()
-{	
-	
-}
-
 </script>
 </head>
 
@@ -95,6 +92,7 @@ function addListeners()
 
 <div id="wrap">
 
+<div id="finishplayer">flash</div>
 <jsp:include page="../internal/header.jsp" />
 
 <div id="content">
@@ -109,6 +107,7 @@ function addListeners()
 	    
 	List<Integer> pronsIndexs = (List<Integer>)request.getAttribute("pronsIndexs");
 	List<Integer> cityIndexs = (List<Integer>)request.getAttribute("cityIndexs");
+	
 %>
 
 
@@ -165,9 +164,10 @@ function addListeners()
 
 </div>
 </div>
-
-
 </div>
+<script type="text/javascript">
+
+</script>
 <!--content-->
 <div style="clear: both;"> </div>
 <jsp:include page="../internal/footer.jsp" />
