@@ -166,7 +166,8 @@ public class WordAction extends ActionSupport
 
     List<Integer> pronsIndexs = new ArrayList<Integer>();
     List<Integer> cityIndexs = new ArrayList<Integer>();
-
+    List<String> mapPrUrlList = new ArrayList<String>();
+    
     City lastCity = null;
     City nextCity = null;
 
@@ -175,8 +176,9 @@ public class WordAction extends ActionSupport
 
     int pronIndex = 0;
     lastCity = prons.get(pronIndex).getCity();
+    
     cityList.add(lastCity);
-
+    mapPrUrlList.add(prons.get(pronIndex).getPrUrl());
     for (Pronunciation pron : prons)
     {
       nextCity = pron.getCity();
@@ -185,6 +187,9 @@ public class WordAction extends ActionSupport
         lastCity = nextCity;
         pronsIndexs.add(pronIndex);
         cityList.add(lastCity);
+        mapPrUrlList.add(prons.get(pronIndex).getPrUrl());
+        //System.out.println(prons.get(pronIndex).getPrUrl());
+        //System.out.println(prons.get(pronIndex).getCity().getCityName());
       }
 
       pronIndex++;
@@ -213,17 +218,25 @@ public class WordAction extends ActionSupport
     for (City city : cityList)
     {
       cityNames.add(city.getCityName());
-      System.out.println(city.getCityName());
+      //System.out.println(city.getCityName());
     }
+    
+    List<String> prUrlList = new ArrayList<String>();
+    for(Pronunciation pron: prons)
+    {
+    	prUrlList.add(pron.getPrUrl());
+    	//System.out.println(pron.getPrUrl());
+    }
+    
 
-    ServletActionContext.getRequest()
-        .setAttribute("provinceList", provinceList);
+    ServletActionContext.getRequest().setAttribute("provinceList", provinceList);
     ServletActionContext.getRequest().setAttribute("cityList", cityList);
     ServletActionContext.getRequest().setAttribute("pronsIndexs", pronsIndexs);
     ServletActionContext.getRequest().setAttribute("cityIndexs", cityIndexs);
     ServletActionContext.getRequest().setAttribute("prons", prons);
     ServletActionContext.getRequest().setAttribute("cityNames", cityNames);
-
+    ServletActionContext.getRequest().setAttribute("prUrlList", prUrlList);
+    ServletActionContext.getRequest().setAttribute("mapPrUrlList", mapPrUrlList);
     citySize = cityList.size();
 
     return SUCCESS;

@@ -86,12 +86,14 @@ public class addVoteAction extends ActionSupport {
 		if(voteMark == 1)
 		{
 			int voteNum = pron.getGoodVoteNum();
+			voteNum += 1;
 			voteService.saveVote(vote,voteNum);
 		}
 		
 		if(voteMark == -1)
 		{
 			int voteNum = pron.getBadVoteNum();
+			voteNum += 1;
 			voteService.saveVote(vote, voteNum);
 		}
 		return SUCCESS;

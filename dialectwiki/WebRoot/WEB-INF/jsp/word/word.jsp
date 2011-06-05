@@ -38,11 +38,13 @@ var init = function(){
 }
 function markcitys() {
 	var cityList = new Array();
+	var pronList = new Array();
 	var cityName = null;
 	var citySize = null
 	var i = null;
 <%
 	List<String> cityNames = (List<String>)request.getAttribute("cityNames");
+	List<String> mapPrUrlList = (List<String>)request.getAttribute("mapPrUrlList");
 	int citynumbers = cityNames.size();
 %>
 	citySize = "<%=citynumbers %>"
@@ -51,9 +53,13 @@ function markcitys() {
 	for(aIndex = 0;aIndex<citynumbers;aIndex++)
 	{
 		String aCityName = cityNames.get(aIndex);
+		String aPrurl = mapPrUrlList.get(aIndex);
 %>
-	var cityName="<%=aCityName %>"
+	var cityName = "<%=aCityName %>"
+	var prUrl = "<%=aPrurl %>"
 	cityList.push(cityName);
+	pronList.push(prUrl);
+	
 <%
 	}
 %>
@@ -68,12 +74,17 @@ function markcitys() {
 				position:results.location,
 				title: cityList[i]
 				})
+			QQMap.QEvent.addListener(marker[i], 'click', playSound("<%=basePath %>" + prUrl[i]))
 		}
 		else{
 			alert("error");
 		}
 		});
 	}
+}
+
+function addListeners()
+{	
 	
 }
 
