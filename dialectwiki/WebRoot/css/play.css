@@ -1,0 +1,53 @@
+/* CSS Document */
+.left{
+	width: 70%;
+
+}
+.playtop{
+	line-height: 40px;
+	margin-top: 10px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 10px;
+}
+.playtop strong{
+	height: 26px;
+	line-height: 26px;
+	font-size: 25px;
+	color:#390;
+}
+.playcenter{
+	margin-top: 10px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	margin-left: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	color: #666;
+}
+.user{
+	font-weight: bold;
+	color : #000
+}
+.vote{
+	width: 25px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+
+.map{
+	margin-top: 10px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	margin-left: 5px;
+	width:680;
+	height:400px;
+}
+
+.right{
+	width: 28%;
+}
