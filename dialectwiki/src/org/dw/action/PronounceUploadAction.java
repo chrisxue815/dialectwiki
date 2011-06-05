@@ -31,7 +31,7 @@ public class PronounceUploadAction extends ActionSupport {
 	
 	public String execute(){
 		
-		System.out.println("invoked");
+
 		InputStream inputStream;
 		FileOutputStream fo;
 		try {
@@ -61,17 +61,15 @@ public class PronounceUploadAction extends ActionSupport {
 			
 			String prUrl = "pron/";
 			
-			//****
 			
 			f1 = new File(prUrl);
 			
 			if(!f1.exists())
 			{
 				f1.mkdir();
-				System.out.println("mkdir");
+
 			}
-			else System.out.println("exist");
-			//*****/
+
 			
 			SimpleDateFormat sdf   =   new   SimpleDateFormat( "yyyyMM");
 			Date date = new Date();
@@ -106,16 +104,14 @@ public class PronounceUploadAction extends ActionSupport {
 			while ((data = inputStream.read(bytes)) != -1) {
 				fo.write(bytes, 0, data);
 			}
-			System.out.println("Action invoked1");
+			
 			inputStream.close();
 
-			System.out.println("Action invoked2");
 			fo.close();
 
-			System.out.println("Action invoked3");
+
 			pronunciationService.save(word, city, prUrl, date);
-			
-			System.out.println("Action invoked4");
+		
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -11,7 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class addVoteAction extends ActionSupport {
+public class AddVoteAction extends ActionSupport {
 	
 	private Vote vote;
 	private User user;

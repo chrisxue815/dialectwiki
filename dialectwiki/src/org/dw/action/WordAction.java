@@ -123,14 +123,15 @@ public class WordAction extends ActionSupport
 
   public String execute()
   {
+	System.out.print("invoked");
     try
     {
       if (id != null)
       {
         int wordId = Integer.parseInt(id);
-        
+       
         word = wordService.getById(wordId);
-        
+
         if (word == null)
           return WORD_NOT_EXIST;
       }
@@ -156,7 +157,8 @@ public class WordAction extends ActionSupport
 
   public String getWordData()
   {
-    prons = pronunciationService.searchPronunciation(word.getWordId());
+	System.out.println("get WordData() invoked");
+    //prons = pronunciationService.searchPronunciation(word.getWordId());
     
     if (prons == null || prons.size() == 0)
       return PRONOUNCE;
@@ -179,6 +181,7 @@ public class WordAction extends ActionSupport
     
     cityList.add(lastCity);
     mapPrUrlList.add(prons.get(pronIndex).getPrUrl());
+    //System.out.println(prons.get(pronIndex).getPrUrl());
     for (Pronunciation pron : prons)
     {
       nextCity = pron.getCity();
@@ -238,6 +241,9 @@ public class WordAction extends ActionSupport
     ServletActionContext.getRequest().setAttribute("prUrlList", prUrlList);
     ServletActionContext.getRequest().setAttribute("mapPrUrlList", mapPrUrlList);
     citySize = cityList.size();
+    
+    for(String mapUrl : prUrlList)
+    	System.out.println(mapUrl);
 
     return SUCCESS;
 

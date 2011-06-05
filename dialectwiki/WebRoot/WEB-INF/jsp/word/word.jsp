@@ -32,7 +32,6 @@ var init = function(){
 	{
 		center: new QQMap.QLatLng(37, 110),
 		zoomLevel: 1,
-
 	})
 	
 	geocoder = new QQMap.QGeocoder();
@@ -59,6 +58,7 @@ function markcitys() {
 %>
 	var cityName = "<%=aCityName %>"
 	var prUrl = "<%=aPrurl %>"
+	alert(prUrl)
 	cityList.push(cityName);
 	pronList.push(prUrl);
 	
@@ -77,7 +77,6 @@ function markcitys() {
 				title: cityList[i]
 				})
 		QQMap.QEvent.addListener(marker[i], 'click', playSound("<%=basePath %>" + prUrl[i]));
-		alert(prUrl[i]);
 		}
 		else{
 			alert("error");
@@ -171,7 +170,14 @@ function markcitys() {
 <!--content-->
 <div style="clear: both;"> </div>
 <jsp:include page="../internal/footer.jsp" />
-
+<%
+	for(aIndex = 0;aIndex<citynumbers;aIndex++)
+	{
+		String aCityName = cityNames.get(aIndex);
+		String aPrurl = mapPrUrlList.get(aIndex);
+		out.println(aPrurl);
+	}
+%>
 </div><!--wrap-->
 
 </body>
