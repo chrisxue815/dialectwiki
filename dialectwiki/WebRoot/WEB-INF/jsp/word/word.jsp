@@ -64,25 +64,23 @@ function markcitys() {
 <%
 	}
 %>
-	for(i = 0;i<citySize;i++)
+	var i = 0;
+	var j = 0;
+	for (i = 0; i < citySize; i++)
 	{
 		geocoder.geocode({'address': cityList[i]}, function(results, status){
-		if (status == QQMap.QGeocoderStatus.OK){
-			map.setCenter(results.location);
-			
-			marker[i] = new QQMap.QMarker({
-				map: map,
-				position:results.location,
-				title: cityList[i-1]
-				})
-		var aUrl = pronUrlList[i-1];
-		}
-		else{
-			alert("error");
-		}
+			if (status == QQMap.QGeocoderStatus.OK) {
+				map.setCenter(results.location);
+				
+				marker[j] = new QQMap.QMarker({
+					map: map,
+					position: results.location,
+					title: results.address
+				});
+				j++;
+			}
 		});
 	}
-	playSound("");
 }
 </script>
 </head>
