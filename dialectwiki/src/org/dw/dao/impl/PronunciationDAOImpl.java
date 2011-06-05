@@ -248,6 +248,20 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
   
   public List<Pronunciation> getRecentProns()
   {
-	  return null;
+	  log.debug("get recent Pronunciation");
+	  try
+	  {
+		  String queryString = "from Pronunciation pron order by pron.uploadDate desc";
+		  Session session = HibernateSessionFactory.getSession();
+		  Query query = session.createQuery(queryString);
+		  query.setMaxResults(20);
+		  List<Pronunciation> prons = query.list();
+		  return prons;
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("attach failed");
+		  throw re;
+	  }
   }
 }

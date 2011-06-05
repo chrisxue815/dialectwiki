@@ -139,6 +139,9 @@
   	<property name="wordService">
   		<ref bean="wordService" />
   	</property>
+  	<property name="pronunciationService">
+  		<ref bean="pronunciationService" />
+  	</property>
   </bean>
   
   <bean id="addWordExAction" class="org.dw.action.AddWordExAction" scope="prototype">

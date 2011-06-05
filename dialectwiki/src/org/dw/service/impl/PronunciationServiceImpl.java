@@ -64,9 +64,7 @@ public class PronunciationServiceImpl implements PronunciationService {
   
   public void save(int word, int city, String prUrl, Date date) {
     Pronunciation pron = new Pronunciation();
- //   System.out.println(wordDAO.findById(word).getWordName());
- //   System.out.println(cityDAO.findById(city).getCityName());
- //   System.out.println(userDAO.findById(getUserId()).getUsername());
+
     
     pron.setWord(wordDAO.findById(word));
     pron.setUser(userDAO.findById(getUserId()));
@@ -74,9 +72,7 @@ public class PronunciationServiceImpl implements PronunciationService {
     pron.setPrUrl(prUrl);
     pron.setUploadDate(date);
     
- //   System.out.println(pron.getWord().getWordName());
- //   System.out.println(pron.getUser().getUsername());
- //   System.out.println(pron.getCity().getCityName());
+
     pronunciationDAO.save(pron);
   }
   
