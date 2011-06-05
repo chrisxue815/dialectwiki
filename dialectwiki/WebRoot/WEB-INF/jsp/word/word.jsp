@@ -39,7 +39,7 @@ var init = function(){
 }
 function markcitys() {
 	var cityList = new Array();
-	var pronList = new Array();
+	var pronUrlList = new Array();
 	var cityName = null;
 	var citySize = null
 	var i = null;
@@ -60,7 +60,7 @@ function markcitys() {
 	var prUrl = "<%=aPrurl %>"
 	alert(prUrl)
 	cityList.push(cityName);
-	pronList.push(prUrl);
+	pronUrlList.push(prUrl);
 	
 <%
 	}
@@ -74,9 +74,10 @@ function markcitys() {
 			marker[i] = new QQMap.QMarker({
 				map: map,
 				position:results.location,
-				title: cityList[i]
+				title: cityList[i-1]
 				})
-		QQMap.QEvent.addListener(marker[i], 'click', playSound("<%=basePath %>" + prUrl[i]));
+		var aUrl = pronUrlList[i-1];
+		QQMap.QEvent.addListener(marker[i], 'click', playSound("<%=basePath %>" + aUrl));
 		}
 		else{
 			alert("error");

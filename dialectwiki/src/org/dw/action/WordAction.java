@@ -149,7 +149,7 @@ public class WordAction extends ActionSupport
   public String getWordData()
   {
 	System.out.println("get WordData() invoked");
-    //prons = pronunciationService.searchPronunciation(word.getWordId());
+    prons = pronunciationService.searchPronunciation(word.getWordId());
     
     if (prons == null || prons.size() == 0)
       return PRONOUNCE;
