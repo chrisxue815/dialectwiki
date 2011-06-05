@@ -95,6 +95,8 @@ function markcitys() {
 <jsp:include page="../internal/header.jsp" />
 
 <div id="content">
+<div class="lefth1">地图上的 ：
+<strong><s:property value="word.wordName"/></strong></div>
 <div class="maptop" id="maptop">
 
 
