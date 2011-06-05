@@ -27,7 +27,7 @@
     <action name="">
       <result name="success">/WEB-INF/jsp/index.jsp</result>
     </action>
-  
+
     <action name="pronounce" class="pronouncePageAction">
       <result name="success">/WEB-INF/jsp/pronounce.jsp</result>
       <result name="input">/WEB-INF/jsp/word/add.jsp</result>
@@ -44,7 +44,7 @@
   		<result name="input">/WEB-INF/jsp/signup.jsp</result>
   	</action>
   	
-  	<action name="login" class="loginAction">
+  	<action name="login">
   	 <result name="success">/WEB-INF/jsp/login.jsp</result>
   	</action>
   	
@@ -71,6 +71,7 @@
     <action name="word" class="wordAction">
       <result name="success">/WEB-INF/jsp/word/word.jsp</result>
       <result name="words" type="redirect">/words</result>
+      <result name="idNotExist">/WEB-INF/jsp/fileNotFound.jsp</result>
       <result name="wordNotExist" type="redirect">
         <param name="location">/addword</param>
         <param name="wordname">%{name}</param>

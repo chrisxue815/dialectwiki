@@ -10,7 +10,7 @@
   <http use-expressions="true">
     <intercept-url pattern="/**" access="permitAll" />
     
-    <form-login login-page="/login.jsp" default-target-url="/" authentication-failure-url="/internal/fuck.spring.security.jsp" />
+    <form-login login-page="/login" default-target-url="/" authentication-failure-url="/login?loginError" />
     <logout />
     <remember-me />
 

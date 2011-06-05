@@ -122,3 +122,7 @@ color: #aaa;
 #footer a:hover { color: #111; }.moduleTitle {
 	background-color: #C3D9FF;
 }
+
+.center {
+text-align: center;
+}

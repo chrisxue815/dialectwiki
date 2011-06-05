@@ -16,6 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class WordAction extends ActionSupport
 {
+  public static final String ID_NOT_EXIST = "idNotExist";
   public static final String WORD_NOT_EXIST = "wordNotExist";
   public static final String WORDS = "words";
   public static final String INVALID_ID = "invalidId";
@@ -114,22 +115,18 @@ public class WordAction extends ActionSupport
 
   public String execute()
   {
-	System.out.print("invoked");
     try
     {
       if (id != null)
       {
         int wordId = Integer.parseInt(id);
-       
         word = wordService.getById(wordId);
-
         if (word == null)
-          return WORD_NOT_EXIST;
+          return ID_NOT_EXIST;
       }
       else if (name != null)
       {
         word = wordService.findByWordName(name);
-        
         if (word == null)
           return WORD_NOT_EXIST;
       }
