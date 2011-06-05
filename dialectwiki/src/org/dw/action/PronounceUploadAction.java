@@ -29,13 +29,14 @@ public class PronounceUploadAction extends ActionSupport {
 		this.pronunciationService = pronunciationService;
 	}
 	
-	public String execute(){
+	public String execute()
+	{
 		
-
 		InputStream inputStream;
 		FileOutputStream fo;
-		try {
-
+		
+		try
+		{
 			File f1 = null;
 			
 			request = ServletActionContext.getRequest();
@@ -61,47 +62,42 @@ public class PronounceUploadAction extends ActionSupport {
 			
 			String prUrl = "pron/";
 			
-			
-			f1 = new File(prUrl);
+			f1 = new File(path+prUrl);
 			
 			if(!f1.exists())
 			{
 				f1.mkdir();
-
 			}
-
 			
 			SimpleDateFormat sdf   =   new   SimpleDateFormat( "yyyyMM");
 			Date date = new Date();
 			
 			prUrl += sdf.format(date) + "/";
 			
-			f1 = new File(prUrl);
+			f1 = new File(path+prUrl);
 			
 			if(!f1.exists())
 			{
 				f1.mkdir();
-				System.out.println("mkdir");
 			}
-			else System.out.println("exist");
 			
 			int random = 0;
 			
-			do{
-			random = new Random().nextInt(900000000)+ 100000000;
-			
-			prUrl += random+".mp3";
-			
-			System.out.println(prUrl);
-			
-			f1 = new File(prUrl); // 输出文件流地址待定
-
-			}while(f1.exists());
+			do
+			{
+  			random = new Random().nextInt(900000000)+ 100000000;
+  			
+  			prUrl += random+".mp3";
+  			
+  			f1 = new File(path+prUrl);
+			}
+			while(f1.exists());
 			
 			fo = new FileOutputStream(f1);
 			// 开始写文件
 			
-			while ((data = inputStream.read(bytes)) != -1) {
+			while ((data = inputStream.read(bytes)) != -1)
+			{
 				fo.write(bytes, 0, data);
 			}
 			
@@ -113,12 +109,14 @@ public class PronounceUploadAction extends ActionSupport {
 			pronunciationService.save(word, city, prUrl, date);
 		
 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			
+		}
+		catch (IOException e)
+		{
 			e.printStackTrace();
+			
 			return ERROR;
 		}
+		
 		return SUCCESS;
 	}
 

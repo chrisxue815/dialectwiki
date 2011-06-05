@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div id="content">
 
-<div class="center">
+<div class="centerdiv">
 <img style="margin-right: 100px" src="<%=path %>/css/images/fileNotFound.jpg" />
 </div>
 </div><!--content-->
