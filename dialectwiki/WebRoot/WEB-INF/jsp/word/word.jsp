@@ -87,6 +87,7 @@ function markcitys() {
 </script>
 </head>
 
+
 <body onload="init()">
 
 <div id="wrap">
@@ -95,89 +96,114 @@ function markcitys() {
 <jsp:include page="../internal/header.jsp" />
 
 <div id="content">
-<div class="lefth1">地图上的 ：
-<strong><s:property value="word.wordName"/></strong></div>
-<div class="maptop" id="maptop">
 
+<div class="wordcontent">
+
+<div class="top">
+<span class="worditem">词条：</span>
+<span class="wordname"><s:property value="word.wordName"/></span>
+</div>
+
+<div class="bottomleft">
+
+<div class="module mapmodule">
+
+<div class="moduletitle">
+口音在地图上的分布情况
+</div>
+
+<div class="maptop" id="maptop">
+</div>
 
 </div>
 <%
-	List<Pronunciation> prons = (List<Pronunciation>)request.getAttribute("prons");
-    List<Province> provinceList = (List<Province>)request.getAttribute("provinceList");
-	List<City> cityList = (List<City>)request.getAttribute("cityList");
-	    
-	List<Integer> pronsIndexs = (List<Integer>)request.getAttribute("pronsIndexs");
-	List<Integer> cityIndexs = (List<Integer>)request.getAttribute("cityIndexs");
-	
+List<Pronunciation> prons = (List<Pronunciation>)request.getAttribute("prons");
+List<Province> provinceList = (List<Province>)request.getAttribute("provinceList");
+List<City> cityList = (List<City>)request.getAttribute("cityList");    
+List<Integer> pronsIndexs = (List<Integer>)request.getAttribute("pronsIndexs");
+List<Integer> cityIndexs = (List<Integer>)request.getAttribute("cityIndexs");
 %>
 
+<div class="module">
 
-<div class="left">
-<div class="lefth1">词条：
-<strong><s:property value="word.wordName"/></strong></div>
 <%
-	int i = 0;
-    int j = 0;
-    int cityIndex = 0;
-    int pronIndex = 0;
-    
-    for(Province province : provinceList)
-    {
-    	String provinceName = province.getProvinceName();
+int i = 0;
+int j = 0;
+int cityIndex = 0;
+int pronIndex = 0;
+
+for(Province province : provinceList)
+{
+String provinceName = province.getProvinceName();
+while(i < cityIndexs.get(cityIndex))
+{
+String cityName = cityList.get(i).getCityName();
 %>
 <div class="region">
-<span class="rt"><%=provinceName%></span>
-<a href="http://richard-pc:8080/dialectwiki/pronounce?id=<s:property value="word.wordId"/>" >我要发音</a>
-<% 
-        while(i < cityIndexs.get(cityIndex))
-        {
-        	String cityName = cityList.get(i).getCityName();
-         
-%>
 
-<li><%=cityName %></li>
+<div class="rtitle">
+<span class="rtTip">发音</span>
+&nbsp;&nbsp;
+<span class="rtProv">
+<%=provinceName%> - <%=cityName %>
+</span>
+</div>
 <%
-			while( j < pronsIndexs.get(pronIndex))
-			{
-				Pronunciation pron = prons.get(j);
-				String pronUser = pron.getUser().getUsername();
-				SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
-				String Date = dateFm.format(pron.getUploadDate());
-				int goodVote = pron.getGoodVoteNum();
-				int badVote = pron.getBadVoteNum(); 
-				String aprUrl = basePath+pron.getPrUrl();
+while( j < pronsIndexs.get(pronIndex))
+{
+Pronunciation pron = prons.get(j);
+int pronId = pron.getPronId();
+String pronUser = pron.getUser().getUsername();
+SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
+String Date = dateFm.format(pron.getUploadDate());
+int goodVote = pron.getGoodVoteNum();
+int badVote = pron.getBadVoteNum(); 
+String aprUrl = basePath+pron.getPrUrl();
 %>
-<p class="pro"><a href="#" onclick="playSound('<%=aprUrl%>');return false;"><img src="<%=path %>/css/images/ico_play.gif" /></a>发音用户：<%=pronUser%> &nbsp;&nbsp;&nbsp;发音时间<%=Date %> &nbsp;&nbsp;&nbsp;顶：<%=goodVote %>&nbsp;踩：<%=badVote %> </a></p>
+<div class="pron" id="pron<%=pronId %>">
+
+<div class="pimg">
+<a href="#" onclick="playSound('<%=aprUrl%>');return false;">
+<img src="<%=path %>/css/images/ico_play.gif" />
+</a>
+</div>
+
+<div class="puser">
+<span>发音者</span>
+<span class="pusername"><%=pronUser%></span>
+</div>
+
+<div class="pvote">
+<a href="#">顶 + <%=goodVote %></a>
+<a href="#">踩 - <%=badVote %></a>
+</div>
+
+</div><!-- pron -->
 
 
 <%			
-				j++;
-			}
-			pronIndex++;
-	        i++;	
-		}
-		cityIndex++;
-%>		
-</div>
+j++;
+}
+pronIndex++;
+i++;
+}
+cityIndex++;
+%>
+</div><!-- region -->
 <% 
-	}
+}
 %>
 
 
 </div>
-</div>
-</div>
-<!--content-->
+</div><!-- bottomleft -->
+</div><!-- wordcontent -->
+</div><!-- content -->
+
 <div style="clear: both;"> </div>
+
 <jsp:include page="../internal/footer.jsp" />
-<%
-	for(aIndex = 0;aIndex<citynumbers;aIndex++)
-	{
-		String aCityName = cityNames.get(aIndex);
-		String aPrurl = mapPrUrlList.get(aIndex);
-		out.println(aPrurl);
-	}
-%>
+
 </div><!--wrap-->
 
 </body>
