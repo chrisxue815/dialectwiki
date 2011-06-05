@@ -124,7 +124,8 @@ function upLoad_success()
 
 function upLoad_error()
 {
-	alert("0");
+	alert("请登录后再进行发音");
+    location.href = "http://richard-pc:8080/dialectwiki/login";
 }
 
 function codeAddress() {

@@ -76,7 +76,6 @@ function markcitys() {
 				title: cityList[i-1]
 				})
 		var aUrl = pronUrlList[i-1];
-		QQMap.QEvent.addListener(marker[i], 'click', playSound("<%=basePath %>" + aUrl));
 		}
 		else{
 			alert("error");
@@ -126,7 +125,7 @@ function markcitys() {
 %>
 <div class="region">
 <span class="rt"><%=provinceName%></span>
-<a href="" >我要发音</a>
+<a href="http://richard-pc:8080/dialectwiki/pronounce?id=<s:property value="word.wordId"/>" >我要发音</a>
 <% 
         while(i < cityIndexs.get(cityIndex))
         {
