@@ -1,5 +1,6 @@
 package org.dw.action;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,16 +80,6 @@ public class WordAction extends ActionSupport
   public void setName(String name)
   {
     this.name = name;
-  }
-  
-  public String getWordNameInUTF8()
-  {
-    try {
-      return new String(name.getBytes(), "utf-8");
-    }
-    catch (Exception ex) {
-      return null;
-    }
   }
 
   public WordService getWordService()

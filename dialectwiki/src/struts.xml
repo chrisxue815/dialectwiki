@@ -73,7 +73,7 @@
       <result name="words" type="redirect">/words</result>
       <result name="wordNotExist" type="redirect">
         <param name="location">/addword</param>
-        <param name="wordname">%{getWordNameInUTF8()}</param>
+        <param name="wordname">%{name}</param>
       </result>
       <result name="pronounce" type="redirect">
         <param name="location">/pronounce</param>

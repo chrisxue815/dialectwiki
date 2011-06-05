@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div id="wrap">
 
-<jsp:include page="internal/header.jsp" />
+<jsp:include page="../internal/header.jsp" />
 
 <div id="content">
 <div class="left">
@@ -40,7 +40,7 @@ X票<span><a class="vote">顶</a><a class="vote">踩</a></span>
 
 </div><!--content-->
 
-<jsp:include page="internal/footer.jsp" />
+<jsp:include page="../internal/footer.jsp" />
 
 </div><!--wrap-->
 

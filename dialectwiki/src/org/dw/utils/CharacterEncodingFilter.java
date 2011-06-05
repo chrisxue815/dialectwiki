@@ -1,11 +1,6 @@
 package org.dw.utils;
 
-import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
-import info.monitorenter.cpdetector.io.JChardetFacade;
-
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.Map;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -18,19 +13,19 @@ import javax.servlet.http.HttpServletRequestWrapper;
 
 public class CharacterEncodingFilter implements Filter
 {
-  CodepageDetectorProxy detector;
-
+  public static String encoding = null;
+  
   public void doFilter(ServletRequest request, ServletResponse response,
       FilterChain chain) throws IOException, ServletException
   {
     HttpServletRequest req = (HttpServletRequest) request;
     
-    if (req.getMethod().equalsIgnoreCase("GET") &&
-        request.getCharacterEncoding() == null)
+    if (req.getMethod().equalsIgnoreCase("POST"))
     {
-      Map map = req.getParameterMap();
-      //Charset charset = detector.detectCodepage(, req.getContentLength());
-      //request.setCharacterEncoding(charset.name());
+        request.setCharacterEncoding(encoding);
+    }
+    else
+    {
       request = new Request(req);
     }
     
@@ -39,8 +34,7 @@ public class CharacterEncodingFilter implements Filter
 
   public void init(FilterConfig filterConfig) throws ServletException
   {
-    detector = CodepageDetectorProxy.getInstance();
-    detector.add(JChardetFacade.getInstance());
+    encoding = filterConfig.getInitParameter("encoding");
   }
   
   public void destroy()
@@ -55,12 +49,9 @@ public class CharacterEncodingFilter implements Filter
    */
   class Request extends HttpServletRequestWrapper
   {
-    private String encoding = null;
-
     public Request(HttpServletRequest request)
     {
       super(request);
-      encoding = request.getCharacterEncoding();
     }
 
     /**
@@ -71,13 +62,16 @@ public class CharacterEncodingFilter implements Filter
       if (input == null)
       {
         return null;
-      } else
+      }
+      else
       {
         try
         {
           byte[] bytes = input.getBytes("ISO8859-1");
-          return new String(bytes, encoding);
-        } catch (Exception ex)
+          String output = new String(bytes, "UTF-8");
+          return output;
+        }
+        catch (Exception ex)
         {
         }
         return null;
