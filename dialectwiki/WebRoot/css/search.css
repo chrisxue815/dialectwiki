@@ -1,0 +1,10 @@
+#topinfo {
+  margin:1em 0 1em 0;
+  padding:1em 1em 1em 1.7em;
+	border-bottom: 1px solid #dfdfdf;
+	font-size:120%
+}
+#topinfo strong {
+	color: #090;
+	font-weight: bold;
+}

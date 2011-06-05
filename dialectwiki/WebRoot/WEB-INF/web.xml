@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  <!-- 指定Spring、Spring Security的配置文件 -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+      classpath:applicationContext.xml
+      classpath:applicationContext-security.xml
+    </param-value>
+  </context-param>
+  
+  
+  <!-- Spring begins -->
+  <!-- 启动Spring容器 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+  </listener>
+  
+  <!-- Spring ends -->
+
+
+  <!-- CharacterEncodingFilter begins -->
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.dw.utils.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>   
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  
+  <filter-mapping>
+	  <filter-name>characterEncodingFilter</filter-name>
+	  <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- CharacterEncodingFilter ends -->
+
+
+  <!-- Spring Security begins -->
+  <!-- 启动Spring Security的容器 -->
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- Spring Security ends -->
+
+
+  <!-- Struts 2 begins -->
+  <!-- 配置Sturts2 filter -->
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- Struts 2 ends -->
+
+</web-app>

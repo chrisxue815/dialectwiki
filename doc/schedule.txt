@@ -1,0 +1,12 @@
+* 在发音表中添加对投票的触发器
+
+* mysql 随机产生
+
+* add_success 调整"为 发音" 更明显一点
+* add_success\add_failure 中的链接
+
+* 在页脚添加“报告bug”
+
+* flash 允许录音 保存设置
+
+* 忘记你的密码了？
