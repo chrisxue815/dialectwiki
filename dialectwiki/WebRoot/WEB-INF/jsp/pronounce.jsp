@@ -28,7 +28,9 @@ var init
 	  
 	so.addParam("allowScriptAccess","always");
 	so.addVariable("word", "<%=wordid%>");
+	alert("<%=wordid%>");
 	so.addVariable("addr","<%=basePath %>");
+	alert("<%=basePath%>");
 	so.write("flash");
 	
 	map = new QQMap.QMap(
