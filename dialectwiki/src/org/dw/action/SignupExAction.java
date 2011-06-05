@@ -12,7 +12,7 @@ import org.dw.service.UserService;
 import org.dw.utils.MD5;
 import org.dw.model.User;
 
-public class SignupAction extends ActionSupport
+public class SignupExAction extends ActionSupport
 {
 
   private static final long serialVersionUID = 1L;
@@ -24,8 +24,6 @@ public class SignupAction extends ActionSupport
   private String validatecode;
 
   private UserService userService;
-
-  public static int times = 0;
 
   public String getUsername()
   {
@@ -118,7 +116,7 @@ public class SignupAction extends ActionSupport
     catch (Exception ex)
     {
       ex.printStackTrace();
-      return INPUT;
+      return ERROR;
     }
   }
   
@@ -128,16 +126,16 @@ public class SignupAction extends ActionSupport
       this.addFieldError("password", "两次输入的密码不一致");
     
     Map<String, Object> session = ServletActionContext.getContext().getSession();
-    if (!session.get("vcode").equals(validatecode))
+    if (!validatecode.equalsIgnoreCase((String)session.get("vcode")))
       this.addFieldError("validatecode", "验证码错误");
     
-    try
+   /* try
     {
       new EmailValidator().validate(email);
     } catch (ValidationException e)
     {
       e.printStackTrace();
       this.addFieldError("email", "邮箱格式不正确");
-    }
+    }*/
   }
 }

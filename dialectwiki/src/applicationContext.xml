@@ -162,7 +162,7 @@
     </property>
   </bean>
 
-  <bean id="signupAction" class="org.dw.action.SignupAction">
+  <bean id="signupExAction" class="org.dw.action.SignupExAction">
   	<property name="userService">
   		<ref bean="userService" />
   	</property>
