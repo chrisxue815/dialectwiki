@@ -94,7 +94,29 @@ font-size: 14px;
 .bottomright {
   float: right;
   width: 27%;
-  background-color: #EDF6FF;
+  padding-top: 15px;
   height: 1000px;
   border-left: 2px solid #E4E4E4;
+  background-color: #EDF6FF;
+}
+
+.rightList {
+	margin-left: 40px;
+	margin-top: 20px;
+}
+
+.rightItem {
+}
+
+.itemTitle {
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 8px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #E4E4E4;
+}
+
+.itemLink {
+	font-size: 12px;
+	margin-left: 10px;
 }

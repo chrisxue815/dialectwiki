@@ -200,7 +200,21 @@ cityIndex++;
 </div>
 </div><!-- bottomleft -->
 
-<div class="bottomright"></div>
+<div class="bottomright">
+
+<div class="rightList">
+<div class="rightItem">
+<div class="itemTitle">修改词语</div>
+<div class="itemLink">
+· 
+<a href="pronounce?<s:property value='id' />">
+添加<strong>发音</strong>
+</a>
+</div>
+</div><!-- rightItem -->
+</div><!-- rightList -->
+</div><!-- bottomright -->
+
 </div><!-- wordcontent -->
 </div><!-- content -->
 
