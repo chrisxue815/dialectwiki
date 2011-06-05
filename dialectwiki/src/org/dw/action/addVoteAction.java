@@ -17,19 +17,29 @@ public class AddVoteAction extends ActionSupport {
 	
 	private Vote vote;
 	private User user;
-	private int voteMark;
-	private int pronId;
+	private String voteMark;
+	private String pronId;
 	
 	private UserService userService;
 	private PronunciationService pronunciationService;
 	private VoteService voteService;
 	
 	
-	public int getPronId() {
+
+
+	public String getVoteMark() {
+		return voteMark;
+	}
+
+	public void setVoteMark(String voteMark) {
+		this.voteMark = voteMark;
+	}
+
+	public String getPronId() {
 		return pronId;
 	}
 
-	public void setPronId(int pronId) {
+	public void setPronId(String pronId) {
 		this.pronId = pronId;
 	}
 
@@ -65,14 +75,6 @@ public class AddVoteAction extends ActionSupport {
 		this.pronunciationService = pronunciationService;
 	}
 
-	public int getVoteMark() {
-		return voteMark;
-	}
-
-	public void setVoteMark(int voteMark) {
-		this.voteMark = voteMark;
-	}
-
 	public VoteService getVoteService() {
 		return voteService;
 	}
@@ -84,24 +86,27 @@ public class AddVoteAction extends ActionSupport {
 	public String execute(){
 		Vote vote = new Vote();
 		VoteId id = new VoteId();
-		
+		System.out.println(pronId);
+		System.out.println(voteMark);
+		int pronIdInt = Integer.parseInt(pronId);
+		int voteMarkInt = Integer.parseInt(voteMark);
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		user = userService.getUserByUserName(username);
 		id.setUser(user);
-		Pronunciation pron = pronunciationService.getPronunciationById(pronId);
+		Pronunciation pron = pronunciationService.getPronunciationById(pronIdInt);
 		id.setPronunciation(pron);
 		
-		vote.setMark(voteMark);
+		vote.setMark(voteMarkInt);
 		vote.setId(id);
 		
-		if(voteMark == 1)
+		if(voteMarkInt == 1)
 		{
 			int voteNum = pron.getGoodVoteNum();
 			voteNum += 1;
 			voteService.saveVote(vote,voteNum);
 		}
 		
-		if(voteMark == -1)
+		if(voteMarkInt == -1)
 		{
 			int voteNum = pron.getBadVoteNum();
 			voteNum += 1;

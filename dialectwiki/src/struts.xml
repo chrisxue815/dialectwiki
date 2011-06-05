@@ -89,6 +89,13 @@
     <action name="vcode" class="verificationCodeAction">
       <result name="success" type="stream"></result>
     </action>
+    
+    <action name="vote" class="addVoteAction">
+    	<result name="success" type="redirect">
+			<param name="location">/pronounce</param>
+			<param name="id">%{word.wordId}</param>
+		</result>
+    </action>
 
   </package>
 
