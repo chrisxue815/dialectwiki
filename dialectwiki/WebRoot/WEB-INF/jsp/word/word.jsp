@@ -170,11 +170,13 @@ String aprUrl = basePath+pron.getPrUrl();
 
 <div class="puser">
 <span>发音者</span>
+&nbsp;
 <span class="pusername"><%=pronUser%></span>
 </div>
 
 <div class="pvote">
 <a href="#">顶 + <%=goodVote %></a>
+&nbsp;
 <a href="#">踩 - <%=badVote %></a>
 </div>
 
@@ -186,17 +188,19 @@ j++;
 }
 pronIndex++;
 i++;
-}
-cityIndex++;
 %>
 </div><!-- region -->
-<% 
+<%
+}
+cityIndex++;
 }
 %>
 
 
 </div>
 </div><!-- bottomleft -->
+
+<div class="bottomright"></div>
 </div><!-- wordcontent -->
 </div><!-- content -->
 

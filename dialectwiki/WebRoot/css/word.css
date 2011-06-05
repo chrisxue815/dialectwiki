@@ -7,7 +7,6 @@ font-size: 14px;
 }
 
 .top {
-	margin-bottom: 20px;
 	padding: 5px 10px;
 	border-bottom: 5px solid #E4E4E4
 }
@@ -25,6 +24,7 @@ font-size: 14px;
 .bottomleft {
 	float: left;
 	width: 70%;
+	margin-top: 15px;
 }
 
 .module {
@@ -36,7 +36,7 @@ font-size: 14px;
 .moduletitle {
 	font-size: 12px;
 	font-weight: bold;
-	margin-bottom: 5px;
+	margin-bottom: 8px;
 }
 
 .mapmodule {
@@ -45,12 +45,14 @@ font-size: 14px;
 
 .maptop {
   float: left;
-  width: 100%;
+  width: 97%;
   border: 1px solid #DFDFDF;
   height: 450px;
 }
 
 .region{
+	margin-bottom: 14px;
+	border-bottom: 1px solid #DFDFDF;
 }
 
 .rtitle {
@@ -68,6 +70,11 @@ font-size: 14px;
   color: #390;
 }
 
+.pron {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
 .pimg {
 	float: left;
 	margin-top: 5px;
@@ -75,6 +82,7 @@ font-size: 14px;
 }
 
 .pusername {
+	font-size: 15px;
 	font-weight: bold;
 	text-decoration: underline;
 }
@@ -83,8 +91,10 @@ font-size: 14px;
 	font-size: 9px;
 }
 
-.right {
-  float: left;
-  width: 30%;
+.bottomright {
+  float: right;
+  width: 27%;
+  background-color: #EDF6FF;
   height: 1000px;
+  border-left: 2px solid #E4E4E4;
 }
