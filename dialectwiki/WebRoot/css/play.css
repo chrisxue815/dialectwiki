@@ -1,14 +1,16 @@
 /* CSS Document */
 .left{
-	width: 70%;
-
+	height: 510px;
+	border: 1px solid #DFDFDF;
+	float:left;
+	width: 68%;
+	margin: 10px 5px 10px 5px;
 }
 .playtop{
 	line-height: 40px;
 	margin-top: 10px;
 	margin-right: 5px;
 	margin-left: 5px;
-	margin-bottom: 10px;
 }
 .playtop strong{
 	height: 26px;
@@ -17,37 +19,63 @@
 	color:#390;
 }
 .playcenter{
-	margin-top: 10px;
-	margin-right: 5px;
-	margin-bottom: 10px;
-	margin-left: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
+	float:left;
+	margin-right: 10px;
+	margin-left: 10px;
 	font-weight: normal;
 	font-style: normal;
 	font-variant: normal;
 	color: #666;
 }
+.playbutton{
+	float:left;
+	width:25px;
+	height:25px;
+}
 .user{
 	font-weight: bold;
 	color : #000
 }
+.votetable{
+	float:left;
+	width:680px;
+	margin: 0px 5px 10px 5px;
+	vertical-align:middle;
+	text-align:center;
+}
 .vote{
-	width: 25px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left:187px;
+	margin-right:187px;
+	vertical-align:middle;
+	text-align:center;
 }
 
-
 .map{
+	float:left;
 	margin-top: 10px;
-	margin-right: 5px;
+	margin-right: 10px;
 	margin-bottom: 10px;
-	margin-left: 5px;
+	margin-left: 10px;
 	width:680;
-	height:400px;
+	height:350px;
 }
 
 .right{
+	height:510px;
+	border: 1px solid #DFDFDF;
+	margin: 10px 5px 10px 5px;
+	float:left;
 	width: 28%;
+}
+
+.right h1{
+	height: 26px;
+	line-height: 26px;
+	padding:5px;
+	font-size: 22px;
+	color:#390;
+	border-bottom: 1px solid #DFDFDF;
+}
+.right li{
+	padding: 5px;
 }
