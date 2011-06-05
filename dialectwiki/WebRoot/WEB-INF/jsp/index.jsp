@@ -65,6 +65,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </div><!--content-->
 
+<div style="clear: both;"></div>
+
 <jsp:include page="internal/footer.jsp" />
 
 </div><!--wrap-->

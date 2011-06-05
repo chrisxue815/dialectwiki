@@ -41,3 +41,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </form>
 </div>
 </div>
+
+<div style="clear: both;"></div>
