@@ -27,6 +27,10 @@
     <action name="">
       <result name="success">/WEB-INF/jsp/index.jsp</result>
     </action>
+    
+    <action name="play" class="playAction">
+    	<result name="success">/WEB-INF/jsp/pronunciation/play.jsp</result>
+    </action>
   
     <action name="pronounce" class="pronouncePageAction">
       <result name="success">/WEB-INF/jsp/pronounce.jsp</result>

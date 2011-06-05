@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/play.css" />
 
-<title>播放</title>
+<title>播放发音</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="playcenter"><span class="user">发音者：yyy</span>
 <span class="city">(发音地：黑龙江哈尔滨)</span>
 <div>
-X票<span><a class="vote">顶</a><a class="vote">踩</a></span>
+票<span><a class="vote">顶</a><a class="vote">踩</a></span>
 </div>
 </div>
 

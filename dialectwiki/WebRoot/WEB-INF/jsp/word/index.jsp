@@ -38,9 +38,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="module center">
 <h2>最热词条</h2>
 <div class="list">
-  <s:iterator value="hotWords">
-  <p><a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName" /></a></p>
-  </s:iterator>
+<ul>
+<s:iterator value="hotWords">
+<li>
+<a href="<%=path %>/word?id=<s:property value="wordId" />">
+<s:property value="wordName" />
+</a>
+</li>
+</s:iterator>
+</ul>
 </div>
 </div><!--center-->
 
