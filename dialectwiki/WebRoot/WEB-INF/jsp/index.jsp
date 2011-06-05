@@ -89,7 +89,16 @@ document.getElementById("stext").focus();
 <!--下中模块-->
 <div class="module center">
 <h2>最新发音</h2>
-<div class="list"></div>
+<div class="list">
+<ul>
+  <s:iterator value="recentProns">
+  <li>
+  <a href="/dialectwiki/word?id=<s:property value="word.wordId" />"><s:property value="word.wordName" /> 
+  </a><span style="float:right">上传用户:<s:property value="user.username" /></span>
+  </li>
+  </s:iterator>
+</ul>
+</div>
 </div><!--center-->
 
 <!--下右模块-->
