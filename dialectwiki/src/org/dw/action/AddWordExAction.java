@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class AddWordExAction extends ActionSupport
 {
+  public static final String WORDNAME_REQUIRED = "wordnameRequired";
 
   private static final long serialVersionUID = 1L;
 
@@ -36,7 +37,7 @@ public class AddWordExAction extends ActionSupport
   public String execute()
   {
     if (wordname == null)
-      return INPUT;
+      return WORDNAME_REQUIRED;
     
     word = new Word();
     word.setWordName(wordname);

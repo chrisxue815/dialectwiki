@@ -9,16 +9,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
 <base href="<%=basePath %>" />
+
+<title>方言百科 - 添加词条</title>
 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/addword.css"/>
 
-<title>方言百科 - 添加词条</title>
+<script type="text/javascript">
+function init()
+{
+document.getElementById("wordnameinput").focus();
+}
+</script>
+
 </head>
 
-<body>
+<body onload="init()">
 <div id="wrap"> 
 
 <jsp:include page="../internal/header.jsp" />
@@ -27,11 +34,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="left">
 <div class="lefth1">添加词条</div>
+<s:if test="#parameters.fromWord!=null && #parameters.wordname!=null">
+<div class="lefth2c">
+词条 
+<span class="wordnametip"><s:property value="#parameters.wordname" /></span> 
+不存在，请添加
+</div>
+</s:if>
+<s:else>
 <div class="lefth2">如果你想知道一个词条的发音或者想对一个词条进行发音，请从下面添加一个词条。</div>
+</s:else>
 <div class="lefth3">
-词条：
+<div class="worditemtip">词条：</div>
 <s:form action="/addwordEx" method="post" theme="simple">
-<s:textfield name="wordname" value="%{#parameters.wordname}" /><br /><br />
+<s:textfield name="wordname" value="%{#parameters.wordname}" id="wordnameinput" /><br /><br />
 <s:submit value="  添加  " />
 </s:form>
 </div>

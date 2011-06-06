@@ -72,7 +72,7 @@
     <action name="addwordEx" class="addWordExAction">
       <result name="success">/WEB-INF/jsp/word/add_success.jsp</result>
       <result name="error">/WEB-INF/jsp/word/add_failure.jsp</result>
-      <result name="input">/WEB-INF/jsp/word/add_failure.jsp</result>
+      <result name="wordnameRequired" type="redirect">/addword</result>
     </action>
     
     <action name="words" class="wordIndexAction">
@@ -84,12 +84,11 @@
       <result name="words" type="redirect">/words</result>
       <result name="idNotExist" type="redirect">/error</result>
       <result name="wordNotExist" type="redirect">
-        <param name="location">/addword</param>
+        <param name="location">/addword?fromWord</param>
         <param name="wordname">%{name}</param>
-        <param name="fromWord"></param>
       </result>
       <result name="pronounce" type="redirect">
-        <param name="location">/pronounce</param>
+        <param name="location">/pronounce?fromWord</param>
         <param name="id">%{word.wordId}</param>
       </result>
     </action>
