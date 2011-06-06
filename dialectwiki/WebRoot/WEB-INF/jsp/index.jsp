@@ -94,7 +94,7 @@ document.getElementById("stext").focus();
   <s:iterator value="recentProns">
   <li>
   <a href="/dialectwiki/word?id=<s:property value="word.wordId" />"><s:property value="word.wordName" /> 
-  </a><span style="float:right">上传用户:<s:property value="user.username" /></span>
+  </a><span style="float:right">地区:<s:property value="city.province.provinceName"/><s:property value="city.cityName"/>&nbsp;&nbsp;上传用户:<s:property value="user.username" /></span>
   </li>
   </s:iterator>
 </ul>
