@@ -12,7 +12,6 @@ String wordid = request.getParameter("id");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<base href="<%=basePath%>" />
 
 <title>方言百科 - 发音</title>
 

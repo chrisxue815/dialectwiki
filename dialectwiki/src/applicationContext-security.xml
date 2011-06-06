@@ -16,11 +16,11 @@
     
     <intercept-url pattern="/**" access="permitAll" />
     
-    <form-login login-page="/login?needLogin" default-target-url="/" authentication-failure-url="/login?loginError" />
+    <form-login login-page="/login?needLogin" authentication-failure-url="/login?loginError" />
     <logout />
     <remember-me />
 
-    <session-management invalid-session-url="/">
+    <session-management invalid-session-url="/login?timeout">
       <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
     </session-management>
   </http>

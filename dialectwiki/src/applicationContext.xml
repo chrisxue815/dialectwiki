@@ -144,7 +144,7 @@
   
   <!-- Action begins -->
   
-  <bean id="indexAction" class="org.dw.action.IndexAction">
+  <bean id="websiteIndexAction" class="org.dw.action.WebsiteIndexAction">
   	<property name="wordService">
   		<ref bean="wordService" />
   	</property>
@@ -175,7 +175,7 @@
   <bean id="playAction" class="org.dw.action.PlayAction">
   </bean>
   
-  <bean id="pronouncePageAction" class="org.dw.action.PronouncePageAction">
+  <bean id="pronouncePageAction" class="org.dw.action.PronouncePageAction" scope="prototype">
     <property name="wordService">
       <ref bean="wordService" />
     </property>

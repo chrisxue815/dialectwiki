@@ -9,7 +9,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<base href="<%=basePath %>" />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/dialect.css" />
 

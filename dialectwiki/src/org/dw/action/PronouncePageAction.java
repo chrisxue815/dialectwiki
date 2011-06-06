@@ -60,6 +60,7 @@ public class PronouncePageAction extends ActionSupport
         word = wordService.findByWordName(name);
         if (word == null)
           return NAME_NOT_EXIST;
+        id = word.getWordId().toString();
       }
       else
         return SUCCESS;

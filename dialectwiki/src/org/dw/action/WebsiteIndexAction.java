@@ -9,7 +9,7 @@ import org.dw.service.WordService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class IndexAction extends ActionSupport {
+public class WebsiteIndexAction extends ActionSupport {
 	
 	private static final long serialVersionUID = 136611988951934124L;
 

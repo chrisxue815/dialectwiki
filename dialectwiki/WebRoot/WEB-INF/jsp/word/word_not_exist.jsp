@@ -13,8 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<base href="<%=basePath %>" />
-
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/word.css"/>
 
@@ -43,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="bottomleft">
 
 <div class="nopron">
-该词条还没有发音，你可以
+该词条不存在，你可以
 <a href="addword?wordname=<s:property value='name' />&fromWord">
 添加<strong>词条</strong>
 </a>

@@ -8,7 +8,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<base href="<%=basePath %>" />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css"  />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/login.css"  />
 <title>方言百科 - 登录</title>
@@ -43,6 +42,9 @@ var init = function(){
 </s:elseif>
 <s:elseif test="#parameters.needLogin!=null">
 <h2>该操作需要登录</h2>
+</s:elseif>
+<s:elseif test="#parameters.timeout!=null">
+<h2>请重新登录</h2>
 </s:elseif>
 <s:else>
 <h2>登录</h2>
