@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <a href="<%=basePath %>signup">注册</a>
 </s:if>
 <s:else>
-欢迎, <strong><s:property value="username" /></strong> 
+欢迎, <strong><s:property value="headerUsername" /></strong> 
 | <a href="<%=basePath %>j_spring_security_logout">注销</a>
 </s:else>
 </div><!--user-->

@@ -15,7 +15,7 @@ public class HeaderDataInterceptor implements Interceptor
   private static final long serialVersionUID = -7969290738907856106L;
   public static final String WORD_NUM = "wordNum";
   public static final String PRONUNCIATION_NUM = "pronNum";
-  public static final String USER_NAME = "username";
+  public static final String USER_NAME = "headerUsername";
   
   private WordService wordService;
   private PronunciationService pronService;

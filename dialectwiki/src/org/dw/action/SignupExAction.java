@@ -120,8 +120,10 @@ public class SignupExAction extends ActionSupport
   
   public void validate()
   {
-    if (username == null || username.length() < 6)
+    if (username == null)
       this.addFieldError("username", "用户名不能为空");
+    else if (username.length() < 6)
+      this.addFieldError("username", "用户名长度至少为6位");
     
     if (email == null)
       this.addFieldError("email", "Email不能为空");
