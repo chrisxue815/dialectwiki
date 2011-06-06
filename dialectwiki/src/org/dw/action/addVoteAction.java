@@ -99,6 +99,9 @@ public class AddVoteAction extends ActionSupport {
 		int pronIdInt = Integer.parseInt(pronId);
 		int voteMarkInt = Integer.parseInt(voteMark);
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		System.out.println(username);
+		if(username.equals("anonymousUser"))
+			return ERROR;
 		user = userService.getUserByUserName(username);
 		id.setUser(user);
 		Pronunciation pron = pronunciationService.getPronunciationById(pronIdInt);
