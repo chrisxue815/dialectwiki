@@ -58,9 +58,14 @@ function upLoad_error()
 <jsp:include page="internal/header.jsp" />
 
 <div id="content">
-	<div class="left">
-		<div class="inner">
-			您正在录制发音：
+<div class="left">
+<div class="inner">
+<s:if test="#parameters.fromWord!=null">
+<div class="prontip">词条还没有发音，请发音：</div>
+</s:if>
+<s:else>
+<div class="prontip">您正在录制发音：</div>
+</s:else>
 <h1>
 <a href="<%=path %>/word?id=<s:property value="word.wordId" />" id="wordLink">
 <s:property value="word.wordName" />

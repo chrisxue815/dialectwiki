@@ -28,11 +28,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="left">
 <div class="lefth1">添加词条</div>
 <div class="lefth2c">
-词条“ <a href="<%=path %>/word?name=<s:property value="wordname" />"><s:property value="word.wordName" /></a> ”已被添加，您可以：
+词条 
+<span class="wordnametip">
+<a href="<%=path %>/word?name=<s:property value="wordname" />"><s:property value="word.wordName" /></a>
+</span> 
+已被添加，您可以：
 </div>
 <div class="alert">
 <a href="<%=path %>/pronounce?name=<s:property value="wordname" />">
-为“ <s:property value="wordname" /> ”发音
+为 <s:property value="wordname" /> 发音
 </a>
 </div>
 <div class="announcement">重新添加词条：</div>
