@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <base href="<%=basePath %>" />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
-<link rel="stylesheet" type="text/css" href="<%=path %>/css/dialect.css" />
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/error.css" />
 
 <title>方言百科 - 投票失败</title>
 
@@ -27,8 +27,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="content">
 
 <div class="centerdiv">
-<img style="margin-right: 100px" src="<%=path %>/css/images/vote_failure.gif" />
+
+<div class="backtip">
+<a href="" onclick="history.back(); return false;">返回上一个页面</a>
 </div>
+
+<img style="margin-right: 100px" src="<%=path %>/css/images/vote_failure.gif" />
+
+</div>
+
 </div><!--content-->
 
 <jsp:include page="../internal/footer.jsp" />

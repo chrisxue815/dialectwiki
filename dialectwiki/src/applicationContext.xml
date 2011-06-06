@@ -193,7 +193,7 @@
     </property>
   </bean>
 
-  <bean id="signupExAction" class="org.dw.action.SignupExAction">
+  <bean id="signupExAction" class="org.dw.action.SignupExAction" scope="prototype">
   	<property name="userService">
   		<ref bean="userService" />
   	</property>

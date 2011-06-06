@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div><!--center-->
 
 <!--右模块-->
-<div class="module right"> 
+<div class="module"> 
 <h2>待发音词条</h2>
 <div class="list">
 <ul>
