@@ -31,6 +31,17 @@ public class WordAction extends ActionSupport
   private List<Pronunciation> prons;
   private int citySize;
   private List<String> cityNames;
+  private boolean noPron = false;
+
+  public boolean isNoPron()
+  {
+    return noPron;
+  }
+
+  public void setNoPron(boolean noPron)
+  {
+    this.noPron = noPron;
+  }
 
   public List<Pronunciation> getProns()
   {
@@ -148,7 +159,9 @@ public class WordAction extends ActionSupport
     prons = pronunciationService.searchPronunciation(word.getWordId());
     
     if (prons == null || prons.size() == 0)
+    {
       return PRONOUNCE;
+    }
 
     List<Province> provinceList = new ArrayList<Province>();
     List<City> cityList = new ArrayList<City>();

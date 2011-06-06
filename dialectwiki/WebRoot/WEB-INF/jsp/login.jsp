@@ -41,6 +41,9 @@ var init = function(){
 <s:elseif test="#parameters.loginError!=null">
 <h2>登录失败，用户名或密码错误</h2>
 </s:elseif>
+<s:elseif test="#parameters.needLogin!=null">
+<h2>该操作需要登录</h2>
+</s:elseif>
 <s:else>
 <h2>登录</h2>
 </s:else>

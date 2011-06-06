@@ -83,14 +83,8 @@
       <result name="success">/WEB-INF/jsp/word/word.jsp</result>
       <result name="words" type="redirect">/words</result>
       <result name="idNotExist" type="redirect">/error</result>
-      <result name="wordNotExist" type="redirect">
-        <param name="location">/addword?fromWord</param>
-        <param name="wordname">%{name}</param>
-      </result>
-      <result name="pronounce" type="redirect">
-        <param name="location">/pronounce?fromWord</param>
-        <param name="id">%{word.wordId}</param>
-      </result>
+      <result name="wordNotExist">/WEB-INF/jsp/word/word_not_exist.jsp</result>
+      <result name="pronounce">/WEB-INF/jsp/word/word_no_pron.jsp</result>
     </action>
     
     <action name="vcode" class="verificationCodeAction">
@@ -99,11 +93,11 @@
     
     <action name="vote" class="addVoteAction">
     	<result name="success" type="redirect">
-			<param name="location">/word</param>
-			<param name="id">%{wordId}</param>
-		</result>
-		<result name="error" type="redirect">/error</result>
-		<result name="failure" type="redirect">/vote-failed</result>
+			 <param name="location">/word</param>
+			 <param name="id">%{wordId}</param>
+		  </result>
+		  <result name="error" type="redirect">/error</result>
+		  <result name="failure" type="redirect">/vote-failed</result>
     </action>
     
     <action name="vote-failed">
