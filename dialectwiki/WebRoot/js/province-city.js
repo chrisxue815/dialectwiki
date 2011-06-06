@@ -122,12 +122,6 @@ function upLoad_success()
 	location.href = document.getElementById("wordLink").href;
 }
 
-function upLoad_error()
-{
-	alert("请登录后再进行发音");
-    location.href = "http://richard-pc:8080/dialectwiki/login";
-}
-
 function codeAddress() {
 
 	var cityNode = document.getElementById("selCity");
