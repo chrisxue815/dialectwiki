@@ -40,23 +40,26 @@ function disableBtn(btn){
 <div id="content">
 <h2 class="title">注册用户</h2>
 <s:form action="/signupEx" theme="simple" id="myForm">
-<s:fielderror></s:fielderror>
 <table class="userInfo">
 <tr>
 <td>用户名：</td>
-<td><s:textfield id="username" name="username"></s:textfield></td><td><s:fielderror fieldName="username"></s:fielderror><s:property value="FieldErrors.username[0]"></s:property></td>
+<td><s:textfield id="username" name="username"></s:textfield></td>
+<td><s:fielderror fieldName="username"></s:fielderror></td>
 </tr>
 <tr>
 <td>密码：</td>
-<td><s:password name="password"></s:password></td><td><s:fielderror fieldName="password"></s:fielderror></td>
+<td><s:password name="password"></s:password></td>
+<td><s:fielderror fieldName="password"></s:fielderror></td>
 </tr>
 <tr>
 <td>确认密码：</td>
-<td><s:password name="password2"></s:password></td><td><s:fielderror fieldName="password2"></s:fielderror></td>
+<td><s:password name="password2"></s:password></td>
+<td><s:fielderror fieldName="password2"></s:fielderror></td>
 </tr>
 <tr>
 <td>Email：</td>
-<td><s:textfield name="email"></s:textfield></td><td><s:fielderror fieldName="email"></s:fielderror></td>
+<td><s:textfield name="email"></s:textfield></td>
+<td><s:fielderror fieldName="email"></s:fielderror></td>
 </tr>
 <tr>
 <td>性别：</td>

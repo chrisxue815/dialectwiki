@@ -17,18 +17,29 @@ public class AddVoteAction extends ActionSupport {
 	
 	private Vote vote;
 	private User user;
-	private int voteMark;
-	private int pronId;
+	private String voteMark;
+	private String pronId;
 	
 	private UserService userService;
 	private PronunciationService pronunciationService;
 	private VoteService voteService;
 	
-	public int getPronId() {
+	
+
+
+	public String getVoteMark() {
+		return voteMark;
+	}
+
+	public void setVoteMark(String voteMark) {
+		this.voteMark = voteMark;
+	}
+
+	public String getPronId() {
 		return pronId;
 	}
 
-	public void setPronId(int pronId) {
+	public void setPronId(String pronId) {
 		this.pronId = pronId;
 	}
 
@@ -64,39 +75,54 @@ public class AddVoteAction extends ActionSupport {
 		this.pronunciationService = pronunciationService;
 	}
 
-	public int getVoteMark() {
-		return voteMark;
+	public VoteService getVoteService() {
+		return voteService;
 	}
 
-	public void setVoteMark(int voteMark) {
-		this.voteMark = voteMark;
+	public void setVoteService(VoteService voteService) {
+		this.voteService = voteService;
 	}
 
 	public String execute(){
 		Vote vote = new Vote();
 		VoteId id = new VoteId();
-		
+		int pronIdInt = Integer.parseInt(pronId);
+		int voteMarkInt = Integer.parseInt(voteMark);
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		user = userService.getUserByUserName(username);
 		id.setUser(user);
-		Pronunciation pron = pronunciationService.getPronunciationById(pronId);
+		Pronunciation pron = pronunciationService.getPronunciationById(pronIdInt);
 		id.setPronunciation(pron);
+		if(pron == null)
+			return ERROR;
 		
-		vote.setMark(voteMark);
+		
+		//System.out.println(pron.getGoodVoteNum());
+		vote.setMark(voteMarkInt);
 		vote.setId(id);
-		
-		if(voteMark == 1)
+		System.out.println("Still no error here!");
+		try
 		{
-			int voteNum = pron.getGoodVoteNum();
-			voteNum += 1;
-			voteService.saveVote(vote,voteNum);
+			if(voteMarkInt == 1)
+			{
+				int voteNum = pron.getGoodVoteNum();
+				System.out.println(pron.getGoodVoteNum());
+				voteNum += 1;
+				voteService.saveVote(vote,voteNum);
+			}
+		
+			if(voteMarkInt == -1)
+			{
+				int voteNum = pron.getBadVoteNum();
+				System.out.println(voteNum);
+				voteNum += 1;
+				voteService.saveVote(vote, voteNum);
+			}
 		}
-		
-		if(voteMark == -1)
+		catch (Exception ex)
 		{
-			int voteNum = pron.getBadVoteNum();
-			voteNum += 1;
-			voteService.saveVote(vote, voteNum);
+			ex.printStackTrace();
+			return "failure";
 		}
 		return SUCCESS;
 	}

@@ -7,6 +7,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class PronouncePageAction extends ActionSupport
 {
+  public static final String NAME_NOT_EXIST = "nameNotExist";
+  
   private static final long serialVersionUID = 1L;
   private String id;
   private String name;
@@ -50,14 +52,15 @@ public class PronouncePageAction extends ActionSupport
       {
         int wordIdInt = Integer.parseInt(id);
         word = wordService.getById(wordIdInt);
+        if (word == null)
+          return ERROR;
       }
       else if (name != null)
       {
         word = wordService.findByWordName(name);
+        if (word == null)
+          return NAME_NOT_EXIST;
       }
-      
-      if (word == null)
-        return ERROR;
       else
         return SUCCESS;
     }
@@ -66,5 +69,6 @@ public class PronouncePageAction extends ActionSupport
       ex.printStackTrace();
       return ERROR;
     }
+    return SUCCESS;
   }
 }

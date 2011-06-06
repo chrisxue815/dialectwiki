@@ -144,7 +144,6 @@ public class VerificationCodeAction extends ActionSupport
     response.setContentType("text/html;charset=GB2312");
     try
     {
-      PrintWriter out = response.getWriter();
       HttpSession session = request.getSession(false);
       check = check.toLowerCase(); // 把用户输入的验证码转换成小写
       if (session == null)
