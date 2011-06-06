@@ -9,7 +9,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<base href="<%=basePath %>" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/play.css" />
 <script type="text/javascript" src="<%=path %>/js/province-city.js"></script>

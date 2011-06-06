@@ -9,7 +9,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<base href="<%=basePath %>" />
 
 <title>方言百科 - 添加词条</title>
 

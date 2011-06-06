@@ -127,14 +127,14 @@ public class WordAction extends ActionSupport
   {
     try
     {
-      if (id != null)
+      if (id != null && id != "")
       {
         int wordId = Integer.parseInt(id);
         word = wordService.getById(wordId);
         if (word == null)
           return ID_NOT_EXIST;
       }
-      else if (name != null)
+      else if (name != null && name != "")
       {
         word = wordService.findByWordName(name);
         if (word == null)

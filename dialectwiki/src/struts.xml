@@ -24,7 +24,7 @@
   <!-- / -->
   <package name="dw-root" namespace="/" extends="dw-default">
 
-    <action name="" class="indexAction">
+    <action name="" class="websiteIndexAction">
       <result name="success">/WEB-INF/jsp/index.jsp</result>
     </action>
     
