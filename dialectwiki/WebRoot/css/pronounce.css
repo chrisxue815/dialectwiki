@@ -31,7 +31,7 @@
 	border-bottom-style: solid;
 	margin-top: 0px;
 	margin-right: 5px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	margin-left: 5px;
 	border-top-width: 1px;
 	border-bottom-width: 1px;
@@ -81,4 +81,8 @@
 .region select {
 	height: 30px;
 	width: 150px;
+}
+
+.prontip {
+	margin-bottom: 10px;
 }
