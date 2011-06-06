@@ -91,12 +91,18 @@ document.getElementById("stext").focus();
 <h2>最新发音</h2>
 <div class="list">
 <ul>
-  <s:iterator value="recentProns">
-  <li>
-  <a href="/dialectwiki/word?id=<s:property value="word.wordId" />"><s:property value="word.wordName" /> 
-  </a><span style="float:right">地区:<s:property value="city.province.provinceName"/><s:property value="city.cityName"/>&nbsp;&nbsp;上传用户:<s:property value="user.username" /></span>
-  </li>
-  </s:iterator>
+<s:iterator value="recentProns">
+<li>
+<a href="/dialectwiki/word?id=<s:property value="word.wordId" />">
+<s:property value="word.wordName" /> 
+</a>
+<span class="listregion">
+地区:
+<s:property value="city.province.provinceName"/> - 
+<s:property value="city.cityName"/>
+</span>
+</li>
+</s:iterator>
 </ul>
 </div>
 </div><!--center-->

@@ -14,10 +14,8 @@ border-bottom: 1px solid #E4E4E4
 }
 .module ul {
 padding: 10px 0 15px 20px;
-color: #C3D9FF;
 }
 .module li a {
-text-decoration: none;
 font-weight: 600;
 }
 .module li a:hover {
@@ -29,4 +27,9 @@ font-weight: 600;
 	font-size:12px;
 	line-height: 26px;
 	height: 420px;
+}
+
+.listregion {
+	float: right;
+	color: #AAF;
 }
