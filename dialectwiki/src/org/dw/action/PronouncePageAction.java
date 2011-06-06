@@ -69,6 +69,6 @@ public class PronouncePageAction extends ActionSupport
       ex.printStackTrace();
       return ERROR;
     }
-    return ERROR;
+    return SUCCESS;
   }
 }

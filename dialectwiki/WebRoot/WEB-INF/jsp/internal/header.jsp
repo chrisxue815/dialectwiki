@@ -30,8 +30,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <ul>
 <li><a href="<%=basePath %>">首页</a></li>
 <li><a href="<%=basePath %>words">词条</a></li>
-<li><a href="<%=basePath %>region">地区</a></li>
-<li><a href="<%=basePath %>pronunciation">发音</a></li>
 <li><a href="<%=basePath %>user">用户</a></li>
 </ul>
 <div class="mright search">

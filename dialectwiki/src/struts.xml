@@ -100,8 +100,14 @@
     <action name="vote" class="addVoteAction">
     	<result name="success" type="redirect">
 			<param name="location">/pronounce</param>
-			<param name="id">%{word.wordId}</param>
+			<param name="id">%{pronId}</param>
 		</result>
+		<result name="error" type="redirect">/error</result>
+		<result name="failure" type="redirect">/vote-failed</result>
+    </action>
+    
+    <action name="vote-failed">
+    	<result name="success">/WEB-INF/jsp/vote-failed.jsp</result>
     </action>
 
   </package>

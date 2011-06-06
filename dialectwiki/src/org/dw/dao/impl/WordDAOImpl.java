@@ -256,7 +256,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 		  String queryString = "from Word model order by model.wordId desc";
 		  List<Word> queryWords = getHibernateTemplate().find(queryString);
 		  
-		  if(queryWords == null)
+		  if(queryWords.isEmpty())
 			  return null;
 		  else{
 			  int maxSize = queryWords.size();
@@ -289,7 +289,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 		  String queryString = "from Word word order by word.wordId asc ";
 		  List<Word> queryResult = getHibernateTemplate().find(queryString);
 		  
-		  if(queryResult == null)
+		  if(queryResult.isEmpty())
 			  return null;
 		  else{
 			  int resultSize = queryResult.size();

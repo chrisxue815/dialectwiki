@@ -174,9 +174,9 @@ String aprUrl = basePath+pron.getPrUrl();
 </div>
 
 <div class="pvote">
-<a href="vote?pronId=<s:property value='id' />&voteMark=1">顶 + <%=goodVote %></a>
+<a href="vote?pronId=<%=pronId %>&voteMark=1">顶 + <%=goodVote %></a>
 &nbsp;
-<a href="vote?pronId=<s:property value='id' />&voteMark=-1">踩 - <%=badVote %></a>
+<a href="vote?pronId=<%=pronId %>&voteMark=-1">踩 - <%=badVote %></a>
 </div>
 
 </div><!-- pron -->
@@ -206,7 +206,7 @@ cityIndex++;
 <div class="itemTitle">修改词语</div>
 <div class="itemLink">
 · 
-<a href="pronounce?<s:property value='id' />">
+<a href="pronounce?id=<s:property value='id' />">
 添加<strong>发音</strong>
 </a>
 </div>

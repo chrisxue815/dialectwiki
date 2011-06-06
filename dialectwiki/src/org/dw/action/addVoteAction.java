@@ -86,8 +86,6 @@ public class AddVoteAction extends ActionSupport {
 	public String execute(){
 		Vote vote = new Vote();
 		VoteId id = new VoteId();
-		System.out.println(pronId);
-		System.out.println(voteMark);
 		int pronIdInt = Integer.parseInt(pronId);
 		int voteMarkInt = Integer.parseInt(voteMark);
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -95,22 +93,36 @@ public class AddVoteAction extends ActionSupport {
 		id.setUser(user);
 		Pronunciation pron = pronunciationService.getPronunciationById(pronIdInt);
 		id.setPronunciation(pron);
+		if(pron == null)
+			return ERROR;
 		
+		
+		//System.out.println(pron.getGoodVoteNum());
 		vote.setMark(voteMarkInt);
 		vote.setId(id);
-		
-		if(voteMarkInt == 1)
+		System.out.println("Still no error here!");
+		try
 		{
-			int voteNum = pron.getGoodVoteNum();
-			voteNum += 1;
-			voteService.saveVote(vote,voteNum);
+			if(voteMarkInt == 1)
+			{
+				int voteNum = pron.getGoodVoteNum();
+				System.out.println(pron.getGoodVoteNum());
+				voteNum += 1;
+				voteService.saveVote(vote,voteNum);
+			}
+		
+			if(voteMarkInt == -1)
+			{
+				int voteNum = pron.getBadVoteNum();
+				System.out.println(voteNum);
+				voteNum += 1;
+				voteService.saveVote(vote, voteNum);
+			}
 		}
-		
-		if(voteMarkInt == -1)
+		catch (Exception ex)
 		{
-			int voteNum = pron.getBadVoteNum();
-			voteNum += 1;
-			voteService.saveVote(vote, voteNum);
+			ex.printStackTrace();
+			return "failure";
 		}
 		return SUCCESS;
 	}
