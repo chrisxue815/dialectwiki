@@ -8,9 +8,15 @@
 
 
   <http use-expressions="true">
+    <intercept-url pattern="/pronounce" access="hasRole('ROLE_USER')" />
+    <intercept-url pattern="/upload_pronounce" access="hasRole('ROLE_USER')" />
+    <intercept-url pattern="/addword" access="hasRole('ROLE_USER')" />
+    <intercept-url pattern="/addwordEx" access="hasRole('ROLE_USER')" />
+    <intercept-url pattern="/vote" access="hasRole('ROLE_USER')" />
+    
     <intercept-url pattern="/**" access="permitAll" />
     
-    <form-login login-page="/login" default-target-url="/" authentication-failure-url="/login?loginError" />
+    <form-login login-page="/login?needLogin" default-target-url="/" authentication-failure-url="/login?loginError" />
     <logout />
     <remember-me />
 
