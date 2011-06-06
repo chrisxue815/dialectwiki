@@ -9,6 +9,7 @@ import org.dw.service.WordService;
 public class WordServiceImpl implements WordService
 {
   private WordDAO wordDAO;
+  public static final int LIST_SIZE = 15;
 
   public WordDAO getWordDAO()
   {
@@ -60,17 +61,17 @@ public class WordServiceImpl implements WordService
   
   public List<Word> getHotWords()
   {
-	  return wordDAO.getHotWords();
+	  return wordDAO.getHotWords(LIST_SIZE);
   }
   
   public List<Word> getWaitProns()
   {
-	  return wordDAO.getWaitProns();
+	  return wordDAO.getWaitProns(LIST_SIZE);
   }
   
   public List<Word> getRecentWords()
   {
-	  return wordDAO.getRecentWords();
+	  return wordDAO.getRecentWords(LIST_SIZE);
   }
 
   public long getWordNumber()
