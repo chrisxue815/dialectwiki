@@ -108,7 +108,7 @@
     </action>
     
     <action name="vote-failed">
-    	<result name="success">/WEB-INF/jsp/vote-failed.jsp</result>
+    	<result name="success">/WEB-INF/jsp/vote/vote-failed.jsp</result>
     </action>
 
   </package>

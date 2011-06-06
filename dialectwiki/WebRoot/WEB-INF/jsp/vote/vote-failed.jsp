@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="content">
 
 <div class="centerdiv">
-<img style="margin-right: 100px" src="<%=path %>/css/images/vote_failure.jpg" />
+<img style="margin-right: 100px" src="<%=path %>/css/images/vote_failure.gif" />
 </div>
 </div><!--content-->
 
