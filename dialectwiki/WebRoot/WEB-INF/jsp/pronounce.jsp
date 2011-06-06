@@ -41,6 +41,12 @@ var init
 	geocoder = new QQMap.QGeocoder();
 	updateCity();
 }
+
+function upLoad_error()
+{
+  alert("请登录后再进行发音");
+  location.href = "<%=basePath %>login";
+}
 </script>
 
 	<title>发音</title>
@@ -48,9 +54,9 @@ var init
 
 <body onload="init()">
 
-	<div id="wrap">
-
-		<jsp:include page="internal/header.jsp" />
+<div id="wrap">
+ 
+<jsp:include page="internal/header.jsp" />
 
 <div id="content">
 	<div class="left">

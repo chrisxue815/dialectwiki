@@ -31,12 +31,15 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 {
   private static final Logger log = LoggerFactory.getLogger(WordDAOImpl.class);
+
   protected void initDao()
   {
     // do nothing
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.dw.dao.impl.WordDAO#save(org.dw.model.Word)
    */
   public void save(Word transientInstance)
@@ -53,7 +56,9 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.dw.dao.impl.WordDAO#delete(org.dw.model.Word)
    */
   public void delete(Word persistentInstance)
@@ -70,7 +75,9 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.dw.dao.impl.WordDAO#findById(java.lang.Integer)
    */
   public Word findById(java.lang.Integer id)
@@ -88,7 +95,9 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.dw.dao.impl.WordDAO#findByExample(org.dw.model.Word)
    */
   public List<Word> findByExample(Word instance)
@@ -106,8 +115,11 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  /* (non-Javadoc)
-   * @see org.dw.dao.impl.WordDAO#findByProperty(java.lang.String, java.lang.Object)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.dw.dao.impl.WordDAO#findByProperty(java.lang.String,
+   * java.lang.Object)
    */
   public List<Word> findByProperty(String propertyName, Object value)
   {
@@ -125,7 +137,9 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.dw.dao.impl.WordDAO#findByWordName(java.lang.Object)
    */
   public List<Word> findByWordName(Object wordName)
@@ -133,7 +147,9 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     return findByProperty(WORD_NAME, wordName);
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.dw.dao.impl.WordDAO#findAll()
    */
   public List<Word> findAll()
@@ -150,7 +166,9 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.dw.dao.impl.WordDAO#merge(org.dw.model.Word)
    */
   public Word merge(Word detachedInstance)
@@ -168,7 +186,9 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.dw.dao.impl.WordDAO#attachDirty(org.dw.model.Word)
    */
   public void attachDirty(Word instance)
@@ -185,7 +205,9 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     }
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.dw.dao.impl.WordDAO#attachClean(org.dw.model.Word)
    */
   public void attachClean(Word instance)
@@ -206,204 +228,135 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
   {
     return (WordDAO) ctx.getBean("WordDAO");
   }
-  
+
   public Set<Pronunciation> getPronunciations(int wordId)
   {
-	 Word word = this.findById(wordId);
-	 Set<Pronunciation> prons =  word.getPronunciations();
-	 return prons;
+    Word word = this.findById(wordId);
+    Set<Pronunciation> prons = word.getPronunciations();
+    return prons;
   }
-  
+
   public List<Word> searchSimilarWords(String wordName, int index, int limit)
   {
     log.debug("searching similar words with wordName" + wordName);
     try
     {
       String queryString = "from Word as model where model.? like '%?%' and model.? != ? limit ?, ?";
-      return getHibernateTemplate().find(queryString, WORD_NAME, wordName, WORD_NAME, wordName, index, limit);
+      return getHibernateTemplate().find(queryString, WORD_NAME, wordName,
+          WORD_NAME, wordName, index, limit);
     } catch (RuntimeException re)
     {
       log.error("attach failed", re);
       throw re;
     }
   }
-  
+
   public List<Word> getRecentWords()
   {
-	  log.debug("get recent Words with limited size 20");
-	  try
-	  {
-		String queryString = "from Word model order by model.wordId desc";
-		Session session = HibernateSessionFactory.getSession();
-		Query query = session.createQuery(queryString);
-		query.setMaxResults(20);
-		List<Word> recentWords = query.list();
-		return recentWords;
-	  }
-	  catch(RuntimeException re)
-	  {
-		  log.error("attach failed", re);
-		  throw re;
-	  }
+    return getRecentWords(LIST_SIZE);
   }
+
   public List<Word> getRecentWords(int listSize)
   {
-	  log.debug("get recent Words with limited size 20");
-	  try
-	  {
-		String queryString = "from Word model order by model.wordId desc";
-		Session session = HibernateSessionFactory.getSession();
-		Query query = session.createQuery(queryString);
-		query.setMaxResults(listSize);
-		List<Word> recentWords = query.list();
-		return recentWords;
-	  }
-	  catch(RuntimeException re)
-	  {
-		  log.error("attach failed", re);
-		  throw re;
-	  }
-	  
+    log.debug("get recent Words with limited size 20");
+    try
+    {
+      String queryString = "from Word model order by model.wordId desc";
+      Session session = HibernateSessionFactory.getSession();
+      Query query = session.createQuery(queryString);
+      query.setMaxResults(listSize);
+      List<Word> recentWords = query.list();
+      return recentWords;
+    } catch (RuntimeException re)
+    {
+      log.error("attach failed", re);
+      throw re;
+    }
   }
-  
-  //got some bugs
+
   public List<Word> getHotWords()
   {
-	  try{
-		  Word word = null;
-		  List<Word> hotWords = new ArrayList<Word>();
-		  int ListSize = 20;
-		  String queryString = "from Word model order by model.wordId desc";
-		  List<Word> queryWords = getHibernateTemplate().find(queryString);
-		  
-		  if(queryWords.isEmpty())
-			  return null;
-		  else{
-			  int maxSize = queryWords.size();
-			  for(int i = 0;i<ListSize;i++)
-			  {
-				  word = queryWords.get(i);
-				  boolean isEmpty = word.getPronunciations().isEmpty();
-				  if(isEmpty == false )
-					  hotWords.add(word);
-				  if(i == maxSize - 1)
-					  break;				 
-			  }
-			  return hotWords;
-		  }
-	  }
-	  catch(RuntimeException re)
-	  {
-		  log.error("attach failed",re);
-		  throw re;
-	  }
+    return getHotWords(LIST_SIZE);
   }
-  
+
   public List<Word> getHotWords(int listSize)
   {
-	  try{
-		  Word word = null;
-		  List<Word> hotWords = new ArrayList<Word>();
-		  String queryString = "from Word model order by model.wordId desc";
-		  List<Word> queryWords = getHibernateTemplate().find(queryString);
-		  
-		  if(queryWords.isEmpty())
-			  return null;
-		  else{
-			  int maxSize = queryWords.size();
-			  for(int i = 0;i<listSize;i++)
-			  {
-				  word = queryWords.get(i);
-				  boolean isEmpty = word.getPronunciations().isEmpty();
-				  if(isEmpty == false )
-					  hotWords.add(word);
-				  if(i == maxSize - 1)
-					  break;				 
-			  }
-			  return hotWords;
-		  }
-	  }
-	  catch(RuntimeException re)
-	  {
-		  log.error("attach failed",re);
-		  throw re;
-	  }
-	  
+    try
+    {
+      Word word = null;
+      List<Word> hotWords = new ArrayList<Word>();
+      String queryString = "from Word model order by model.wordId desc";
+      List<Word> queryResult = getHibernateTemplate().find(queryString);
+
+      int resultSize = queryResult.size();
+      
+      if (resultSize == 0)
+      {
+        return null;
+      }
+      else
+      {
+        for (int i = 0; i < resultSize && hotWords.size() < listSize; i++)
+        {
+          word = queryResult.get(i);
+          boolean isEmpty = word.getPronunciations().isEmpty();
+          
+          if (isEmpty == false)
+            hotWords.add(word);
+        }
+        return hotWords;
+      }
+    } catch (RuntimeException re)
+    {
+      log.error("attach failed", re);
+      throw re;
+    }
+
   }
-  
+
   public List<Word> getWaitProns()
   {
-	  try
-	  {
-		  //String queryString = "from Word word where word.pronunciations is null order by word.wordId asc ";
-		  Word word = null;
-		  List<Word> waitProns = new ArrayList<Word>();
-		  int ListSize = 20;
-		  String queryString = "from Word word order by word.wordId asc ";
-		  List<Word> queryResult = getHibernateTemplate().find(queryString);
-		  
-		  if(queryResult.isEmpty())
-			  return null;
-		  else{
-			  int resultSize = queryResult.size();
-			  
-			  for(int i = 0;i < ListSize;i++)
-			  {
-				  word = queryResult.get(i);
-				  boolean isEmpty = word.getPronunciations().isEmpty();
-				  if( isEmpty == true)
-					  waitProns.add(word);
-				  if(i == resultSize -1)
-					  break;
-				  
-			  }
-			  return waitProns;
-		  }
-	  }
-	  catch(RuntimeException re)
-	  {
-		  log.error("attach failed",re);
-		  throw re;
-	  }
+    return getWaitProns(LIST_SIZE);
   }
+
   public List<Word> getWaitProns(int listSize)
   {
-	  try
-	  {
-		  //String queryString = "from Word word where word.pronunciations is null order by word.wordId asc ";
-		  Word word = null;
-		  List<Word> waitProns = new ArrayList<Word>();
-		  String queryString = "from Word word order by word.wordId asc ";
-		  List<Word> queryResult = getHibernateTemplate().find(queryString);
-		  
-		  if(queryResult.isEmpty())
-			  return null;
-		  else{
-			  int resultSize = queryResult.size();
-			  
-			  for(int i = 0;i < listSize;i++)
-			  {
-				  word = queryResult.get(i);
-				  boolean isEmpty = word.getPronunciations().isEmpty();
-				  if( isEmpty == true)
-					  waitProns.add(word);
-				  if(i == resultSize -1)
-					  break;
-				  
-			  }
-			  return waitProns;
-		  }
-	  }
-	  catch(RuntimeException re)
-	  {
-		  log.error("attach failed",re);
-		  throw re;
-	  }
+    try
+    {
+      Word word = null;
+      List<Word> waitProns = new ArrayList<Word>();
+      String queryString = "from Word word order by word.wordId asc ";
+      List<Word> queryResult = getHibernateTemplate().find(queryString);
+
+      int resultSize = queryResult.size();
+      
+      if (resultSize == 0)
+      {
+        return null;
+      }
+      else
+      {
+        for (int i = 0; i < resultSize && waitProns.size() < listSize; i++)
+        {
+          word = queryResult.get(i);
+          boolean isEmpty = word.getPronunciations().isEmpty();
+          
+          if (isEmpty == true)
+            waitProns.add(word);
+        }
+        return waitProns;
+      }
+    } catch (RuntimeException re)
+    {
+      log.error("attach failed", re);
+      throw re;
+    }
   }
-  
+
   public long getWordNumber()
   {
     String queryString = "select count(*) from Word";
-    return (Long)getHibernateTemplate().find(queryString).listIterator().next();
+    return (Long) getHibernateTemplate().find(queryString).listIterator()
+        .next();
   }
 }

@@ -11,6 +11,8 @@ public interface WordDAO
 
   // property constants
   public static final String WORD_NAME = "wordName";
+  
+  public static final int LIST_SIZE = 15;
 
   public void save(Word transientInstance);
 
