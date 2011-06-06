@@ -38,9 +38,15 @@ public interface WordDAO
   
   public List<Word> getRecentWords();
   
+  public List<Word> getRecentWords(int listSize);
+  
   public List<Word> getHotWords();
   
+  public List<Word> getHotWords(int listSize);
+  
   public List<Word> getWaitProns();
+  
+  public List<Word> getWaitProns(int listSize);
   
   public long getWordNumber();
 

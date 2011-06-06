@@ -43,4 +43,6 @@ public interface PronunciationDAO
   public void updateVoteNumber(int voteMark,int voteNum,int pronId);
   
   public List<Pronunciation> getRecentProns();
+  
+  public List<Pronunciation> getRecentProns(int listSize);
 }

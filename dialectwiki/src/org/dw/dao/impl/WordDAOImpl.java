@@ -246,6 +246,26 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 		  throw re;
 	  }
   }
+  public List<Word> getRecentWords(int listSize)
+  {
+	  log.debug("get recent Words with limited size 20");
+	  try
+	  {
+		String queryString = "from Word model order by model.wordId desc";
+		Session session = HibernateSessionFactory.getSession();
+		Query query = session.createQuery(queryString);
+		query.setMaxResults(listSize);
+		List<Word> recentWords = query.list();
+		return recentWords;
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("attach failed", re);
+		  throw re;
+	  }
+	  
+  }
+  
   //got some bugs
   public List<Word> getHotWords()
   {
@@ -278,6 +298,39 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 		  throw re;
 	  }
   }
+  
+  public List<Word> getHotWords(int listSize)
+  {
+	  try{
+		  Word word = null;
+		  List<Word> hotWords = new ArrayList<Word>();
+		  String queryString = "from Word model order by model.wordId desc";
+		  List<Word> queryWords = getHibernateTemplate().find(queryString);
+		  
+		  if(queryWords.isEmpty())
+			  return null;
+		  else{
+			  int maxSize = queryWords.size();
+			  for(int i = 0;i<listSize;i++)
+			  {
+				  word = queryWords.get(i);
+				  boolean isEmpty = word.getPronunciations().isEmpty();
+				  if(isEmpty == false )
+					  hotWords.add(word);
+				  if(i == maxSize - 1)
+					  break;				 
+			  }
+			  return hotWords;
+		  }
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("attach failed",re);
+		  throw re;
+	  }
+	  
+  }
+  
   public List<Word> getWaitProns()
   {
 	  try
@@ -295,6 +348,40 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
 			  int resultSize = queryResult.size();
 			  
 			  for(int i = 0;i < ListSize;i++)
+			  {
+				  word = queryResult.get(i);
+				  boolean isEmpty = word.getPronunciations().isEmpty();
+				  if( isEmpty == true)
+					  waitProns.add(word);
+				  if(i == resultSize -1)
+					  break;
+				  
+			  }
+			  return waitProns;
+		  }
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("attach failed",re);
+		  throw re;
+	  }
+  }
+  public List<Word> getWaitProns(int listSize)
+  {
+	  try
+	  {
+		  //String queryString = "from Word word where word.pronunciations is null order by word.wordId asc ";
+		  Word word = null;
+		  List<Word> waitProns = new ArrayList<Word>();
+		  String queryString = "from Word word order by word.wordId asc ";
+		  List<Word> queryResult = getHibernateTemplate().find(queryString);
+		  
+		  if(queryResult.isEmpty())
+			  return null;
+		  else{
+			  int resultSize = queryResult.size();
+			  
+			  for(int i = 0;i < listSize;i++)
 			  {
 				  word = queryResult.get(i);
 				  boolean isEmpty = word.getPronunciations().isEmpty();

@@ -14,7 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class PronunciationServiceImpl implements PronunciationService {
-
+  public static final int LIST_SIZE = 15;
   private PronunciationDAO pronunciationDAO;
   private WordDAO wordDAO;
   private UserDAO userDAO;
@@ -91,7 +91,7 @@ public class PronunciationServiceImpl implements PronunciationService {
   
   public List<Pronunciation> getRecentProns()
   {
-	  return pronunciationDAO.getRecentProns();
+	  return pronunciationDAO.getRecentProns(LIST_SIZE);
 	  
   }
 }
