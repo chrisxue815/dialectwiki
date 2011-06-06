@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <base href="<%=basePath %>" />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css"  />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/login.css"  />
-<title>登录</title>
+<title>方言百科 - 登录</title>
 <script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
 <script type="text/javascript">
 var init = function(){

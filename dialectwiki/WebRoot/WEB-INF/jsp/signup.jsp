@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/signup.css" />
 
-<title>注册</title>
+<title>方言百科 - 注册</title>
 
 <script type="text/javascript">
 function init()

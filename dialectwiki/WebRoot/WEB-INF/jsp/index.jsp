@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <base href="<%=basePath %>" />
 
-<title>首页</title>
+<title>方言百科 - 首页</title>
 
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/main.css" />

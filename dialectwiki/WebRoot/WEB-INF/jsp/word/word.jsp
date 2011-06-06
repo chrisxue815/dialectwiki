@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/word.css"/>
 
 
-<title>词条</title>
+<title>方言百科 - 词条</title>
 <script charset="utf-8" src="http://s.map.qq.com/api/js/beta/v2.1/QQMapAPI.js"></script>
 <script type="text/javascript" src="<%=path %>/js/province-city.js"></script>
 <script type="text/javascript" src="<%=path %>/js/swfobject.js"></script>
