@@ -15,12 +15,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/addword.css"/>
 
-<title>添加词条</title>
+<title>方言百科 - 添加词条</title>
 </head>
 
 <body>
 <div id="wrap"> 
- 
+
 <jsp:include page="../internal/header.jsp" />
 
 <div id="content">

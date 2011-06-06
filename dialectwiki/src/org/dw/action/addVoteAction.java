@@ -19,6 +19,7 @@ public class AddVoteAction extends ActionSupport {
 	private User user;
 	private String voteMark;
 	private String pronId;
+	private int wordId;
 	
 	private UserService userService;
 	private PronunciationService pronunciationService;
@@ -26,6 +27,14 @@ public class AddVoteAction extends ActionSupport {
 	
 	
 
+
+	public int getWordId() {
+		return wordId;
+	}
+
+	public void setWordId(int wordId) {
+		this.wordId = wordId;
+	}
 
 	public String getVoteMark() {
 		return voteMark;
@@ -84,6 +93,7 @@ public class AddVoteAction extends ActionSupport {
 	}
 
 	public String execute(){
+		
 		Vote vote = new Vote();
 		VoteId id = new VoteId();
 		int pronIdInt = Integer.parseInt(pronId);
@@ -93,6 +103,9 @@ public class AddVoteAction extends ActionSupport {
 		id.setUser(user);
 		Pronunciation pron = pronunciationService.getPronunciationById(pronIdInt);
 		id.setPronunciation(pron);
+		
+		wordId = pron.getWord().getWordId();
+		
 		if(pron == null)
 			return ERROR;
 		
