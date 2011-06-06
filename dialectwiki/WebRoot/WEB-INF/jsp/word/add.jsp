@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 <div id="wrap"> 
- 
+
 <jsp:include page="../internal/header.jsp" />
 
 <div id="content">
