@@ -102,7 +102,6 @@ font-size: 14px;
 }
 
 .rightList {
-	margin-left: 40px;
 	margin-top: 20px;
 }
 
@@ -110,6 +109,7 @@ font-size: 14px;
 }
 
 .itemTitle {
+	padding-left:20px;
 	font-size: 14px;
 	font-weight: bold;
 	margin-bottom: 8px;
@@ -118,8 +118,8 @@ font-size: 14px;
 }
 
 .itemLink {
+	margin-left:30px;
 	font-size: 12px;
-	margin-left: 10px;
 }
 
 .nopron {

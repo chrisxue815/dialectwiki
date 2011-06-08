@@ -99,7 +99,6 @@
 }
 
 .rightList {
-	margin-left: 40px;
 	margin-top: 20px;
 }
 
@@ -107,6 +106,7 @@
 }
 
 .itemTitle {
+	padding-left:20px;
 	font-size: 14px;
 	font-weight: bold;
 	margin-bottom: 8px;
@@ -115,8 +115,9 @@
 }
 
 .itemLink {
+	line-height: 24px;
+	margin-left:30px;
 	font-size: 12px;
-	margin-left: 10px;
 }
 
 .nopron {

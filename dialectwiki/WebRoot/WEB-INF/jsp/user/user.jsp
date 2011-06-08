@@ -18,10 +18,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="<%=path %>/js/province-city.js"></script>
 <script type="text/javascript" src="<%=path %>/js/swfobject.js"></script>
 <script type="text/javascript" src="<%=path %>/js/playMP3.js"></script>
+<script type="text/javascript">
+
+var geocoder, map = null,flag=false;
+var marker = new Array();
+var init = function(){
+	map = new QQMap.QMap(document.getElementById("maptop"),
+	{
+		center: new QQMap.QLatLng(37, 110),
+		zoomLevel: 1,
+	})
+	
+	//geocoder = new QQMap.QGeocoder();
+}
+</script>
 </head>
 
 
-<body>
+<body onload="init()">
 
 <div id="wrap">
 <div id="finishplayer"></div>
@@ -69,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </a>
 </div>
 <div class="word">
-<span>发音者</span>
+<span>发音地</span>
 &nbsp;
 <span class="wordname"></span>
 </div>
@@ -79,11 +93,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <a href="vote?pronId=&voteMark=-1">踩 - </a>
 </div>
 
+</div><!--pron-->
+</div><!--region-->
+</div><!--module-->
+</div><!--bottomleft-->
+
+<div class="bottomright">
+
+<div class="rightList">
+<div class="rightItem">
+<div class="itemTitle">用户信息</div>
+<div class="itemLink">
+·用户名：<br />
+.邮箱：<br />
+.性别：<br />
+.好评率：<br />
+.排名：<br />
 </div>
-</div>
-</div>
-</div>
-<!--content-->
+</div><!-- rightItem -->
+</div><!-- rightList -->
+</div><!-- bottomright -->
+
+</div><!-- wordcontent -->
+</div><!-- content -->
 
 <jsp:include page="../internal/footer.jsp" />
 
