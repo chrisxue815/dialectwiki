@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -33,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="top">
 <span class="useritem">用户：</span>
-<span class="username"><s:property value="user.userName"/></span>
+<span class="username"></span>
 </div>
 
 <div class="bottomleft">
@@ -57,26 +58,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <span class="rtTip">发音</span>
 &nbsp;&nbsp;
 <span class="rtProv">
-<!--<%=provinceName%> - <%=cityName %> -->
 </span>
 </div>
 
-<div class="pron" id="pron<%=1 //pronId %>">
+<div class="pron" id="pron">
 
 <div class="pimg">
-<a href="#" onclick="playSound('<%=1 //aprUrl%>');return false;">
+<a href="#" onclick="playSound('');return false;">
 <img src="<%=path %>/css/images/ico_play.gif" />
 </a>
 </div>
 <div class="word">
 <span>发音者</span>
 &nbsp;
-<span class="wordname"><%=1//pronWord%></span>
+<span class="wordname"></span>
 </div>
 <div class="pvote">
-<a href="vote?pronId=<%=1 %>&voteMark=1">顶 + <%=1 //goodVote%></a>
+<a href="vote?pronId=&voteMark=1">顶 + </a>
 &nbsp;
-<a href="vote?pronId=<%=1 %>&voteMark=-1">踩 - <%=1 //badVote%></a>
+<a href="vote?pronId=&voteMark=-1">踩 - </a>
 </div>
 
 </div>
