@@ -102,6 +102,7 @@
 
 
   <!-- Service begins -->
+
   
   <bean id="userService" class="org.dw.service.impl.UserServiceImpl">
     <property name="userDAO">
@@ -131,6 +132,12 @@
     <property name="cityDAO">
       <ref bean="cityDAO" />
     </property>
+  </bean>
+  
+  <bean id="provinceService" class="org.dw.service.impl.ProvinceServiceImpl">
+  	<property name="provinceDAO">
+		<ref bean="provinceDAO" />
+	</property>
   </bean>
   
   <bean id="voteService" class="org.dw.service.impl.VoteServiceImpl">
@@ -214,6 +221,12 @@
   <bean id="wordIndexAction" class="org.dw.action.WordIndexAction">
   	<property name="wordService">
   		<ref bean="wordService" />
+  	</property>
+  </bean>
+  
+  <bean id="dialectAction" class="org.dw.action.DialectAction">
+  	<property name="provinceService">
+  		<ref bean="provinceService" />
   	</property>
   </bean>
   

@@ -8,7 +8,7 @@ import org.dw.service.ProvinceService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DistrictAction extends ActionSupport {
+public class DialectAction extends ActionSupport {
 	
 	/**
 	 * 
@@ -25,6 +25,12 @@ public class DistrictAction extends ActionSupport {
 	private String id;
 
 	
+	public ProvinceService getProvinceService() {
+		return provinceService;
+	}
+	public void setProvinceService(ProvinceService provinceService) {
+		this.provinceService = provinceService;
+	}
 	public List<Pronunciation> getProns() {
 		return prons;
 	}
