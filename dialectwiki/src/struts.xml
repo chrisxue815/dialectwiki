@@ -106,6 +106,10 @@
     <action name="vote-failed">
     	<result name="success">/WEB-INF/jsp/vote/vote-failed.jsp</result>
     </action>
+    
+    <action name="dialect" class="dialectIndexAction">
+    	<result name="success">/WEB-INF/jsp/dialect/index.jsp</result>
+    </action>
 
   </package>
 

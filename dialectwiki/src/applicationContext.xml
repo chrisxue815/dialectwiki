@@ -233,6 +233,9 @@
   	</property>
   </bean>
   
+  <bean id="dialectIndexAction" class="org.dw.action.DialectIndexAction">
+  </bean>
+  
   <!-- Interceptor begin -->
   <bean id="headerDataInterceptor" class="org.dw.interceptor.HeaderDataInterceptor">
     <property name="wordService">
