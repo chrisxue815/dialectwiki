@@ -218,6 +218,9 @@
     </property>
   </bean>
   
+  <bean id="userIndexAction" class="org.dw.action.UserIndexAction">
+  </bean>
+  
   <bean id="wordIndexAction" class="org.dw.action.WordIndexAction">
   	<property name="wordService">
   		<ref bean="wordService" />
