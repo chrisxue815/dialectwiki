@@ -41,5 +41,10 @@ public interface UserDAO
   public void attachDirty(User instance);
 
   public void attachClean(User instance);
+  
+  public List<User> findNBUsers();
+  
+  public List<User> findNBUsers(int listSize);
+  
 
 }

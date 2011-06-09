@@ -3,8 +3,11 @@ package org.dw.dao.impl;
 import java.util.List;
 
 import org.dw.dao.UserDAO;
+import org.dw.hibernate.HibernateSessionFactory;
 import org.dw.model.User;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -231,5 +234,29 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO
   public static UserDAO getFromApplicationContext(ApplicationContext ctx)
   {
     return (UserDAO) ctx.getBean("UserDAO");
+  }
+  
+  public List<User> findNBUsers()
+  {
+	int listSize = 20;
+	return findNBUsers(listSize);  
+  }
+  
+  public List<User> findNBUsers(int listSize)
+  {
+	log.debug("get NB User list");
+	try
+	{
+		String queryString = "from User model order by count(model.pronunciations) desc";
+		Session session = HibernateSessionFactory.getSession();
+		Query query = session.createQuery(queryString);
+		query.setMaxResults(listSize);
+		return query.list();
+	}
+	catch(RuntimeException re)
+	{
+		log.error("attach failed");
+		throw re;
+	}
   }
 }

@@ -1,5 +1,6 @@
 package org.dw.service.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import org.dw.dao.AuthorityDAO;
@@ -65,4 +66,13 @@ public class UserServiceImpl implements UserService
 		User user = this.getUserByUserName(userName);
 		return user.getPronunciations();
 	}
+	
+	public List<User> getNBUsers(int listSize)
+	{
+		return userDAO.findNBUsers(listSize);
+	}
+    public List<User> getNBUsers()
+    {
+    	return userDAO.findNBUsers();
+    }
 }
