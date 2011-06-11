@@ -111,6 +111,9 @@
     <property name="authorityDAO">
       <ref bean="authorityDAO" />
     </property>
+    <property name="pronunciationDAO">
+      <ref bean="pronunciationDAO" />
+    </property>
   </bean>
   
   <bean id="wordService" class="org.dw.service.impl.WordServiceImpl">
@@ -219,6 +222,9 @@
   </bean>
   
   <bean id="userIndexAction" class="org.dw.action.UserIndexAction">
+  	<property name="userService">
+  		<ref bean="userService" />
+  	</property>
   </bean>
   
   <bean id="wordIndexAction" class="org.dw.action.WordIndexAction">
