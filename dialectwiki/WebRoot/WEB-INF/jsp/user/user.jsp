@@ -48,7 +48,7 @@ var init = function(){
 
 <div class="top">
 <span class="useritem">用户：</span>
-<span class="username"></span>
+<span class="username"><s:property value="user.username"/></span>
 </div>
 
 <div class="bottomleft">
@@ -104,11 +104,11 @@ var init = function(){
 <div class="rightItem">
 <div class="itemTitle">用户信息</div>
 <div class="itemLink">
-·用户名：<br />
-.邮箱：<br />
-.性别：<br />
-.好评率：<br />
-.排名：<br />
+用户名：<s:property value="user.username" /><br />
+邮&nbsp;&nbsp;&nbsp;&nbsp;箱：<s:property value="user.email" /><br />
+性&nbsp;&nbsp;&nbsp;&nbsp;别：<s:property value="user.sex" /><br />
+好评率：<br />
+排&nbsp;&nbsp;&nbsp;&nbsp;名：<br />
 </div>
 </div><!-- rightItem -->
 </div><!-- rightList -->

@@ -58,8 +58,13 @@
   	 <result name="success">/WEB-INF/jsp/login.jsp</result>
   	</action>
   	
-  	<action name="user" class="userIndexAction">
+  	<action name="users" class="userIndexAction">
   		<result name="success">/WEB-INF/jsp/user/index.jsp</result>
+  		<result name="error" type="redirect">error</result>
+  	</action>
+  	
+  	<action name="user" class="userAction">
+  		<result name="success">/WEB-INF/jsp/user/user.jsp</result>
   	</action>
   	
   	<!-- 上传发音的action 实现-->

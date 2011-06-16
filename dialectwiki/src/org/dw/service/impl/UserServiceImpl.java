@@ -75,4 +75,9 @@ public class UserServiceImpl implements UserService
     {
     	return userDAO.findNBUsers();
     }
+    
+    public User getUserById(int wordId)
+    {
+    	return userDAO.findById(wordId);
+    }
 }

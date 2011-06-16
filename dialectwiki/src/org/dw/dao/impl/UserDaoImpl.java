@@ -247,13 +247,15 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO
 	log.debug("get NB User list");
 	try
 	{
-		String queryString = "";
+		/*String queryString = "";
 		//String queryString = "from User model order by model.count(pronunciations) desc";
 		//String queryString = "from User model order by cout(model.pronunciations)";
 		Session session = HibernateSessionFactory.getSession();
 		Query query = session.createQuery(queryString);
 		query.setMaxResults(listSize);
 		return query.list();
+		*/
+		return null;
 	}
 	catch(RuntimeException re)
 	{
