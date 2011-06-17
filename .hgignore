@@ -7,3 +7,5 @@ dialectwiki/WebRoot/WEB-INF/classes/
 mysql-connector-java-5.1.10-bin.jar
 *.class
 util/ProvinceCityGenerator/bin/*
+final/*
+util/deploy/*
