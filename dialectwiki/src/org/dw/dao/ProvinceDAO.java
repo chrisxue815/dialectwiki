@@ -29,5 +29,7 @@ public interface ProvinceDAO
   public void attachDirty(Province instance);
 
   public void attachClean(Province instance);
+  
+  
 
 }

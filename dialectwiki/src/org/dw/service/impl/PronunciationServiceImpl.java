@@ -94,4 +94,9 @@ public class PronunciationServiceImpl implements PronunciationService {
 	  return pronunciationDAO.getRecentProns(LIST_SIZE);
 	  
   }
+  
+  public List<Pronunciation> getUserProns(int userId)
+  {
+	  return pronunciationDAO.getUserProns(userId);
+  }
 }

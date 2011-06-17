@@ -224,6 +224,9 @@
   	<property name="userService">
   		<ref bean="userService" />
   	</property>
+  	<property name="pronunciationService">
+  		<ref bean="pronunciationService" />
+  	</property>
   </bean>
   
   <bean id="userIndexAction" class="org.dw.action.UserIndexAction">

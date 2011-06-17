@@ -18,4 +18,6 @@ public interface PronunciationService {
 	public Pronunciation getPronunciationById(int pronId);
 	
 	public List<Pronunciation> getRecentProns();
+	
+	public List<Pronunciation> getUserProns(int userId);
 }

@@ -1,11 +1,12 @@
 package org.dw.action;
 
-import java.util.Iterator;
+
 import java.util.List;
-import java.util.Set;
+
 
 import org.dw.model.Pronunciation;
 import org.dw.model.User;
+import org.dw.service.PronunciationService;
 import org.dw.service.UserService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -19,6 +20,7 @@ public class UserAction extends ActionSupport{
 	private User user;
 	
 	private UserService userService;
+	private PronunciationService pronunciationService;
 	List<Pronunciation> userProns;
 
 	public String getId() {
@@ -80,6 +82,19 @@ public class UserAction extends ActionSupport{
 	}
 
 
+	
+	public PronunciationService getPronunciationService() {
+		return pronunciationService;
+	}
+
+
+
+	public void setPronunciationService(PronunciationService pronunciationService) {
+		this.pronunciationService = pronunciationService;
+	}
+
+
+
 	public String execute()
 	{
 		if(id != null)
@@ -87,14 +102,8 @@ public class UserAction extends ActionSupport{
 			int idInt = Integer.parseInt(id);
 			try
 			{
-				user = userService.getUserById(idInt);
-				Set<Pronunciation> prons = user.getPronunciations();
-				Iterator<Pronunciation> ir = prons.iterator();
-				while(ir.hasNext())
-				{
-					userProns.add(ir.next());
-				}
-
+				user =  userService.getUserById(idInt);
+				userProns = pronunciationService.getUserProns(idInt);
 			}
 			catch (Exception ex)
 			{
@@ -107,6 +116,7 @@ public class UserAction extends ActionSupport{
 			try
 			{
 				user = userService.getUserByUserName(name);	
+				userProns = pronunciationService.getUserProns(user.getUserId());
 			}
 			catch(Exception ex)
 			{

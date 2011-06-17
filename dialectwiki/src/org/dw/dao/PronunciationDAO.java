@@ -45,4 +45,6 @@ public interface PronunciationDAO
   public List<Pronunciation> getRecentProns();
   
   public List<Pronunciation> getRecentProns(int listSize);
+  
+  public List<Pronunciation> getUserProns(int userId);
 }
