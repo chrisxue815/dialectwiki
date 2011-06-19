@@ -75,6 +75,10 @@ font-size: 14px;
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
+.pronmap {
+	width:150px;
+	padding-top:10px;
+	}
 
 .pimg {
 	float: left;
