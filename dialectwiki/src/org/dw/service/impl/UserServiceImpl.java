@@ -80,4 +80,13 @@ public class UserServiceImpl implements UserService
     {
     	return userDAO.findById(wordId);
     }
+    public List<User> getGOODUsers(int listSize)
+    {
+    	return userDAO.findGOODUsers(listSize);
+    }
+    public List<User> getGOODUsers()
+    {
+    	return userDAO.findGOODUsers();
+    	
+    }
 }

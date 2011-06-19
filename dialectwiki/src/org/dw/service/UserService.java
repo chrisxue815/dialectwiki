@@ -14,4 +14,6 @@ public interface UserService
   public List<User> getNBUsers(int listSize);
   public List<User> getNBUsers();
   public User getUserById(int wordId);
+  public List<User> getGOODUsers(int listSize);
+  public List<User> getGOODUsers();
 }

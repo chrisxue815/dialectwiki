@@ -263,4 +263,35 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO
 		throw re;
 	}
   }
+  
+  
+  public List<User> findGOODUsers()
+  {
+	int listSize = 20;  
+	return findGOODUsers(listSize);
+  }
+  
+  public List<User> findGOODUsers(int listSize)
+  {
+	  log.debug("get GOOD User list");
+	  try
+	  {
+		  List<User> GOODUsers = new ArrayList<User>();
+		  String queryString = "from User model where model.userId in (select pron.user.userId from Pronunciation pron group by pron.user.userId order by sum(goodVoteNum) desc , sum(badVoteNum) asc)";
+		  Session session = HibernateSessionFactory.getSession();
+		  Query query = session.createQuery(queryString);
+		  query.setMaxResults(listSize);
+		  
+		  GOODUsers = query.list();
+		  
+		  return GOODUsers;
+		  
+	  }
+	  catch (RuntimeException re)
+	  {
+		  log.error("attach failed");
+		  throw re;
+	  }
+	  
+  }
 }

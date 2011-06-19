@@ -12,6 +12,7 @@ public class UserIndexAction extends ActionSupport {
 	private static final long serialVersionUID = 4300539552214668482L;
 	
 	private List<User> NBUsers;
+	private List<User> GOODUsers;
     private UserService userService;
     
 	
@@ -30,11 +31,22 @@ public class UserIndexAction extends ActionSupport {
 	public void setNBUsers(List<User> nBUsers) {
 		NBUsers = nBUsers;
 	}
+	
+	
+
+	public List<User> getGOODUsers() {
+		return GOODUsers;
+	}
+
+	public void setGOODUsers(List<User> gOODUsers) {
+		GOODUsers = gOODUsers;
+	}
 
 	public String execute()
 	{
 		int listSize = 20;
 		NBUsers = userService.getNBUsers(listSize);
+		GOODUsers = userService.getGOODUsers(listSize);
 		return SUCCESS;
 	}
 }

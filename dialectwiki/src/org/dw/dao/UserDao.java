@@ -46,5 +46,9 @@ public interface UserDAO
   
   public List<User> findNBUsers(int listSize);
   
+  public List<User> findGOODUsers();
+  
+  public List<User> findGOODUsers(int listSize);
+  
 
 }

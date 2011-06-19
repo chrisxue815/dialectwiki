@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css"  />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/main.css"  />
-<title>方言百科 - 用户</title>
+<title>方言百科 - 用户页</title>
 </head>
 
 
@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="content">
 <!--左模块-->
 <div class="module left">
-  <h2>牛逼用户</h2>
+  <h2>发音最多的用户</h2>
 <div class="list">
 <ul>
   <s:iterator value="NBUsers">
@@ -40,8 +40,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!--中模块-->
 <div class="module center">
-<h2>Title</h2>
-<div class="list"></div>
+<h2>好评用户</h2>
+<div class="list">
+<ul>
+<s:iterator value="GOODUsers">
+  <li>
+  <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
+  </a>
+  </li>
+  </s:iterator>
+</ul>
+</div>
 </div><!--center-->
 
 <!--右模块-->
