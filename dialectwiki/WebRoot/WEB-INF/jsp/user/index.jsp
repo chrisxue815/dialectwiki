@@ -32,6 +32,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <li>
   <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
   </a>
+  
+  <span class="listregion">
+  发音总数：<s:property value="pronunciations.size()" />
+  </span>
   </li>
   </s:iterator>
 </ul>
@@ -40,13 +44,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!--中模块-->
 <div class="module center">
-<h2>好评用户</h2>
+<h2>推荐的好评用户</h2>
 <div class="list">
 <ul>
 <s:iterator value="GOODUsers">
   <li>
   <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
-  </a>
+  </a> 
   </li>
   </s:iterator>
 </ul>

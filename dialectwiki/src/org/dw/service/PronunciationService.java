@@ -20,4 +20,6 @@ public interface PronunciationService {
 	public List<Pronunciation> getRecentProns();
 	
 	public List<Pronunciation> getUserProns(int userId);
+	
+	public List<Pronunciation> getMapProns(int wordId);
 }

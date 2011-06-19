@@ -99,4 +99,9 @@ public class PronunciationServiceImpl implements PronunciationService {
   {
 	  return pronunciationDAO.getUserProns(userId);
   }
+  
+  public List<Pronunciation> getMapProns(int wordId)
+  {
+	  return pronunciationDAO.getMapProns(wordId);
+  }
 }

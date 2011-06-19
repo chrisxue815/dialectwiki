@@ -32,6 +32,7 @@ public class WordAction extends ActionSupport
   private int citySize;
   private List<String> cityNames;
   private boolean noPron = false;
+  private List<Pronunciation> mapProns;
 
   public boolean isNoPron()
   {
@@ -122,8 +123,18 @@ public class WordAction extends ActionSupport
   {
     this.pronunciationService = pronunciationService;
   }
+  
+  
 
-  public String execute()
+  public List<Pronunciation> getMapProns() {
+	return mapProns;
+}
+
+public void setMapProns(List<Pronunciation> mapProns) {
+	this.mapProns = mapProns;
+}
+
+public String execute()
   {
     try
     {
@@ -142,6 +153,7 @@ public class WordAction extends ActionSupport
       }
       else
       {
+    	getMapProns(word.getWordId());
         return WORDS;
       }
       
@@ -242,10 +254,16 @@ public class WordAction extends ActionSupport
     ServletActionContext.getRequest().setAttribute("mapPrUrlList", mapPrUrlList);
     citySize = cityList.size();
     
-    for(String mapUrl : prUrlList)
-    	System.out.println(mapUrl);
+    
 
     return SUCCESS;
 
   }
+  
+  public void getMapProns(int wordId)
+  {
+	  mapProns = pronunciationService.getMapProns(wordId);
+  }
+  
+
 }
