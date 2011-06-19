@@ -33,7 +33,8 @@ public class UserIndexAction extends ActionSupport {
 
 	public String execute()
 	{
-		NBUsers = userService.getNBUsers();
+		int listSize = 20;
+		NBUsers = userService.getNBUsers(listSize);
 		return SUCCESS;
 	}
 }

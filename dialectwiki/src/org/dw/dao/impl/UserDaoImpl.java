@@ -1,5 +1,6 @@
 package org.dw.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dw.dao.UserDAO;
@@ -247,15 +248,14 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO
 	log.debug("get NB User list");
 	try
 	{
-		/*String queryString = "";
-		//String queryString = "from User model order by model.count(pronunciations) desc";
-		//String queryString = "from User model order by cout(model.pronunciations)";
+		List<User> NBUsers = new ArrayList<User>();
+		String queryString = "from User model where model.userId in (select pron.user.userId from Pronunciation pron group by pron.user.userId order by count(*) desc)";
 		Session session = HibernateSessionFactory.getSession();
 		Query query = session.createQuery(queryString);
 		query.setMaxResults(listSize);
-		return query.list();
-		*/
-		return null;
+		
+		NBUsers = query.list();
+		return NBUsers;
 	}
 	catch(RuntimeException re)
 	{

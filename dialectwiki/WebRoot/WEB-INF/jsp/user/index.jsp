@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -24,8 +25,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="content">
 <!--左模块-->
 <div class="module left">
-  <h2>Title</h2>
-<div class="list"></div>
+  <h2>牛逼用户</h2>
+<div class="list">
+<ul>
+  <s:iterator value="NBUsers">
+  <li>
+  <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
+  </a>
+  </li>
+  </s:iterator>
+</ul>
+</div>
 </div><!--left-->
 
 <!--中模块-->
