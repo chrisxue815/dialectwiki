@@ -153,7 +153,6 @@ public String execute()
       }
       else
       {
-    	getMapProns(word.getWordId());
         return WORDS;
       }
       
@@ -167,6 +166,8 @@ public String execute()
 
   public String getWordData()
   {
+	getMapProns(word.getWordId());
+
 	System.out.println("get WordData() invoked");
     prons = pronunciationService.searchPronunciation(word.getWordId());
     
@@ -252,6 +253,8 @@ public String execute()
     ServletActionContext.getRequest().setAttribute("cityNames", cityNames);
     ServletActionContext.getRequest().setAttribute("prUrlList", prUrlList);
     ServletActionContext.getRequest().setAttribute("mapPrUrlList", mapPrUrlList);
+    ServletActionContext.getRequest().setAttribute("mapProns", mapProns);
+    
     citySize = cityList.size();
     
     

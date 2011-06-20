@@ -308,7 +308,7 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
 	  log.debug("get map pronunciations");
 	  try
 	  {
-		  String queryString = "from Pronunciation pron where pron.pronId in (from Pronunciation model where model.word.wordId = :wordId order by model.city.cityId asc,model.goodVoteNum desc) group by cityId";
+		  String queryString = "from Pronunciation pron where pron.pronId in (from Pronunciation model where model.word.wordId = :wordId order by model.city.cityId asc,model.goodVoteNum desc) group by pron.city.cityId";
 		  Session session = HibernateSessionFactory.getSession();
 		  Query query= session.createQuery(queryString);
 		  query.setParameter("wordId", wordId);
