@@ -1,6 +1,8 @@
 package org.dw.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.dw.dao.PronunciationDAO;
 import org.dw.hibernate.HibernateSessionFactory;
@@ -308,11 +310,30 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
 	  log.debug("get map pronunciations");
 	  try
 	  {
-		  String queryString = "from Pronunciation pron where pron.pronId in (from Pronunciation model where model.word.wordId = :wordId order by model.city.cityId asc,model.goodVoteNum desc) group by pron.city.cityId";
+		  String queryString = "select new map(pron.pronId as id,pron.goodVoteNum as goodVoteNum) from Pronunciation pron where pron.word.wordId = :wordId order by pron.goodVoteNum desc group by pron.city.cityId";
+		  //String queryString = "select new map(pron.pronId as id,pron.goodVoteNum as goodVoteNum) from Pronunciation pron oder by pron.goodVoteNum desc w";
 		  Session session = HibernateSessionFactory.getSession();
 		  Query query= session.createQuery(queryString);
 		  query.setParameter("wordId", wordId);
-		  return query.list();
+		  
+		  List<Map> pronMap = query.list();
+		  List<Pronunciation> mapProns = new ArrayList<Pronunciation>();
+		  for(Map pron : pronMap)
+		  {
+			  System.out.println(pron.get("id") + " " + pron.get("goodVoteNum") );
+			  queryString = "from Pronunciation pron where pron.pronId = :id";
+			  int id = (Integer)pron.get("id");
+			  query = session.createQuery(queryString);
+			  query.setParameter("id", id);
+			  List<Pronunciation> tmp = query.list();
+			  mapProns.add(tmp.get(0));
+			  
+		  }
+		  
+
+          System.out.println("query invoked");
+		  
+		  return mapProns;
 	  }
 	  catch(RuntimeException re)
 	  {
