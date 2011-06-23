@@ -49,4 +49,5 @@ public interface PronunciationDAO
   public List<Pronunciation> getUserProns(int userId);
   
   public List<Pronunciation> getMapProns(int wordId);
+  
 }

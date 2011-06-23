@@ -1,9 +1,11 @@
 package org.dw.action;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
-
+import org.apache.struts2.ServletActionContext;
+import org.dw.model.City;
 import org.dw.model.Pronunciation;
 import org.dw.model.User;
 import org.dw.service.PronunciationService;
@@ -22,6 +24,8 @@ public class UserAction extends ActionSupport{
 	private UserService userService;
 	private PronunciationService pronunciationService;
 	List<Pronunciation> userProns;
+	List<City> mapCity;
+	List<List<Pronunciation>> pronList;
 
 	public String getId() {
 		return id;
@@ -95,6 +99,30 @@ public class UserAction extends ActionSupport{
 
 
 
+	public List<City> getMapCity() {
+		return mapCity;
+	}
+
+
+
+	public void setMapCity(List<City> mapCity) {
+		this.mapCity = mapCity;
+	}
+
+
+
+	public List<List<Pronunciation>> getPronList() {
+		return pronList;
+	}
+
+
+
+	public void setPronList(List<List<Pronunciation>> pronList) {
+		this.pronList = pronList;
+	}
+
+
+
 	public String execute()
 	{
 		if(id != null)
@@ -104,6 +132,13 @@ public class UserAction extends ActionSupport{
 			{
 				user =  userService.getUserById(idInt);
 				userProns = pronunciationService.getUserProns(idInt);
+				
+				if(userProns != null)
+					getMapList();
+				
+				ServletActionContext.getRequest().setAttribute("mapCity", mapCity);
+				ServletActionContext.getRequest().setAttribute("pronList", pronList);
+				
 			}
 			catch (Exception ex)
 			{
@@ -117,6 +152,13 @@ public class UserAction extends ActionSupport{
 			{
 				user = userService.getUserByUserName(name);	
 				userProns = pronunciationService.getUserProns(user.getUserId());
+				
+				if(userProns != null)
+					getMapList();
+	
+				ServletActionContext.getRequest().setAttribute("userProns", userProns);
+				
+				
 			}
 			catch(Exception ex)
 			{
@@ -126,6 +168,67 @@ public class UserAction extends ActionSupport{
 		}
 		
 		return SUCCESS;
+	}
+	
+	//test module 测试，实现目标功能：针对个别用户实现指定地区的，形成词列表
+	
+	public void getMapList()
+	{
+		for(Pronunciation pron : userProns)
+		{
+			System.out.println("pron city:" + pron.getCity().getCityName() + " ;word" + pron.getWord().getWordName());
+		}
+		Pronunciation lastPron,nextPron;
+		lastPron = userProns.get(0);
+		nextPron = lastPron;
+		
+		
+		mapCity = new ArrayList<City>();
+		pronList = new ArrayList<List<Pronunciation>>();
+	    
+		
+		mapCity.add(nextPron.getCity());
+		pronList.add(new ArrayList<Pronunciation>());
+		//System.out.println(nextPron.getCity());
+		int index = 0;
+		
+		while(true)
+		{
+			if(!nextPron.getCity().equals(lastPron.getCity()))
+			{
+				mapCity.add(nextPron.getCity());
+				pronList.add(new ArrayList<Pronunciation>());
+				int cityIndex = mapCity.size() -1;
+				pronList.get(cityIndex).add(nextPron);
+				
+			}
+			else
+			{
+				pronList.get(mapCity.size() -1).add(nextPron);
+			}
+			
+			
+			index ++;
+			if(index == userProns.size())
+				break;
+			lastPron = nextPron;
+			nextPron = userProns.get(index);
+			//System.out.println(nextPron.getWord().getWordName());
+		}
+		
+		int i = 0;
+		for( City city: mapCity)
+		{
+			System.out.println(city.getCityName());
+			for( Pronunciation pron : pronList.get(i))
+			{
+				System.out.println( "   " + pron.getWord().getWordName());
+			}
+			i++;
+		}
+
+		
+		
 	}
 	
 }

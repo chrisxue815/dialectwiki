@@ -291,7 +291,7 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
 	  log.debug("get user pronunciations");
 	  try
 	  {
-		  String queryString = "from Pronunciation pron where pron.user.userId = :userId order by pron.city.id";
+		  String queryString = "from Pronunciation pron where pron.user.userId = :userId order by pron.city.id asc ,  pron.word.wordId asc";
 		  Session session = HibernateSessionFactory.getSession();
 		  Query query = session.createQuery(queryString);
 		  query.setParameter("userId", userId);
@@ -304,6 +304,26 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
 		  throw re;
 	  }
   }
+  
+  public List<Pronunciation> getUserMapProns(int userId)
+  {
+	  log.debug("get user map pronunciation");
+	  try
+	  {
+		  String queryString = "from Pronunciation pron where pron.user.userId = :userId order by pron.city.id asc ,pron.word.wordId desc";
+		  Session session = HibernateSessionFactory.getSession();
+		  Query query = session.createQuery(queryString);
+		  query.setParameter("serId", userId);
+		  return query.list();	  
+		  
+	  }
+	  catch (RuntimeException re)
+	  {
+		  log.error("attach failed");
+		  throw re;
+	  }
+  }
+  
   
   public List<Pronunciation> getMapProns(int wordId)
   {

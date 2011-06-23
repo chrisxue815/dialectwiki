@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.dw.model.Pronunciation" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -36,7 +38,10 @@ var init = function(){
 
 
 <body onload="init()">
-
+<% 
+	List<Pronunciation> userProns = (List<Pronunciation>)request.getAttribute("userProns");
+	
+%>
 <div id="wrap">
 <div id="finishplayer"></div>
 
