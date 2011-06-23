@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ page import="java.util.List" %>
+<%@ page import="org.dw.model.City" %>
 <%@ page import="org.dw.model.Pronunciation" %>
 <%
 String path = request.getContextPath();
@@ -30,18 +31,90 @@ var init = function(){
 		center: new QQMap.QLatLng(37, 110),
 		zoomLevel: 1,
 	})
+	info  = new QQMap.QInfoWindow({
+		visible:false,
+		map:map
+	});
+	geocoder = new QQMap.QGeocoder();
+	QQMap.QEvent.addListener(
+		map,
+		'click',
+		function(){
+			info.setVisible(false);
+			info.reset();					
+	});
+	markcitys();
 	
-	//geocoder = new QQMap.QGeocoder();
+}
+<%
+	List<City> mapCity = (List<City>)request.getAttribute("mapCity");
+	List<List<Pronunciation>> pronList = (List<List<Pronunciation>>)request.getAttribute("pronList");
+	int cityI = 0; 
+%>
+function markcitys() {
+	var pronUrlList = new Array();
+	var cityName = null;
+	var i = 0;
+	var cityName = null;
+	var prUrl;
+<%
+
+	String cityName;
+	String provinceName;
+	
+	String PrUrl;
+	String WordName;
+	int goodVote;
+	int badVote; 
+	int pronId;
+	
+	for(City city : mapCity)
+	{
+		cityName = city.getCityName();
+		provinceName = city.getProvince().getProvinceName();
+%>
+		geocoder.geocode({'address': "<%=cityName%>"}, function(results, status){
+			if (status == QQMap.QGeocoderStatus.OK) {
+				
+				marker[<%=cityI%>] = new QQMap.QMarker({
+					map: map,
+					position: results.location,
+					title: results.address
+				});
+
+				QQMap.QEvent.addListener(
+					marker[<%=cityI%>],
+					'click',
+					function(){
+					var tempstr = '<div class="pronmap"><div class="rtProv"><%=provinceName%> - <%=cityName%></div>';
+<%
+			for( Pronunciation pron : pronList.get(cityI))
+			{
+				PrUrl = pron.getPrUrl();
+				WordName = pron.getWord().getWordName();
+				pronId = pron.getPronId();
+%>
+						tempstr += '<div class="worddiv"><div class="pimgmap"><a href="#" onclick="playSound(\'<%=PrUrl%>\');return false;"><img src="<%=path%>/css/images/ico_play.gif" /></a></div><div class="pword"><span>词条</span>&nbsp;<span class="pwordname"><%=WordName %></span></div></div>';
+<%
+			}
+%>
+						tempstr += '</div>';
+						info.open(tempstr,marker[<%=cityI%>]);
+						info.reset();
+				});
+			}
+		});
+<%
+		cityI++;
+	}
+%>
 }
 </script>
 </head>
 
 
 <body onload="init()">
-<% 
-	List<Pronunciation> userProns = (List<Pronunciation>)request.getAttribute("userProns");
-	
-%>
+
 <div id="wrap">
 <div id="finishplayer"></div>
 
@@ -73,32 +146,49 @@ var init = function(){
 
 <div class="region">
 
+<%
+cityI = 0;
+for(City city : mapCity)
+	{
+		cityName = city.getCityName();
+		provinceName = city.getProvince().getProvinceName();
+%>
 <div class="rtitle">
 <span class="rtTip">发音</span>
 &nbsp;&nbsp;
 <span class="rtProv">
+<%=provinceName%> - <%=cityName %>
 </span>
 </div>
-
+<%
+			for( Pronunciation pron : pronList.get(cityI))
+			{
+				PrUrl = pron.getPrUrl();
+				WordName = pron.getWord().getWordName();
+				goodVote = pron.getGoodVoteNum();
+				badVote = pron.getBadVoteNum(); 
+				pronId = pron.getPronId();
+%>
 <div class="pron" id="pron">
 
 <div class="pimg">
-<a href="#" onclick="playSound('');return false;">
+<a href="#" onclick="playSound('<%=PrUrl %>');return false;">
 <img src="<%=path %>/css/images/ico_play.gif" />
 </a>
 </div>
 <div class="word">
-<span>发音地</span>
+<span>词条</span>
 &nbsp;
-<span class="wordname"></span>
+<span class="wordname"><%=WordName %></span>
 </div>
 <div class="pvote">
-<a href="vote?pronId=&voteMark=1">顶 + </a>
+<a href="vote?pronId=<%=pronId %>&voteMark=1">顶 + <%=goodVote %></a>
 &nbsp;
-<a href="vote?pronId=&voteMark=-1">踩 - </a>
+<a href="vote?pronId=<%=pronId %>&voteMark=-1">踩 - <%=badVote %></a>
 </div>
 
 </div><!--pron-->
+<%}cityI++;} %>
 </div><!--region-->
 </div><!--module-->
 </div><!--bottomleft-->

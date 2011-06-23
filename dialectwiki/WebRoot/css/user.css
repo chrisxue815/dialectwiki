@@ -65,20 +65,42 @@
 .rtProv {
 	font-size: 14px;
 	font-weight: bold;
-  color: #390;
+  	color: #390;
 }
 
-.word {
+.worddiv{
+	margin-left: 10px;
+}
+.pron {
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
-
+.pronmap{
+	width:200px;
+	padding-top:10px;
+	}
+	
 .pimg {
 	float: left;
 	margin-top: 5px;
 	margin-right: 10px;
 }
+.pimgmap {
+	float: left;
+	margin-right: 10px;
+}
 
+.pword {
+	padding-top: 3px;
+	padding-bottom: 2px;
+	margin-left: 10px;
+	height: 20px;
+}
+.pwordname {
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: underline;
+}
 .wordname {
 	font-size: 15px;
 	font-weight: bold;
