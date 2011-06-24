@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 function checkSearch()
 {
-	
+	document.getElementById("stext");
 }
 </script>
 <div id="top">
