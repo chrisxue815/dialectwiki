@@ -132,7 +132,17 @@
 .rightList {
 	margin-top: 20px;
 }
-
+.joinus{
+	background-color: #3C3;
+	border: medium solid #063;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 32px;
+	line-height: normal;
+	padding: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 .rightItem {
 }
 
