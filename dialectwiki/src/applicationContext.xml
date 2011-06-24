@@ -229,7 +229,7 @@
   	</property>
   </bean>
   
-  <bean id="userIndexAction" class="org.dw.action.UserIndexAction">
+  <bean id="userIndexAction" class="org.dw.action.UserIndexAction" scope="prototype">
   	<property name="userService">
   		<ref bean="userService" />
   	</property>

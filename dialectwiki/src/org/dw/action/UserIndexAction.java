@@ -3,6 +3,7 @@ package org.dw.action;
 import java.util.List;
 import org.dw.model.User;
 import org.dw.service.UserService;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -14,6 +15,7 @@ public class UserIndexAction extends ActionSupport {
 	private List<User> NBUsers;
 	private List<User> GOODUsers;
     private UserService userService;
+    private User user;
     
 	
 	public UserService getUserService() {
@@ -42,11 +44,24 @@ public class UserIndexAction extends ActionSupport {
 		GOODUsers = gOODUsers;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public String execute()
 	{
 		int listSize = 20;
 		NBUsers = userService.getNBUsers(listSize);
 		GOODUsers = userService.getGOODUsers(listSize);
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		if( ! username.equals("anonymousUser"))
+		{
+			user = userService.getUserByUserName(username);
+		}
 		return SUCCESS;
 	}
 }

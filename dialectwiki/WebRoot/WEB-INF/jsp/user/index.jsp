@@ -48,8 +48,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="list">
 <ul>
 <s:iterator value="GOODUsers">
-  <li>
-  <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
+  <li>e
+  <a href="/dialectwiki/user?id=<s:property value="userId" />">
   </a> 
   </li>
   </s:iterator>
@@ -58,9 +58,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div><!--center-->
 
 <!--右模块-->
-<div class="module right"> 
+<div class="module right">
+<s:if test="user==null"> 
 <h2>注册</h2>
 <div class="list"></div>
+</s:if>
+<s:else>
+<h2>用户信息</h2>
+<div class="list">
+<s:property value="user.username"></s:property>
+</div>
+</s:else>
 </div><!--right-->
 
 
