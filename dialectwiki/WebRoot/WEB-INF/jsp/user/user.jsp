@@ -146,7 +146,6 @@ function markcitys() {
 
 <div class="module">
 
-<div class="region">
 
 <%
 cityI = 0;
@@ -157,6 +156,8 @@ for(City city : mapCity)
 		cityName = city.getCityName();
 		provinceName = city.getProvince().getProvinceName();
 %>
+
+<div class="region">
 <div class="rtitle">
 <span class="rtTip">发音</span>
 &nbsp;&nbsp;
@@ -192,8 +193,11 @@ for(City city : mapCity)
 </div>
 
 </div><!--pron-->
-<%}cityI++;} }%>
+<%}cityI++;%>
 </div><!--region-->
+<%}} %>
+
+<div class="wordBottom">&nbsp;</div>
 </div><!--module-->
 </div><!--bottomleft-->
 
