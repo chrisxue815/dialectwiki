@@ -220,7 +220,7 @@
       <ref bean="pronunciationService" /> 
     </property>
   </bean>
-  <bean id="userAction" class="org.dw.action.UserAction">
+  <bean id="userAction" class="org.dw.action.UserAction" scope="prototype">
   	<property name="userService">
   		<ref bean="userService" />
   	</property>

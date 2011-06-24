@@ -49,16 +49,8 @@ var init = function(){
 <%
 	List<City> mapCity = (List<City>)request.getAttribute("mapCity");
 	List<List<Pronunciation>> pronList = (List<List<Pronunciation>>)request.getAttribute("pronList");
-	int cityI = 0; 
-%>
-function markcitys() {
-	var pronUrlList = new Array();
-	var cityName = null;
-	var i = 0;
-	var cityName = null;
-	var prUrl;
-<%
-
+	int cityI = 0;
+	
 	String cityName;
 	String provinceName;
 	
@@ -67,7 +59,16 @@ function markcitys() {
 	int goodVote;
 	int badVote; 
 	int pronId;
-	
+%>
+function markcitys() {
+	var pronUrlList = new Array();
+	var cityName = null;
+	var i = 0;
+	var cityName = null;
+	var prUrl;
+<%
+	if(mapCity != null && mapCity.size() > 0)
+	{
 	for(City city : mapCity)
 	{
 		cityName = city.getCityName();
@@ -106,6 +107,7 @@ function markcitys() {
 		});
 <%
 		cityI++;
+	}
 	}
 %>
 }
@@ -148,6 +150,8 @@ function markcitys() {
 
 <%
 cityI = 0;
+if(mapCity != null && mapCity.size() > 0)
+{
 for(City city : mapCity)
 	{
 		cityName = city.getCityName();
@@ -188,7 +192,7 @@ for(City city : mapCity)
 </div>
 
 </div><!--pron-->
-<%}cityI++;} %>
+<%}cityI++;} }%>
 </div><!--region-->
 </div><!--module-->
 </div><!--bottomleft-->
@@ -201,7 +205,9 @@ for(City city : mapCity)
 <div class="itemLink">
 用户名：<s:property value="user.username" /><br />
 邮&nbsp;&nbsp;&nbsp;&nbsp;箱：<s:property value="user.email" /><br />
-性&nbsp;&nbsp;&nbsp;&nbsp;别：<s:property value="user.sex" /><br />
+性&nbsp;&nbsp;&nbsp;&nbsp;别：
+<s:if test='user.sex=="m"'>男</s:if><s:else>女</s:else>
+<br />
 好评率：<br />
 排&nbsp;&nbsp;&nbsp;&nbsp;名：<br />
 </div>
