@@ -124,6 +124,8 @@ public class SignupExAction extends ActionSupport
       this.addFieldError("username", "用户名不能为空");
     else if (username.length() < 6)
       this.addFieldError("username", "用户名长度至少为6位");
+    else if (username.length() > 20)
+      this.addFieldError("username", "用户名长度至多为20位");
     
     if (email == null)
       this.addFieldError("email", "Email不能为空");
@@ -132,6 +134,8 @@ public class SignupExAction extends ActionSupport
       this.addFieldError("password", "密码不能为空");
     else if (password.length() < 6)
       this.addFieldError("password", "密码长度至少为6位");
+    else if (password.length() > 20)
+      this.addFieldError("password", "密码长度至多为20位");
     else if (!password.equals(password2))
       this.addFieldError("password", "两次输入的密码不一致");
     
