@@ -14,7 +14,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 //user Details的action
 public class UserAction extends ActionSupport {
-
+	
+	private static final String USER_NOT_EXIST = ERROR;
 	private static final long serialVersionUID = -5955231542987946679L;
 	private String id;
 	private String name;
@@ -96,6 +97,8 @@ public class UserAction extends ActionSupport {
 			int idInt = Integer.parseInt(id);
 			try {
 				user = userService.getUserById(idInt);
+				if(user == null)
+					return ERROR;
 				userProns = pronunciationService.getUserProns(idInt);
 
 				if (userProns != null && userProns.size() != 0)
@@ -113,6 +116,8 @@ public class UserAction extends ActionSupport {
 		} else if (name != null) {
 			try {
 				user = userService.getUserByUserName(name);
+				if(user == null)
+					return ERROR;
 				userProns = pronunciationService.getUserProns(user.getUserId());
 
 				if (userProns != null)
@@ -130,7 +135,6 @@ public class UserAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	// test module 测试，实现目标功能：针对个别用户实现指定地区的，形成词列表
 
 	public void getMapList() {
 		if (userProns != null) {
@@ -166,10 +170,10 @@ public class UserAction extends ActionSupport {
 					break;
 				lastPron = nextPron;
 				nextPron = userProns.get(index);
-				// System.out.println(nextPron.getWord().getWordName());
 			}
 
 			int i = 0;
+			/*
 			for (City city : mapCity) {
 				System.out.println(city.getCityName());
 				for (Pronunciation pron : pronList.get(i)) {
@@ -177,6 +181,7 @@ public class UserAction extends ActionSupport {
 				}
 				i++;
 			}
+			*/
 
 		}
 	}

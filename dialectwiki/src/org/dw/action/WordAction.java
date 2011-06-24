@@ -194,7 +194,7 @@ public String execute()
     
     cityList.add(lastCity);
     mapPrUrlList.add(prons.get(pronIndex).getPrUrl());
-    //System.out.println(prons.get(pronIndex).getPrUrl());
+
     for (Pronunciation pron : prons)
     {
       nextCity = pron.getCity();
@@ -204,8 +204,7 @@ public String execute()
         pronsIndexs.add(pronIndex);
         cityList.add(lastCity);
         mapPrUrlList.add(prons.get(pronIndex).getPrUrl());
-        //System.out.println(prons.get(pronIndex).getPrUrl());
-        //System.out.println(prons.get(pronIndex).getCity().getCityName());
+
       }
 
       pronIndex++;
@@ -234,14 +233,13 @@ public String execute()
     for (City city : cityList)
     {
       cityNames.add(city.getCityName());
-      //System.out.println(city.getCityName());
+
     }
     
     List<String> prUrlList = new ArrayList<String>();
     for(Pronunciation pron: prons)
     {
     	prUrlList.add(pron.getPrUrl());
-    	//System.out.println(pron.getPrUrl());
     }
     
 

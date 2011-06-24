@@ -64,6 +64,7 @@
   	
   	<action name="user" class="userAction">
   		<result name="success">/WEB-INF/jsp/user/user.jsp</result>
+  		<result name="error" type="redirect">error</result>
   	</action>
   	
   	<!-- 上传发音的action 实现-->

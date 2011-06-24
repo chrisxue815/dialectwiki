@@ -99,7 +99,6 @@ public class AddVoteAction extends ActionSupport {
 		int pronIdInt = Integer.parseInt(pronId);
 		int voteMarkInt = Integer.parseInt(voteMark);
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-		System.out.println(username);
 		if(username.equals("anonymousUser"))
 			return ERROR;
 		user = userService.getUserByUserName(username);
@@ -113,7 +112,7 @@ public class AddVoteAction extends ActionSupport {
 			return ERROR;
 		
 		
-		//System.out.println(pron.getGoodVoteNum());
+
 		vote.setMark(voteMarkInt);
 		vote.setId(id);
 		System.out.println("Still no error here!");
