@@ -80,7 +80,7 @@ function markcitys() {
 					marker[<%=mapi%>],
 					'click',
 					function(){
-					var tempstr = '<div class="pronmap"><div class="rtProv"><%=tmpProvinceName%> - <%=tmpCityName%></div><div class="pron">';
+					var tempstr = '<div class="pronmap"><div class="rtProv"><%=tmpProvinceName%> - <%=tmpCityName%></div><div class="userdiv">';
 						tempstr += '<div class="pimg"><a href="#" onclick="playSound(\'<%=mapPrUrl%>\');return false;"><img src="<%=path%>/css/images/ico_play.gif" /></a></div><div class="puser"><span>发音者</span>&nbsp;<span class="pusername"><%=mapUserName %></span></div><div class="pvote"><a href="vote?pronId=<%=pronId %>&voteMark=1">顶 + <%=goodVote%></a>&nbsp;<a href="vote?pronId=<%=pronId %>&voteMark=-1">踩 - <%=badVote%></a></div></div>';
 						tempstr += '</div>';
 						info.open(tempstr,marker[<%=mapi%>]);
@@ -220,7 +220,7 @@ cityIndex++;
 }
 %>
 
-
+<div class="userBottom">&nbsp;</div>
 </div>
 </div><!-- bottomleft -->
 
