@@ -89,36 +89,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 好评率：<br />
 排&nbsp;&nbsp;&nbsp;&nbsp;名：<br />
 添加过的发音：<br/>
-<%
-	List<City> mapCity = (List<City>)request.getAttribute("mapCity");
-	List<List<Pronunciation>> pronList = (List<List<Pronunciation>>)request.getAttribute("pronList");
-	int i;
-	String WordName;
-	int goodVote,badVote;
-	String provinceName;
-	String cityName;
-	if(mapCity != null)
-	{
-	for(i=0;i<5&&i<mapCity.size();i++)
-	{
-		cityName = mapCity.get(i).getCityName();
-		provinceName = mapCity.get(i).getProvince().getProvinceName();
-	%>
-		<div class="word">
-		<%=provinceName%> - <%=cityName %>&nbsp;
-	<%
-		Pronunciation pron = pronList.get(i).get(0);
-		
-			WordName = pron.getWord().getWordName();
-			goodVote = pron.getGoodVoteNum();
-			badVote = pron.getBadVoteNum(); 
-	%>
-		<strong><%=WordName %></strong>&nbsp;<span class="gray">顶&nbsp;<%=goodVote %>&nbsp;&nbsp;踩&nbsp;<%=badVote %></span>
-		</div>
-	<%
-	}
-	}
- %>
+<s:iterator value="pronList" status="status">
+	<s:if test="#status.index < 6">
+	<div class="word">
+			<s:property value="mapCity[#status.index].province.provinceName"/>
+			-<s:property value="mapCity[#status.index].cityName"/>&nbsp;
+			
+	<s:iterator value="pronList.get(#status.index)" begin="0" end="0"status="st">
+	
+	<strong><s:property value="word.wordName"/></strong>&nbsp;<span class="gray">顶&nbsp;<s:property value="goodVoteNum"/>&nbsp;&nbsp;踩&nbsp;<s:property value="badVoteNum"/></span>
+
+	</s:iterator>
+	</div>
+	</s:if>
+</s:iterator>
 </div>
 </div><!-- rightItem -->
 </div>
