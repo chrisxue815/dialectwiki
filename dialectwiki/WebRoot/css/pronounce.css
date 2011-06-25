@@ -1,0 +1,88 @@
+/* CSS Document */
+
+.left{
+	float:left;
+	width: 65%;
+	margin: 10px 5px 10px 5px;
+	border: 1px solid #DFDFDF;
+	text-align: center;
+	vertical-align: middle;
+}
+.right{
+	float:left;
+	width: 32%;
+	border: 1px solid #DFDFDF;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	font-size: 12px;
+	margin-top: 10px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	margin-left: 5px;
+	color: #333;
+}
+.inner{
+	font-size: 12px;
+	line-height: normal;
+	color: #000;
+	background-color: #cff;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-bottom: 15px;
+	margin-left: 5px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-color: #999;
+	border-bottom-color: #999;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.inner h1{
+	color:#C00;
+	font-size:24px;
+	font-style:normal;
+}
+
+#flash{
+	height:300px;
+	position: static;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+.right h1{
+	font-size:14px;
+	font-style: normal;
+	font-weight: bolder;
+	margin-bottom: 5px;
+}
+.right h2{
+	font-weight: bold;
+	font-size: 16px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #999;
+	margin-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-bottom: 10px;
+}
+
+.region, select {
+	font-size: 16px;
+	margin: 10px 0 10px 0;
+}
+
+.region select {
+	height: 30px;
+	width: 150px;
+}
+
+.prontip {
+	margin-bottom: 10px;
+}
