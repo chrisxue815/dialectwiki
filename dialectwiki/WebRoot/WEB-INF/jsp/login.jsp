@@ -60,13 +60,13 @@ var init = function(){
 <tr>
 <td><label for="password">密　码：</label></td>
 <td><input name="j_password" type="password" /></td>
-<td><a href="<%=path %>/password-reminder">忘记你的密码了？</a></td>
+<td><a href="<%=path %>/recoverPassword1">忘记你的密码了？</a></td>
 </tr>
 
 <tr>
 <td></td>
 <td><input class="submit" name="submit" type="submit" value="登录" /></td>
-<td><input name="_spring_security_remember_me" type="checkbox" />下次自动登录</td>
+<td><input name="_spring_security_remember_me" type="checkbox" checked="checked" />下次自动登录</td>
 </tr>
 </table>
 </form>

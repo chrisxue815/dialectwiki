@@ -28,11 +28,9 @@
   <listener>
     <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
   </listener>
-  
-  <!-- Spring ends -->
 
 
-  <!-- CharacterEncodingFilter begins -->
+  <!-- CharacterEncodingFilter begins 
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
     <filter-class>org.dw.utils.RequestEncodingFilter</filter-class>
@@ -45,9 +43,7 @@
   <filter-mapping>
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
-  <!-- CharacterEncodingFilter ends -->
+  </filter-mapping>-->
 
 
   <!-- Spring Security begins -->
@@ -61,8 +57,6 @@
     <filter-name>springSecurityFilterChain</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  
-  <!-- Spring Security ends -->
 
 
   <!-- Struts 2 begins -->
@@ -77,6 +71,18 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   
-  <!-- Struts 2 ends -->
+  
+  <!-- Jersey begins -->
+  <servlet>
+    <servlet-name>JAX-RS REST Servlet</servlet-name>
+    <servlet-class>
+      com.sun.jersey.spi.container.servlet.ServletContainer
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JAX-RS REST Servlet</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
 
 </web-app>

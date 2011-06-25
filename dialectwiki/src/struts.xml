@@ -10,8 +10,8 @@
     <interceptors>
       <interceptor name="headerDataInterceptor" class="headerDataInterceptor" />
       <interceptor-stack name="dwDefaultStack">
-        <interceptor-ref name="defaultStack" />
         <interceptor-ref name="headerDataInterceptor" />
+        <interceptor-ref name="defaultStack" />
       </interceptor-stack>
     </interceptors>
     
@@ -114,6 +114,14 @@
     
     <action name="dialect" class="dialectIndexAction">
     	<result name="success">/WEB-INF/jsp/dialect/index.jsp</result>
+    </action>
+    
+    <action name="recoverPassword1">
+      <result name="success">/WEB-INF/jsp/recoverPassword1.jsp</result>
+    </action>
+    
+    <action name="recoverPasswordEx1">
+      <result name="success">/WEB-INF/jsp/forgetPassword.jsp</result>
     </action>
 
   </package>
