@@ -8,8 +8,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="<%=path %>/js/validation.js"></script>
 <div id="top">
 <div id="data">
-<strong><s:property value="wordNum" /></strong>个词语
-<strong><s:property value="pronNum" /></strong>个发音
+<strong><s:property value="wordNum" /></strong>个词�
+<strong><s:property value="pronNum" /></strong>个发�
 </div><!--data-->
 <div id="user">
 <s:if test="#attr.headerUsername==null">

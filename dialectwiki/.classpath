@@ -39,5 +39,8 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/chardet-1.0.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/cpdetector_1.0.8.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jargs-1.0.jar"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.ws.MYECLIPSE_JERSEY_CORE"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.ws.MYECLIPSE_JERSEY_JAXB"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.ws.MYECLIPSE_JERSEY_JSON"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
