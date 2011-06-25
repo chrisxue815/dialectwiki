@@ -34,7 +34,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="wordcontent">
 
 <div class="top">
-<span class="worditem">词条：</span>
+
+<span class="worditem">词条：<s:property value='name' /></span>
+<s:if test="name.length() == 0">
+	<script type="text/javascript">
+		alert("搜索内容不能全为空格");
+		history.back()
+	</script>
+</s:if>
 <span class="wordname"><s:property value="word.wordName"/></span>
 </div>
 

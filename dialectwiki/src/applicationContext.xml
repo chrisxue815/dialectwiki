@@ -197,7 +197,7 @@
     </property>
   </bean>
   
-  <bean id="searchWordAction" class="org.dw.action.SearchWordAction">
+  <bean id="searchWordAction" class="org.dw.action.SearchWordAction" scope="prototype">
     <property name="wordService">
       <ref bean="wordService" />
     </property>

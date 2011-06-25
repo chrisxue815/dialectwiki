@@ -10,6 +10,7 @@ import org.dw.model.Province;
 import org.dw.model.Word;
 import org.dw.service.PronunciationService;
 import org.dw.service.WordService;
+import org.dw.utils.MyStringUtils;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -147,6 +148,7 @@ public String execute()
       }
       else if (name != null && name != "")
       {
+    	name = MyStringUtils.replaceBlank(name);
         word = wordService.findByWordName(name);
         if (word == null)
           return WORD_NOT_EXIST;
@@ -270,5 +272,6 @@ public String execute()
 	  }
   }
   
+
 
 }
