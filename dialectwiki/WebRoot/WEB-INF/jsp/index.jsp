@@ -64,21 +64,23 @@ document.getElementById("stext").focus();
 </div><!--center-->
 
 <!--上右模块-->
-<div class="module right">
-<h2>站点释义</h2> 
+<div class="module right siteintro">
+<h2>什么是方言百科？</h2>
 <div class="innerright">
 <div class="list">
-<br  />
-<span class="black">什么是方言百科？</span><br />
+<br />
 方言百科是一个关于中国方言的发音指南。<br />
-你是否想知道“给力”是哪个地方的话？<br />
-你是否想知道某个词语在其它的方言下如何发音？<br />
-你是否曾经外出旅游时对当地语言产生过强烈的兴趣？<br />
-搜索这个词语吧，其他用户会为你发音，<br />
-你也可以帮助其他用户，录制你所熟悉的方言发音。
-<div class ="joinus"><a style="color:#FFF" href="<%=basePath %>signup">加入我们</a></div>
-无论你熟悉哪种方言，会说哪种方言，请加入我们吧，让我们一起帮助别人更好的交流，感受方言文化
-的独特魅力，享受学习与合作的乐趣。
+<ul>
+<li>你是否想知道“给力”是哪个地方的话？</li>
+<li>你是否想知道某个词语在其它的方言下如何发音？</li>
+<li>你是否曾经外出旅游时对当地语言产生过强烈的兴趣？</li>
+</ul>
+　　搜索这个词语吧，你可以听到其他用户的发音，你也可以帮助其他用户，录制你所熟悉的方言发音。
+<div class ="joinus">
+<a style="color:#FFF" href="<%=basePath %>signup">加入我们</a>
+</div>
+　　无论你熟悉哪种方言，请加入我们吧，让我们一起促进方言间的交流，
+感受方言文化的独特魅力，享受学习与合作的乐趣。
 </div>
 </div>
 </div><!--right-->
@@ -120,9 +122,11 @@ document.getElementById("stext").focus();
 </div><!--center-->
 
 <!--下右模块-->
-<div class="module right"> 
+<div class="module right siteintro"> 
 <h2>使用指南</h2>
-<div class="list"><div class="intro"><br /><span class="black">你是新手么？</span><br />
+<div class="list">
+<div class="intro"><br />
+<span class="black">你是新手么？</span><br />
   <li>1.你想发音？</li><br />
   在搜索框中输入你想发音的词语<br />
   如果该词语不存在，进入添加词语页面<br />
