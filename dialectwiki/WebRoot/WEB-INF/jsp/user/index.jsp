@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.dw.model.City" %>
 <%@ page import="org.dw.model.Pronunciation" %>
@@ -54,6 +55,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <li>
   <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
   </a> 
+  <span class="listregion">
+  <sec:authorize ifAnyGranted="ROLE_ADMIN"><a href="forbiddenUser?id=<s:property value="userId" />">封禁用户</a></sec:authorize>
+  </span>
   </li>
   </s:iterator>
 </ul>

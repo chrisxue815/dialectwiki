@@ -102,7 +102,11 @@
 
 
   <!-- Service begins -->
-
+  <bean id="authorityService" class="org.dw.service.impl.AuthorityServiceImpl">
+  	<property name="authorityDAO">
+  	  <ref bean="authorityDAO" />
+  	</property>
+  </bean>
   
   <bean id="userService" class="org.dw.service.impl.UserServiceImpl">
     <property name="userDAO">
@@ -182,6 +186,13 @@
   	</property>
   </bean>
   
+  <bean id="forbiddenUserAction" class="org.dw.action.ForbiddenUserAction">
+  	<property name="authorityService">
+  		<ref bean="authorityService" />
+  	</property>
+  </bean>
+  
+  
   <bean id="playAction" class="org.dw.action.PlayAction">
   </bean>
   
@@ -211,6 +222,7 @@
   
   <bean id="verificationCodeAction" class="org.dw.action.VerificationCodeAction">
   </bean>
+
   
   <bean id="wordAction"  class="org.dw.action.WordAction" scope="prototype">
     <property name="wordService">

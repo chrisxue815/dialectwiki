@@ -2,11 +2,8 @@ package org.dw.action;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.struts2.ServletActionContext;
 import org.dw.model.City;
 import org.dw.model.Pronunciation;
-import org.dw.model.Province;
 import org.dw.model.Word;
 import org.dw.service.PronunciationService;
 import org.dw.service.WordService;

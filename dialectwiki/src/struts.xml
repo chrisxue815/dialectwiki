@@ -93,10 +93,15 @@
       <result name="idNotExist" type="redirect">/error</result>
       <result name="wordNotExist">/WEB-INF/jsp/word/word_not_exist.jsp</result>
       <result name="pronounce">/WEB-INF/jsp/word/word_no_pron.jsp</result>
+      <result name="invalidId">/error</result>
     </action>
     
     <action name="vcode" class="verificationCodeAction">
       <result name="success" type="stream"></result>
+    </action>
+    
+    <action name="forbiddenUser" class="forbiddenUserAction" >
+    	<result name="success" type="redirect">/users</result>
     </action>
     
     <action name="vote" class="addVoteAction">
