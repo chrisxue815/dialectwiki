@@ -9,6 +9,7 @@ import org.dw.dao.PronunciationDAO;
 import org.dw.dao.UserDAO;
 import org.dw.dao.WordDAO;
 import org.dw.model.Pronunciation;
+import org.dw.model.Word;
 import org.dw.service.PronunciationService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -103,5 +104,15 @@ public class PronunciationServiceImpl implements PronunciationService {
   public List<Pronunciation> getMapProns(int wordId)
   {
 	  return pronunciationDAO.getMapProns(wordId);
+  }
+  
+  public void deleteAllWordPron(Word word)
+  {
+	  pronunciationDAO.deleteAllWordPron(word);
+  }
+  
+  public void deletePron(Pronunciation pron)
+  {
+	  pronunciationDAO.delete(pron);
   }
 }

@@ -3,6 +3,7 @@ package org.dw.dao;
 import java.util.List;
 
 import org.dw.model.Pronunciation;
+import org.dw.model.Word;
 
 public interface PronunciationDAO
 {
@@ -49,5 +50,9 @@ public interface PronunciationDAO
   public List<Pronunciation> getUserProns(int userId);
   
   public List<Pronunciation> getMapProns(int wordId);
+  
+  public void deleteAllWordPron (Word word);
+  
+  public void deletePron (Pronunciation pron);
   
 }

@@ -78,4 +78,5 @@ public class WordServiceImpl implements WordService
   {
     return wordDAO.getWordNumber();
   }
+  
 }
