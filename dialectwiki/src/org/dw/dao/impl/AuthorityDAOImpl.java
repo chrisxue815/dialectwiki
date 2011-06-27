@@ -1,10 +1,15 @@
 package org.dw.dao.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import org.dw.dao.AuthorityDAO;
+import org.dw.hibernate.HibernateSessionFactory;
 import org.dw.model.Authority;
+import org.dw.model.User;
 import org.hibernate.LockMode;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -25,6 +30,8 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 public class AuthorityDAOImpl extends HibernateDaoSupport implements AuthorityDAO
 {
   private static final Logger log = LoggerFactory.getLogger(AuthorityDAOImpl.class);
+  private static final String ROLE_USER = "ROLE_USER";
+  private static final String ROLE_FORBIDDEN = "ROLE_FORBIDDEN";
   protected void initDao()
   {
     // do nothing
@@ -200,5 +207,58 @@ public class AuthorityDAOImpl extends HibernateDaoSupport implements AuthorityDA
   public static AuthorityDAO getFromApplicationContext(ApplicationContext ctx)
   {
     return (AuthorityDAO) ctx.getBean("AuthorityDAO");
+  }
+  
+  
+  public void enableUserRole(User user)
+  {
+	  log.debug("set user authority ROLE_USER");
+	  try
+	  {
+		Set<Authority> userAuthorities = user.getAuthorities();
+		Session session = HibernateSessionFactory.getSession();
+		Transaction trans = session.beginTransaction();
+		for(Authority authority:userAuthorities)
+		{
+			if(authority.getAuthority().equals(ROLE_FORBIDDEN))
+			{
+				authority.setAuthority(ROLE_USER);
+				session.update(authority);
+				trans.commit();
+			}
+		}
+		session.close();
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("update failed");
+		  throw re;
+	  }
+  }
+  
+  public void disableUserRole(User user)
+  {
+	  log.debug("set user authority ROLE_FORBIDDEN");
+	  try
+	  {
+		Set<Authority> userAuthorities = user.getAuthorities();
+		Session session = HibernateSessionFactory.getSession();
+		Transaction trans = session.beginTransaction();
+		for(Authority authority:userAuthorities)
+		{
+			if(authority.getAuthority().equals(ROLE_USER))
+			{
+				authority.setAuthority(ROLE_FORBIDDEN);
+				session.update(authority);
+				trans.commit();
+			}
+		}
+		session.close();
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("update failed");
+		  throw re;
+	  }
   }
 }

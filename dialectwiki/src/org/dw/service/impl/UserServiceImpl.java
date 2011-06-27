@@ -89,4 +89,16 @@ public class UserServiceImpl implements UserService
     	return userDAO.findGOODUsers();
     	
     }
+    
+    
+    
+    public void enableUser(User user)
+    {
+    	userDAO.enableUser(user);
+    }
+    
+    public void disableUser(User user)
+    {
+    	userDAO.disableUser(user);
+    }
 }

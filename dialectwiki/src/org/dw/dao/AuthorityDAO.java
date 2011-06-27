@@ -3,13 +3,14 @@ package org.dw.dao;
 import java.util.List;
 
 import org.dw.model.Authority;
+import org.dw.model.User;
 
 public interface AuthorityDAO
 {
 
   // property constants
   public static final String AUTHORITY = "authority";
-
+  
   public void save(Authority transientInstance);
 
   public void delete(Authority persistentInstance);
@@ -29,5 +30,9 @@ public interface AuthorityDAO
   public void attachDirty(Authority instance);
 
   public void attachClean(Authority instance);
+  
+  public void enableUserRole(User user);
+  
+  public void disableUserRole(User user);
 
 }

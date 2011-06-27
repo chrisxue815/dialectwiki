@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.dw.dao.UserDAO;
 import org.dw.hibernate.HibernateSessionFactory;
+import org.dw.model.Authority;
 import org.dw.model.User;
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -294,4 +296,44 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO
 	  }
 	  
   }
+  
+  
+  public void enableUser(User user)
+  {
+	log.debug("enable User");
+	try
+	{
+		user.setEnabled(true);
+		Session session = HibernateSessionFactory.getSession();
+		Transaction trans = session.beginTransaction();
+		session.update(user);	
+		trans.commit();
+	}
+	catch(RuntimeException re)
+	{
+		log.error("update failed");
+		throw re;
+	}
+  }
+  
+  public void disableUser(User user)
+  {
+	  log.debug("enable User");
+	  try
+	  {
+		  user.setEnabled(false);
+		  Session session = HibernateSessionFactory.getSession();
+		  Transaction trans = session.beginTransaction();
+		  session.update(user);	
+		  trans.commit();
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("update failed");
+		  throw re;
+	  }
+	  
+  }
+  
+
 }

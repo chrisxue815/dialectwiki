@@ -7,6 +7,7 @@ import java.util.Map;
 import org.dw.dao.PronunciationDAO;
 import org.dw.hibernate.HibernateSessionFactory;
 import org.dw.model.Pronunciation;
+import org.dw.model.Word;
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -340,7 +341,6 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
 		 
 		  List<Pronunciation> mapProns = query.list();		  
           System.out.println("query invoked");
-		  
 		  return mapProns;
 	  }
 	  catch(RuntimeException re)
@@ -348,6 +348,34 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
 		  log.error("attach failed");
 		  throw re;
 	  }
+  }
+  
+  
+  public void deleteAllWordPron (Word word)
+  {
+	  log.debug("delete all prons by word");
+	  try
+	  {
+		  String queryString = "delete Pronunciation pron where pron.word = :word";
+		  Session session = HibernateSessionFactory.getSession();
+		  Transaction trans = session.beginTransaction();
+		  Query query = session.createQuery(queryString);
+		  query.setParameter("word", word);
+		  query.executeUpdate();
+		  trans.commit();
+		  session.close();
+		  
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("delete failed!");
+		  throw re;
+	  }
+  }
+  
+  public void deletePron (Pronunciation pron)
+  {
+	  delete(pron);
   }
   
 }

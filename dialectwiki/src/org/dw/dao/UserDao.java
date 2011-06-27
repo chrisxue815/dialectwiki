@@ -50,5 +50,11 @@ public interface UserDAO
   
   public List<User> findGOODUsers(int listSize);
   
+  public void enableUser(User user);
+  public void disableUser(User user);
+  
+
+  
+  
 
 }

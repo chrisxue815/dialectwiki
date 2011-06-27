@@ -16,4 +16,7 @@ public interface UserService
   public User getUserById(int wordId);
   public List<User> getGOODUsers(int listSize);
   public List<User> getGOODUsers();
+  
+  public void enableUser(User user);
+  public void disableUser(User user);
 }
