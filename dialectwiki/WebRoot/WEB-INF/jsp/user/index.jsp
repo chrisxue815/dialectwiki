@@ -51,8 +51,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="list">
 <ul>
 <s:iterator value="GOODUsers">
-  <li>e
-  <a href="/dialectwiki/user?id=<s:property value="userId" />">
+  <li>
+  <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
   </a> 
   </li>
   </s:iterator>
