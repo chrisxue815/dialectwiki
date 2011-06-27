@@ -129,66 +129,25 @@ function markcitys() {
 
 <div class="module">
 <%
-List<Pronunciation> prons = (List<Pronunciation>)request.getAttribute("prons");
-List<Province> provinceList = (List<Province>)request.getAttribute("provinceList");
-List<City> cityList = (List<City>)request.getAttribute("cityList");    
-List<Integer> pronsIndexs = (List<Integer>)request.getAttribute("pronsIndexs");
-List<Integer> cityIndexs = (List<Integer>)request.getAttribute("cityIndexs");
-int i = 0;
-int j = 0;
-int cityIndex = 0;
-int pronIndex = 0;
-
-Pronunciation pron;
-int pronId;
-String pronUser;
-int pronUserId;
-SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");;
-String Date;
-int goodVote;
-int badVote;
-String aprUrl;
-
-String provinceName,cityName;
-
+SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
 %>
-<%
-i = 0;
-j = 0;
-cityIndex = 0;
-pronIndex = 0;
-for(Province province : provinceList)
-{
-provinceName = province.getProvinceName();
-while(i < cityIndexs.get(cityIndex))
-{
-cityName = cityList.get(i).getCityName();
-%>
+
+<s:iterator value="pronList" status="status">
 <div class="region">
 
 <div class="rtitle">
 <span class="rtTip">发音</span>
 &nbsp;&nbsp;
 <span class="rtProv">
-<%=provinceName%> - <%=cityName %>
+			<s:property value="cityList[#status.index].province.provinceName"/>
+			-<s:property value="cityList[#status.index].cityName"/>&nbsp;
 </span>
 </div>
-<%
-while( j < pronsIndexs.get(pronIndex))
-{
-pron = prons.get(j);
-pronId = pron.getPronId();
-pronUser = pron.getUser().getUsername();
-pronUserId = pron.getUser().getUserId();
-Date = dateFm.format(pron.getUploadDate());
-goodVote = pron.getGoodVoteNum();
-badVote = pron.getBadVoteNum(); 
-aprUrl = basePath+pron.getPrUrl();
-%>
-<div class="pron" id="pron<%=pronId %>">
+<s:iterator value="pronList.get(#status.index)" status="st">
+<div class="pron" id="pron<s:property value="pronid"/>">
 
 <div class="pimg">
-<a href="#" onclick="playSound('<%=aprUrl%>');return false;">
+<a href="#" onclick="playSound('<s:property value="prUrl"/>');return false;">
 <img src="<%=path %>/css/images/ico_play.gif" />
 </a>
 </div>
@@ -196,30 +155,19 @@ aprUrl = basePath+pron.getPrUrl();
 <div class="puser">
 <span>发音者</span>
 &nbsp;
-<span class="pusername"><a href="user?name=<%=pronUser %>"><%=pronUser%></a></span>
+<span class="pusername"><a href="user?name=<s:property value="user.username"/>"><s:property value="user.username"/></a></span>
 </div>
 
 <div class="pvote">
-<a href="vote?pronId=<%=pronId %>&voteMark=1">顶 + <%=goodVote %></a>
+<a href="vote?pronId=<s:property value="pronId"/>&voteMark=1">顶 + <s:property value="goodVoteNum"/></a>
 &nbsp;
-<a href="vote?pronId=<%=pronId %>&voteMark=-1">踩 - <%=badVote %></a>
+<a href="vote?pronId=<s:property value="pronId"/>&voteMark=-1">踩 - <s:property value="badVoteNum"/></a>
 </div>
 
 </div><!-- pron -->
-
-
-<%			
-j++;
-}
-pronIndex++;
-i++;
-%>
+</s:iterator>
 </div><!-- region -->
-<%
-}
-cityIndex++;
-}
-%>
+</s:iterator>
 
 <div class="userBottom">&nbsp;</div>
 </div>

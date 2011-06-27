@@ -172,9 +172,9 @@ function markcitys() {
 <span class="wordname"><a href="word?name=<s:property value="word.wordName"/>"><s:property value="word.wordName"/></a></span>
 </div>
 <div class="pvote">
-<a href="vote?pronId=<s:property value="pronid"/>&voteMark=1">顶 + <s:property value="goodVoteNum"/></a>
+<a href="vote?pronId=<s:property value="pronId"/>&voteMark=1">顶 + <s:property value="goodVoteNum"/></a>
 &nbsp;
-<a href="vote?pronId=<s:property value="goodVoteNum"/>&voteMark=-1">踩 - <s:property value="goodVoteNum"/></a>
+<a href="vote?pronId=<s:property value="pronId"/>&voteMark=-1">踩 - <s:property value="badVoteNum"/></a>
 </div>
 
 </div><!--pron-->
