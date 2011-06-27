@@ -42,6 +42,7 @@ public class ForbiddenUserAction extends ActionSupport {
 		{
 			ex.printStackTrace();
 		}
+    return null;
 	}
 
 }
