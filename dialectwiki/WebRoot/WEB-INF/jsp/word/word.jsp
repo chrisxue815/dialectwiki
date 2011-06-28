@@ -111,7 +111,7 @@ function markcitys() {
 
 <div class="top">
 <span class="worditem">词条：</span>
-<span class="wordname"><s:property value="word.wordName"/></span>
+<span class="wordname"><s:property value="word.wordName"/></span><sec:authorize ifAnyGranted="ROLE_ADMIN"><a href="DeleteWordProns?id=<s:property value="id"/>">删除全部发音</a></sec:authorize> 
 </div>
 
 <div class="bottomleft">
@@ -139,8 +139,7 @@ SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
 <span class="rtTip">发音</span>
 &nbsp;&nbsp;
 <span class="rtProv">
-			<s:property value="cityList[#status.index].province.provinceName"/>
-			-<s:property value="cityList[#status.index].cityName"/>&nbsp;
+			<s:property value="cityList[#status.index].province.provinceName"/>&nbsp;-&nbsp;<s:property value="cityList[#status.index].cityName"/>
 </span>
 </div>
 <s:iterator value="pronList.get(#status.index)" status="st">
@@ -162,6 +161,7 @@ SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
 <a href="vote?pronId=<s:property value="pronId"/>&voteMark=1">顶 + <s:property value="goodVoteNum"/></a>
 &nbsp;
 <a href="vote?pronId=<s:property value="pronId"/>&voteMark=-1">踩 - <s:property value="badVoteNum"/></a>
+<sec:authorize ifAnyGranted="ROLE_ADMIN"><span class="delpron"><a href="DeletePron?id=<s:property value="pronId"/>">删除该发音</a></span></sec:authorize>
 </div>
 
 </div><!-- pron -->
