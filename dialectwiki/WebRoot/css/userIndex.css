@@ -1,0 +1,99 @@
+/*ģ��*/
+.module {
+float: left;
+width: 32%;
+margin: 10px 5px 10px 5px;
+border: 1px solid #DFDFDF;
+}
+.module h2 {
+margin: 10px 0 0 10px;
+height: 26px;
+line-height: 26px;
+font-size: 20px;
+border-bottom: 1px solid #E4E4E4
+}
+.module ul {
+padding: 10px 0 15px 20px;
+}
+.module li a {
+font-weight: 600;
+}
+.module li a:hover {
+}
+.right{
+	border: #6E8CB1 3px solid;
+}
+.innerright{
+	background: #415369;
+	color: #FFF;
+}
+.list {
+	margin: 0px 5px 0px 5px;
+	padding: 0px 10px 0px 10px;
+	font-size:12px;
+	line-height: 24px;
+	height: 420px;
+	font-weight: normal;
+}
+.intro{
+}
+.intro li{
+	display: inline;
+	font-weight: bold;
+	padding: 5px;
+
+}
+.joinus{
+	background-color: #3C3;
+	border: medium solid #063;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 32px;
+	line-height: normal;
+	padding: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.joinus a{
+	text-decoration: none;
+}
+
+.joinus a:hover{
+	text-decoration: underline;
+}
+.listregion {
+	float: right;
+	color: #AAF;
+}
+.black{
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	font-size: 18px;
+	
+}
+
+.itemTitle {
+	padding-left:20px;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 8px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #E4E4E4;
+}
+.word{
+	margin-left:5px;
+}
+
+.word strong{
+	font-style: bold;
+}
+.gray{
+	color:#555;
+	}
+.itemLink {
+	margin-top:10px;
+	line-height: 30px;
+	margin-left:20px;
+	font-size: 12px;
+}
