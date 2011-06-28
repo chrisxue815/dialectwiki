@@ -8,6 +8,7 @@ import org.dw.dao.ProvinceDAO;
 import org.dw.model.City;
 import org.dw.model.Pronunciation;
 import org.dw.model.Province;
+import org.dw.model.Word;
 import org.dw.service.ProvinceService;
 
 public class ProvinceServiceImpl implements ProvinceService {
@@ -42,5 +43,7 @@ public class ProvinceServiceImpl implements ProvinceService {
 		}
 		return provinceProns;
 	}
+	
+
 
 }

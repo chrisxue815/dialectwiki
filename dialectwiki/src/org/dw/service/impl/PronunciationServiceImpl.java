@@ -106,7 +106,7 @@ public class PronunciationServiceImpl implements PronunciationService {
 	  return pronunciationDAO.getMapProns(wordId);
   }
   
-  public void deleteAllWordPron(Word word)
+  public void deleteWordProns(Word word)
   {
 	  pronunciationDAO.deleteAllWordPron(word);
   }
@@ -115,4 +115,5 @@ public class PronunciationServiceImpl implements PronunciationService {
   {
 	  pronunciationDAO.delete(pron);
   }
+  
 }

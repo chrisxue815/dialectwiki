@@ -13,7 +13,7 @@ public interface UserService
   public Set<Pronunciation> getUserProns(String userName);
   public List<User> getNBUsers(int listSize);
   public List<User> getNBUsers();
-  public User getUserById(int wordId);
+  public User getUserById(int userId);
   public List<User> getGOODUsers(int listSize);
   public List<User> getGOODUsers();
   

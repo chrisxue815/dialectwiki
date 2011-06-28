@@ -1,5 +1,6 @@
 package org.dw.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -8,6 +9,7 @@ import org.dw.hibernate.HibernateSessionFactory;
 import org.dw.model.Authority;
 import org.dw.model.User;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
@@ -215,8 +217,15 @@ public class AuthorityDAOImpl extends HibernateDaoSupport implements AuthorityDA
 	  log.debug("set user authority ROLE_USER");
 	  try
 	  {
-		Set<Authority> userAuthorities = user.getAuthorities();
+		List<Authority> userAuthorities= new ArrayList<Authority>();
+		
+		String username = user.getUsername();
+		String queryString = "from Authority authority where authority.username = :username";
 		Session session = HibernateSessionFactory.getSession();
+		Query query = session.createQuery(queryString);
+		query.setParameter("username", username);
+		userAuthorities = query.list();
+		
 		Transaction trans = session.beginTransaction();
 		for(Authority authority:userAuthorities)
 		{
@@ -241,8 +250,15 @@ public class AuthorityDAOImpl extends HibernateDaoSupport implements AuthorityDA
 	  log.debug("set user authority ROLE_FORBIDDEN");
 	  try
 	  {
-		Set<Authority> userAuthorities = user.getAuthorities();
+		List<Authority> userAuthorities= new ArrayList<Authority>();
+		
+		String username = user.getUsername();
+		String queryString = "from Authority authority where authority.username = :username";
 		Session session = HibernateSessionFactory.getSession();
+		Query query = session.createQuery(queryString);
+		query.setParameter("username", username);
+		userAuthorities = query.list();
+		
 		Transaction trans = session.beginTransaction();
 		for(Authority authority:userAuthorities)
 		{
