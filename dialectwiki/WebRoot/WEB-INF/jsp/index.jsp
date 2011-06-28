@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>方言百科 - 首页</title>
 
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath %>css/main.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath %>css/index.css" />
 
 <script type="text/javascript">
 function init()
