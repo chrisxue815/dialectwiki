@@ -21,7 +21,7 @@ public class DeleteWordPronsAction extends ActionSupport {
 	
 	private WordService wordService;
 	private PronunciationService pronunciationService;
-	
+	private int wordId;
 	
 	
 	public String getId() {
@@ -84,13 +84,25 @@ public class DeleteWordPronsAction extends ActionSupport {
 
 
 
+	public int getWordId() {
+		return wordId;
+	}
+
+
+
+	public void setWordId(int wordId) {
+		this.wordId = wordId;
+	}
+
+
+
 	public String execute()
 	{
 		try
 		{
 			if( id !=null && id != "")
 			{
-				int wordId = Integer.parseInt(id);
+				wordId = Integer.parseInt(id);
 				word = wordService.getById(wordId);
 				if(word == null)
 					return ID_NOT_EXIST;
@@ -100,9 +112,11 @@ public class DeleteWordPronsAction extends ActionSupport {
 			else if( name != null && name != "")
 			{
 				word = wordService.findByWordName(name);
+				
 				if(word == null)
 					return WORD_NOT_EXIST;
 				
+				wordId = word.getWordId();
 				pronunciationService.deleteWordProns(word);
 			}
 			else

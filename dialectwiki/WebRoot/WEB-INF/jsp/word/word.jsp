@@ -111,7 +111,7 @@ function markcitys() {
 
 <div class="top">
 <span class="worditem">词条：</span>
-<span class="wordname"><s:property value="word.wordName"/></span><sec:authorize ifAnyGranted="ROLE_ADMIN"><a href="DeleteWordProns?id=<s:property value="id"/>">删除全部发音</a></sec:authorize> 
+<span class="wordname"><s:property value="word.wordName"/></span><sec:authorize ifAnyGranted="ROLE_ADMIN"><a href="deleteWordProns?id=<s:property value="id"/>">删除全部发音</a></sec:authorize> 
 </div>
 
 <div class="bottomleft">
@@ -161,7 +161,7 @@ SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
 <a href="vote?pronId=<s:property value="pronId"/>&voteMark=1">顶 + <s:property value="goodVoteNum"/></a>
 &nbsp;
 <a href="vote?pronId=<s:property value="pronId"/>&voteMark=-1">踩 - <s:property value="badVoteNum"/></a>
-<sec:authorize ifAnyGranted="ROLE_ADMIN"><span class="delpron"><a href="DeletePron?id=<s:property value="pronId"/>">删除该发音</a></span></sec:authorize>
+<sec:authorize ifAnyGranted="ROLE_ADMIN"><span class="delpron"><a href="deletePron?id=<s:property value="pronId"/>">删除该发音</a></span></sec:authorize>
 </div>
 
 </div><!-- pron -->
