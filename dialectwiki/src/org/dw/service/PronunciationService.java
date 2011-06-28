@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.dw.model.Pronunciation;
+import org.dw.model.Word;
 
 public interface PronunciationService {
 	public Set<Pronunciation> getPronunciationByWordId(int wordId);
@@ -22,4 +23,9 @@ public interface PronunciationService {
 	public List<Pronunciation> getUserProns(int userId);
 	
 	public List<Pronunciation> getMapProns(int wordId);
+	
+	public void deleteWordProns(Word word);
+	
+	public void deletePron (Pronunciation pron);
+	
 }
