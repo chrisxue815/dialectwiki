@@ -121,12 +121,12 @@
     	<result name="success">/WEB-INF/jsp/dialect/index.jsp</result>
     </action>
     
-    <action name="recoverPassword1">
+    <action name="recover">
       <result name="success">/WEB-INF/jsp/recoverPassword1.jsp</result>
     </action>
     
-    <action name="recoverPasswordEx1">
-      <result name="success">/WEB-INF/jsp/forgetPassword.jsp</result>
+    <action name="recover2" class="recoverStep2">
+      <result name="success">/WEB-INF/jsp/recoverPassword2.jsp</result>
     </action>
 
   </package>

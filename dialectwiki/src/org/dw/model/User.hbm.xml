@@ -25,6 +25,12 @@
         <property name="sex" type="java.lang.String">
             <column name="sex" length="2" />
         </property>
+        <property name="question" type="java.lang.String">
+            <column name="question" length="45" />
+        </property>
+        <property name="answer" type="java.lang.String">
+            <column name="answer" />
+        </property>
         <set name="pronunciations" inverse="true" lazy="false">
             <key>
                 <column name="user_id" not-null="true" />

@@ -13,6 +13,8 @@ public interface UserDAO
   public static final String ENABLED = "enabled";
   public static final String EMAIL = "email";
   public static final String SEX = "sex";
+  public static final String QUESTION = "question";
+  public static final String ANSWER = "answer";
 
   public void save(User transientInstance);
 

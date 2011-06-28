@@ -12,12 +12,16 @@ public class User implements java.io.Serializable
 
   // Fields
 
+  private static final long serialVersionUID = 1L;
+  
   private Integer userId;
   private String username;
   private String password;
   private Boolean enabled;
   private String email;
   private String sex;
+  private String question;
+  private String answer;
   private Set pronunciations = new HashSet(0);
   private Set votes = new HashSet(0);
   private Set authorities = new HashSet(0);
@@ -109,6 +113,26 @@ public class User implements java.io.Serializable
   public void setSex(String sex)
   {
     this.sex = sex;
+  }
+  
+  public String getQuestion()
+  {
+    return this.question;
+  }
+  
+  public void setQuestion(String question)
+  {
+    this.question = question;
+  }
+  
+  public String getAnswer()
+  {
+    return this.answer;
+  }
+  
+  public void setAnswer(String answer)
+  {
+    this.answer = answer;
   }
 
   public Set getPronunciations()

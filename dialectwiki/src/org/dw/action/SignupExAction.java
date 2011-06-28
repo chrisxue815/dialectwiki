@@ -15,6 +15,8 @@ public class SignupExAction extends ActionSupport
   private String username;
   private String password;
   private String password2;
+  private String question;
+  private String answer;
   private String email;
   private String sex;
   private String validatecode;
@@ -49,6 +51,16 @@ public class SignupExAction extends ActionSupport
   public void setPassword2(String password2)
   {
     this.password2 = password2;
+  }
+  
+  public String getQuestion()
+  {
+    return question;
+  }
+  
+  public void setQuestion(String question)
+  {
+    this.question = question;
   }
 
   public String getEmail()
@@ -104,6 +116,8 @@ public class SignupExAction extends ActionSupport
       user.setEnabled(true);
       user.setUsername(username);
       user.setPassword(MD5.toMD5(password));
+      user.setQuestion(question);
+      user.setAnswer(MD5.toMD5(answer));
       user.setEmail(email);
       user.setSex(sex);
       

@@ -60,7 +60,7 @@ var init = function(){
 <tr>
 <td><label for="password">密　码：</label></td>
 <td><input name="j_password" type="password" /></td>
-<td><a href="<%=path %>/recoverPassword1">忘记你的密码了？</a></td>
+<td><a href="<%=path %>/recover">忘记你的密码了？</a></td>
 </tr>
 
 <tr>
