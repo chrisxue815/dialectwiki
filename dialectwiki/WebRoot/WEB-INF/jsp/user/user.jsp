@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.dw.model.City" %>
 <%@ page import="org.dw.model.Pronunciation" %>
@@ -129,6 +130,7 @@ function markcitys() {
 <div class="top">
 <span class="useritem">用户：</span>
 <span class="username"><s:property value="user.username"/></span>
+<sec:authorize ifAnyGranted="ROLE_ADMIN"><a href="forbiddenUser?id=<s:property value="user.userId" />">封禁用户</a></sec:authorize>
 </div>
 
 <div class="bottomleft">

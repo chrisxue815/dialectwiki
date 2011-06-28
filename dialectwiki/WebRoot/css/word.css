@@ -57,6 +57,16 @@ font-size: 14px;
 	margin-bottom: 14px;
 	border-bottom: 1px solid #DFDFDF;
 }
+.delpron{
+	float:right;
+	margin-right:5px;
+}
+.delpron a{
+	color:#555;
+}
+.delpron a:hover{
+	color:#999;
+}
 
 .rtitle {
 	margin-bottom: 10px;
