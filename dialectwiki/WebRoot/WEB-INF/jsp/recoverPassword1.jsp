@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
-<link rel="stylesheet" type="text/css" href="<%=path %>/css/signup.css" />
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/recover1.css" />
 
 <title>方言百科 - 注册</title>
 
@@ -39,6 +39,17 @@ function disableBtn(btn){
 <h2 class="title">注册用户</h2>
 <s:form action="/recover2" theme="simple" id="myForm">
 
+<table>
+
+<tr>
+<td>用户名：</td>
+<td><input type="text" name="username" /></td>
+</tr>
+<tr>
+<td colspan="2"><input type="submit" value="下一步" /></td>
+</tr>
+
+</table>
 
 </s:form>
 

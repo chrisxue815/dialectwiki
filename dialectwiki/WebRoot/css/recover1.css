@@ -1,0 +1,9 @@
+table {
+margin: 10px auto;
+width: 800px;
+}
+
+input [type="submit"] {
+height: 20px;
+width: 100px;
+}
