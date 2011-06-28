@@ -13,13 +13,14 @@
     <intercept-url pattern="/addword" access="hasRole('ROLE_USER')" />
     <intercept-url pattern="/addwordEx" access="hasRole('ROLE_USER')" />
     <intercept-url pattern="/vote" access="hasRole('ROLE_USER')" />
-    
     <intercept-url pattern="/**" access="permitAll" />
+    
+    <access-denied-handler error-page="/error" />
     
     <form-login login-page="/login?needLogin" authentication-failure-url="/login?loginError" />
     <logout />
     <remember-me />
-
+	
     <session-management invalid-session-url="/login?timeout">
       <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
     </session-management>

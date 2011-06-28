@@ -102,6 +102,10 @@
     
     <action name="forbiddenUser" class="forbiddenUserAction" >
     	<result name="success" type="redirect">/users</result>
+    	<result name="idNotExist" type="redirect">/error</result>
+    	<result name="userNotExist" type="redirect">/error</result>
+    	<result name="users" type="redirect">/users</result>
+    	<result name="invalidId">/error</result>
     </action>
     
     <action name="vote" class="addVoteAction">
