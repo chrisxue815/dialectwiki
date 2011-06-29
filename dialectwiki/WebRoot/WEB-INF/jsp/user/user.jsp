@@ -130,7 +130,14 @@ function markcitys() {
 <div class="top">
 <span class="useritem">用户：</span>
 <span class="username"><s:property value="user.username"/></span>
-<sec:authorize ifAnyGranted="ROLE_ADMIN"><a href="forbiddenUser?id=<s:property value="user.userId" />">封禁用户</a></sec:authorize>
+<sec:authorize ifAnyGranted="ROLE_ADMIN">
+<s:if test='Authoritys.get(#status.index).authority=="ROLE_USER"'>
+<a href="forbiddenUser?id=<s:property value="userId" />">封禁用户</a>
+</s:if>
+<s:else>
+<a href="unforbiddenUser?id=<s:property value="userId" />">解封用户</a>
+</s:else>
+</sec:authorize>
 </div>
 
 <div class="bottomleft">
@@ -177,6 +184,7 @@ function markcitys() {
 <a href="vote?pronId=<s:property value="pronId"/>&voteMark=1">顶 + <s:property value="goodVoteNum"/></a>
 &nbsp;
 <a href="vote?pronId=<s:property value="pronId"/>&voteMark=-1">踩 - <s:property value="badVoteNum"/></a>
+<sec:authorize ifAnyGranted="ROLE_ADMIN"><span class="delpron"><a href="deletePron?id=<s:property value="pronId"/>">删除该发音</a></span></sec:authorize>
 </div>
 
 </div><!--pron-->
@@ -198,8 +206,8 @@ function markcitys() {
 性&nbsp;&nbsp;&nbsp;&nbsp;别：
 <s:if test='user.sex=="m"'>男</s:if><s:else>女</s:else>
 <br />
-用户权限：<br />
-状&nbsp;&nbsp;&nbsp;&nbsp;态：<br />
+用户权限：<s:if test='userAuthority.authority=="ROLE_ADMIN"'>管理员</s:if><s:else>普通用户</s:else><br />
+状&nbsp;&nbsp;&nbsp;&nbsp;态：<s:if test='userAuthority.authority=="ROLE_FORBIDDEN"'>封禁</s:if><s:else>活跃</s:else><br />
 <br />
 </div>
 </div><!-- rightItem -->

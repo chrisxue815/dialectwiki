@@ -111,7 +111,16 @@ function markcitys() {
 
 <div class="top">
 <span class="worditem">词条：</span>
-<span class="wordname"><s:property value="word.wordName"/></span><sec:authorize ifAnyGranted="ROLE_ADMIN"><a href="deleteWordPron?id=<s:property value="id"/>">删除全部发音</a></sec:authorize> 
+<span class="wordname"><s:property value="word.wordName"/></span>
+<sec:authorize ifAnyGranted="ROLE_ADMIN">
+ <s:if test='1==1'>
+ 	<a href="forbiddenWord?id=<s:property value="id" />">封禁词条</a>
+ </s:if>
+ <s:else>
+ 	<a href="unforbiddenWord?id=<s:property value="id" />">解封词条</a>
+ </s:else>
+<a href="deleteWordPron?id=<s:property value="id"/>">删除全部发音</a>
+</sec:authorize> 
 </div>
 
 <div class="bottomleft">

@@ -121,7 +121,7 @@ public class UserAction extends ActionSupport {
 				user = userService.getUserById(idInt);
 				if(user == null)
 					return USER_NOT_EXIST;
-				
+				userAuthority=userService.getUserAuthority(user);
 				userProns = pronunciationService.getUserProns(idInt);
 
 				if (userProns != null && userProns.size() != 0)

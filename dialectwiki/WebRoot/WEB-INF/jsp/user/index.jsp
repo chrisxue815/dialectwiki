@@ -51,13 +51,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <h2>推荐的好评用户</h2>
 <div class="list">
 <ul>
-<s:iterator value="GOODUsers">
+<s:iterator value="GOODUsers" status="status">
   <li>
   <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
   </a> 
+  <sec:authorize ifAnyGranted="ROLE_ADMIN">
   <span class="listregion">
-  <sec:authorize ifAnyGranted="ROLE_ADMIN"><a href="forbiddenUser?id=<s:property value="userId" />">封禁用户</a></sec:authorize>
+	  <s:if test='Authoritys.get(#status.index).authority=="ROLE_USER"'>
+	  	<a href="forbiddenUser?id=<s:property value="userId" />">封禁用户</a>
+	  </s:if>
+	  <s:else>
+	  	<a href="unforbiddenUser?id=<s:property value="userId" />">解封用户</a>
+	  </s:else>
   </span>
+  </sec:authorize>
   </li>
   </s:iterator>
 </ul>
@@ -90,9 +97,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 性&nbsp;&nbsp;&nbsp;&nbsp;别：
 <s:if test='user.sex=="m"'>男</s:if><s:else>女</s:else>
 <br />
-好评率：<br />
-排&nbsp;&nbsp;&nbsp;&nbsp;名：<br />
-添加过的发音：<br/>
+<sec:authorize ifAnyGranted="ROLE_ADMIN">用户权限：管理员<br /></sec:authorize>
+<sec:authorize ifNotGranted="ROLE_ADMIN">用户权限：普通用户<br />
+状&nbsp;&nbsp;&nbsp;&nbsp;态：<sec:authorize ifAnyGranted="ROLE_USER">活跃</sec:authorize><sec:authorize ifAnyGranted="ROLE_FORBIDDEN">封禁</sec:authorize><br />
+</sec:authorize>
+<s:if test='pronList.size>0'>添加过的发音：<br/>
+
 <s:iterator value="pronList" status="status">
 	<s:if test="#status.index < 6">
 	<div class="word">
@@ -107,6 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	</s:if>
 </s:iterator>
+</s:if>
 </div>
 </div><!-- rightItem -->
 </s:else>
