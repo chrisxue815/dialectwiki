@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
+import org.dw.model.Authority;
 import org.dw.model.City;
 import org.dw.model.Pronunciation;
 import org.dw.model.User;
@@ -20,6 +21,7 @@ public class UserIndexAction extends ActionSupport {
 	
 	private List<User> NBUsers;
 	private List<User> GOODUsers;
+	private List<Authority> Authoritys;
     private UserService userService;
     private User user;
     
@@ -66,6 +68,11 @@ public class UserIndexAction extends ActionSupport {
 		int listSize = 20;
 		NBUsers = userService.getNBUsers(listSize);
 		GOODUsers = userService.getGOODUsers(listSize);
+		Authoritys = new ArrayList<Authority>();
+		for(User userobj:GOODUsers)
+		{
+			Authoritys.add(userService.getUserAuthority(userobj));
+		}
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		if( ! username.equals("anonymousUser"))
 		{
@@ -172,6 +179,14 @@ public class UserIndexAction extends ActionSupport {
 
 	public void setUserProns(List<Pronunciation> userProns) {
 		this.userProns = userProns;
+	}
+
+	public void setAuthoritys(List<Authority> authoritys) {
+		Authoritys = authoritys;
+	}
+
+	public List<Authority> getAuthoritys() {
+		return Authoritys;
 	}
 
 }

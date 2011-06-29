@@ -2,6 +2,7 @@
 .module {
 float: left;
 width: 32%;
+height:459px;
 margin: 10px 5px 10px 5px;
 border: 1px solid #DFDFDF;
 }
@@ -42,23 +43,6 @@ font-weight: 600;
 	font-weight: bold;
 	padding: 5px;
 
-}
-.joinus{
-	background-color: #3C3;
-	border: medium solid #063;
-	text-align: center;
-	vertical-align: middle;
-	font-size: 32px;
-	line-height: normal;
-	padding: 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-.joinus a{
-	text-decoration: none;
-}
-.joinus a:hover{
-	text-decoration: underline;
 }
 .listregion {
 	float: right;
