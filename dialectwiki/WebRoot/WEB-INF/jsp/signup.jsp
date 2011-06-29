@@ -49,7 +49,7 @@ function disableBtn(btn){
 
 <tr>
 <td></td>
-<td class="req">长度为6到</td>
+<td class="req">长度为6到20位(数字，字母和下划线)</td>
 </tr>
 
 <tr class="blanktr"><td></td></tr>
@@ -68,7 +68,7 @@ function disableBtn(btn){
 
 <tr>
 <td></td>
-<td class="req">长度为6到</td>
+<td class="req">长度为6到20位(数字，普通符号，字母区分大小写)</td>
 </tr>
 
 <tr class="blanktr"><td></td></tr>
@@ -81,7 +81,7 @@ function disableBtn(btn){
 
 <tr>
 <td></td>
-<td class="req">长度为6到</td>
+<td class="req">长度至少2个汉字（4个字符）</td>
 </tr>
 
 <tr class="blanktr"><td></td></tr>
@@ -94,7 +94,7 @@ function disableBtn(btn){
 
 <tr>
 <td></td>
-<td class="req">长度为6到</td>
+<td class="req">长度至少2个汉字（4个字符）</td>
 </tr>
 
 <tr class="blanktr"><td></td></tr>
@@ -107,7 +107,7 @@ function disableBtn(btn){
 
 <tr>
 <td></td>
-<td class="req">长度为6到</td>
+<td class="req">请输入有效的email</td>
 </tr>
 
 <tr class="blanktr"><td></td></tr>

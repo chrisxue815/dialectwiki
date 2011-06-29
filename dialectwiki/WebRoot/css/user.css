@@ -8,7 +8,12 @@
 	padding: 5px 10px;
 	border-bottom: 5px solid #E4E4E4
 }
-
+a.adminuser{
+	color: #777;
+}
+a.adminuser:hover{
+	color:#aaa;	
+}
 .useritem {
   font-size: 16px;
 }
@@ -179,4 +184,15 @@
   
   padding-left: 25px;
   padding-right: 25px;
+}
+
+.delpron{
+	float:right;
+	margin-right:5px;
+}
+.delpron a{
+	color:#777;
+}
+.delpron a:hover{
+	color:#aaa;
 }

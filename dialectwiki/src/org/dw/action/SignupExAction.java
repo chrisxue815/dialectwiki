@@ -6,6 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.dw.service.UserService;
 import org.dw.utils.MD5;
+import org.dw.utils.MyStringUtils;
 import org.dw.model.User;
 
 public class SignupExAction extends ActionSupport
@@ -144,13 +145,18 @@ public class SignupExAction extends ActionSupport
   
   public void validate()
   {
-    if (username == null)
-      this.addFieldError("username", "用户名不能为空");
+	  if (username == null)
+	  {
+		  username=username.toLowerCase();
+		  this.addFieldError("username", "用户名不能为空");
+	  }
     else if (username.length() < 6)
       this.addFieldError("username", "用户名长度至少为6位");
     else if (username.length() > 20)
       this.addFieldError("username", "用户名长度至多为20位");
-    
+    else if (MyStringUtils.checkUserName(username))
+    	this.addFieldError("username", "无效的用户名");
+	  
     if (email == null)
       this.addFieldError("email", "Email不能为空");
     
@@ -162,6 +168,8 @@ public class SignupExAction extends ActionSupport
       this.addFieldError("password", "密码长度至多为20位");
     else if (!password.equals(password2))
       this.addFieldError("password", "两次输入的密码不一致");
+    else if (MyStringUtils.checkUserPass(password))
+    	this.addFieldError("password", "无效的密码");
     
     if (validatecode == null)
       this.addFieldError("validatecode", "验证码不能为空");

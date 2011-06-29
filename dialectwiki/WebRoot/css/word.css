@@ -11,7 +11,12 @@ font-size: 14px;
 	padding: 5px 10px;
 	border-bottom: 5px solid #E4E4E4
 }
-
+a.adminword{
+	color: #777;
+}
+a.adminword:hover{
+	color:#aaa;	
+}
 .worditem {
   font-size: 16px;
 }
@@ -62,10 +67,10 @@ font-size: 14px;
 	margin-right:5px;
 }
 .delpron a{
-	color:#555;
+	color:#777;
 }
 .delpron a:hover{
-	color:#999;
+	color:#aaa;
 }
 
 .rtitle {
@@ -146,7 +151,6 @@ font-size: 14px;
 	margin-left:30px;
 	font-size: 12px;
 }
-
 .nopron {
   font-size: 16px;
   line-height: normal;

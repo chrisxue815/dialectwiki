@@ -56,14 +56,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
   </a> 
   <sec:authorize ifAnyGranted="ROLE_ADMIN">
-  <span class="listregion">
+
 	  <s:if test='Authoritys.get(#status.index).authority=="ROLE_USER"'>
-	  	<a href="forbiddenUser?id=<s:property value="userId" />">封禁用户</a>
+	  	<a class="adminuser" href="forbiddenUser?id=<s:property value="userId" />">封禁用户</a>
 	  </s:if>
 	  <s:else>
-	  	<a href="unforbiddenUser?id=<s:property value="userId" />">解封用户</a>
+	  	<a class="adminuser" href="permitUser?id=<s:property value="userId" />">解封用户</a>
 	  </s:else>
-  </span>
   </sec:authorize>
   </li>
   </s:iterator>

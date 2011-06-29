@@ -55,16 +55,27 @@ font-weight: 600;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
-.joinus a{
+a.joinus{
 	text-decoration: none;
 }
 
-.joinus a:hover{
+a.joinus:hover{
 	text-decoration: underline;
 }
 .listregion {
 	float: right;
 	color: #AAF;
+}
+.adminuser{	
+	float: right;
+	font-weight:normal;
+
+}
+a.adminuser{
+	color: #777;
+}
+a.adminuser:hover{
+	color:#aaa;	
 }
 .black{
 	font-style: normal;

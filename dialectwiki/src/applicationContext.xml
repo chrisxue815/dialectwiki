@@ -186,7 +186,28 @@
   	</property>
   </bean>
   
+  <bean id="disableWordAction" class="org.dw.action.DisableWordAction">
+  	<property name="wordService">
+  		<ref bean="wordService" />
+  	</property>
+  </bean>
+  
+  <bean id="enableWordAction" class="org.dw.action.EnableWordAction">
+  	<property name="wordService">
+  		<ref bean="wordService" />
+  	</property>
+  </bean>
+  
   <bean id="forbiddenUserAction" class="org.dw.action.ForbiddenUserAction">
+  	<property name="authorityService">
+  		<ref bean="authorityService" />
+  	</property>
+  	<property name="userService">
+  		<ref bean="userService" />
+  	</property>
+  </bean>
+  
+  <bean id="permitUserAction" class="org.dw.action.PermitUserAction">
   	<property name="authorityService">
   		<ref bean="authorityService" />
   	</property>
