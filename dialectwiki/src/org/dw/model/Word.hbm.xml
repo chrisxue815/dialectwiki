@@ -13,6 +13,9 @@
         <property name="wordName" type="java.lang.String">
             <column name="word_name" length="45" not-null="true" unique="true" />
         </property>
+        <property name="enabled" type="java.lang.Boolean">
+            <column name="enabled" not-null="true" />
+        </property>
         <set name="pronunciations" inverse="true"  lazy="false" >
             <key>
                 <column name="word_id" not-null="true" />

@@ -14,6 +14,7 @@ public class Word implements java.io.Serializable
 
   private Integer wordId;
   private String wordName;
+  private Boolean enabled;
   private Set pronunciations = new HashSet(0);
 
   // Constructors
@@ -50,6 +51,16 @@ public class Word implements java.io.Serializable
   public void setWordName(String wordName)
   {
     this.wordName = wordName;
+  }
+  
+  public Boolean getEnabled()
+  {
+    return this.enabled;
+  }
+  
+  public void setEnabled(Boolean enabled)
+  {
+    this.enabled = enabled;
   }
 
   public Set getPronunciations()
