@@ -1,0 +1,43 @@
+input {
+font-size: 14px;
+}
+
+h2.title {
+font-size: 20px;
+color: #04A300;
+text-align: center;
+margin: 20px auto 0px auto;
+}
+
+.userInfo {
+font-size: 14px;
+margin: 20px auto;
+border-width: 0px;
+}
+
+.userInfo th {
+text-align: left;
+}
+
+.userInfo td {
+}
+
+.userInfo .submit {
+text-align: center;
+height: 30px;
+}
+
+.userInfo .submit input {
+width: 100%;
+height: 100%;
+}
+
+.req {
+color: #6F6F6F;
+font-size: 11px;
+height: 12px;
+}
+
+.blanktr {
+height: 30px;
+}
