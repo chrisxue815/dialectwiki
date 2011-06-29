@@ -108,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<s:property value="mapCity[#status.index].province.provinceName"/>
 			-<s:property value="mapCity[#status.index].cityName"/>&nbsp;
 			
-	<s:iterator value="pronList.get(#status.index)" begin="0" end="0"status="st">
+	<s:iterator value="pronList.get(#status.index)" begin="0" end="0" status="st">
 	
 	<strong><s:property value="word.wordName"/></strong>&nbsp;<span class="gray">顶&nbsp;<s:property value="goodVoteNum"/>&nbsp;&nbsp;踩&nbsp;<s:property value="badVoteNum"/></span>
 

@@ -58,12 +58,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <s:property value="wordName" />
 </a>
   <sec:authorize ifAnyGranted="ROLE_ADMIN">
-	<s:if test='word.enabled == true'>
-	<a class="adminword" href="disableWord?id=<s:property value="wordId" />">封禁词条</a>
-	</s:if>
-	<s:else>
-	<a class="adminword" href="enableWord?id=<s:property value="wordId" />">解封词条</a>
-	</s:else>
+    <s:if test='enabled == true'>
+  	<a class="adminword" href="disableWord?id=<s:property value="wordId" />">封禁词条</a>
+  	</s:if>
+  	<s:else>
+  	<a class="adminword" href="enableWord?id=<s:property value="wordId" />">解封词条</a>
+  	</s:else>
  </sec:authorize>
 </li>
 </s:iterator>
