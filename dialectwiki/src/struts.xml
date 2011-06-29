@@ -108,6 +108,32 @@
     	<result name="invalidId">/error</result>
     </action>
     
+    <action name="permitUser" class="permitUserAction">
+    	<result name="success" type="redirect">/users</result>
+    	<result name="idNotExist" type="redirect">/error</result>
+    	<result name="userNotExist" type="redirect">/error</result>
+    	<result name="users" type="redirect">/users</result>
+    	<result name="invalidId">/error</result>
+    </action>
+    
+   <action name="enableWord" class="enableWordAction">
+    	<result name="success" type="redirect">
+    		<param name="location">/word</param>
+			<param name="id">%{wordId}</param>
+    	</result>
+    	<result name="wordNotExist" type="redirect">/error</result>
+    	<result name="words" type="redirect">/words</result>
+    </action>
+    
+    <action name="disableWord" class="disableWordAction">
+        <result name="success" type="redirect">
+    		<param name="location">/word</param>
+			<param name="id">%{wordId}</param>
+    	</result>
+    	<result name="wordNotExist" type="redirect">/error</result>
+    	<result name="words" type="redirect">/words</result>
+    </action>
+    
     <action name="vote" class="addVoteAction">
     	<result name="success" type="redirect">
 			  <param name="location">/word</param>
