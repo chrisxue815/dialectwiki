@@ -262,7 +262,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     log.debug("get recent Words with limited size 20");
     try
     {
-      String queryString = "from Word model order by model.wordId desc";
+      String queryString = "from Word model where model.enabled = true order by model.wordId desc";
       Session session = HibernateSessionFactory.getSession();
       Query query = session.createQuery(queryString);
       query.setMaxResults(listSize);
@@ -286,7 +286,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     {
       Word word = null;
       List<Word> hotWords = new ArrayList<Word>();
-      String queryString = "from Word model order by model.wordId desc";
+      String queryString = "from Word model where model.enabled = true order by model.wordId desc";
       List<Word> queryResult = getHibernateTemplate().find(queryString);
 
       int resultSize = queryResult.size();
@@ -326,7 +326,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     {
       Word word = null;
       List<Word> waitProns = new ArrayList<Word>();
-      String queryString = "from Word word order by word.wordId asc ";
+      String queryString = "from Word word where word.enabled = true order by word.wordId asc ";
       List<Word> queryResult = getHibernateTemplate().find(queryString);
 
       int resultSize = queryResult.size();

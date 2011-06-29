@@ -113,7 +113,7 @@ function markcitys() {
 <span class="worditem">词条：</span>
 <span class="wordname"><s:property value="word.wordName"/></span>
 <sec:authorize ifAnyGranted="ROLE_ADMIN">
- <s:if test='1==1'>
+ <s:if test='word.enabled == true'>
  	<a class="adminword" href="forbiddenWord?id=<s:property value="id" />">封禁词条</a>
  </s:if>
  <s:else>
