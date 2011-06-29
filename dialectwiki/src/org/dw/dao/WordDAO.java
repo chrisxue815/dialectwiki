@@ -51,5 +51,9 @@ public interface WordDAO
   public List<Word> getWaitProns(int listSize);
   
   public long getWordNumber();
+  
+  public void enableWord(Word word);
+  
+  public void disableWord(Word word);
 
 }

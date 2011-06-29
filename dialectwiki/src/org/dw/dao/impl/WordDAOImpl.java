@@ -11,6 +11,7 @@ import org.dw.model.Word;
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -358,5 +359,44 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO
     String queryString = "select count(*) from Word";
     return (Long) getHibernateTemplate().find(queryString).listIterator()
         .next();
+  }
+  
+  public void enableWord(Word word)
+  {
+	  log.debug("enable word");
+	  try
+	  {
+		  word.setEnabled(true);
+		  Session session = HibernateSessionFactory.getSession();
+		  Transaction trans = session.beginTransaction();
+		  session.update(word);
+		  trans.commit();
+		  session.close();
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("update failed");
+		  throw re;
+	  }
+  }
+  
+  public void disableWord(Word word)
+  {
+	  log.debug("disable word");
+	  try
+	  {
+		  word.setEnabled(false);
+		  Session session = HibernateSessionFactory.getSession();
+		  Transaction trans = session.beginTransaction();
+		  session.update(word);
+		  trans.commit();
+		  session.close();
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("update failed");
+		  throw re;
+	  }
+	  
   }
 }

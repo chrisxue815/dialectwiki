@@ -79,4 +79,14 @@ public class WordServiceImpl implements WordService
     return wordDAO.getWordNumber();
   }
   
+  public void enableWord(Word word)
+  {
+	 wordDAO.enableWord(word);
+  }
+  
+  public void disableWord(Word word)
+  {
+	  wordDAO.disableWord(word);
+  }
+  
 }

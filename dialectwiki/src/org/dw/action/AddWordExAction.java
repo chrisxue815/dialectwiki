@@ -41,6 +41,7 @@ public class AddWordExAction extends ActionSupport
     
     word = new Word();
     word.setWordName(wordname);
+    word.setEnabled(true);
 
     try
     {

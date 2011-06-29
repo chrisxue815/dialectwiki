@@ -23,4 +23,8 @@ public interface WordService
   public List<Word> getRecentWords();
   
   public long getWordNumber();
+  
+  public void enableWord(Word word);
+  
+  public void disableWord(Word word);
 }
