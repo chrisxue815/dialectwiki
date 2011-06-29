@@ -1,0 +1,78 @@
+/*ģ��*/
+.module {
+float: left;
+margin: 10px 5px 10px 5px;
+border: 1px solid #DFDFDF;
+}
+.left, .center {
+width: 35%;
+}
+.right{
+width: 26%;
+}
+.siteintro {
+border: #6E8CB1 3px solid;
+}
+.module h2 {
+margin: 10px 0 0 10px;
+height: 26px;
+line-height: 26px;
+font-size: 20px;
+border-bottom: 1px solid #E4E4E4
+}
+.module ul {
+padding: 10px 0 15px 20px;
+}
+.module li a {
+font-weight: 600;
+}
+.module li a:hover {
+}
+.innerright{
+	background: #415369;
+	color: #FFF;
+}
+.list {
+	margin: 0px 5px 0px 5px;
+	padding: 0px 10px 0px 10px;
+	font-size:12px;
+	line-height: 24px;
+	height: 420px;
+	font-weight: normal;
+}
+.intro{
+}
+.intro li{
+	display: inline;
+	font-weight: bold;
+	padding: 5px;
+
+}
+.joinus{
+	height:28px;
+	background-color: #3C3;
+	border: medium solid #063;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 20px;
+	line-height: normal;
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.joinus a{
+	text-decoration: none;
+}
+.joinus a:hover{
+	text-decoration: underline;
+}
+.listregion {
+	float: right;
+	color: #AAF;
+}
+.black{
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	font-size: 10px;
+}
