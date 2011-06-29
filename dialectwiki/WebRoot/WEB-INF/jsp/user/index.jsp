@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	<a class="adminuser" href="forbiddenUser?id=<s:property value="userId" />">封禁用户</a>
 	  </s:if>
 	  <s:else>
-	  	<a class="adminuser" href="unforbiddenUser?id=<s:property value="userId" />">解封用户</a>
+	  	<a class="adminuser" href="permitUser?id=<s:property value="userId" />">解封用户</a>
 	  </s:else>
   </sec:authorize>
   </li>
