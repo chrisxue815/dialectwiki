@@ -198,8 +198,9 @@ function markcitys() {
 性&nbsp;&nbsp;&nbsp;&nbsp;别：
 <s:if test='user.sex=="m"'>男</s:if><s:else>女</s:else>
 <br />
-好评率：<br />
-排&nbsp;&nbsp;&nbsp;&nbsp;名：<br />
+用户权限：<br />
+状&nbsp;&nbsp;&nbsp;&nbsp;态：<br />
+<br />
 </div>
 </div><!-- rightItem -->
 </div><!-- rightList -->

@@ -15,7 +15,7 @@
     <intercept-url pattern="/vote" access="hasRole('ROLE_USER')" />
     <intercept-url pattern="/**" access="permitAll" />
     
-    <access-denied-handler error-page="/error" />
+    <access-denied-handler error-page="/forbidden" />
     
     <form-login login-page="/login?needLogin" authentication-failure-url="/login?loginError" />
     <logout />

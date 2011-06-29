@@ -351,20 +351,45 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
   }
   
   
+  public void ideleteAllWordPron (Word word)
+  {
+	  log.debug("delete all prons by word");
+	  try
+	  {
+		  String queryString = "delete from Pronunciation pron where pron.word.wordId = :wordId";
+		  Session session = HibernateSessionFactory.getSession();
+		  Transaction trans = session.beginTransaction();
+		  Query query = session.createQuery(queryString);
+		  query.setParameter("wordId", word.getWordId());
+		  query.executeUpdate();
+		  trans.commit();
+		  session.close();
+		  
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("delete failed!");
+		  throw re;
+	  }
+  }
+  
   public void deleteAllWordPron (Word word)
   {
 	  log.debug("delete all prons by word");
 	  try
 	  {
-		  String queryString = "delete Pronunciation pron where pron.word = :word";
+		  String queryString = "from Pronunciation pron where pron.word.wordId = :wordId";
 		  Session session = HibernateSessionFactory.getSession();
 		  Transaction trans = session.beginTransaction();
 		  Query query = session.createQuery(queryString);
-		  query.setParameter("word", word);
-		  query.executeUpdate();
-		  trans.commit();
+		  query.setParameter("wordId", word.getWordId());
+		  List<Pronunciation> prons = query.list();
+		  for(Pronunciation pron: prons)
+		  {
+			  session.delete(pron);
+			  trans.commit();
+		  }
 		  session.close();
-		  
 	  }
 	  catch(RuntimeException re)
 	  {
