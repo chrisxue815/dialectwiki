@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -83,6 +84,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <li>
   <a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName" />
   </a>
+   <sec:authorize ifAnyGranted="ROLE_ADMIN">
+		<span class="listregion">
+		<s:if test='1==1'>
+		<a href="forbiddenWord?id=<s:property value="wordId" />">封禁词条</a>
+		</s:if>
+		<s:else>
+		<a href="unforbiddenWord?id=<s:property value="wordId" />">解封词条</a>
+		</s:else>
+		</span>
+ </sec:authorize>
   </li>
   </s:iterator>
 </ul>
