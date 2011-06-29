@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
+import org.dw.model.Authority;
 import org.dw.model.City;
 import org.dw.model.Pronunciation;
 import org.dw.model.User;
+import org.dw.service.AuthorityService;
 import org.dw.service.PronunciationService;
 import org.dw.service.UserService;
 
@@ -20,9 +22,11 @@ public class UserAction extends ActionSupport {
 	private String id;
 	private String name;
 	private User user;
-
+	private Authority userAuthority;
+	
 	private UserService userService;
 	private PronunciationService pronunciationService;
+	private AuthorityService authorityService;
 	List<Pronunciation> userProns;
 	List<City> mapCity;
 	List<List<Pronunciation>> pronList;
@@ -91,6 +95,24 @@ public class UserAction extends ActionSupport {
 	public void setPronList(List<List<Pronunciation>> pronList) {
 		this.pronList = pronList;
 	}
+	
+	
+
+	public Authority getUserAuthority() {
+		return userAuthority;
+	}
+
+	public void setUserAuthority(Authority userAuthority) {
+		this.userAuthority = userAuthority;
+	}
+
+	public AuthorityService getAuthorityService() {
+		return authorityService;
+	}
+
+	public void setAuthorityService(AuthorityService authorityService) {
+		this.authorityService = authorityService;
+	}
 
 	public String execute() {
 		if (id != null) {
@@ -99,6 +121,7 @@ public class UserAction extends ActionSupport {
 				user = userService.getUserById(idInt);
 				if(user == null)
 					return USER_NOT_EXIST;
+				
 				userProns = pronunciationService.getUserProns(idInt);
 
 				if (userProns != null && userProns.size() != 0)
@@ -170,18 +193,6 @@ public class UserAction extends ActionSupport {
 				nextPron = userProns.get(index);
 			}
 			
-			/*
-			int i = 0;
-			
-			for (City city : mapCity) {
-				System.out.println(city.getCityName());
-				for (Pronunciation pron : pronList.get(i)) {
-					System.out.println("   " + pron.getWord().getWordName());
-				}
-				i++;
-			}
-			*/
-
 		}
 	}
 

@@ -136,7 +136,7 @@
     <action name="deletePron" class="deletePronAction">
 		<result name="success" type="redirect">
 			<param name="location">/word</param>
-			<param name="id">%(wordId)</param>
+			<param name="id">%{wordId}</param>
 		</result>
 		<result name="pronNotExist" type="redirect">/error</result>
 		<result name="words" type="redirect">/words</result>
@@ -144,13 +144,14 @@
 	</action>
 	
 	<action name="deleteWordPron" class="deleteWordPronsAction">
-		<result name="success" type="redirect">
-			<param name="location">/word</param>
-			<param name="id">%(wordId)</param>
-		</result>
+		<result name="success" type="redirect">/words</result>
 		<result name="idNotExist" type="redirect">/error</result>
 		<result name="wordNotExist" type="redirect">/error</result>
 		<result name="words" type="redirect">/words</result>
+	</action>
+	
+	<action name="forbidden">
+		<result name="success">/WEB-INF/jsp/forbidden.jsp</result>
 	</action>
 	
   </package>

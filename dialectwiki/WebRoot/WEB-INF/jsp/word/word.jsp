@@ -111,7 +111,7 @@ function markcitys() {
 
 <div class="top">
 <span class="worditem">词条：</span>
-<span class="wordname"><s:property value="word.wordName"/></span><sec:authorize ifAnyGranted="ROLE_ADMIN"><a href="deleteWordProns?id=<s:property value="id"/>">删除全部发音</a></sec:authorize> 
+<span class="wordname"><s:property value="word.wordName"/></span><sec:authorize ifAnyGranted="ROLE_ADMIN"><a href="deleteWordPron?id=<s:property value="id"/>">删除全部发音</a></sec:authorize> 
 </div>
 
 <div class="bottomleft">
