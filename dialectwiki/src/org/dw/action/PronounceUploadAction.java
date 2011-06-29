@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 import org.dw.service.PronunciationService;
+import org.dw.service.WordService;
 
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,7 +19,7 @@ public class PronounceUploadAction extends ActionSupport {
 	
 	private HttpServletRequest request;
 	private PronunciationService pronunciationService;
-	
+	private WordService wordService;
 	public PronunciationService getPronunciationService() {
 		return pronunciationService;
 	}
@@ -26,6 +27,12 @@ public class PronounceUploadAction extends ActionSupport {
 		this.pronunciationService = pronunciationService;
 	}
 	
+	public void setWordService(WordService wordService) {
+		this.wordService = wordService;
+	}
+	public WordService getWordService() {
+		return wordService;
+	}
 	public String execute()
 	{
 		
@@ -35,9 +42,10 @@ public class PronounceUploadAction extends ActionSupport {
 		try
 		{
 			File f1 = null;
+			if(ServletActionContext.getRequest().getContentLength()>60000)
+				return "failed";
 			
 			request = ServletActionContext.getRequest();
-			
 			inputStream = request.getInputStream();
 
 			byte[] bytes = new byte[1024];
@@ -51,9 +59,15 @@ public class PronounceUploadAction extends ActionSupport {
 
 			word = ByteToInt(IntB);
 
+			if(null==wordService.getById(word))
+				return "failed";
+			
 			inputStream.read(IntB);
 
 			city = ByteToInt(IntB);
+			
+			if(city>479)
+				return "failed";
 			
 			String path = request.getSession().getServletContext().getRealPath("/");
 			

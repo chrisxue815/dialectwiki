@@ -71,6 +71,7 @@
   	<action name="upload_pronounce" class="pronounceUploadAction">
   		<result name="success">/WEB-INF/jsp/upload_success.jsp</result>
   		<result name="error">/WEB-INF/jsp/upload_error.jsp</result>
+  		<result name="failed" type="redirect">/error</result>
   	</action>
   	
     <action name="addword">

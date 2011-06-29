@@ -230,6 +230,9 @@
     <property name="pronunciationService">
       <ref bean="pronunciationService" />
     </property>
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
   </bean>
   
   <bean id="recoverStep2" class="org.dw.action.RecoverStep2Action" scope="prototype">
