@@ -1,0 +1,25 @@
+#content {
+margin-top: 30px;
+text-align: center;
+}
+
+h1 {
+color: #04A300;
+}
+
+table {
+margin: 20px auto;
+}
+
+th {
+text-align: left;
+}
+
+input[type="submit"] {
+height: 25px;
+width: 100%;
+}
+
+.blanktr {
+height: 10px;
+}
