@@ -17,6 +17,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.sun.xml.internal.ws.wsdl.parser.RuntimeWSDLParser;
+
 /**
  * A data access object (DAO) providing persistence and search support for
  * Authority entities. Transaction control of the save(), update() and delete()
@@ -274,6 +276,30 @@ public class AuthorityDAOImpl extends HibernateDaoSupport implements AuthorityDA
 	  catch(RuntimeException re)
 	  {
 		  log.error("update failed");
+		  throw re;
+	  }
+  }
+  
+  public Authority findUserAuthority(User user)
+  {
+	  log.debug("find user authority");
+	  try
+	  {
+		  List<Authority> userAuthorities = new ArrayList<Authority>();
+		  
+		  String username = user.getUsername();
+		  String queryString = "from Authority authority where authority.username = :username";
+		  Session session = HibernateSessionFactory.getSession();
+		  Query query = session.createQuery(queryString);
+		  query.setParameter("username", username);
+		  
+		  userAuthorities  = query.list();
+		  Authority userAuthority = userAuthorities.get(0);
+		  return userAuthority;
+	  }
+	  catch(RuntimeException re)
+	  {
+		  log.error("attach failed");
 		  throw re;
 	  }
   }

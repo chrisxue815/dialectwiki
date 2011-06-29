@@ -35,4 +35,5 @@ public interface AuthorityDAO
   
   public void disableUserRole(User user);
 
+  public Authority findUserAuthority(User user);
 }

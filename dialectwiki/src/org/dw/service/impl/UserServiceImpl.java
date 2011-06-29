@@ -90,8 +90,6 @@ public class UserServiceImpl implements UserService
     	
     }
     
-    
-    
     public void enableUser(User user)
     {
     	userDAO.enableUser(user);
@@ -100,5 +98,10 @@ public class UserServiceImpl implements UserService
     public void disableUser(User user)
     {
     	userDAO.disableUser(user);
+    }
+    
+    public Authority getUserAuthority(User user)
+    {
+    	return authorityDAO.findUserAuthority(user);
     }
 }
