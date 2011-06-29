@@ -152,13 +152,15 @@ public class SignupExAction extends ActionSupport
 	  }
     else if (username.length() < 6)
       this.addFieldError("username", "用户名长度至少为6位");
-    else if (username.length() > 20)
-      this.addFieldError("username", "用户名长度至多为20位");
+    else if (username.length() > 14)
+      this.addFieldError("username", "用户名长度至多为14位");
     else if (MyStringUtils.checkUserName(username))
     	this.addFieldError("username", "无效的用户名");
 	  
     if (email == null)
       this.addFieldError("email", "Email不能为空");
+    else if(email.length() > 30)
+    	this.addFieldError("email", "Email至多为30位");
     
     if (password == null)
       this.addFieldError("password", "密码不能为空");
@@ -170,6 +172,20 @@ public class SignupExAction extends ActionSupport
       this.addFieldError("password", "两次输入的密码不一致");
     else if (MyStringUtils.checkUserPass(password))
     	this.addFieldError("password", "无效的密码");
+    
+    if (question == null)
+    	this.addFieldError("question", "密保问题不能为空");
+    else if(question.length() < 4)
+    	this.addFieldError("question", "密保问题至少为4位");
+    else if(question.length() >20)
+    	this.addFieldError("question", "密保问题至多为20位");
+    
+    if (answer == null)
+    	this.addFieldError("answer", "密保答案不能为空");
+    else if(answer.length() < 4)
+    	this.addFieldError("answer", "密保答案至少为4位");
+    else if(answer.length() >20)
+    	this.addFieldError("answer", "密保答案至多为20位");
     
     if (validatecode == null)
       this.addFieldError("validatecode", "验证码不能为空");

@@ -81,7 +81,7 @@ function disableBtn(btn){
 
 <tr>
 <td></td>
-<td class="req">长度至少2个汉字（4个字符）</td>
+<td class="req">长度4到20位</td>
 </tr>
 
 <tr class="blanktr"><td></td></tr>
@@ -94,7 +94,7 @@ function disableBtn(btn){
 
 <tr>
 <td></td>
-<td class="req">长度至少2个汉字（4个字符）</td>
+<td class="req">长度4到20位</td>
 </tr>
 
 <tr class="blanktr"><td></td></tr>
