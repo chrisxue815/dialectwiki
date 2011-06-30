@@ -5,8 +5,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <html>
   <head>
-    <meta http-equiv="refresh" content="5; url=<%=basePath%>login">
-    <title>成功找回密码</title>
+    <meta http-equiv="refresh" content="3; url=<%=basePath%>login">
+    <title>方言百科 - 成功找回密码</title>
 
 
   </head>

@@ -164,7 +164,7 @@
     </action>
     
     <action name="recover4" class="recoverStep4">
-      <result name="success">/WEB-INF/jsp/recoverPassword4.jsp</result>
+      <result name="success">/WEB-INF/jsp/recoverSuccess.jsp</result>
       <result name="error" type="redirect">/error</result>
       <result name="input">//WEB-INF/jsp/recoverPassword3.jsp</result>
     </action>
