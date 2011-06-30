@@ -192,6 +192,9 @@ SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
 <a href="pronounce?id=<s:property value='id' />">
 添加<strong>发音</strong>
 </a>
+<br/>
+<br/>
+<a href="http://www.soso.com/q?pid=s.idx&ch=s.idx&w=<s:property value="word.wordName"/>&ie=utf-8">在搜搜上搜索此词条</a>
 </div>
 </div><!-- rightItem -->
 </div><!-- rightList -->

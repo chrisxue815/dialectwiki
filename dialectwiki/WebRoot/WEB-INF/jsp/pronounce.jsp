@@ -44,8 +44,9 @@ var init = function() {
 
 function upLoad_error()
 {
-  alert("请登录后再进行发音");
-  location.href = "<%=basePath %>login";
+  alert("错误！提交发音失败");
+  history.go(0);
+//  location.href = '<%=basePath %>pronounce?id=<s:property value="id" />';
 }
 </script>
 </head>
