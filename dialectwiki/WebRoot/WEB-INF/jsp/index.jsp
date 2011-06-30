@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/index.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath %>css/more.css" />
 
 <script type="text/javascript">
 function init()
@@ -87,7 +88,7 @@ document.getElementById("stext").focus();
 
 <!--下左模块-->
 <div class="module left">
-<h2>最新词条<a href="moreRecentWords">more</a></h2>
+<h2>最新词条<a class="more" href="moreRecentWords">more</a></h2>
 <div class="list">
 <ul>
   <s:iterator value="recentWords">
