@@ -191,6 +191,7 @@
 	</action>
 	
 	<action name="moreRecentWords" class="moreRecentWords">
+		<result name="success">/WEB-INF/jsp/MoreRecentWords.jsp</result>
 		<result name="error" type="redirect">/error</result>
 	</action>
   </package>
