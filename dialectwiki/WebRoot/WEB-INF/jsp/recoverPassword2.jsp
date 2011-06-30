@@ -48,7 +48,11 @@ function disableBtn(btn){
 </tr>
 <tr>
 <th>密保答案：</th>
-<td><input type="text" name="answer" id="answer" /></td>
+<td><s:textfield name="answer" id="answer" ></s:textfield></td>
+</tr>
+<tr>
+<th></th>
+<td><s:fielderror name="answer"></s:fielderror></td>
 </tr>
 <tr>
 <th></th>
@@ -56,7 +60,7 @@ function disableBtn(btn){
 </tr>
 </table>
 
-<input type="hidden" name="userName" value='<s:property value="userName" />' />
+<input type="hidden" name="username" value='<s:property value="username" />' />
 </s:form>
 
 </div><!--content-->

@@ -9,70 +9,68 @@ import org.dw.utils.MD5;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class RecoverStep3Action extends ActionSupport
-{
-  private static final long serialVersionUID = 1L;
-  
-  private String userName;
-  private String answer;
-  private UserService userService;
+public class RecoverStep3Action extends ActionSupport {
+	private static final long serialVersionUID = 1L;
 
-  public String getUserName()
-  {
-    return userName;
-  }
+	private String username;
+	private String answer;
+	private UserService userService;
 
-  public void setUserName(String userName)
-  {
-    this.userName = userName;
-  }
-  
-  public String getAnswer()
-  {
-    return answer;
-  }
+	public String getUsername() {
+		return username;
+	}
 
-  public void setAnswer(String answer)
-  {
-    this.answer = answer;
-  }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-  public UserService getUserService()
-  {
-    return userService;
-  }
+	public String getAnswer() {
+		return answer;
+	}
 
-  public void setUserService(UserService userService)
-  {
-    this.userService = userService;
-  }
-  
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 
-  public String execute()
-  {
-    try
-    {
-      User user = userService.getUserByUserName(userName);
-      String trueAnswer = user.getAnswer();
-      String inputAnswer = MD5.toMD5(answer);
-      
-      if (trueAnswer.equalsIgnoreCase(inputAnswer))
-      {
-        HttpSession session = ServletActionContext.getRequest().getSession();
-        session.setAttribute("recoverUser", userName);
-        session.setAttribute("recover", "1");
-        
-        return SUCCESS;
-      }
-      else
-      {
-        return INPUT;
-      }
-    }
-    catch (Exception ex)
-    {
-      return ERROR;
-    }
-    
-  }
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+	public String execute() {
+		try {
+			User user = userService.getUserByUserName(username);
+			String trueAnswer = user.getAnswer();
+			String inputAnswer = MD5.toMD5(answer);
+
+			if (trueAnswer.equalsIgnoreCase(inputAnswer)) {
+				HttpSession session = ServletActionContext.getRequest()
+						.getSession();
+				session.setAttribute("recoverUser", username);
+				session.setAttribute("recover", "1");
+
+				return SUCCESS;
+			} else {
+				return INPUT;
+			}
+		} catch (Exception ex) {
+			return ERROR;
+		}
+	}
+
+	public void validate() {
+		if (answer == null)
+			this.addFieldError("answer", "密保答案问题不能为空！");
+		else {
+			User user = userService.getUserByUserName(username);
+			String trueAnswer = user.getAnswer();
+			String inputAnswer = MD5.toMD5(answer);
+			
+			if(trueAnswer.equalsIgnoreCase(inputAnswer) == false)
+				this.addFieldError("answer", "密保答案错误！为了您的账户安全请重新验证！");
+		}
+	}
 }

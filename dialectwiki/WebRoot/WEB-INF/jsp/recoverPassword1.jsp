@@ -43,9 +43,8 @@ function disableBtn(btn){
 
 <tr>
 <th>用户名：</th>
-<td><input type="text" name="username" id="username" /></td>
-</tr>
-
+<td><s:textfield id="username" name="username"></s:textfield></td></tr>
+<tr><th></th><td><s:fielderror></s:fielderror></td></tr>
 <tr class="blanktr"><td></td></tr>
 
 <tr>

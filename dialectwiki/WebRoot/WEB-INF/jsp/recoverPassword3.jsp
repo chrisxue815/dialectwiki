@@ -50,6 +50,10 @@ function disableBtn(btn){
 </tr>
 <tr>
 <th></th>
+<td><s:fielderror name="password"></s:fielderror></td>
+</tr>
+<tr>
+<th></th>
 <td><input type="submit" value="下一步" /></td>
 </tr>
 </table>
