@@ -68,7 +68,7 @@ document.getElementById("stext").focus();
 <h2>什么是方言百科？</h2>
 <div class="innerright">
 <div class="list">
-<br />
+<div style="height:12px"></div>
 方言百科是一个关于中国方言的发音指南。<br />
 <ul>
 <li>你是否想知道“给力”是哪个地方的话？</li>
