@@ -31,10 +31,10 @@ document.getElementById("stext").focus();
 <jsp:include page="internal/header.jsp" />
 
 <div id="content">
-<div class="head">最新词条</div>
+<div class="head">待发音词条</div>
 
 <table>
-<s:iterator value="recentWords" status="status">
+<s:iterator value="waitProns" status="status">
 
 <s:if test="#status.index%4==0">
 <tr>

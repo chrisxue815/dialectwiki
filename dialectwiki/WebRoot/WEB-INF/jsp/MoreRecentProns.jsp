@@ -31,25 +31,26 @@ document.getElementById("stext").focus();
 <jsp:include page="internal/header.jsp" />
 
 <div id="content">
-<div class="head">最新词条</div>
+<div class="head">最新发音</div>
 
 <table>
-<s:iterator value="recentWords" status="status">
+
+<s:iterator value="recentProns">
 
 <s:if test="#status.index%4==0">
 <tr>
 </s:if>
 
 <td class="list">
-<a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName"/></a>
-  <sec:authorize ifAnyGranted="ROLE_ADMIN">
-	<s:if test='enabled == true'>
-	<a class="adminword" href="disableWord?id=<s:property value="wordId" />">封禁词条</a>
-	</s:if>
-	<s:else>
-	<a class="adminword" href="enableWord?id=<s:property value="wordId" />">解封词条</a>
-	</s:else>
- </sec:authorize>
+<a href="/dialectwiki/word?id=<s:property value="word.wordId" />">
+<s:property value="word.wordName" /> 
+</a>
+<span class="listregion">
+地区:
+<s:property value="city.province.provinceName"/> - 
+<s:property value="city.cityName"/>
+</span>
+
  </td>
 
 <s:if test="#status.index%4==0">

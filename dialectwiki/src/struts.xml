@@ -194,6 +194,18 @@
 		<result name="success">/WEB-INF/jsp/MoreRecentWords.jsp</result>
 		<result name="error" type="redirect">/error</result>
 	</action>
+	<action name="moreHotWords" class="moreHotWords">
+		<result name="success">/WEB-INF/jsp/MoreHotWords.jsp</result>
+		<result name="error" type="redirect">/error</result>
+	</action>
+	<action name="moreRecentProns" class="moreRecentProns">
+		<result name="success">/WEB-INF/jsp/MoreRecentProns.jsp</result>
+		<result name="error" type="redirect">/error</result>
+	</action>
+	<action name="moreWaitProns" class="moreWaitProns">
+		<result name="success">/WEB-INF/jsp/MoreWaitProns.jsp</result>
+		<result name="error" type="redirect">/error</result>
+	</action>
   </package>
 
 </struts>

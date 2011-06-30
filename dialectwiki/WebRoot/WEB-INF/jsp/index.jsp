@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>css/index.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath %>css/more.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath %>css/more1.css" />
 
 <script type="text/javascript">
 function init()
@@ -35,7 +35,7 @@ document.getElementById("stext").focus();
 
 <!--上左模块-->
 <div class="module left">
-<h2>待发音词条</h2>
+<h2>待发音词条<a class="more" href="moreWaitProns">more</a></h2>
 <div class="list">
 <ul>
   <s:iterator value="waitProns">
@@ -50,7 +50,7 @@ document.getElementById("stext").focus();
 
 <!--上中模块-->
 <div class="module center">
-<h2>热门词条</h2>
+<h2>热门词条<a class="more" href="moreHotWords">more</a></h2>
 <div class="list">
 <ul>
 <s:iterator value="hotWords">
@@ -103,7 +103,7 @@ document.getElementById("stext").focus();
 
 <!--下中模块-->
 <div class="module center">
-<h2>最新发音</h2>
+<h2>最新发音<a class="more" href="moreRecentProns">more</a></h2>
 <div class="list">
 <ul>
 <s:iterator value="recentProns">
