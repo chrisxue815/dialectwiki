@@ -152,19 +152,21 @@
     
     <action name="recover2" class="recoverStep2">
       <result name="success">/WEB-INF/jsp/recoverPassword2.jsp</result>
+      <result name="input">/WEB-INF/jsp/recoverPassword1.jsp</result>
       <result name="error" type="redirect">/recover?userNotExist</result>
     </action>
     
     <action name="recover3" class="recoverStep3">
       <result name="success">/WEB-INF/jsp/recoverPassword3.jsp</result>
-      <result name="error"></result>
-      <result name="input"></result>
+      <result name="input">/WEB-INF/jsp/recoverPassword1.jsp</result>
+      <result name="error" type="redirect">/error</result>
+      
     </action>
     
     <action name="recover4" class="recoverStep4">
       <result name="success">/WEB-INF/jsp/recoverPassword4.jsp</result>
-      <result name="error"></result>
-      <result name="input"></result>
+      <result name="error" type="redirect">/error</result>
+      <result name="input">//WEB-INF/jsp/recoverPassword3.jsp</result>
     </action>
     
     <action name="deletePron" class="deletePronAction">

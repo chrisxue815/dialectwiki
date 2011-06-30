@@ -61,7 +61,12 @@ public class UserServiceImpl implements UserService
   }
 
 	public User getUserByUserName(String userName) {
-		return (User) userDAO.findByUsername(userName).get(0);
+		if(userDAO.findByUsername(userName).size() > 0)
+		{
+			return (User) userDAO.findByUsername(userName).get(0);
+		}
+		else
+			return null;
 	}
 	
 	public Set<Pronunciation> getUserProns(String userName)
