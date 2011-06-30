@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+	
+	<!-- Spring Security Data Source begins -->
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    <property name="url" value="jdbc:mysql://localhost:3306/dialectwiki" />
+    <property name="username" value="dw_user" />
+    <property name="password" value="hitchimpdw1234" />
+  </bean>
+  
+  
+  <!-- DAO begins -->
+  <bean id="authorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+  
+  <bean id="cityDAO" class="org.dw.dao.impl.CityDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="pronunciationDAO" class="org.dw.dao.impl.PronunciationDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="provinceDAO" class="org.dw.dao.impl.ProvinceDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="userDAO" class="org.dw.dao.impl.UserDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="voteDAO" class="org.dw.dao.impl.VoteDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="wordDAO" class="org.dw.dao.impl.WordDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="PronunciationDAO" class="org.dw.dao.impl.PronunciationDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="UserDAO" class="org.dw.dao.impl.UserDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="CityDAO" class="org.dw.dao.impl.CityDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="WordDAO" class="org.dw.dao.impl.WordDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="VoteDAO" class="org.dw.dao.impl.VoteDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="ProvinceDAO" class="org.dw.dao.impl.ProvinceDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+  <bean id="AuthorityDAO" class="org.dw.dao.impl.AuthorityDAOImpl">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory" />
+    </property>
+  </bean>
+
+
+  <!-- Service begins -->
+  <bean id="authorityService" class="org.dw.service.impl.AuthorityServiceImpl">
+  	<property name="authorityDAO">
+  	  <ref bean="authorityDAO" />
+  	</property>
+  </bean>
+  
+  <bean id="userService" class="org.dw.service.impl.UserServiceImpl">
+    <property name="userDAO">
+      <ref bean="userDAO" />
+    </property>
+    <property name="authorityDAO">
+      <ref bean="authorityDAO" />
+    </property>
+    <property name="pronunciationDAO">
+      <ref bean="pronunciationDAO" />
+    </property>
+  </bean>
+  
+  <bean id="wordService" class="org.dw.service.impl.WordServiceImpl">
+  	<property name="wordDAO">
+  		<ref bean="wordDAO" />
+  	</property>
+  </bean>
+  
+  <bean id="pronunciationService" class="org.dw.service.impl.PronunciationServiceImpl">
+  	<property name="pronunciationDAO">
+  		<ref bean="pronunciationDAO" />
+  	</property>
+    <property name="wordDAO">
+      <ref bean="wordDAO" />
+    </property>
+    <property name="userDAO">
+      <ref bean="userDAO" />
+    </property>
+    <property name="cityDAO">
+      <ref bean="cityDAO" />
+    </property>
+  </bean>
+  
+  <bean id="provinceService" class="org.dw.service.impl.ProvinceServiceImpl">
+  	<property name="provinceDAO">
+		<ref bean="provinceDAO" />
+	</property>
+  </bean>
+  
+  <bean id="voteService" class="org.dw.service.impl.VoteServiceImpl">
+  	<property name="pronunciationDAO">
+  		<ref bean="pronunciationDAO" />
+  	</property>
+  	<property name="voteDAO">
+  		<ref bean="voteDAO" />
+  	</property>
+  </bean>
+  
+  <!-- Action begins -->
+  
+  <bean id="websiteIndexAction" class="org.dw.action.WebsiteIndexAction">
+  	<property name="wordService">
+  		<ref bean="wordService" />
+  	</property>
+  	<property name="pronunciationService">
+  		<ref bean="pronunciationService" />
+  	</property>
+  </bean>
+  
+  <bean id="addWordExAction" class="org.dw.action.AddWordExAction" scope="prototype">
+  	<property name="wordService">
+  		<ref bean="wordService" />
+  	</property>
+  </bean>
+  
+  
+  <bean id="addVoteAction" class="org.dw.action.AddVoteAction" scope="prototype">
+  	<property name="pronunciationService">
+  		<ref bean="pronunciationService" />
+  	</property>
+  	<property name="userService">
+  		<ref bean="userService" />
+  	</property>
+  	<property name="voteService">
+  		<ref bean="voteService" />
+  	</property>
+  </bean>
+  
+  <bean id="disableWordAction" class="org.dw.action.DisableWordAction">
+  	<property name="wordService">
+  		<ref bean="wordService" />
+  	</property>
+  </bean>
+  
+  <bean id="enableWordAction" class="org.dw.action.EnableWordAction">
+  	<property name="wordService">
+  		<ref bean="wordService" />
+  	</property>
+  </bean>
+  
+  <bean id="forbiddenUserAction" class="org.dw.action.ForbiddenUserAction">
+  	<property name="authorityService">
+  		<ref bean="authorityService" />
+  	</property>
+  	<property name="userService">
+  		<ref bean="userService" />
+  	</property>
+  </bean>
+  
+  <bean id="permitUserAction" class="org.dw.action.PermitUserAction">
+  	<property name="authorityService">
+  		<ref bean="authorityService" />
+  	</property>
+  	<property name="userService">
+  		<ref bean="userService" />
+  	</property>
+  </bean>
+  
+  
+  <bean id="playAction" class="org.dw.action.PlayAction">
+  </bean>
+  
+  <bean id="pronouncePageAction" class="org.dw.action.PronouncePageAction" scope="prototype">
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+  </bean>
+  
+  <bean id="pronounceUploadAction" class="org.dw.action.PronounceUploadAction">
+    <property name="pronunciationService">
+      <ref bean="pronunciationService" />
+    </property>
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+  </bean>
+  
+  <bean id="recoverStep2" class="org.dw.action.RecoverStep2Action" scope="prototype">
+    <property name="userService">
+      <ref bean="userService" />
+    </property>
+  </bean>
+  
+  <bean id="recoverStep3" class="org.dw.action.RecoverStep3Action" scope="prototype">
+    <property name="userService">
+      <ref bean="userService" />
+    </property>
+  </bean>
+  
+  <bean id="recoverStep4" class="org.dw.action.RecoverStep4Action" scope="prototype">
+    <property name="userService">
+      <ref bean="userService" />
+    </property>
+  </bean>
+  
+  <bean id="searchWordAction" class="org.dw.action.SearchWordAction" scope="prototype">
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+  </bean>
+
+  <bean id="signupExAction" class="org.dw.action.SignupExAction" scope="prototype">
+  	<property name="userService">
+  		<ref bean="userService" />
+  	</property>
+  </bean>
+  
+  <bean id="verificationCodeAction" class="org.dw.action.VerificationCodeAction">
+  </bean>
+
+  
+  <bean id="wordAction"  class="org.dw.action.WordAction" scope="prototype">
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+    <property name="pronunciationService">
+      <ref bean="pronunciationService" /> 
+    </property>
+  </bean>
+  <bean id="userAction" class="org.dw.action.UserAction" scope="prototype">
+  	<property name="userService">
+  		<ref bean="userService" />
+  	</property>
+  	<property name="pronunciationService">
+  		<ref bean="pronunciationService" />
+  	</property>
+  </bean>
+  
+  <bean id="userIndexAction" class="org.dw.action.UserIndexAction" scope="prototype">
+  	<property name="userService">
+  		<ref bean="userService" />
+  	</property>
+  	  <property name="pronunciationService">
+  		<ref bean="pronunciationService" />
+  	</property>
+  	
+  </bean>
+  
+  <bean id="wordIndexAction" class="org.dw.action.WordIndexAction">
+  	<property name="wordService">
+  		<ref bean="wordService" />
+  	</property>
+  </bean>
+  
+  <bean id="dialectAction" class="org.dw.action.DialectAction">
+  	<property name="provinceService">
+  		<ref bean="provinceService" />
+  	</property>
+  </bean>
+  
+  <bean id="dialectIndexAction" class="org.dw.action.DialectIndexAction">
+  </bean>
+  
+  <bean id="deletePronAction" class="org.dw.action.DeletePronAction">
+  	<property name="pronunciationService">
+  		<ref bean="pronunciationService" />
+  	</property>
+  </bean>
+  
+  <bean id="deleteWordPronsAction" class="org.dw.action.DeleteWordPronsAction">
+  	<property name="pronunciationService">
+  		<ref bean="pronunciationService" />
+  	</property>
+  	<property name="wordService">
+  		<ref bean="wordService"/>
+  	</property>
+  </bean>
+  
+  <!-- Interceptor begin -->
+  <bean id="headerDataInterceptor" class="org.dw.interceptor.HeaderDataInterceptor">
+    <property name="wordService">
+      <ref bean="wordService" />
+    </property>
+    <property name="pronService">
+      <ref bean="pronunciationService" />
+    </property>
+  </bean>
+  
+  <bean id="moreRecentWords" class="org.dw.action.MoreRecentWordsAction">
+  	<property name="wordService">
+  		<ref bean="wordService"/>
+  	</property>
+  </bean>
+    
+</beans>
