@@ -15,6 +15,7 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**
@@ -279,11 +280,27 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
 	}
 
 	//////////////////////////////////////////
+	public List<Word> getPageHotWords(int pageNo,int pageSize)
+	{
+		log.debug("attach a page of Words");
+		try
+		{
+			int index = (pageNo -1) * pageSize;
+			String queryString = "from Word model where model.wordId in (select pron.word.wordId from Pronunciation pron) and model.enabled = true order by model.wordId desc limit ? , ?";
+			return getHibernateTemplate().find(queryString,index,pageSize);
+		}
+		catch(RuntimeException re)
+		{
+			log.error("attach failed",re);
+			throw re;
+		}
+	}
+	
 	public List<Word> igetHotWords(int listSize) {
 		try{
 			List<Word> hotWords = new ArrayList<Word>();
-			String queryString = "from Word model where model.enabled = true and model.pronunciations is not null order by model.wordId desc";
-			hotWords = getHibernateTemplate().find(queryString);
+			String queryString = "from Word model where model.wordId in (select pron.word.wordId from Pronunciation pron) and model.enabled = true order by model.wordId desc limit 0 , ?";
+			hotWords = getHibernateTemplate().find(queryString,listSize);
 			return hotWords;
 		}catch (RuntimeException re) {
 			log.error("attach failed", re);
@@ -322,6 +339,36 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
 			throw re;
 		}
 	}
+	//////////////////////////////////////////////////////////
+	public List<Word> igetWaitProns(int listSize)
+	{
+		try{
+			String queryString = "from Word model where model.wordId  not in (select pron.word.wordId from Pronunciation pron) and model.enabled = true order by model.wordId desc limit 0 , ?";
+			return getHibernateTemplate().find(queryString,listSize);
+		}
+		catch(RuntimeException re)
+		{
+			log.error("attach failed" ,re);
+			throw re;
+		}
+	}
+	
+	public List<Word> getPageWaitProns(int pageNo,int pageSize)
+	{
+		try
+		{
+			int index = (pageNo - 1) * pageSize;
+			String queryString = "from Word model where model.wordId in (select pron.word.wordId from Pronunciation pron) and model.enabled = true order by model.wordId desc limit  ? , ?";
+			return getHibernateTemplate().find(queryString,index,pageSize);
+		}
+		catch(RuntimeException re)
+		{
+			log.error("attach failed" ,re);
+			throw re;
+		}
+	}
+	
+	////////////////////////////////////////////////////////////
 
 	public long getWordNumber() {
 		String queryString = "select count(*) from Word";

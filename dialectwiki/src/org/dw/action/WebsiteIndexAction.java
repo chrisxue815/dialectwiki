@@ -27,8 +27,7 @@ public class WebsiteIndexAction extends ActionSupport {
 	
 	  // 最近发音
 	private List<Pronunciation> recentProns;
-	
-	
+		
 
 	public WordService getWordService() {
 		return wordService;
