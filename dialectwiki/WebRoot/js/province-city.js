@@ -117,10 +117,6 @@ function setVariables() {
 	var cityNode = document.getElementById("selCity");
 	MyMovie.setCity(cityNode.options[cityNode.selectedIndex].value);
 }
-function upLoad_success()
-{
-	location.href = document.getElementById("wordLink").href;
-}
 
 function codeAddress() {
 

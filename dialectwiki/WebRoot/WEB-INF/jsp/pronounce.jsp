@@ -42,11 +42,14 @@ var init = function() {
   updateCity();
 }
 
+function upLoad_success()
+{
+	window.location.href='<%=basePath %>word?id=<s:property value="id" />';
+}
 function upLoad_error()
 {
   alert("错误！提交发音失败");
   history.go(0);
-//  location.href = '<%=basePath %>pronounce?id=<s:property value="id" />';
 }
 </script>
 </head>
