@@ -31,7 +31,7 @@
     </action>
 
     <action name="play" class="playAction">
-    	<result name="success">/WEB-INF/jsp/pronunciation/play.jsp</result>
+      <result name="success">/WEB-INF/jsp/pronunciation/play.jsp</result>
     </action>
   
     <action name="pronounce" class="pronouncePageAction">
@@ -47,33 +47,33 @@
       <result name="success">/WEB-INF/jsp/signup.jsp</result>
     </action>
     
-  	<action name="signupEx" class="org.dw.action.SignupExAction">
-  		<result name="success" type="redirect">/login?signupSuccess</result>
-  		<result name="error">/WEB-INF/jsp/signup.jsp</result>
-  		<result name="input">/WEB-INF/jsp/signup.jsp</result>
-  	</action>
-  	
-  	<action name="login">
-  	 <result name="success">/WEB-INF/jsp/login.jsp</result>
-  	</action>
-  	
-  	<action name="users" class="userIndexAction">
-  		<result name="success">/WEB-INF/jsp/user/index.jsp</result>
-  		<result name="error" type="redirect">error</result>
-  	</action>
-  	
-  	<action name="user" class="userAction">
-  		<result name="success">/WEB-INF/jsp/user/user.jsp</result>
-  		<result name="error" type="redirect">error</result>
-  	</action>
-  	
-  	<!-- 上传发音的action 实现-->
-  	<action name="upload_pronounce" class="pronounceUploadAction">
-  		<result name="success">/WEB-INF/jsp/upload_success.jsp</result>
-  		<result name="error">/WEB-INF/jsp/upload_error.jsp</result>
-  		<result name="failed" type="redirect">/error</result>
-  	</action>
-  	
+    <action name="signupEx" class="org.dw.action.SignupExAction">
+      <result name="success" type="redirect">/login?signupSuccess</result>
+      <result name="error">/WEB-INF/jsp/signup.jsp</result>
+      <result name="input">/WEB-INF/jsp/signup.jsp</result>
+    </action>
+    
+    <action name="login">
+     <result name="success">/WEB-INF/jsp/login.jsp</result>
+    </action>
+    
+    <action name="users" class="userIndexAction">
+      <result name="success">/WEB-INF/jsp/user/index.jsp</result>
+      <result name="error" type="redirect">error</result>
+    </action>
+    
+    <action name="user" class="userAction">
+      <result name="success">/WEB-INF/jsp/user/user.jsp</result>
+      <result name="error" type="redirect">error</result>
+    </action>
+    
+    <!-- 上传发音的action 实现-->
+    <action name="upload_pronounce" class="pronounceUploadAction">
+      <result name="success">/WEB-INF/jsp/upload_success.jsp</result>
+      <result name="error">/WEB-INF/jsp/upload_error.jsp</result>
+      <result name="failed" type="redirect">/error</result>
+    </action>
+    
     <action name="addword">
       <result name="success">/WEB-INF/jsp/word/add.jsp</result>
     </action>
@@ -105,48 +105,48 @@
     </action>
     
     <action name="forbiddenUser" class="forbiddenUserAction" >
-    	<result name="success" type="redirect">/users</result>
-    	<result name="idNotExist" type="redirect">/error</result>
-    	<result name="userNotExist" type="redirect">/error</result>
-    	<result name="users" type="redirect">/users</result>
-    	<result name="invalidId">/error</result>
+      <result name="success" type="redirect">/users</result>
+      <result name="idNotExist" type="redirect">/error</result>
+      <result name="userNotExist" type="redirect">/error</result>
+      <result name="users" type="redirect">/users</result>
+      <result name="invalidId">/error</result>
     </action>
     
     <action name="permitUser" class="permitUserAction">
-    	<result name="success" type="redirect">/users</result>
-    	<result name="idNotExist" type="redirect">/error</result>
-    	<result name="userNotExist" type="redirect">/error</result>
-    	<result name="users" type="redirect">/users</result>
-    	<result name="invalidId">/error</result>
+      <result name="success" type="redirect">/users</result>
+      <result name="idNotExist" type="redirect">/error</result>
+      <result name="userNotExist" type="redirect">/error</result>
+      <result name="users" type="redirect">/users</result>
+      <result name="invalidId">/error</result>
     </action>
-    
+   
    <action name="enableWord" class="enableWordAction">
-		<result name="success" type="redirect">/words</result>
-    	<result name="wordNotExist" type="redirect">/error</result>
-    	<result name="words" type="redirect">/words</result>
+    <result name="success" type="redirect">/words</result>
+      <result name="wordNotExist" type="redirect">/error</result>
+      <result name="words" type="redirect">/words</result>
     </action>
     
     <action name="disableWord" class="disableWordAction">
         <result name="success" type="redirect">/words</result>
-    	<result name="wordNotExist" type="redirect">/error</result>
-    	<result name="words" type="redirect">/words</result>
+      <result name="wordNotExist" type="redirect">/error</result>
+      <result name="words" type="redirect">/words</result>
     </action>
     
     <action name="vote" class="addVoteAction">
-    	<result name="success" type="redirect">
-			  <param name="location">/word</param>
-			  <param name="id">%{wordId}</param>
-		  </result>
-		  <result name="error" type="redirect">/error</result>
-		  <result name="failure" type="redirect">/vote-failed</result>
+      <result name="success" type="redirect">
+        <param name="location">/word</param>
+        <param name="id">%{wordId}</param>
+      </result>
+      <result name="error" type="redirect">/error</result>
+      <result name="failure" type="redirect">/vote-failed</result>
     </action>
     
     <action name="vote-failed">
-    	<result name="success">/WEB-INF/jsp/vote/vote-failed.jsp</result>
+      <result name="success">/WEB-INF/jsp/vote/vote-failed.jsp</result>
     </action>
     
     <action name="dialect" class="dialectIndexAction">
-    	<result name="success">/WEB-INF/jsp/dialect/index.jsp</result>
+      <result name="success">/WEB-INF/jsp/dialect/index.jsp</result>
     </action>
     
     <action name="recover">
@@ -173,42 +173,45 @@
     </action>
     
     <action name="deletePron" class="deletePronAction">
-		<result name="success" type="redirect">
-			<param name="location">/word</param>
-			<param name="id">%{wordId}</param>
-		</result>
-		<result name="pronNotExist" type="redirect">/error</result>
-		<result name="words" type="redirect">/words</result>
-		<result name="invalidid" type="redirect">/error</result>
-	</action>
-	
-	<action name="deleteWordPron" class="deleteWordPronsAction">
-		<result name="success" type="redirect">/words</result>
-		<result name="idNotExist" type="redirect">/error</result>
-		<result name="wordNotExist" type="redirect">/error</result>
-		<result name="words" type="redirect">/words</result>
-	</action>
-	
-	<action name="forbidden">
-		<result name="success">/WEB-INF/jsp/forbidden.jsp</result>
-	</action>
-	
-	<action name="moreRecentWords" class="moreRecentWords">
-		<result name="success">/WEB-INF/jsp/MoreRecentWords.jsp</result>
-		<result name="error" type="redirect">/error</result>
-	</action>
-	<action name="moreHotWords" class="moreHotWords">
-		<result name="success">/WEB-INF/jsp/MoreHotWords.jsp</result>
-		<result name="error" type="redirect">/error</result>
-	</action>
-	<action name="moreRecentProns" class="moreRecentProns">
-		<result name="success">/WEB-INF/jsp/MoreRecentProns.jsp</result>
-		<result name="error" type="redirect">/error</result>
-	</action>
-	<action name="moreWaitProns" class="moreWaitProns">
-		<result name="success">/WEB-INF/jsp/MoreWaitProns.jsp</result>
-		<result name="error" type="redirect">/error</result>
-	</action>
+      <result name="success" type="redirect">
+        <param name="location">/word</param>
+        <param name="id">%{wordId}</param>
+      </result>
+      <result name="pronNotExist" type="redirect">/error</result>
+      <result name="words" type="redirect">/words</result>
+      <result name="invalidid" type="redirect">/error</result>
+    </action>
+  
+	  <action name="deleteWordPron" class="deleteWordPronsAction">
+	    <result name="success" type="redirect">/words</result>
+	    <result name="idNotExist" type="redirect">/error</result>
+	    <result name="wordNotExist" type="redirect">/error</result>
+	    <result name="words" type="redirect">/words</result>
+	  </action>
+	  
+	  <action name="forbidden">
+	    <result name="success">/WEB-INF/jsp/forbidden.jsp</result>
+	  </action>
+	  
+	  <action name="moreRecentWords" class="moreRecentWords">
+	    <result name="success">/WEB-INF/jsp/MoreRecentWords.jsp</result>
+	    <result name="error" type="redirect">/error</result>
+	  </action>
+	  
+	  <action name="moreHotWords" class="moreHotWords">
+	    <result name="success">/WEB-INF/jsp/MoreHotWords.jsp</result>
+	    <result name="error" type="redirect">/error</result>
+	  </action>
+	  
+	  <action name="moreRecentProns" class="moreRecentProns">
+	    <result name="success">/WEB-INF/jsp/MoreRecentProns.jsp</result>
+	    <result name="error" type="redirect">/error</result>
+	  </action>
+	  
+	  <action name="moreWaitProns" class="moreWaitProns">
+	    <result name="success">/WEB-INF/jsp/MoreWaitProns.jsp</result>
+	    <result name="error" type="redirect">/error</result>
+	  </action>
   </package>
 
 </struts>

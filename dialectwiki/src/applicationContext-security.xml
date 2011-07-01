@@ -8,11 +8,19 @@
 
 
   <http use-expressions="true">
+    <intercept-url pattern="/forbiddenUser" access="hasRole('ROLE_ADMIN')" />
+    <intercept-url pattern="/permitUser" access="hasRole('ROLE_ADMIN')" />
+    <intercept-url pattern="/enableWord" access="hasRole('ROLE_ADMIN')" />
+    <intercept-url pattern="/disableWord" access="hasRole('ROLE_ADMIN')" />
+    <intercept-url pattern="/deletePron" access="hasRole('ROLE_ADMIN')" />
+    <intercept-url pattern="/deleteWordPron" access="hasRole('ROLE_ADMIN')" />
+    
     <intercept-url pattern="/pronounce" access="hasRole('ROLE_USER')" />
     <intercept-url pattern="/upload_pronounce" access="hasRole('ROLE_USER')" />
     <intercept-url pattern="/addword" access="hasRole('ROLE_USER')" />
     <intercept-url pattern="/addwordEx" access="hasRole('ROLE_USER')" />
     <intercept-url pattern="/vote" access="hasRole('ROLE_USER')" />
+    
     <intercept-url pattern="/**" access="permitAll" />
     
     <access-denied-handler error-page="/forbidden" />
