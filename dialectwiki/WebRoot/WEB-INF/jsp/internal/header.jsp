@@ -24,6 +24,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div id="header">
 <img src="<%=basePath %>css/images/logo.gif" />
+<div class="func">
+  <a href="<%=basePath %>addword">添加词条</a>
+</div>
 </div>
 
 <div id="menu">
@@ -31,11 +34,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <li><a href="<%=basePath %>">首页</a></li>
 <li><a href="<%=basePath %>words">词条</a></li>
-<li><a href="<%=basePath %>dialect">地区</a></li>
 <li><a href="<%=basePath %>users">用户</a></li>
 
 </ul>
-<div class="mright search">
+<div class="search">
 <form id="searchForm" action="<%=basePath %>word" method="post" onsubmit="return checkSearch(this);">
 <input type="text" id="stext" name="name" />
 <input type="submit" id="sbutton" value="搜索词条" />
