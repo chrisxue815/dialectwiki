@@ -1,0 +1,70 @@
+/*ģ��*/
+.module {
+float: left;
+width: 32%;
+height:459px;
+margin: 10px 5px 10px 5px;
+border: 1px solid #DFDFDF;
+}
+.module h2 {
+margin: 10px 0 0 10px;
+height: 26px;
+line-height: 26px;
+font-size: 20px;
+border-bottom: 1px solid #E4E4E4
+}
+.module ul {
+padding: 10px 0 15px 20px;
+}
+.module li a {
+font-weight: 600;
+}
+.module li a:hover {
+}
+.right{
+	border: #6E8CB1 3px solid;
+}
+.innerright{
+	background: #415369;
+	color: #FFF;
+}
+.list {
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	margin: 0px 5px 0px 5px;
+	padding: 0px 10px 0px 10px;
+	font-size:12px;
+	line-height: 24px;
+	height: 420px;
+	font-weight: normal;
+}
+.intro{
+}
+.intro li{
+	display: inline;
+	font-weight: bold;
+	padding: 5px;
+
+}
+.listregion {
+	float: right;
+	color: #AAF;
+}
+.black{
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	font-size: 18px;
+	
+}
+
+.adminword{
+	float:right;
+}
+a.adminword{
+	color: #777;
+}
+a.adminword:hover{
+	color:#aaa;	
+}

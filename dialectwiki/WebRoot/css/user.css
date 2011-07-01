@@ -1,0 +1,212 @@
+
+.usercontent {
+	height: 100%;
+	margin: 20px 10px;
+}
+
+.top {
+	padding: 5px 10px;
+	border-bottom: 5px solid #E4E4E4
+}
+a.adminuser{
+	color: #777;
+}
+a.adminuser:hover{
+	color:#aaa;	
+}
+.useritem {
+  font-size: 16px;
+}
+
+.username {
+  font-size: 25px;
+  font-weight: bold;
+  color: #390;
+}
+
+.bottomleft {
+	float: left;
+	width: 70%;
+	margin-top: 15px;
+}
+
+.module {
+	margin-bottom: 20px;
+	padding-left: 15px;
+	border-bottom: 5px solid #E4E4E4
+}
+
+.moduletitle {
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.mapmodule {
+	height: 500px;
+}
+
+.maptop {
+  float: left;
+  width: 97%;
+  border: 1px solid #DFDFDF;
+  height: 450px;
+}
+
+.region{
+	float:left;
+	width: 670px;
+	margin-bottom: 14px;
+	border-bottom: 1px solid #DFDFDF;
+}
+
+.rtitle {
+	margin-bottom: 10px;
+}
+
+.rtTip {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.rtProv {
+	font-size: 14px;
+	font-weight: bold;
+  	color: #390;
+}
+
+.worddiv{
+	width:200px;
+	margin-left: 10px;
+}
+.pron {
+	float:left;
+	
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	width:210px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+.pronmap{
+	height:auto;
+	min-width:100px;
+	margin:0px;
+	padding-top:10px;
+	width: auto;
+}
+.wordBottom{
+	width:670px;
+	}
+.pimg {
+	float: left;
+	margin-top: 5px;
+	margin-right: 10px;
+}
+.pimgmap {
+	float: left;
+	margin-right: 10px;
+}
+
+.pword {
+	
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	width:120px;
+	padding-top: 3px;
+	padding-bottom: 2px;
+	margin-left: 10px;
+	height: 20px;
+}
+.pwordname {
+	font-size: 15px;
+	font-weight: bold;
+}
+.wordname {
+	width:140px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.pvote {
+	font-size: 9px;
+}
+
+.bottomright {
+  float: right;
+  width: 27%;
+  padding-top: 15px;
+  height: 1000px;
+  border-left: 2px solid #E4E4E4;
+  background-color: #EDF6FF;
+}
+
+.rightList {
+	margin-top: 20px;
+}
+.joinus{
+	background-color: #3C3;
+	border: medium solid #063;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 32px;
+	line-height: normal;
+	padding: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.rightItem {
+}
+
+.itemTitle {
+	padding-left:20px;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 8px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #E4E4E4;
+}
+
+.itemLink {
+	line-height: 24px;
+	margin-left:30px;
+	font-size: 12px;
+}
+
+.nopron {
+  font-size: 16px;
+  line-height: normal;
+  color: #000;
+  background-color: #cff;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  margin-top: 0px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-color: #999;
+  border-bottom-color: #999;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.delpron{
+	float:right;
+	margin-right:5px;
+}
+.delpron a{
+	color:#777;
+}
+.delpron a:hover{
+	color:#aaa;
+}
