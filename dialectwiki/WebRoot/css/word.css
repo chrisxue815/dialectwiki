@@ -87,6 +87,10 @@ a.adminword:hover{
 
 .pron {
 	float:left;
+	
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 	width:210px;
 	margin-left: 10px;
 	margin-bottom: 10px;
