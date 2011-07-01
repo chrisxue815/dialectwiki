@@ -92,7 +92,10 @@
       <result name="success">/WEB-INF/jsp/word/word.jsp</result>
       <result name="words" type="redirect">/words</result>
       <result name="idNotExist" type="redirect">/error</result>
-      <result name="wordNotExist">/WEB-INF/jsp/word/word_not_exist.jsp</result>
+      <result name="wordNotExist" type="redirect">
+        <param name="location">/addword?fromWord</param>
+        <param name="wordname">%{name}</param>
+      </result>
       <result name="pronounce">/WEB-INF/jsp/word/word_no_pron.jsp</result>
       <result name="invalidId">/error</result>
     </action>

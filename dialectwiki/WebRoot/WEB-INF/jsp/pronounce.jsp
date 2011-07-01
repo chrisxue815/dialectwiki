@@ -12,7 +12,7 @@ String basePath = request.getScheme() + "://"
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title>方言百科 - 发音</title>
+<title>方言百科 - 添加发音</title>
 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/pronounce.css" />
@@ -62,21 +62,25 @@ function upLoad_error()
 <div class="inner">
 <s:if test="#parameters.fromWord!=null">
 <div class="prontip">词条还没有发音，请发音：</div>
+<h1>
+<s:property value="word.wordName" />
+</h1>
 </s:if>
 <s:else>
 <div class="prontip">您正在录制发音：</div>
-</s:else>
 <h1>
 <a href="<%=path %>/word?id=<s:property value="word.wordId" />" id="wordLink">
 <s:property value="word.wordName" />
 </a>
 </h1>
+</s:else>
 </div>
 <div class="region">
   
-  <form id="form1">
-  地区
-    <select id="selProvince" onchange="updateCity()">
+<form id="form1">
+<div class="tips">第一步：选择你的地区</div>
+
+<select id="selProvince" onchange="updateCity()">
 <option value="1" selected="selected">
   北京市
 </option>
@@ -189,6 +193,7 @@ function upLoad_error()
 </div>
 
 <div class="right">
+<div class="tips">第二步：单击圆形按钮开始发音</div>
 <div id="flash">
 this is a flash!
 </div>
