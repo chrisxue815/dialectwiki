@@ -63,7 +63,7 @@ public class MoreHotWordsAction extends ActionSupport {
 	public String execute()
 	{
 		SetNums();
-		hotWords = wordService.getPageHotWords(Integer.parseInt(pageNum), pageSize);
+		hotWords = wordService.getPageHotWords(pageNumInt, pageSize);
 		return SUCCESS;
 	}
 	private void SetNums(){

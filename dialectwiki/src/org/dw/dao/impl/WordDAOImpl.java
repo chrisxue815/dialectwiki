@@ -227,8 +227,12 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
 	public List<Word> getRecentWords(int listSize) {
 		log.debug("get recent Words with limited size 20");
 		try {
-			String queryString = "from Word model where model.enabled = true order by model.wordId desc limit 0,20";
-			return getHibernateTemplate().find(queryString);
+			String queryString = "from Word model where model.enabled = true order by model.wordId desc";
+			Session session = HibernateSessionFactory.getSession();
+			Query query = session.createQuery(queryString);
+			query.setMaxResults(listSize);
+			return query.list();
+			
 		} catch (RuntimeException re) {
 			log.error("attach failed", re);
 			throw re;
@@ -251,11 +255,11 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
 		log.debug("get recent words in a page");
 		try {
 			int index = (pageNo - 1) * pageSize;
-			String queryString = "from Word model where model.enabled = true order by model.wordId desc limit " + index + "," + pageSize;
+			String queryString = "from Word model where model.enabled = true order by model.wordId desc";
 			Session session = HibernateSessionFactory.getSession();
 			Query query = session.createQuery(queryString);
 			query.setFirstResult(index);
-			query.setMaxResults(index);
+			query.setMaxResults(pageSize);
 			return query.list();
 			
 		} catch (RuntimeException re) {
@@ -435,12 +439,18 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
 	public void enableWord(Word word) {
 		log.debug("enable word");
 		try {
-			word.setEnabled(true);
-			Session session = HibernateSessionFactory.getSession();
-			Transaction trans = session.beginTransaction();
-			session.update(word);
-			trans.commit();
-			session.close();
+			
+			  boolean enable = true;
+			  int wordId = word.getWordId();
+			  String queryString = "update Word word set word.enabled = :enable where word.wordId = :wordId";
+			  Session session = HibernateSessionFactory.getSession();
+			  Transaction trans = session.beginTransaction();
+			  Query query = session.createQuery(queryString);
+			  query.setParameter("enable", enable);
+			  query.setParameter("wordId", wordId);
+			  int ret = query.executeUpdate();
+			  trans.commit();
+			  session.close();
 		} catch (RuntimeException re) {
 			log.error("update failed");
 			throw re;
@@ -450,12 +460,19 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
 	public void disableWord(Word word) {
 		log.debug("disable word");
 		try {
-			word.setEnabled(false);
-			Session session = HibernateSessionFactory.getSession();
-			Transaction trans = session.beginTransaction();
-			session.update(word);
-			trans.commit();
-			session.close();
+			
+			  boolean enable = false;
+			  int wordId = word.getWordId();
+			  String queryString = "update Word word set word.enabled = :enable where word.wordId = :wordId";
+			  Session session = HibernateSessionFactory.getSession();
+			  Transaction trans = session.beginTransaction();
+			  Query query = session.createQuery(queryString);
+			  query.setParameter("enable", enable);
+			  query.setParameter("wordId", wordId);
+			  int ret = query.executeUpdate();
+			  trans.commit();
+			  session.close();
+			
 		} catch (RuntimeException re) {
 			log.error("update failed");
 			throw re;

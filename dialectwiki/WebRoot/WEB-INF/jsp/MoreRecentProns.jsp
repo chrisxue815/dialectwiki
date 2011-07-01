@@ -34,21 +34,33 @@ document.getElementById("stext").focus();
 <div class="listhead">最新发音</div>
 
 <div class="listbody">
-<s:iterator value="recentProns">
+<% int i = 1; %>
+<s:iterator value="recentProns" status="status">
+<%if(i%15==1){ %>
+<div class="module">
+<%} %>
 <div class="list">
-<li>
-<a href="/dialectwiki/word?id=<s:property value="word.wordId" />">
-<s:property value="word.wordName" /> 
-</a>
+<strong><%=i %>.</strong>&nbsp;
+<a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName"/></a>
+  
 <span class="listregion">
 <s:property value="city.province.provinceName"/> - 
 <s:property value="city.cityName"/>
 </span>
-</li>
 </div>
-
+<%if(i%15==0){ %>
+</div>
+<%} %>
+<%i++; %>
 </s:iterator>
-</div>
+</div><!-- listbody -->
+
+<div class="navigate">
+<a href="<%=path %>/moreWaitProns?pageNum=1">首页</a>&nbsp;
+<a href="<%=path %>/moreWaitProns?pageNum=<s:property value="front"/>">上一页</a>&nbsp;
+<a href="<%=path %>/moreWaitProns?pageNum=<s:property value="back"/>">下一页</a>&nbsp;
+<a href="<%=path %>/moreWaitProns?pageNum=<s:property value="end"/>">末页</a>
+</div><!-- navigate -->
 </div><!--content-->
 
 <div style="clear: both;"></div>

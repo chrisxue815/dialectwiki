@@ -55,14 +55,14 @@ document.getElementById("stext").focus();
 <%} %>
 <%i++; %>
 </s:iterator>
-</div>
+</div><!-- listbody -->
 
 <div class="navigate">
 <a href="<%=path %>/moreWaitProns?pageNum=1">首页</a>&nbsp;
 <a href="<%=path %>/moreWaitProns?pageNum=<s:property value="front"/>">上一页</a>&nbsp;
 <a href="<%=path %>/moreWaitProns?pageNum=<s:property value="back"/>">下一页</a>&nbsp;
 <a href="<%=path %>/moreWaitProns?pageNum=<s:property value="end"/>">末页</a>
-</div>
+</div><!-- navigate -->
 </div><!--content-->
 
 <div style="clear: both;"></div>

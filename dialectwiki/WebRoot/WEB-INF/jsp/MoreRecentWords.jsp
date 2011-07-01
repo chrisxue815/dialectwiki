@@ -34,12 +34,15 @@ document.getElementById("stext").focus();
 <div class="listhead">最新词条</div>
 
 <div class="listbody">
+<% int i = 1; %>
 <s:iterator value="recentWords" status="status">
-
+<%if(i%15==1){ %>
+<div class="module">
+<%} %>
 <div class="list">
-<li>
+<strong><%=i %>.</strong>&nbsp;
 <a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName"/></a>
-  <sec:authorize ifAnyGranted="ROLE_ADMIN">
+    <sec:authorize ifAnyGranted="ROLE_ADMIN">
 	<s:if test='enabled == true'>
 	<a class="adminword" href="disableWord?id=<s:property value="wordId" />">封禁词条</a>
 	</s:if>
@@ -47,10 +50,21 @@ document.getElementById("stext").focus();
 	<a class="adminword" href="enableWord?id=<s:property value="wordId" />">解封词条</a>
 	</s:else>
  </sec:authorize>
-</li>
+
 </div>
+<%if(i%15==0){ %>
+</div>
+<%} %>
+<%i++; %>
 </s:iterator>
-</div>
+</div><!-- listbody -->
+
+<div class="navigate">
+<a href="<%=path %>/moreWaitProns?pageNum=1">首页</a>&nbsp;
+<a href="<%=path %>/moreWaitProns?pageNum=<s:property value="front"/>">上一页</a>&nbsp;
+<a href="<%=path %>/moreWaitProns?pageNum=<s:property value="back"/>">下一页</a>&nbsp;
+<a href="<%=path %>/moreWaitProns?pageNum=<s:property value="end"/>">末页</a>
+</div><!-- navigate -->
 </div><!--content-->
 
 <div style="clear: both;"></div>

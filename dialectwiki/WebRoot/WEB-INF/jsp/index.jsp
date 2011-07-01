@@ -35,7 +35,7 @@ document.getElementById("stext").focus();
 
 <!--上左模块-->
 <div class="module left">
-<h2>待发音词条<a class="more" href="moreWaitProns">more</a></h2>
+<h2>待发音词条<a class="more" href="moreWaitProns?pageNum=1">more</a></h2>
 <div class="list">
 <ul>
   <s:iterator value="waitProns">
@@ -50,7 +50,7 @@ document.getElementById("stext").focus();
 
 <!--上中模块-->
 <div class="module center">
-<h2>热门词条<a class="more" href="moreHotWords">more</a></h2>
+<h2>热门词条<a class="more" href="moreHotWords?pageNum=1">more</a></h2>
 <div class="list">
 <ul>
 <s:iterator value="hotWords">
@@ -88,7 +88,7 @@ document.getElementById("stext").focus();
 
 <!--下左模块-->
 <div class="module left">
-<h2>最新词条<a class="more" href="moreRecentWords">more</a></h2>
+<h2>最新词条<a class="more" href="moreRecentWords?pageNum=1">more</a></h2>
 <div class="list">
 <ul>
   <s:iterator value="recentWords">
@@ -103,7 +103,7 @@ document.getElementById("stext").focus();
 
 <!--下中模块-->
 <div class="module center">
-<h2>最新发音<a class="more" href="moreRecentProns">more</a></h2>
+<h2>最新发音<a class="more" href="moreRecentProns?pageNum=1">more</a></h2>
 <div class="list">
 <ul>
 <s:iterator value="recentProns">
