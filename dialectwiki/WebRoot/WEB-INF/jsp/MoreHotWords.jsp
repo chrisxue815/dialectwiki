@@ -31,16 +31,12 @@ document.getElementById("stext").focus();
 <jsp:include page="internal/header.jsp" />
 
 <div id="content">
-<div class="head">热门词条</div>
-
-<table>
+<div class="listhead">热门词条</div>
+<div class="listbody">
 <s:iterator value="hotWords" status="status">
 
-<s:if test="#status.index%4==0">
-<tr>
-</s:if>
-
-<td class="list">
+<div class="list">
+<li>
 <a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName"/></a>
   <sec:authorize ifAnyGranted="ROLE_ADMIN">
 	<s:if test='enabled == true'>
@@ -50,15 +46,11 @@ document.getElementById("stext").focus();
 	<a class="adminword" href="enableWord?id=<s:property value="wordId" />">解封词条</a>
 	</s:else>
  </sec:authorize>
- </td>
-
-<s:if test="#status.index%4==0">
-</tr>
-</s:if>
+</li>
+</div>
 
 </s:iterator>
-</table>
-
+</div>
 </div><!--content-->
 
 <div style="clear: both;"></div>

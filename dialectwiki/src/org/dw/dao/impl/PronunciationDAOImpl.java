@@ -313,8 +313,14 @@ public class PronunciationDAOImpl extends HibernateDaoSupport implements Pronunc
 	  try
 	  {
 		  int index = (pageNo - 1) * pageSize;
-		  String queryString = "from Pronunciation pron where pron.word.enabled = true order by pron.uploadDate desc limit "+ index + "," + pageSize;
-		  return getHibernateTemplate().find(queryString);
+		  String queryString = "from Pronunciation pron where pron.word.enabled = true order by pron.uploadDate desc";
+		  Session session = HibernateSessionFactory.getSession();
+		  Query query = session.createQuery(queryString);
+		  
+		  query.setFirstResult(index);
+		  query.setMaxResults(pageSize);
+		  return query.list();
+		  
 	  }
 	  catch(RuntimeException re)
 	  {

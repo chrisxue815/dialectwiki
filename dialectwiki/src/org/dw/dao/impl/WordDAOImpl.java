@@ -252,7 +252,12 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
 		try {
 			int index = (pageNo - 1) * pageSize;
 			String queryString = "from Word model where model.enabled = true order by model.wordId desc limit " + index + "," + pageSize;
-			return getHibernateTemplate().find(queryString);
+			Session session = HibernateSessionFactory.getSession();
+			Query query = session.createQuery(queryString);
+			query.setFirstResult(index);
+			query.setMaxResults(index);
+			return query.list();
+			
 		} catch (RuntimeException re) {
 			log.error("attach failed", re);
 			throw re;
@@ -298,8 +303,13 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
 		try
 		{
 			int index = (pageNo -1) * pageSize;
-			String queryString = "from Word model where model.wordId in (select pron.word.wordId from Pronunciation pron) and model.enabled = true order by model.wordId desc limit "+ index + "," + pageSize;
-			return getHibernateTemplate().find(queryString);
+			String queryString = "from Word model where model.wordId in (select pron.word.wordId from Pronunciation pron) and model.enabled = true order by model.wordId desc";
+			Session session = HibernateSessionFactory.getSession();
+			Query query = session.createQuery(queryString);
+			query.setFirstResult(index);
+			query.setMaxResults(pageSize);
+			
+			return query.list();
 		}
 		catch(RuntimeException re)
 		{
@@ -383,7 +393,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
 	{
 		try
 		{
-			String queryString = "from Word model where model.wordId in (select pron.word.wordId from Pronunciation pron) and model.enabled = true order by model.wordId desc";
+			String queryString = "from Word model where model.wordId not in (select pron.word.wordId from Pronunciation pron) and model.enabled = true order by model.wordId desc";
 			return getHibernateTemplate().find(queryString).size();
 		}
 		catch(RuntimeException re)
@@ -398,8 +408,14 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
 		try
 		{
 			int index = (pageNo - 1) * pageSize;
-			String queryString = "from Word model where model.wordId in (select pron.word.wordId from Pronunciation pron) and model.enabled = true order by model.wordId desc limit "+ index + "," + pageSize;
-			return getHibernateTemplate().find(queryString);
+			String queryString = "from Word model where model.wordId not in (select pron.word.wordId from Pronunciation pron) and model.enabled = true order by model.wordId desc";
+			Session session = HibernateSessionFactory.getSession();
+			//return getHibernateTemplate().find(queryString);
+			Query query = session.createQuery(queryString);
+			query.setFirstResult(index);
+			query.setMaxResults(pageSize);
+			
+			return query.list();
 		}
 		catch(RuntimeException re)
 		{

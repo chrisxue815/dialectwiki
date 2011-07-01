@@ -31,35 +31,24 @@ document.getElementById("stext").focus();
 <jsp:include page="internal/header.jsp" />
 
 <div id="content">
-<div class="head">最新发音</div>
+<div class="listhead">最新发音</div>
 
-<table>
-
+<div class="listbody">
 <s:iterator value="recentProns">
-
-<s:if test="#status.index%4==0">
-<tr>
-</s:if>
-
-<td class="list">
+<div class="list">
+<li>
 <a href="/dialectwiki/word?id=<s:property value="word.wordId" />">
 <s:property value="word.wordName" /> 
 </a>
 <span class="listregion">
-地区:
 <s:property value="city.province.provinceName"/> - 
 <s:property value="city.cityName"/>
 </span>
-
- </td>
-
-<s:if test="#status.index%4==0">
-</tr>
-</s:if>
+</li>
+</div>
 
 </s:iterator>
-</table>
-
+</div>
 </div><!--content-->
 
 <div style="clear: both;"></div>

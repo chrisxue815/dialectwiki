@@ -31,16 +31,15 @@ document.getElementById("stext").focus();
 <jsp:include page="internal/header.jsp" />
 
 <div id="content">
-<div class="head">待发音词条</div>
-
-<table>
+<div class="listhead">待发音词条</div>
+<div class="listbody">
+<% int i = 1; %>
 <s:iterator value="waitProns" status="status">
-
-<s:if test="#status.index%4==0">
-<tr>
-</s:if>
-
-<td class="list">
+<%if(i%15==1){ %>
+<div class="module">
+<%} %>
+<div class="list">
+<strong><%=i %>.</strong>&nbsp;
 <a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName"/></a>
   <sec:authorize ifAnyGranted="ROLE_ADMIN">
 	<s:if test='enabled == true'>
@@ -50,15 +49,20 @@ document.getElementById("stext").focus();
 	<a class="adminword" href="enableWord?id=<s:property value="wordId" />">解封词条</a>
 	</s:else>
  </sec:authorize>
- </td>
-
-<s:if test="#status.index%4==0">
-</tr>
-</s:if>
-
+</div>
+<%if(i%15==0){ %>
+</div>
+<%} %>
+<%i++; %>
 </s:iterator>
-</table>
+</div>
 
+<div class="navigate">
+<a href="<%=path %>/moreWaitProns?pageNum=1">首页</a>&nbsp;
+<a href="<%=path %>/moreWaitProns?pageNum=<s:property value="front"/>">上一页</a>&nbsp;
+<a href="<%=path %>/moreWaitProns?pageNum=<s:property value="back"/>">下一页</a>&nbsp;
+<a href="<%=path %>/moreWaitProns?pageNum=<s:property value="end"/>">末页</a>
+</div>
 </div><!--content-->
 
 <div style="clear: both;"></div>
