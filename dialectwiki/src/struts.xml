@@ -82,6 +82,7 @@
       <result name="success">/WEB-INF/jsp/word/add_success.jsp</result>
       <result name="error">/WEB-INF/jsp/word/add_failure.jsp</result>
       <result name="wordnameRequired" type="redirect">/addword</result>
+      <result name="input">/WEB-INF/jsp/word/add_failure.jsp?tooLong</result>
     </action>
     
     <action name="words" class="wordIndexAction">

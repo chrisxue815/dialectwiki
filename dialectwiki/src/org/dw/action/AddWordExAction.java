@@ -59,6 +59,7 @@ public class AddWordExAction extends ActionSupport
 
   public void validate()
   {
-
+	  if(wordname.length() >= 20)
+		  this.addFieldError("wordname", "词条长度过长");
   }
 }

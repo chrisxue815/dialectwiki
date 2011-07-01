@@ -25,6 +25,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="left">
 <div class="lefth1">添加词条</div>
+
+<s:if test="#parameters.tooLong!=null">
+<div class="lefth2c">
+词条过长
+</div>
+</s:if>
+
+<s:else>
 <div class="lefth2c">
 词条 
 <span class="wordnametip">
@@ -37,6 +45,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 为 <s:property value="wordname" /> 发音
 </a>
 </div>
+</s:else>
+
 <div class="announcement">重新添加词条：</div>
 <div class="lefth3">
 词条：
