@@ -1,0 +1,30 @@
+* 首页 /index.jsp
+** [欢迎光临方言百科]: 
+** 今日方言: 随机
+
+
+* 方言 /dialect/index.jsp
+** 今日方言: 随机
+** [按发音数分组排序] (触发器) dw_sort_dialect_pron_num
+
+
+* 具体方言 /dialect/dialect.jsp
+** 方言介绍
+** 该方言的热门发音: 随机显示投票数较高的(包括好评差评)(计划任务 随机) dw_sort_dialect_hot_pron
+
+
+* 发音 /pronounce/index.jsp
+** 最新发音: 从新到旧(触发器) dw_sort_pron_new
+** 热门发音: 随机显示评价较高的(计划任务 随机) dw_sort_pron_hot
+** 
+
+
+* 词条 /word/index.jsp
+** 最新词条: 从新到旧(触发器) dw_sort_word_new
+** 待发音词条: 从旧到新(触发器) dw_sort_word_empty
+** 热门词条: 随机显示发音数较多的(计划任务 随机) dw_sort_word_hot
+
+
+* 用户 /user/index.jsp
+** 发音最多的用户(上月)(计划任务) dw_sort_user_many_pron_last_month
+** 发音最多的用户(全部)(触发器) dw_sort_user_many_pron_total

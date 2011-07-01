@@ -1,0 +1,136 @@
+/* CSS Document */
+
+* {
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+line-height: 17px;
+color: #222;
+margin: 0;
+padding: 0;
+}
+
+a {
+color:#2186C5;
+}
+a:hover {
+text-decoration: underline;
+color: #093;
+}
+
+#wrap {
+margin: 10px auto;
+width: 1024px;
+}
+
+#top {
+height: 20px;
+border-bottom: 1px dotted #111;
+}
+
+#top #data {
+float: left;
+}
+
+#top #user {
+float: right;
+}
+
+#header {
+margin-bottom: 5px;
+border-bottom: 1px dotted #111;
+}
+#header h1 { 
+font-size: 25px;
+letter-spacing: -1px;
+padding: 25px 0 0 20px;
+color: #000;
+}
+#header h1 a { 
+color: #aaa;
+text-decoration: none;
+font-weight: 100;
+letter-spacing: -2px;
+}
+#header h1 a:hover {
+color: #111;
+}
+#header h2 {
+font-size: 18px;
+color: #3F89FF;
+padding: 3px 0 0 20px;
+letter-spacing: -1px;
+font-weight: 100;
+}
+
+.func {
+  float: right;
+  padding-top: 40px;
+  padding-right: 20px;
+  font-size: 16px;
+}
+
+#menu {
+height: 30px;
+line-height: 30px;
+background: #e0f3fa url(images/tabs_background.gif) repeat-x;
+}
+#menu ul {
+list-style-type: none;
+padding-left: 30px;
+}
+#menu ul li {
+display: block;
+float: left;
+}
+#menu ul li a {
+padding: 0 20px 0 0;
+text-decoration: none;
+font-weight: 100;
+font-size: 14px;
+color: #fff;
+}
+#menu ul li a:hover {
+color: #000;
+text-decoration: none;
+}
+
+.search {
+	margin-right: 40px;
+	float: right;
+}
+#stext {
+  width: 150px;
+}
+#sbutton {
+  width: 70px;  
+  height: 25px;
+}
+
+#content {
+margin: auto 0px auto 0px;
+}
+
+
+#bottom {
+width:98%;
+padding: 10px 0;
+}
+
+#footer {
+text-align: center;
+font-size: 11px;
+color: #aaa;
+}
+#footer a { color: #aaa; }
+#footer a:hover { color: #111; }.moduleTitle {
+	background-color: #C3D9FF;
+}
+
+.centerdiv {
+text-align: center;
+}
