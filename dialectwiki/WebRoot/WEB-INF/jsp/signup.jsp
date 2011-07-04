@@ -49,7 +49,7 @@ function disableBtn(btn){
 
 <tr>
 <td></td>
-<td class="req">长度为6到14位(数字，字母和下划线)</td>
+<td class="req">长度为6到14位(小写字母，数字和下划线)</td>
 </tr>
 
 <tr class="blanktr"><td></td></tr>

@@ -189,7 +189,7 @@ SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
 <div class="itemTitle">修改词语</div>
 <div class="itemLink">
 · 
-<a href="pronounce?id=<s:property value='id' />">
+<a href="pronounce?id=<s:property value='word.wordId' />">
 添加<strong>发音</strong>
 </a>
 <br/>

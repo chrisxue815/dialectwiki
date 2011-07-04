@@ -98,6 +98,7 @@
         <param name="wordname">%{name}</param>
       </result>
       <result name="pronounce">/WEB-INF/jsp/word/word_no_pron.jsp</result>
+      <result name="protected">/WEB-INF/jsp/forbidden.jsp</result>
       <result name="invalidId">/error</result>
     </action>
     

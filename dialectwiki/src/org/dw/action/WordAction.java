@@ -17,6 +17,7 @@ public class WordAction extends ActionSupport {
 	public static final String WORDS = "words";
 	public static final String INVALID_ID = "invalidId";
 	public static final String PRONOUNCE = "pronounce";
+	public static final String PROTECTED = "protected";
 
 	private static final long serialVersionUID = 2409752678054918663L;
 	private String id;
@@ -111,6 +112,9 @@ public class WordAction extends ActionSupport {
 				word = wordService.getById(wordId);
 				if (word == null)
 					return ID_NOT_EXIST;
+				if (word.getEnabled() == false)
+					return PROTECTED;
+				
 			} else if (name != null && name != "") {
 				name = MyStringUtils.replaceBlank(name);
 				word = wordService.findByWordName(name);
