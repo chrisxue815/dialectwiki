@@ -40,7 +40,7 @@ document.getElementById("stext").focus();
 <ul>
   <s:iterator value="waitProns">
   <li>
-  <a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName" />
+  <a href="<%=path %>/word?id=<s:property value="wordId" />"><s:property value="wordName" />
   </a>
   </li>
   </s:iterator>
@@ -93,7 +93,7 @@ document.getElementById("stext").focus();
 <ul>
   <s:iterator value="recentWords">
   <li>
-  <a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName" />
+  <a href="<%=path %>/word?id=<s:property value="wordId" />"><s:property value="wordName" />
   </a>
   </li>
   </s:iterator>
@@ -108,7 +108,7 @@ document.getElementById("stext").focus();
 <ul>
 <s:iterator value="recentProns">
 <li>
-<a href="/dialectwiki/word?id=<s:property value="word.wordId" />">
+<a href="<%=path %>/word?id=<s:property value="word.wordId" />">
 <s:property value="word.wordName" /> 
 </a>
 <span class="listregion">

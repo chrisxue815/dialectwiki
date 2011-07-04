@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <ul>
   <s:iterator value="recentWords">
   <li>
-  <a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName" />
+  <a href="<%=path %>/word?id=<s:property value="wordId" />"><s:property value="wordName" />
   </a>
   <sec:authorize ifAnyGranted="ROLE_ADMIN">
 	<s:if test='enabled == true'>
@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <ul>
   <s:iterator value="waitProns">
   <li>
-  <a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName" />
+  <a href="<%=path %>/word?id=<s:property value="wordId" />"><s:property value="wordName" />
   </a>
    <sec:authorize ifAnyGranted="ROLE_ADMIN">
 		<s:if test='enabled == true'>

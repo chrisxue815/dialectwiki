@@ -41,7 +41,7 @@ document.getElementById("stext").focus();
 <%} %>
 <div class="list">
 <strong><%=i %>.</strong>&nbsp;
-<a href="/dialectwiki/word?id=<s:property value="wordId" />"><s:property value="wordName"/></a>
+<a href="<%=path %>/word?id=<s:property value="wordId" />"><s:property value="wordName"/></a>
     <sec:authorize ifAnyGranted="ROLE_ADMIN">
 	<s:if test='enabled == true'>
 	<a class="adminword" href="disableWord?id=<s:property value="wordId" />">封禁词条</a>

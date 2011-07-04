@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <ul>
   <s:iterator value="NBUsers">
   <li>
-  <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
+  <a href="<%=path %>/user?id=<s:property value="userId" />"><s:property value="username" />
   </a>
   
   <span class="listregion">
@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <ul>
 <s:iterator value="GOODUsers" status="status">
   <li>
-  <a href="/dialectwiki/user?id=<s:property value="userId" />"><s:property value="username" />
+  <a href="<%=path %>/user?id=<s:property value="userId" />"><s:property value="username" />
   </a> 
   <sec:authorize ifAnyGranted="ROLE_ADMIN">
 

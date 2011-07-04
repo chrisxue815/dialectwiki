@@ -41,7 +41,7 @@ document.getElementById("stext").focus();
 <%} %>
 <div class="list">
 <strong><%=i %>.</strong>&nbsp;
-<a href="/dialectwiki/word?id=<s:property value="word.wordId" />"><s:property value="word.wordName"/></a>
+<a href="<%=path %>/word?id=<s:property value="word.wordId" />"><s:property value="word.wordName"/></a>
   
 <span class="listregion">
 <s:property value="city.province.provinceName"/> - 
